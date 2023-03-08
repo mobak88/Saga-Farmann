@@ -5,11 +5,7 @@ type LayoutProps = {
 };
 
 const Layout = ({links}: LayoutProps) => {
-	return (
-		<>
-			<Navbar links={links} />
-		</>
-	);
+	return <Navbar links={links} />;
 };
 
 export default Layout;

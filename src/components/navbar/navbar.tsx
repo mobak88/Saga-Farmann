@@ -8,10 +8,14 @@ type LayoutProps = {
 const Navbar = ({links}: LayoutProps) => {
 	return (
 		<nav>
-			<ul>
+			<div>
 				<Title />
-				<Hamburger links={links} />
-			</ul>
+			</div>
+			<div>
+				<ul>
+					<Hamburger links={links} />
+				</ul>
+			</div>
 		</nav>
 	);
 };
