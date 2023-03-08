@@ -4,8 +4,6 @@ type HamburgerProps = {
 	links: {href: string; label: string}[];
 };
 
-const linkCollector = () => {};
-
 const Hamburger: React.FC<HamburgerProps> = ({links}) => {
 	return (
 		<nav>
@@ -13,7 +11,7 @@ const Hamburger: React.FC<HamburgerProps> = ({links}) => {
 				{links.map(({href, label}) => (
 					<li key={href}>
 						<Link href={href}>
-							<a>{label}</a>
+							<>{label}</>
 						</Link>
 					</li>
 				))}

@@ -1,12 +1,16 @@
 import Hamburger from "../hamburger/hamburger";
 import Title from "../title/saga-asia";
 
-const Navbar: React.FC = () => {
+type LayoutProps = {
+	links: {href: string; label: string}[];
+};
+
+const Navbar = ({links}: LayoutProps) => {
 	return (
 		<nav>
 			<ul>
 				<Title />
-				<Hamburger />
+				<Hamburger links={links} />
 			</ul>
 		</nav>
 	);
