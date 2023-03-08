@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./crew-card/crew-card.module.css";
+import styles from "./crew-card.module.css";
 import imageSrc from "../../../public/assets/BjornVik1.jpeg";
 
 interface CardProps {
