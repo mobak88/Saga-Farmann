@@ -12,8 +12,8 @@ export default function Home() {
       </Head>
       <main>
         <>
-          <h1>Saga</h1>
-          <CrewCard />
+          <h1>Saga Farmann 2023</h1>
+          <h3>Follow the vikings</h3>
         </>
       </main>
     </>
