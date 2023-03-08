@@ -17,7 +17,12 @@ const SliderCard = () => {
         />
       </div>
       <div className={styles["card-content-container"]}>
-        <h2>Heading</h2>
+        <h2 className={styles["card-heading"]}>Heading</h2>
+        <p className={styles["card-role"]}>Role</p>
+        <p className={styles["card-paragraph"]}>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque
+          natus fugit
+        </p>
       </div>
     </div>
   );
