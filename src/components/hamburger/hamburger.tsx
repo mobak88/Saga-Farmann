@@ -4,7 +4,7 @@ type HamburgerProps = {
 	links: {href: string; label: string}[];
 };
 
-const Hamburger: React.FC<HamburgerProps> = ({links}) => {
+const Hamburger = ({links}: HamburgerProps) => {
 	return (
 		<nav>
 			<ul>

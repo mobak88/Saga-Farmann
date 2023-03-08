@@ -2,14 +2,12 @@ import Navbar from "./navbar";
 
 type LayoutProps = {
 	links: {href: string; label: string}[];
-	children: React.ReactNode;
 };
 
-const Layout: React.FC<LayoutProps> = ({links, children}) => {
+const Layout = ({links}: LayoutProps) => {
 	return (
 		<>
 			<Navbar links={links} />
-			<main>{children}</main>
 		</>
 	);
 };
