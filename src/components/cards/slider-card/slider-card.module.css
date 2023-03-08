@@ -9,5 +9,5 @@
 
 .card-content-container {
   width: 100%;
-  background-color: black;
+  background-color: var(--very-dark-blue);
 }
