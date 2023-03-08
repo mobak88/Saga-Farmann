@@ -1,5 +1,5 @@
 import Head from "next/head";
-import CrewCard from "@/components/cards/crew-card";
+import CrewCard from "@/components/cards/crew-card/crew-card";
 import SliderCard from "@/components/cards/slider-card/slider-card";
 import DestinationCard from "@/components/cards/destination-card/destination-card";
 
@@ -15,8 +15,8 @@ export default function Home() {
       <main>
         <>
           <h1>Saga</h1>
-          <CrewCard />
-          <DestinationCard/>
+          <CrewCard imageSrc="test" name="test" role="test" about="test" />
+          <DestinationCard />
           <SliderCard />
         </>
       </main>
