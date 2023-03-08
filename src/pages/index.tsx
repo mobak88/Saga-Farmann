@@ -1,6 +1,7 @@
 import Head from "next/head";
 import CrewCard from "@/components/cards/crew-card";
 import DestinationCard from "@/components/cards/destination-card/destination-card";
+import destinationImage from "./../../public/assets/destination.jpg";
 
 export default function Home() {
   return (
@@ -15,7 +16,15 @@ export default function Home() {
         <>
           <h1>Saga</h1>
           <CrewCard />
-          <DestinationCard/>
+          <DestinationCard
+            image={destinationImage}
+            header="Destination"
+            text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+                  mollitia, molestiae quas vel sint commodi repudiandae consequuntur
+                  voluptatum laborum numquam blanditiis harum quisquam eius sed odit
+                  fugiat iusto fuga"
+            link="Read more -->"
+          />
         </>
       </main>
     </>
