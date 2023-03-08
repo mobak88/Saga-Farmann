@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./crew-card.module.css";
-import imageSrc from "../../../public/assets/BjornVik1.jpeg";
 
 interface CardProps {
   imageSrc: string;
@@ -9,11 +8,13 @@ interface CardProps {
   about: string;
 }
 
-const CrewCard: React.FC<CardProps> = ({ imageSrc, name, role, about }) => {
+const CrewCard = ({ imageSrc, name, role, about }: CardProps) => {
   return (
-    <div className={styles.card}>
-      <div></div>
-    </div>
+    <>
+      <div className={styles.card}>
+        <div></div>
+      </div>
+    </>
   );
 };
 
