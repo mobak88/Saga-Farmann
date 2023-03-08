@@ -1,4 +1,9 @@
 import React from "react";
+
+export default function CrewCard() {
+  return <div></div>;
+}
+import React from "react";
 import styles from "./crew-card/crew-card.module.css";
 import imageSrc from "../../../public/assets/BjornVik1.jpeg";
 
