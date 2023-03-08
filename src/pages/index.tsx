@@ -16,7 +16,9 @@ export default function Home() {
       <main>
         <>
           <h1>Saga</h1>
+
           <CrewCard imageSrc="test" name="test" role="test" about="test" />
+
           <DestinationCard />
           <SliderCard />
         </>
