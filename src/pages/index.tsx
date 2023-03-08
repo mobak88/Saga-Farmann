@@ -11,8 +11,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1>Saga</h1>
-        <CrewCard />
+        <>
+          <h1>Saga</h1>
+          <CrewCard />
+        </>
       </main>
     </>
   );
