@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Norse';
+    src: url('Norse.eot');
+    src: url('Norse.eot?#iefix') format('embedded-opentype'),
+        url('Norse.woff2') format('woff2'),
+        url('Norse.woff') format('woff'),
+        url('Norse.ttf') format('truetype'),
+        url('Norse.svg#Norse') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
