@@ -1,7 +1,7 @@
 const Title = () => {
 	return (
 		<>
-			<h3>Saga Asia</h3>
+			<h2>Saga Asia</h2>
 		</>
 	);
 };
