@@ -1,5 +1,6 @@
 import Head from "next/head";
 import CrewCard from "@/components/cards/crew-card";
+import DestinationCard from "@/components/cards/destination-card/destination-card";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <>
           <h1>Saga</h1>
           <CrewCard />
+          <DestinationCard/>
         </>
       </main>
     </>
