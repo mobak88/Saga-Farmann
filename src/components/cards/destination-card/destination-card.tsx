@@ -1,7 +1,6 @@
 import React from "react";
 import Image, { StaticImageData } from "next/image";
 import styles from "./destination-card.module.css";
-import image from "../../../../public/assets/destination.jpg";
 
 interface DestinationCardProps {
   image: StaticImageData;
