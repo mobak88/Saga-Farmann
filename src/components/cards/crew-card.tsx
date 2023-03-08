@@ -1,9 +1,20 @@
 import React from "react";
+import styles from "./crew-card/crew-card.module.css";
+import imageSrc from "../../../public/assets/BjornVik1.jpeg";
 
-export default function CrewCard() {
+interface CardProps {
+  imageSrc: string;
+  name: string;
+  role: string;
+  about: string;
+}
+
+const CrewCard: React.FC<CardProps> = ({ imageSrc, name, role, about }) => {
   return (
-    <div>
-      <h1>Crew card</h1>
+    <div className={styles.card}>
+      <div></div>
     </div>
   );
-}
+};
+
+export default CrewCard;
