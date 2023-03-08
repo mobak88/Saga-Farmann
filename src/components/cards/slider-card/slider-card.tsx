@@ -16,7 +16,7 @@ const SliderCard = () => {
           className={styles["card-image"]}
         />
       </div>
-      <div>
+      <div className={styles["card-content-container"]}>
         <h2>Heading</h2>
       </div>
     </div>

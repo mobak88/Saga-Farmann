@@ -1,8 +1,13 @@
 .card {
-  height: 460px;
-  width: 360px;
+  height: 46rem;
+  width: 36rem;
 }
 
 .card-image {
   object-fit: cover;
+}
+
+.card-content-container {
+  width: 100%;
+  background-color: black;
 }
