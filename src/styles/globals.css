@@ -6,12 +6,12 @@
   --dark-text-color: #000;
   --light-background-color: #f2f2f2;
   /*----------Hamburger----------*/
-  --bar-width: 60px;
-  --bar-height: 8px;
-  --hamburger-gap: 6px;
+  --bar-width: 50px;
+  --bar-height: 6px;
+  --hamburger-gap: 8px;
   --hamburger-margin: 1rem;
   --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
-  --animation-timing: 300ms ease-in-out;
+  --animation-timing: 200ms ease-in-out;
 }
 
 html,

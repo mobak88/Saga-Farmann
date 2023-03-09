@@ -11,7 +11,7 @@ const Hamburger = ({ links }: HamburgerProps) => {
   let text: string = "Burgermenu";
 
   return (
-    <header>
+    <header className={styles["menu-head"]}>
       <label
         className={isOpen ? styles["menu-open"] : styles["menu-closed"]}
         onClick={() => {
@@ -24,7 +24,9 @@ const Hamburger = ({ links }: HamburgerProps) => {
           }
         />
       </label>
-      <aside className={isOpen ? styles["dropdown-open"] : styles[""]}>
+      <aside
+        className={isOpen ? styles["dropdown-open"] : styles["dropdown-closed"]}
+      >
         <nav>
           {isOpen
             ? links.map(({ href, label }) => (
