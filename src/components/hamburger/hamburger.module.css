@@ -1,149 +1,66 @@
-.hamburger_container {
-	display: flex;
-	flex-direction: column;
-	row-gap: 6px;
-	cursor: pointer;
-}
-.hamburger_active {
-	display: flex;
-	flex-direction: column;
-	position: fixed;
-	top: 60px;
-	width: 150px;
-	row-gap: 24px;
-	right: 20px;
-	padding: 24px 24px;
-	transition: all 0.2s;
-	min-height: calc(100vh - 60px);
-	background-color: #f1f1f1;
-	font-family: norse;
-}
-.hamburger_wrapper {
-	color: white;
-}
-.hamburger_link {
-	font-size: 18px;
-	position: relative;
-	transition: all 0.2s;
-}
-
-.hamburger_link::before {
-	content: "";
-	position: absolute;
-	width: 0%;
-	height: 3px;
-	bottom: -6px;
-	left: 0;
-	background-color: blue;
-	transition: all 0.2s;
-}
-.hamburger_link:hover {
-	font-weight: bold;
-}
-.hamburger_link:hover:before {
-	width: 100%;
-}
-.hamburger_link:visited {
-	text-decoration: none;
-}
-
-.hamburger_link:link {
-	text-decoration: none;
-}
-
-/*
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&display=swap');
-* {
-  margin: 0;
-  padding: 0;
-  outline: none;
-  box-sizing: border-box;
-  font-family: 'Work Sans', sans-serif;
-}
-a{
-  text-decoration: none;
-  color: inherit;
-}
-header{
-  position: sticky;
-  z-index: 30;
-  top: 0;
-}
-nav{
-  display: flex;
-  padding: 16px;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #f1f1f1;
-}
-.nav__menu-bar{
+.menu-open,
+.menu-closed {
+  --x-width: calc(var(--hamburger-height) * 1.41421356237);
   display: flex;
   flex-direction: column;
-  row-gap: 6px;
+  gap: var(--hamburger-gap);
+  width: max-content;
+  position: absolute;
+  top: var(--hamburger-margin);
+  right: var(--hamburger-margin);
+  z-index: 2;
   cursor: pointer;
 }
-.nav__menu-bar div{
-  width: 40px;
-  height: 4px;
-  background-color: black;
-  border-radius: 2px;
-}
-.nav__menu-list{
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  top: 60px;
-  width: 288px;
-  row-gap: 24px;
-  right: -288px;
-  padding: 24px 16px;
-  transition: all 0.2s;
-  min-height: calc(100vh - 60px);
-  background-color: #f1f1f1;
-}
-.nav__menu-list.active{
-  right: 0;
-}
-.nav__link{
-  font-size: 18px; 
-  position: relative;
-  transition: all 0.2s;
+
+.menu-closed::after,
+.menu-closed::before,
+.menu-open::after,
+.menu-open::before,
+.menu-closed-btn,
+.menu-open-btn {
+  content: "";
+  width: var(--bar-width);
+  height: var(--bar-height);
+  background-color: var(--light-background-color);
+  border-radius: 9999px;
+  transform-origin: left center;
+  transition: opacity var(--animation-timing), width var(--animation-timing);
 }
 
-.nav__link:hover{
- font-weight: bold;
+.menu-open-btn {
+  appearance: none;
+  outline: none;
+  pointer-events: none;
+  opacity: 0;
+  width: 0;
+  height: var(--bar-height);
 }
-
-.center{
-  min-height: 600px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.menu-open::before {
+  rotate: 45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--bar-height) / -2);
 }
-@media screen and (min-width: 768px) {
-  .nav__menu-bar{
-    display: none;
-  }
-  .nav__menu-list{
-    position: unset;
-    flex-direction: row;
-    min-height: fit-content;
-    width: fit-content;
-    column-gap: 24px;
-    align-items: center;
-  }
-  .nav__link::before{
-    content: '';
-    position: absolute;
-    width: 0%;
-    height: 6px;
-    bottom: -16px;
-    left: 0;
-    background-color: black;
-    transition: all 0.2s;
-  }
-  
-  .nav__link:hover:before{
-   width: 100%;
-  }
-}*/
+.menu-open::after {
+  rotate: -45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--bar-height) / 2);
+}
+.dropdown-open {
+  font-family: Norse;
+  font-weight: bold;
+  font-size: 4rem;
+  padding: 0.5rem 1rem;
+  margin-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
+  background-color: var(--light-background-color);
+  color: var(--dark-text-color);
+  max-width: 40rem;
+  height: auto;
+  text-decoration: none;
+}
+.page-link:link,
+.page-link:visited,
+.page-link:hover,
+.page-link:active {
+  text-decoration: none;
+  color: black;
+}

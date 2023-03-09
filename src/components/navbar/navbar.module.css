@@ -1,7 +1,7 @@
 .navbar_container {
-	display: flex;
-	padding: 16px;
-	justify-content: space-between;
-	align-items: center;
-	background-color: #142c34;
+  display: flex;
+  padding: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #172327;
 }

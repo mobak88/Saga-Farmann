@@ -4,6 +4,14 @@
   --very-dark-blue: #172327;
   --light-text-color: #e7ffff;
   --dark-text-color: #000;
+  --light-background-color: #f2f2f2;
+  /*----------Hamburger----------*/
+  --bar-width: 60px;
+  --bar-height: 8px;
+  --hamburger-gap: 6px;
+  --hamburger-margin: 1rem;
+  --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+  --animation-timing: 300ms ease-in-out;
 }
 
 html,
@@ -87,12 +95,12 @@ time,
 mark,
 audio,
 video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -106,63 +114,65 @@ hgroup,
 menu,
 nav,
 section {
-	display: block;
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
+
+  background-color: #333;
 }
 ol,
 ul {
-	list-style: none;
+  list-style: none;
 }
 blockquote,
 q {
-	quotes: none;
+  quotes: none;
 }
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-	content: "";
-	content: none;
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 html {
-	font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body {
-	font-size: 1.6rem;
+  font-size: 1.6rem;
 }
 @font-face {
-	font-family: "Comfortaa";
-	src: url("../components/fonts/comfortaa/Comfortaa-Regular.eot");
-	src: url("../components/fonts/comfortaa/Comfortaa-Regular.eot?#iefix")
-			format("embedded-opentype"),
-		url("../components/fonts/comfortaa/Comfortaa-Regular.woff2") format("woff2"),
-		url("../components/fonts/comfortaa/Comfortaa-Regular.woff") format("woff"),
-		url("../components/fonts/comfortaa/Comfortaa-Regular.ttf")
-			format("truetype"),
-		url("../components/fonts/comfortaa/Comfortaa-Regular.svg#Comfortaa-Regular")
-			format("svg");
-	font-weight: normal;
-	font-style: normal;
-	font-display: swap;
+  font-family: "Comfortaa";
+  src: url("../components/fonts/comfortaa/Comfortaa-Regular.eot");
+  src: url("../components/fonts/comfortaa/Comfortaa-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("../components/fonts/comfortaa/Comfortaa-Regular.woff2") format("woff2"),
+    url("../components/fonts/comfortaa/Comfortaa-Regular.woff") format("woff"),
+    url("../components/fonts/comfortaa/Comfortaa-Regular.ttf")
+      format("truetype"),
+    url("../components/fonts/comfortaa/Comfortaa-Regular.svg#Comfortaa-Regular")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
-	font-family: "Norse";
-	src: url("../components/fonts/norse/Norse.eot");
-	src: url("../components/fonts/norse/Norse.eot?#iefix")
-			format("embedded-opentype"),
-		url("../components/fonts/norse/Norse.woff2") format("woff2"),
-		url("../components/fonts/norse/Norse.woff") format("woff"),
-		url("../components/fonts/norse/Norse.ttf") format("truetype"),
-		url("../components/fonts/norse/Norse.svg#Norse") format("svg");
-	font-weight: normal;
-	font-style: normal;
-	font-display: swap;
+  font-family: "Norse";
+  src: url("../components/fonts/norse/Norse.eot");
+  src: url("../components/fonts/norse/Norse.eot?#iefix")
+      format("embedded-opentype"),
+    url("../components/fonts/norse/Norse.woff2") format("woff2"),
+    url("../components/fonts/norse/Norse.woff") format("woff"),
+    url("../components/fonts/norse/Norse.ttf") format("truetype"),
+    url("../components/fonts/norse/Norse.svg#Norse") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }

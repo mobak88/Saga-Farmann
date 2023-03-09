@@ -1,42 +1,44 @@
 import Link from "next/link";
-import {useState} from "react";
+import { useState } from "react";
 import styles from "./hamburger.module.css";
 
 type HamburgerProps = {
-	links: {href: string; label: string}[];
+  links: { href: string; label: string }[];
 };
 
-const Hamburger = ({links}: HamburgerProps) => {
-	const [isActive, setIsActive] = useState<Boolean>(false);
-	let text: string = "Burgermenu";
+const Hamburger = ({ links }: HamburgerProps) => {
+  const [isOpen, setIsOpen] = useState<Boolean>(false);
+  let text: string = "Burgermenu";
 
-	return (
-		<nav className={styles["hamburger_container"]}>
-			<div
-				className={styles["hamburger_wrapper"]}
-				onClick={() => {
-					setIsActive(!isActive);
-				}}
-			>
-				{text}
-			</div>
-			<div
-				className={`${
-					isActive ? styles["hamburger_active"] : [""]
-				} styles[link_wrapper]`}
-			>
-				{isActive
-					? links.map(({href, label}) => (
-							<div className={styles["hamburger_link"]} key={href}>
-								<Link href={href}>
-									<>{label}</>
-								</Link>
-							</div>
-					  ))
-					: ""}
-			</div>
-		</nav>
-	);
+  return (
+    <header>
+      <label
+        className={isOpen ? styles["menu-open"] : styles["menu-closed"]}
+        onClick={() => {
+          setIsOpen(!isOpen);
+        }}
+      >
+        <div
+          className={
+            isOpen ? styles["menu-open-btn"] : styles["menu-closed-btn"]
+          }
+        />
+      </label>
+      <aside className={isOpen ? styles["dropdown-open"] : styles[""]}>
+        <nav>
+          {isOpen
+            ? links.map(({ href, label }) => (
+                <div key={href}>
+                  <Link className={styles["page-link"]} href={href}>
+                    <>{label}</>
+                  </Link>
+                </div>
+              ))
+            : ""}
+        </nav>
+      </aside>
+    </header>
+  );
 };
 
 export default Hamburger;
