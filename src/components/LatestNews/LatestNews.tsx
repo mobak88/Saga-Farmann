@@ -1,5 +1,5 @@
 import React from "react";
-import SliderCard from "../cards/slider-card/slider-card";
+import SliderCard from "../cards/sliderCard/SliderCard";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";

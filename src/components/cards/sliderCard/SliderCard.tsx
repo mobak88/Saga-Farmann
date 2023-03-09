@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./slider-card.module.css";
+import styles from "./SliderCard.module.css";
 import Image from "next/image";
 
 import boatImg from "../../../../public/assets/news-image.jpg";

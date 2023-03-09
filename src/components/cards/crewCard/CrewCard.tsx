@@ -1,6 +1,6 @@
 import Image, { StaticImageData } from "next/image";
 import React from "react";
-import styles from "./crew-card.module.css";
+import styles from "./CrewCard.module.css";
 
 interface CardProps {
   imageSrc: StaticImageData;

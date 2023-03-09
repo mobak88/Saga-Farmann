@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import styles from "./destination-card.module.css";
+import styles from "./DestinationCard.module.css";
 import image from "../../../../public/assets/destination.jpg";
 
 const DestinationCard = () => {
