@@ -1,5 +1,6 @@
 import Hamburger from "../hamburger/hamburger";
-import Title from "../title/saga-asia";
+import Title from "../navtitle/title";
+import styles from "./navbar.module.css";
 
 type LayoutProps = {
 	links: {href: string; label: string}[];
@@ -7,14 +8,12 @@ type LayoutProps = {
 
 const Navbar = ({links}: LayoutProps) => {
 	return (
-		<nav>
+		<nav className={styles["navbar_container"]}>
 			<div>
 				<Title />
 			</div>
 			<div>
-				<ul>
-					<Hamburger links={links} />
-				</ul>
+				<Hamburger links={links} />
 			</div>
 		</nav>
 	);

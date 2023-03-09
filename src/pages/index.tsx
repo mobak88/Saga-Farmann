@@ -1,6 +1,5 @@
 import Head from "next/head";
 import {Inter} from "@next/font/google";
-import styles from "@/styles/Home.module.css";
 import Layout from "@/components/navbar/layout";
 
 const inter = Inter({subsets: ["latin"]});
@@ -9,21 +8,12 @@ import SliderCard from "@/components/cards/slider-card/slider-card";
 import DestinationCard from "@/components/cards/destination-card/destination-card";
 import Navbar from "@/components/navbar/navbar";
 
+
 export default function Home() {
-  const links = [
-		{href: "/", label: "Home"},
-		{href: "/crew", label: "Crew"},
-		{href: "/blog", label: "Blog"},
-		{href: "/thejourney", label: "The Journey"},
-		{href: "/livestream", label: "Livestream"},
-		{href: "/sponsors", label: "Sponsors"},
-		{href: "/donate", label: "Donate"},
-		{href: "/aboutus", label: "About Us"},
-		{href: "/technical", label: "Technical"},
-	];
+	
 	return (
 		<>
-			<Layout links={links} />
+			<Layout />
 
 			<Head>
 				<title>Create Next App</title>
@@ -31,7 +21,7 @@ export default function Home() {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<main className={styles.main}>
+			<main>
 				<h1>Saga</h1>
 			</main>
 		</>
