@@ -13,19 +13,19 @@ const CrewCard = ({ imageSrc, name, role, about }: CardProps) => {
   return (
     <>
       <div className={styles.card}>
-        <div className={styles["card-image"]}>
+        <div className={styles["image-wrapper"]}>
           <Image
-            className={styles["card-image"]}
+            className={styles.image}
             src={imageSrc}
             alt="Crew member"
             width={0}
             height={0}
           />
         </div>
-        <div>
-          <h3>{name}</h3>
-          <p>{role}</p>
-          <p>{about}</p>
+        <div className={styles["card-text-wrapper"]}>
+          <h3 className={styles["crew-name"]}>{name}</h3>
+          <p className={styles["crew-role"]}>{role}</p>
+          <p className={styles["crew-about"]}>{about}</p>
         </div>
       </div>
     </>

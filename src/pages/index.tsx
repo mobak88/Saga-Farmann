@@ -1,9 +1,8 @@
 import Head from "next/head";
-import CrewCard from "@/components/cards/crew-card/crew-card";
+
 import SliderCard from "@/components/cards/slider-card/slider-card";
 import DestinationCard from "@/components/cards/destination-card/destination-card";
 import Navbar from "@/components/navbar/navbar";
-import image from "../../public/assets/BjornVik1.jpeg";
 
 export default function Home() {
   return (
@@ -17,15 +16,6 @@ export default function Home() {
       <main>
         <>
           <h1>Saga</h1>
-
-          <CrewCard
-            imageSrc={image}
-            name="Bjørn Vik"
-            role="Captain"
-            about="Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-numquam blanditiis harum quisquam eius sed odit"
-          />
 
           <DestinationCard />
           <SliderCard />
