@@ -11,14 +11,44 @@
 	top: 60px;
 	width: 150px;
 	row-gap: 24px;
-	right: 60px;
+	right: 20px;
 	padding: 24px 24px;
 	transition: all 0.2s;
 	min-height: calc(100vh - 60px);
 	background-color: #f1f1f1;
 	font-family: norse;
 }
-.link_wrapper {
+.hamburger_wrapper {
+	color: white;
+}
+.hamburger_link {
+	font-size: 18px;
+	position: relative;
+	transition: all 0.2s;
+}
+
+.hamburger_link::before {
+	content: "";
+	position: absolute;
+	width: 0%;
+	height: 3px;
+	bottom: -6px;
+	left: 0;
+	background-color: blue;
+	transition: all 0.2s;
+}
+.hamburger_link:hover {
+	font-weight: bold;
+}
+.hamburger_link:hover:before {
+	width: 100%;
+}
+.hamburger_link:visited {
+	text-decoration: none;
+}
+
+.hamburger_link:link {
+	text-decoration: none;
 }
 
 /*
