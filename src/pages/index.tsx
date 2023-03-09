@@ -5,7 +5,6 @@ import Layout from "@/components/navbar/layout";
 const inter = Inter({ subsets: ["latin"] });
 import CrewCard from "@/components/cards/crewCard/CrewCard";
 import DestinationCard from "@/components/cards/destinationCard/DestinationCard";
-import Navbar from "@/components/navbar/Navbar";
 import LatestNews from "@/components/LatestNews/LatestNews";
 
 export default function Home() {

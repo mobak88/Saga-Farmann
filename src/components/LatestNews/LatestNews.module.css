@@ -1,6 +1,19 @@
 .swiper-container {
   display: flex;
   margin: 0 auto;
-  width: 100%;
-  max-width: 112rem;
+  align-items: center;
+  gap: 10rem;
+  max-width: 125rem;
+  background-color: var(--bg-dark-blue);
+  padding: 8rem;
+}
+
+.arrow-icon {
+  color: var(--bg-pink-brown);
+  background: rgba(0, 0, 0, 0);
+}
+
+.swiper-nav-prev,
+.swiper-nav-next {
+  cursor: pointer;
 }
