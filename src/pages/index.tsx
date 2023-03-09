@@ -3,10 +3,10 @@ import { Inter } from "@next/font/google";
 import Layout from "@/components/navbar/layout";
 
 const inter = Inter({ subsets: ["latin"] });
-import CrewCard from "@/components/cards/crew-card/crew-card";
-import SliderCard from "@/components/cards/slider-card/slider-card";
-import DestinationCard from "@/components/cards/destination-card/destination-card";
-import Navbar from "@/components/navbar/navbar";
+import CrewCard from "@/components/cards/crewCard/CrewCard";
+import DestinationCard from "@/components/cards/destinationCard/DestinationCard";
+import Navbar from "@/components/navbar/Navbar";
+import LatestNews from "@/components/LatestNews/LatestNews";
 
 export default function Home() {
   return (
@@ -21,6 +21,7 @@ export default function Home() {
       </Head>
       <main>
         <h1>Saga</h1>
+        <LatestNews />
       </main>
     </>
   );
