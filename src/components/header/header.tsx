@@ -1,10 +1,10 @@
-import Navbar from "./navbar";
+import Navbar from "../navbar/navbar";
 
 // type LayoutProps = {
 // 	links: {href: string; label: string}[];
 // };
 
-const Layout = () => {
+const Header = () => {
 	const links = [
 		{href: "/", label: "Home"},
 		{href: "/crew", label: "Crew"},
@@ -19,4 +19,4 @@ const Layout = () => {
 	return <Navbar links={links} />;
 };
 
-export default Layout;
+export default Header;
