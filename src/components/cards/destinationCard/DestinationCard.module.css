@@ -8,7 +8,7 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 50%;
+  height: 60%;
 }
 
 .image {
@@ -23,16 +23,18 @@
 .text-container {
   color: var(--light-text-color);
   height: 40%;
-  width: 100%;
-  display: grid;
-  align-items: center;
-  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0px 8px;
 }
 
-.text-container h3 {
-  margin: 0;
+.text-container h2 {
+  margin: 8px 0px;
+  font-family: Norse;
 }
 
 .text-container p {
   font-size: 20px;
+  font-family: Comfortaa;
 }
