@@ -1,6 +1,11 @@
 .card {
   height: 46rem;
   width: 36rem;
+  background-color: var(--very-dark-blue);
+  border-radius: 0.8rem;
+  overflow: hidden;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 }
 
 .card-image {
@@ -8,6 +13,16 @@
 }
 
 .card-content-container {
-  width: 100%;
-  background-color: var(--very-dark-blue);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  text-align: center;
+}
+
+.card-heading,
+.card-role,
+.card-paragraph {
+  color: white;
 }
