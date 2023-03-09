@@ -2,7 +2,7 @@
   width: 673px;
   height: 519px;
   border: 2px solid black;
-  background-color: #172327;
+  background-color: var(--bg-dark-blue);
 }
 
 .image-container {
@@ -22,7 +22,7 @@
 }
 
 .text-container {
-  color: #f2fef2;
+  color: var(--light-text-color);
   height: 40%;
   display: flex;
   flex-direction: column;
@@ -32,6 +32,7 @@
 
 .text-container h2 {
   margin: 8px 0px;
+  font-family: norse;
 }
 
 .text-container p {

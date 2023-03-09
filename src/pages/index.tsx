@@ -20,9 +20,8 @@ export default function Home() {
 
           <CrewCard imageSrc="test" name="test" role="test" about="test" />
 
-          <DestinationCard />
           <SliderCard />
-          <CrewCard />
+          {/* <CrewCard /> */}
           <DestinationCard
             image={destinationImage}
             header="Destination"
