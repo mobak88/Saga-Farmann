@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import SliderCard from "../cards/sliderCard/SliderCard";
 
+import SwiperCore from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import "swiper/css";
@@ -17,6 +18,16 @@ const LatestNews = () => {
   const swiperNavPrevRef = useRef<HTMLDivElement>(null);
   const swiperNavNextRef = useRef<HTMLDivElement>(null);
 
+  const onBeforeInit = (Swiper: SwiperCore): void => {
+    if (typeof Swiper.params.navigation !== "boolean") {
+      const navigation = Swiper.params.navigation;
+      if (navigation !== undefined) {
+        navigation.prevEl = swiperNavPrevRef.current;
+        navigation.nextEl = swiperNavNextRef.current;
+      }
+    }
+  };
+
   return (
     <div className={styles["swiper-container"]}>
       <div className={styles["swiper-nav-prev"]} ref={swiperNavPrevRef}>
@@ -28,10 +39,7 @@ const LatestNews = () => {
           prevEl: swiperNavPrevRef.current,
           nextEl: swiperNavNextRef.current,
         }}
-        onBeforeInit={(swiper) => {
-          swiper.params.navigation.prevEl = swiperNavPrevRef.current;
-          swiper.params.navigation.nextEl = swiperNavNextRef.current;
-        }}
+        onBeforeInit={onBeforeInit}
         className="mySwiper"
         modules={[Navigation]}
         spaceBetween={20}
