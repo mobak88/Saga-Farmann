@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import image from "../../../public/assets/videoImage.png";
 import styles from "./HomeHeader.module.css";
 
@@ -10,13 +9,9 @@ const HomeHeader = () => {
         Saga Asia
         <span> Follow the vikings 2023</span>
       </h1>
-      <Image
-        className={styles.video}
-        src={image}
-        alt="video of Saga Farmann ship"
-        width={0}
-        height={0}
-      />
+      <video className={styles.video} autoPlay loop>
+        <source src={"/videos/my-video.mp4"} type="video/mp4" />
+      </video>
     </div>
   );
 };
