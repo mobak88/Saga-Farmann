@@ -1,13 +1,20 @@
 import Hamburger from "../hamburger/hamburger";
-import Title from "../title/saga-asia";
+import Title from "../navtitle/title";
+import styles from "./navbar.module.css";
 
-const Navbar: React.FC = () => {
+type LayoutProps = {
+	links: {href: string; label: string}[];
+};
+
+const Navbar = ({links}: LayoutProps) => {
 	return (
-		<nav>
-			<ul>
+		<nav className={styles["navbar_container"]}>
+			<div>
 				<Title />
-				<Hamburger />
-			</ul>
+			</div>
+			<div>
+				<Hamburger links={links} />
+			</div>
 		</nav>
 	);
 };
