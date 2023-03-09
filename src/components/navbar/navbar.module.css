@@ -4,5 +4,6 @@
 	justify-content: space-between;
 	align-items: center;
 	background-color: #142c34;
+	height: 5vh;
 	min-height: 100%;
 }

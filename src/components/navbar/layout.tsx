@@ -1,4 +1,4 @@
-import Navbar from "./Navbar";
+import Navbar from "./navbar";
 
 // type LayoutProps = {
 // 	links: {href: string; label: string}[];
@@ -8,6 +8,7 @@ const Layout = () => {
   const links = [
     { href: "/", label: "Home" },
     { href: "/crew", label: "Crew" },
+    { href: "/destinations", label: "Destinations" },
     { href: "/blog", label: "Blog" },
     { href: "/thejourney", label: "The Journey" },
     { href: "/livestream", label: "Livestream" },
