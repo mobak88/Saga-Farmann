@@ -1,9 +1,5 @@
 import Head from "next/head";
-import {Inter} from "@next/font/google";
 import Layout from "@/components/navbar/layout";
-
-const inter = Inter({subsets: ["latin"]});
-import CrewCard from "@/components/cards/crew-card/crew-card";
 import SliderCard from "@/components/cards/slider-card/slider-card";
 import DestinationCard from "@/components/cards/destination-card/destination-card";
 import destinationImage from "./../../public/assets/destination.jpg";
@@ -34,7 +30,6 @@ export default function Home() {
                   fugiat iusto fuga"
             link="Read more -->"
           />
-        </>
       </main>
     </>
   );
