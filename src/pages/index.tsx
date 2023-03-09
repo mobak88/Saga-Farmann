@@ -3,6 +3,7 @@ import Head from "next/head";
 import SliderCard from "@/components/cards/slider-card/slider-card";
 import DestinationCard from "@/components/cards/destination-card/destination-card";
 import Navbar from "@/components/navbar/navbar";
+import HeadingOne from "@/components/typography/headings/headingOne";
 
 export default function Home() {
   return (
@@ -15,8 +16,8 @@ export default function Home() {
       </Head>
       <main>
         <>
-          <h1>Saga</h1>
-
+          {/* <h1>Saga</h1> */}
+          <HeadingOne mainHeading>Saga Asia</HeadingOne>
           <DestinationCard />
           <SliderCard />
         </>
