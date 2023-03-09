@@ -1,13 +1,13 @@
 import React from "react";
-import destinationsData from "@/components/cards/destination-card/data";
-import DestinationCard from "@/components/cards/destination-card/destination-card";
+import destinationsData from "../../components/cards/destinationCard/data";
+import DestinationCard from "../../components/cards/destinationCard/DestinationCard";
 import styles from "./destinations.module.css";
 import Layout from "@/components/navbar/layout";
 
 const Destinations = () => {
   return (
     <div className={styles.wrapper}>
-        <Layout/>
+      <Layout />
       <div className={styles["card-container"]}>
         {destinationsData.map((value) => {
           return (
