@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Layout from "@/components/navbar/layout";
-import LatestNews from "@/components/LatestNews/LatestNews";
+import sliderData from "@/components/latestNews/latestNewsSlider/sliderData";
+import LatestNews from "@/components/latestNews/LatestNews";
 
 export default function Home() {
   return (
@@ -15,6 +16,11 @@ export default function Home() {
       </Head>
       <main>
         <h1>Saga</h1>
+        <LatestNews
+          postHeading="Heading"
+          postText="Lorem ipsum dolor sit amet consectetur adipisicing"
+          posts={sliderData}
+        />
       </main>
     </>
   );

@@ -1,0 +1,15 @@
+.swiper-container {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 5rem, 10rem);
+}
+
+.arrow-icon {
+  color: var(--bg-pink-brown);
+  background: rgba(0, 0, 0, 0);
+}
+
+.swiper-nav-prev,
+.swiper-nav-next {
+  cursor: pointer;
+}
