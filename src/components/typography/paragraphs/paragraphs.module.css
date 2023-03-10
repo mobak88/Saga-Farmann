@@ -1,0 +1,19 @@
+.paragraphs {
+  font-family: "Comfortaa";
+}
+
+.light {
+  color: var(--light-text-color);
+}
+
+.dark {
+  color: var(--dark-text-color);
+}
+
+.paragraphs-l {
+  font-size: var(--paragraph-size-l);
+}
+
+.paragraphs-sm {
+  font-size: var(--paragraph-size-sm);
+}

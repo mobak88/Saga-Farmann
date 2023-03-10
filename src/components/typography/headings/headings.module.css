@@ -1,0 +1,38 @@
+.heading {
+  font-family: "Norse";
+}
+
+.dark {
+  color: var(--dark-text-color);
+}
+
+.light {
+  color: var(--light-text-color);
+}
+
+/* H1 */
+.heading-one-l {
+  font-size: var(--heading-one-l);
+}
+
+.heading-one-sm {
+  font-size: (var(--heading-one-small));
+}
+
+/* H2 */
+.heading-two-l {
+  font-size: (var(--heading-two-l));
+}
+
+.heading-two-sm {
+  font-size: (var(--heading-two-sm));
+}
+
+/* H3 */
+.heading-three-l {
+  font-size: (var(--heading-three-big));
+}
+
+.heading-three-sm {
+  font-size: (var(--heading-three-small));
+}

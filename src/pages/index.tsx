@@ -1,5 +1,13 @@
 import Head from "next/head";
+<<<<<<< HEAD
 import Header from "@/components/navigation/header/header";
+=======
+
+import SliderCard from "@/components/cards/slider-card/slider-card";
+import DestinationCard from "@/components/cards/destination-card/destination-card";
+import Navbar from "@/components/navbar/navbar";
+import HeadingOne from "@/components/typography/headings/headingOne";
+>>>>>>> typography
 
 export default function Home() {
   return (
@@ -12,7 +20,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+<<<<<<< HEAD
         <h1>Saga</h1>
+=======
+        <>
+          {/* <h1>Saga</h1> */}
+          <HeadingOne mainHeading>Saga Asia</HeadingOne>
+          <DestinationCard />
+          <SliderCard />
+        </>
+>>>>>>> typography
       </main>
     </>
   );
