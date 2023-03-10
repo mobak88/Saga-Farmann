@@ -2,12 +2,24 @@ import Link from "next/link";
 import { useState } from "react";
 import styles from "./hamburger.module.css";
 
-type HamburgerProps = {
+type LinkProps = {
   links: { href: string; label: string }[];
 };
 
-const Hamburger = ({ links }: HamburgerProps) => {
+const Hamburger = () => {
   const [isOpen, setIsOpen] = useState<Boolean>(false);
+
+  const links = [
+    { href: "/", label: "Home" },
+    { href: "/crew", label: "Crew" },
+    { href: "/blog", label: "Blog" },
+    { href: "/destinations", label: "Destinations" },
+    { href: "/livestream", label: "Livestream" },
+    { href: "/sponsors", label: "Sponsors" },
+    { href: "/donate", label: "Donate" },
+    { href: "/aboutus", label: "About Us" },
+    { href: "/technical", label: "Technical" },
+  ];
 
   return (
     <header className={styles["menu-head"]}>
