@@ -3,14 +3,14 @@ import styles from "./paragraphs.module.css";
 
 interface ParagraphProps {
   children: ReactNode;
-  paragraphDark?: boolean;
+  dark?: boolean;
 }
 
-export default function paragraphsDark({
+export default function paragraphsBig({
   children,
-  paragraphDark = false,
+  dark = false,
 }: ParagraphProps) {
-  const paragraph = paragraphDark;
+  const paragraph = dark;
 
   return paragraph ? (
     <p
@@ -20,7 +20,7 @@ export default function paragraphsDark({
     </p>
   ) : (
     <p
-      className={`${styles.paragraphs} ${styles["paragraphs-sm"]} ${styles.dark}`}
+      className={`${styles.paragraphs} ${styles["paragraphs-l"]} ${styles.light}`}
     >
       {children}
     </p>
