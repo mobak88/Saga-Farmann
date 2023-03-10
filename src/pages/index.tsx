@@ -20,7 +20,6 @@ export default function Home() {
       </Head>
       <main>
         <h1>Saga</h1>
-        <LatestNews />
       </main>
     </>
   );

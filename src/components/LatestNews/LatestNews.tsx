@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import SliderCard from "../cards/sliderCard/SliderCard";
+import { SliderCardProps } from "../cards/sliderCard/SliderCard";
 
 import SwiperCore from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -14,7 +15,15 @@ import {
 
 import styles from "./LatestNews.module.css";
 
-const LatestNews = () => {
+interface PostsProps extends SliderCardProps {
+  id: number;
+}
+
+interface LatestNewsProps extends PostsProps {
+  posts: PostsProps[];
+}
+
+const LatestNews = ({ posts }: LatestNewsProps) => {
   const swiperNavPrevRef = useRef<HTMLDivElement>(null);
   const swiperNavNextRef = useRef<HTMLDivElement>(null);
 
@@ -47,31 +56,16 @@ const LatestNews = () => {
         loop
       >
         <SwiperSlide>
-          <SliderCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SliderCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SliderCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SliderCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SliderCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SliderCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SliderCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SliderCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SliderCard />
+          {posts &&
+            posts.map((post) => (
+              <SliderCard
+                key={post.id}
+                imageSrc={post.imageSrc}
+                heading={post.heading}
+                text={post.text}
+                alt={post.alt}
+              />
+            ))}
         </SwiperSlide>
       </Swiper>
       <div className={styles["swiper-nav-next"]} ref={swiperNavNextRef}>
