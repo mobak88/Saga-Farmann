@@ -1,11 +1,6 @@
 import Head from "next/head";
 import Header from "@/components/navigation/header/header";
-
-import CrewCard from "@/components/cards/crew-card/crew-card";
-import SliderCard from "@/components/cards/slider-card/slider-card";
-import DestinationCard from "@/components/cards/destination-card/destination-card";
-import Navbar from "@/components/navigation/navbar/navbar";
-import Hamburger from "@/components/navigation/hamburger/hamburger";
+import LatestNews from "@/components/LatestNews/LatestNews";
 
 export default function Home() {
   const links = [
@@ -20,7 +15,6 @@ export default function Home() {
     { href: "/technical", label: "Technical" },
   ];
 
-  <Hamburger links={links} />;
   return (
     <>
       <Header links={links} />;
@@ -31,7 +25,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1></h1>
+        <h1>Saga</h1>
       </main>
     </>
   );
