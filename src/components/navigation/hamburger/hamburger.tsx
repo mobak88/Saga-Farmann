@@ -8,7 +8,6 @@ type HamburgerProps = {
 
 const Hamburger = ({ links }: HamburgerProps) => {
   const [isOpen, setIsOpen] = useState<Boolean>(false);
-  let text: string = "Burgermenu";
 
   return (
     <header className={styles["menu-head"]}>
@@ -24,7 +23,8 @@ const Hamburger = ({ links }: HamburgerProps) => {
           }
         />
       </label>
-      <aside
+
+      <div
         className={isOpen ? styles["dropdown-open"] : styles["dropdown-closed"]}
       >
         <nav>
@@ -38,7 +38,7 @@ const Hamburger = ({ links }: HamburgerProps) => {
               ))
             : ""}
         </nav>
-      </aside>
+      </div>
     </header>
   );
 };
