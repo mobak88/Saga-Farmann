@@ -1,10 +1,5 @@
 import Head from "next/head";
-import { Inter } from "@next/font/google";
 import Layout from "@/components/navbar/layout";
-
-const inter = Inter({ subsets: ["latin"] });
-import CrewCard from "@/components/cards/crewCard/CrewCard";
-import DestinationCard from "@/components/cards/destinationCard/DestinationCard";
 import LatestNews from "@/components/LatestNews/LatestNews";
 
 export default function Home() {
