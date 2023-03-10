@@ -1,11 +1,7 @@
 import Navbar from "../navbar/navbar";
 
-type LayoutProps = {
-  links: { href: string; label: string }[];
-};
-
-const Header = ({ links }: LayoutProps) => {
-  return <Navbar links={links} />;
+const Header = () => {
+  return <Navbar />;
 };
 
 export default Header;
