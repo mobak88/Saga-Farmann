@@ -1,6 +1,6 @@
 import Hamburger from "../hamburger/hamburger";
 import Title from "../navtitle/title";
-import styles from "./Navbar.module.css";
+import styles from "./navbar.module.css";
 
 type LayoutProps = {
   links: { href: string; label: string }[];
