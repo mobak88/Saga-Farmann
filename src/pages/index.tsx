@@ -15,7 +15,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1>Saga</h1>
+        <HeadingOne mainHeading>Saga</HeadingOne>
         <LatestNews
           postHeading="Heading"
           postText="Lorem ipsum dolor sit amet consectetur adipisicing"
