@@ -1,0 +1,15 @@
+.section-container {
+  background-color: var(--bg-dark-blue);
+  padding: 8rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 125rem;
+  gap: 6rem;
+}
+
+.text-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 clamp(0rem, 10rem, 15rem);
+}
