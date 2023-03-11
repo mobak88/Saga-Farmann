@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Header from "@/components/navigation/header/header";
 import Layout from "@/components/navigation/layout/layout";
 import LatestNews from "@/components/LatestNews/LatestNews";
 import sliderData from "@/components/LatestNews/latestNewsSlider/sliderData";
