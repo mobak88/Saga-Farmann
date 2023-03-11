@@ -26,7 +26,7 @@ const CrewCard = ({ imageSrc, name, role, about }: CardProps) => {
         <div className={styles["card-text-wrapper"]}>
           <h3 className={styles["crew-name"]}>{name}</h3>
           <p className={styles["crew-role"]}>{role}</p>
-          <ParagraphsSmall dark>{about}</ParagraphsSmall>
+          <ParagraphsSmall>{about}</ParagraphsSmall>
         </div>
       </div>
     </>
