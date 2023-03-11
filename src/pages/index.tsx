@@ -1,13 +1,12 @@
 import Head from "next/head";
-import Header from "@/components/navigation/header/header";
-import LatestNews from "@/components/latestNews/LatestNews";
-import sliderData from "@/components/latestNews/latestNewsSlider/sliderData";
+import Layout from "@/components/navigation/layout/layout";
+import LatestNews from "@/components/LatestNews/LatestNews";
+import sliderData from "@/components/LatestNews/latestNewsSlider/sliderData";
 import HeadingOne from "@/components/typography/headings/headingOne";
 
 export default function Home() {
   return (
     <>
-      <Header />
       <Layout />
       <Head>
         <title>Create Next App</title>

@@ -1,7 +1,7 @@
 import Navbar from "../navbar/navbar";
 
-const Header = () => {
+const Layout = () => {
   return <Navbar />;
 };
 
-export default Header;
+export default Layout;
