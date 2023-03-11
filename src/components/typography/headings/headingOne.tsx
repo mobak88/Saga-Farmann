@@ -3,21 +3,21 @@ import styles from "./headings.module.css";
 
 interface HeadingProps {
   children: ReactNode;
-  mainHeading?: boolean;
+  dark?: boolean;
 }
 
-const HeadingOne = ({ children, mainHeading = false }: HeadingProps) => {
-  const heading = mainHeading;
+const HeadingOne = ({ children, dark = false }: HeadingProps) => {
+  const heading = dark;
 
   return heading ? (
     <h1
-      className={`${styles.heading} ${styles["heading-one-l"]} ${styles["light"]} `}
+      className={`${styles.heading} ${styles["heading-one"]} ${styles["dark"]} `}
     >
       {children}
     </h1>
   ) : (
     <h1
-      className={`${styles.heading} ${styles["heading-one-sm"]} ${styles["light"]}`}
+      className={`${styles.heading} ${styles["heading-one"]} ${styles["light"]}`}
     >
       {children}
     </h1>
