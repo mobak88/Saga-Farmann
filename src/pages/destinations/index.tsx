@@ -2,7 +2,8 @@ import React from "react";
 import destinationsData from "../../components/cards/destinationCard/data";
 import DestinationCard from "../../components/cards/destinationCard/DestinationCard";
 import styles from "./destinations.module.css";
-import Header from "@/components/navigation/header/header";
+import Layout from "@/components/navbar/layout";
+import Header from "@/components/header/Header";
 
 type LinkProps = {
   links: { href: string; label: string }[];
@@ -11,7 +12,8 @@ type LinkProps = {
 const Destinations = ({ links }: LinkProps) => {
   return (
     <div className={styles.wrapper}>
-      <Header />
+      <Layout />
+      <Header header={"Destinations"} />
       <div className={styles["card-container"]}>
         {destinationsData.map((value) => {
           return (
