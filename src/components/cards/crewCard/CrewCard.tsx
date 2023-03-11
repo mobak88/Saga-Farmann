@@ -1,6 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 import React from "react";
 import styles from "./CrewCard.module.css";
+import ParagraphsSmall from "../../typography/paragraphs/ParagraphsSmall";
 
 interface CardProps {
   imageSrc: StaticImageData;
@@ -25,7 +26,7 @@ const CrewCard = ({ imageSrc, name, role, about }: CardProps) => {
         <div className={styles["card-text-wrapper"]}>
           <h3 className={styles["crew-name"]}>{name}</h3>
           <p className={styles["crew-role"]}>{role}</p>
-          <p className={styles["crew-about"]}>{about}</p>
+          <ParagraphsSmall dark>{about}</ParagraphsSmall>
         </div>
       </div>
     </>

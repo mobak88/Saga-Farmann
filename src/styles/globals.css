@@ -4,6 +4,7 @@
   --very-dark-blue: #172327;
   --light-text-color: #e7ffff;
   --dark-text-color: #000;
+
   --light-background-color: #f2f2f2;
   /*----------Hamburger----------*/
   --bar-width: 50px;
@@ -12,6 +13,18 @@
   --hamburger-margin: 1rem;
   --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
   --animation-timing: 200ms ease-in-out;
+
+  /* FONT SIZES */
+
+  --heading-one-l: 24.5rem;
+  --heading-one-sm: 7.2rem;
+  --heading-two-l: 4.5rem;
+  --heading-two-sm: 4.1rem;
+  --heading-three-l: 4rem;
+  --heading-three-sm: 3.6rem;
+
+  --paragraph-size-l: 2.4rem;
+  --paragraph-size-sm: 1.8rem;
 }
 
 html,
