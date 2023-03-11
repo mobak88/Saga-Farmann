@@ -1,7 +1,7 @@
 import React from "react";
 import Image, { StaticImageData } from "next/image";
 import styles from "./DestinationCard.module.css";
-import image from "../../../../public/assets/destination.jpg";
+import { BsFillArrowRightCircleFill } from "react-icons/bs";
 
 interface DestinationsInterface {
   image: StaticImageData;
@@ -29,8 +29,14 @@ const DestinationCard = ({
       </div>
       <div className={styles["text-container"]}>
         <h2>{header}</h2>
-        <p>{text}</p>
-        <a href="#"> {link}</a>
+        <article>{text}</article>
+        <a className={styles["read-more-link"]} href="#">
+          {link}
+          <BsFillArrowRightCircleFill
+            className={styles["arrow-icon"]}
+            size={30}
+          />
+        </a>
       </div>
     </div>
   );
