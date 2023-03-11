@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Header from "@/components/navigation/header/header";
-import LatestNews from "@/components/latestNews/LatestNews";
-import sliderData from "@/components/latestNews/latestNewsSlider/sliderData";
+import LatestNews from "@/components/LatestNews/LatestNews";
+import sliderData from "@/components/LatestNews/latestNewsSlider/sliderData";
 import HeadingOne from "@/components/typography/headings/headingOne";
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <HeadingOne mainHeading>Saga</HeadingOne>
+        <HeadingOne>Saga</HeadingOne>
         <LatestNews
           postHeading="Heading"
           postText="Lorem ipsum dolor sit amet consectetur adipisicing"
