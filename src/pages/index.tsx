@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Header from "@/components/navigation/header/header";
-import LatestNews from "@/components/LatestNews/LatestNews";
 
 export default function Home() {
   return (
