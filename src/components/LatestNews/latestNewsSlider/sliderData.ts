@@ -5,7 +5,7 @@ const sliderData = [
       "https://dev.sagafarmann.com/wp/wp-content/uploads/2023/03/DJI_0858.jpg",
     heading: "heading",
     alt: "Captain",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime molliti molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   },
 
   {
@@ -14,7 +14,7 @@ const sliderData = [
       "https://dev.sagafarmann.com/wp/wp-content/uploads/2023/03/DJI_0858.jpg",
     heading: "heading",
     alt: "Captain",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime molliti molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   },
   {
     id: 3,
@@ -22,7 +22,7 @@ const sliderData = [
       "https://dev.sagafarmann.com/wp/wp-content/uploads/2023/03/DJI_0858.jpg",
     heading: "heading",
     alt: "Captain",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime molliti molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   },
 
   {
@@ -31,7 +31,7 @@ const sliderData = [
       "https://dev.sagafarmann.com/wp/wp-content/uploads/2023/03/DJI_0858.jpg",
     heading: "heading",
     alt: "Captain",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime molliti molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   },
   {
     id: 5,
@@ -39,7 +39,7 @@ const sliderData = [
       "https://dev.sagafarmann.com/wp/wp-content/uploads/2023/03/DJI_0858.jpg",
     heading: "heading",
     alt: "Captain",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime molliti molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   },
 
   {
@@ -48,7 +48,7 @@ const sliderData = [
       "https://dev.sagafarmann.com/wp/wp-content/uploads/2023/03/DJI_0858.jpg",
     heading: "heading",
     alt: "Captain",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime molliti molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   },
   {
     id: 7,
@@ -56,7 +56,7 @@ const sliderData = [
       "https://dev.sagafarmann.com/wp/wp-content/uploads/2023/03/DJI_0858.jpg",
     heading: "heading",
     alt: "Captain",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime molliti molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   },
 
   {
@@ -65,7 +65,7 @@ const sliderData = [
       "https://dev.sagafarmann.com/wp/wp-content/uploads/2023/03/DJI_0858.jpg",
     heading: "heading",
     alt: "Captain",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime molliti molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   },
 ];
 

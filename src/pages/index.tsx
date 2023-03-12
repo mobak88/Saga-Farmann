@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Layout from "@/components/navigation/layout/layout";
-import LatestNews from "@/components/LatestNews/LatestNews";
-import sliderData from "@/components/LatestNews/latestNewsSlider/sliderData";
+import LatestNews from "@/components/latestNews/LatestNews";
+import sliderData from "@/components/latestNews/latestNewsSlider/sliderData";
 import HeadingOne from "@/components/typography/headings/headingOne";
 
 export default function Home() {
@@ -17,8 +17,8 @@ export default function Home() {
       <main>
         <HeadingOne>Saga</HeadingOne>
         <LatestNews
-          postHeading="Heading"
-          postText="Lorem ipsum dolor sit amet consectetur adipisicing"
+          postHeading="Latest News and  posts"
+          postText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut."
           posts={sliderData}
         />
       </main>
