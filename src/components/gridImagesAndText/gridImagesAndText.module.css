@@ -1,0 +1,141 @@
+.wrapper {
+  width: 60%;
+  margin-top: 5em;
+  margin-bottom: 5em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 30px 80px 120px 20px 180px 150px;
+  text-align: center;
+}
+
+.textBox-follow-the-vikings,
+.textBox-follow-the-vikings-two,
+.textBox-follow-the-vikings-three,
+.textBox-donations,
+.textBox-text,
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content {
+  gap: 16px;
+  padding: 8px;
+}
+
+.textBox-follow-the-vikings {
+  color: var(--light-text-color);
+  grid-row-start: 1;
+  grid-row-end: 4;
+  width: 100%;
+}
+
+.textBox-follow-the-vikings-two {
+  grid-row-start: 4;
+  grid-row-end: 7;
+  position: relative;
+  color: var(--light-text-color);
+  width: 100%;
+  z-index: 10;
+}
+
+.textBox-follow-the-vikings-two .content {
+  background-color: var(--very-dark-blue);
+  height: 100%;
+}
+
+.textBox-follow-the-vikings-two::after {
+  position: absolute;
+  background-color: var(--very-dark-blue);
+  height: 100px;
+  z-index: -1;
+  top: 0;
+  content: "";
+  transform-origin: top left;
+  transform: skewY(-3deg);
+  width: 100%;
+}
+
+.pointer {
+  z-index: -1;
+  border-left: 190px solid transparent;
+  border-right: 190px solid transparent;
+  border-top: 50px solid var(--very-dark-blue);
+}
+
+.imageBox-one {
+  grid-row-start: 1;
+  grid-row-end: 4;
+  background-image: url(../../../public/assets/image-one.jpg);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+.imageBox-one::after {
+  position: absolute;
+  height: 20px;
+  background: var(--bg-pink-brown);
+  z-index: -1;
+  top: -20px;
+  left: 0;
+  content: "";
+  transform-origin: top left;
+  transform: skewY(3deg);
+  width: 100%;
+}
+
+.imageBox-two {
+  background-image: url(../../../public/assets/image-two.jpg);
+  background-position: center;
+  background-size: cover;
+  grid-row-start: 4;
+  grid-row-end: 6;
+  width: 100%;
+}
+
+.textBox-donations {
+  grid-row-start: 6;
+  grid-row-end: 7;
+  background-color: var(--light-background-color);
+  width: 100%;
+}
+
+.textBox-follow-the-vikings-three {
+  background-color: var(--light-background-color);
+  grid-row-start: 2;
+  grid-row-end: 5;
+  width: 95%;
+}
+
+.imageBox-three {
+  background-image: url(../../../public/assets/image-three.jpg);
+  background-position: center;
+  background-size: cover;
+  grid-row-start: 5;
+  grid-row-end: 6;
+  z-index: 10;
+  position: relative;
+  width: 100%;
+}
+
+.imageBox-three::after {
+  position: absolute;
+  background: var(--bg-pink-brown);
+  z-index: -1;
+  right: -35px;
+  content: "";
+  transform-origin: top left;
+  transform: skewX(-6deg);
+  width: 40px;
+  height: 100%;
+}
+
+.textBox-text {
+  grid-row-start: 6;
+  grid-row-end: 7;
+  width: 100%;
+}

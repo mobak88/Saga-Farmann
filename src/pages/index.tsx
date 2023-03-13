@@ -3,6 +3,8 @@ import LatestNews from "@/components/latestNews/latestNews";
 import sliderData from "@/components/latestNews/latestNewsSlider/sliderData";
 import HeadingOne from "@/components/typography/headings/headingOne";
 import Navbar from "@/components/navigation/navbar/navbar";
+import GridImagesAndText from "@/components/gridImagesAndText/gridImagesAndText";
+import styles from "./home.module.css";
 
 export default function Home() {
   return (
@@ -16,6 +18,9 @@ export default function Home() {
       </Head>
       <main>
         <HeadingOne>Saga</HeadingOne>
+        <div className={styles["grid-wrapper"]}>
+          <GridImagesAndText />
+        </div>
         <LatestNews
           postHeading="Latest News and  posts"
           postText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut."
