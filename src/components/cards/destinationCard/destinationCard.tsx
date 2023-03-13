@@ -1,6 +1,6 @@
 import React from "react";
 import Image, { StaticImageData } from "next/image";
-import styles from "./DestinationCard.module.css";
+import styles from "./destinationCard.module.css";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 
 interface DestinationsInterface {

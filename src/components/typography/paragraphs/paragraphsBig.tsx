@@ -6,7 +6,7 @@ interface ParagraphProps {
   dark?: boolean;
 }
 
-export default function paragraphsBig({
+export default function ParagraphsBig({
   children,
   dark = false,
 }: ParagraphProps) {

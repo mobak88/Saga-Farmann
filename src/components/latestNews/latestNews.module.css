@@ -13,3 +13,7 @@
   justify-content: space-between;
   padding: 0 clamp(0rem, 10rem, 15rem);
 }
+
+.paragraph-container {
+  max-width: 50%;
+}

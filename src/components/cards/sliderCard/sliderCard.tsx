@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./SliderCard.module.css";
 import Image from "next/image";
+import HeadingThree from "@/components/typography/headings/headingThree";
+import ParagraphsSmall from "@/components/typography/paragraphs/paragraphsSmall";
 
 export interface SliderCardProps {
   imageSrc: string;
@@ -22,8 +24,8 @@ const SliderCard = ({ imageSrc, heading, text, alt }: SliderCardProps) => {
         />
       </div>
       <div className={styles["card-content-container"]}>
-        <h2 className={styles["card-heading"]}>{heading}</h2>
-        <p className={styles["card-paragraph"]}>{text}</p>
+        <HeadingThree>{heading}</HeadingThree>
+        <ParagraphsSmall>{text}</ParagraphsSmall>
       </div>
     </div>
   );
