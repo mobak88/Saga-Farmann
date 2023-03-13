@@ -1,7 +1,7 @@
 import React from "react";
 import { SliderCardProps } from "../cards/sliderCard/sliderCard";
 import HeadingTwo from "../typography/headings/headingTwo";
-import ParagraphsSmall from "../typography/paragraphs/ParagraphsSmall";
+import ParagraphsSmall from "../typography/paragraphs/paragraphsSmall";
 import styles from "./latestNews.module.css";
 import LatestNewsSlider from "./latestNewsSlider/latestNewsSlider";
 

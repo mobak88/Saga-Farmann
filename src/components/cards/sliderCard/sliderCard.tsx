@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./SliderCard.module.css";
 import Image from "next/image";
 import HeadingThree from "@/components/typography/headings/headingThree";
-import ParagraphsSmall from "@/components/typography/paragraphs/ParagraphsSmall";
+import ParagraphsSmall from "@/components/typography/paragraphs/paragraphsSmall";
 
 export interface SliderCardProps {
   imageSrc: string;

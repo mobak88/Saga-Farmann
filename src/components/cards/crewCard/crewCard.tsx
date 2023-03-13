@@ -1,7 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 import React from "react";
-import styles from "./CrewCard.module.css";
-import ParagraphsSmall from "../../typography/paragraphs/ParagraphsSmall";
+import styles from "./crewCard.module.css";
+import ParagraphsSmall from "../../typography/paragraphs/paragraphsSmall";
 
 interface CardProps {
   imageSrc: StaticImageData;

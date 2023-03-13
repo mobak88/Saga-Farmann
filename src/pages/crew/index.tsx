@@ -1,5 +1,5 @@
 import React from "react";
-import CrewCard from "@/components/cards/crewCard/CrewCard";
+import CrewCard from "@/components/cards/crewCard/crewCard";
 import crewData from "@/components/cards/crewCard/data";
 
 const Crew = () => {
