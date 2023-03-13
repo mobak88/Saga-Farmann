@@ -1,5 +1,6 @@
-.cards-container {
+.card-container {
+  background-color: var(--bg-dark-blue);
   display: flex;
   justify-content: center;
-  background-color: var(--bg-dark-blue);
+  flex-wrap: wrap;
 }

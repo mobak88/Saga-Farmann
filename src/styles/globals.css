@@ -6,6 +6,8 @@
   --dark-text-color: #000;
   --light-background-color: #f2f2f2;
 
+  --box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
   /*----------Hamburger----------*/
   --bar-width: 50px;
   --bar-height: 6px;
