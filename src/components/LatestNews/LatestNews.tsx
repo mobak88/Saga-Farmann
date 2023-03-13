@@ -1,9 +1,9 @@
 import React from "react";
-import { SliderCardProps } from "../cards/sliderCard/SliderCard";
+import { SliderCardProps } from "../cards/sliderCard/sliderCard";
 import HeadingTwo from "../typography/headings/headingTwo";
 import ParagraphsSmall from "../typography/paragraphs/ParagraphsSmall";
-import styles from "./LatestNews.module.css";
-import LatestNewsSlider from "./latestNewsSlider/LatestNewsSlider";
+import styles from "./latestNews.module.css";
+import LatestNewsSlider from "./latestNewsSlider/latestNewsSlider";
 
 interface SinglePostProps extends SliderCardProps {
   id: number;
