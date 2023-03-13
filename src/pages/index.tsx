@@ -3,6 +3,7 @@ import LatestNews from "@/components/latestNews/latestNews";
 import sliderData from "@/components/latestNews/latestNewsSlider/sliderData";
 import HeadingOne from "@/components/typography/headings/headingOne";
 import Navbar from "@/components/navigation/navbar/navbar";
+import StagesMap from "@/components/mapbox/stagesMap";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
           postText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut."
           posts={sliderData}
         />
+        <StagesMap />
       </main>
     </>
   );
