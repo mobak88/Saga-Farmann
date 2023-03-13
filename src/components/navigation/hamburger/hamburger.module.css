@@ -48,7 +48,7 @@
 }
 
 .dropdown-open nav {
-  margin-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 45rem);
+  margin-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 2.5rem);
   padding: 2rem 2.5rem;
   background-color: var(--light-background-color);
   color: var(--dark-text-color);
@@ -56,10 +56,10 @@
   transition: var(--animation-timing);
   right: 20px;
   z-index: 1;
+  position: absolute;
 }
 .dropdown-closed {
   background-color: transparent;
-  transition: var(--animation-timing);
 }
 
 .page-link:link,

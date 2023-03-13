@@ -2,10 +2,6 @@ import Link from "next/link";
 import { useState } from "react";
 import styles from "./hamburger.module.css";
 
-type LinkProps = {
-  links: { href: string; label: string }[];
-};
-
 const Hamburger = () => {
   const [isOpen, setIsOpen] = useState<Boolean>(false);
 
