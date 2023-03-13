@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import SliderCard from "@/components/cards/sliderCard/SliderCard";
-import { PostsProps } from "../LatestNews";
+import SliderCard from "@/components/cards/sliderCard/sliderCard";
+import { PostsProps } from "../latestNews";
 
 import SwiperCore from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -13,7 +13,7 @@ import {
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 
-import styles from "./LatestNewsSlider.module.css";
+import styles from "./latestNewsSlider.module.css";
 
 const LatestNewsSlider = ({ posts }: PostsProps) => {
   const swiperNavPrevRef = useRef<HTMLDivElement>(null);

@@ -1,10 +1,9 @@
 import React from "react";
 import destinationsData from "../../components/cards/destinationCard/data";
-import DestinationCard from "../../components/cards/destinationCard/DestinationCard";
+import DestinationCard from "@/components/cards/destinationCard/destinationCard";
 import styles from "./destinations.module.css";
-import Layout from "@/components/navbar/layout";
-import Header from "@/components/header/Header";
-
+import Layout from "@/components/navigation/layout/layout";
+import Header from "@/components/header/header";
 type LinkProps = {
   links: { href: string; label: string }[];
 };

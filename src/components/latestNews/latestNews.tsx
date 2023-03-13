@@ -1,7 +1,9 @@
 import React from "react";
-import { SliderCardProps } from "../cards/sliderCard/SliderCard";
-import styles from "./LatestNews.module.css";
-import LatestNewsSlider from "./latestNewsSlider/LatestNewsSlider";
+import { SliderCardProps } from "../cards/sliderCard/sliderCard";
+import HeadingTwo from "../typography/headings/headingTwo";
+import ParagraphsSmall from "../typography/paragraphs/paragraphsSmall";
+import styles from "./latestNews.module.css";
+import LatestNewsSlider from "./latestNewsSlider/latestNewsSlider";
 
 interface SinglePostProps extends SliderCardProps {
   id: number;
@@ -20,8 +22,10 @@ const LatestNews = ({ posts, postHeading, postText }: LatestNewsProps) => {
   return (
     <div className={styles["section-container"]}>
       <div className={styles["text-container"]}>
-        <h2>{postHeading}</h2>
-        <p>{postText}</p>
+        <HeadingTwo>{postHeading}</HeadingTwo>
+        <div className={styles["paragraph-container"]}>
+          <ParagraphsSmall>{postText}</ParagraphsSmall>
+        </div>
       </div>
       <LatestNewsSlider posts={posts} />
     </div>
