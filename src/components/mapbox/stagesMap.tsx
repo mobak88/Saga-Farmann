@@ -1,7 +1,10 @@
 import React, { useRef, useEffect, useState } from "react";
 import Map, { Marker, Source, Layer } from "react-map-gl";
+import { Feature, LineString } from "geojson";
 import "mapbox-gl/dist/mapbox-gl.css";
 import MapMarker from "./mapMarker";
+
+type GeoJSONLineString = Feature<LineString>;
 
 const StagesMap = () => {
   const [viewport, setViewport] = useState({
@@ -10,7 +13,7 @@ const StagesMap = () => {
     zoom: 5,
   });
 
-  const lineData = {
+  const lineData: GeoJSONLineString = {
     type: "Feature",
     properties: {},
     geometry: {
