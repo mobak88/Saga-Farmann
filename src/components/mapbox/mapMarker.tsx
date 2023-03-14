@@ -6,8 +6,8 @@ const MapMarker = () => {
       id="Component_61_4"
       data-name="Component 61 – 4"
       xmlns="http://www.w3.org/2000/svg"
-      width="63"
-      height="59"
+      width="30"
+      height="30"
       viewBox="0 0 63 59"
     >
       <ellipse
