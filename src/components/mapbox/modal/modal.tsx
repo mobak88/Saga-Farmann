@@ -5,11 +5,15 @@ import React from "react";
 import styles from "./modal.module.css";
 import { IoCloseSharp } from "react-icons/io5";
 
-const Modal = () => {
+interface CloseModalProps {
+  onCloseClick: () => void;
+}
+
+const Modal = ({ onCloseClick }: CloseModalProps) => {
   return (
     <div className={styles.modal}>
       <div className={styles["text-container"]}>
-        <div className={styles["close-btn-container"]}>
+        <div className={styles["close-btn-container"]} onClick={onCloseClick}>
           <IoCloseSharp size={40} className={styles["modal-close-icon"]} />
         </div>
         <HeadingTwo>Modal</HeadingTwo>

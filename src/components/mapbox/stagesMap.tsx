@@ -8,7 +8,7 @@ import Modal from "./modal/modal";
 type GeoJSONLineString = Feature<LineString>;
 
 const StagesMap = () => {
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const [viewport, setViewport] = useState({
     latitude: 59.2677363,
     longitude: 10.4080715,
@@ -44,7 +44,7 @@ const StagesMap = () => {
       style={{ width: "100%", height: "100dvh" }}
       mapStyle="mapbox://styles/mustafabaker/clf808dwr00bt01qkc8rwflyc"
     >
-      {showModal && <Modal />}
+      {showModal && <Modal onCloseClick={handleCloseModal} />}
       <Marker
         longitude={10.4080715}
         latitude={59.2677363}

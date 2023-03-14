@@ -19,6 +19,7 @@
 
 .modal-close-icon {
   color: #fff;
+  cursor: pointer;
 }
 
 .close-btn-container {
