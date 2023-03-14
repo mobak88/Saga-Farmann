@@ -1,5 +1,5 @@
 .wrapper {
-  width: 60%;
+  width: 70em;
   margin-top: 5em;
   margin-bottom: 5em;
   display: grid;
@@ -58,10 +58,9 @@
 }
 
 .pointer {
-  z-index: -1;
-  border-left: 190px solid transparent;
-  border-right: 190px solid transparent;
-  border-top: 50px solid var(--very-dark-blue);
+  border-left: 19rem solid transparent;
+  border-right: 19rem solid transparent;
+  border-top: 5rem solid var(--very-dark-blue);
 }
 
 .imageBox-one {
