@@ -1,0 +1,28 @@
+.modal {
+  z-index: 10;
+  background-color: var(--bg-dark-blue);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  max-width: 100rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  padding: 8rem;
+}
+
+.modal-close-icon {
+  color: #fff;
+}
+
+.close-btn-container {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
