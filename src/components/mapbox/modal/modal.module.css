@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   max-width: 100rem;
+  width: 50%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -26,4 +27,35 @@
   position: absolute;
   top: 5%;
   right: 5%;
+}
+
+.modal-heading {
+  color: #fff;
+  font-family: "Comfortaa";
+  font-weight: 500;
+  font-size: var(--heading-three);
+}
+
+.image-container {
+  max-width: 100rem;
+  width: 100%;
+}
+
+.image {
+  width: 100%;
+  object-fit: cover;
+}
+
+.paragraph-container {
+  max-width: 80%;
+}
+
+@media screen and (max-width: 140rem) {
+  .modal {
+    width: 90%;
+  }
+
+  .paragraph-container {
+    max-width: 95%;
+  }
 }

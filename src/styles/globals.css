@@ -196,12 +196,3 @@ body {
 .swiper-slide img {
   display: block;
 }
-
-.mapboxgl-popup-anchor-bottom,
-.mapboxgl-popup-tip {
-  display: none;
-}
-
-.mapboxgl-popup-content {
-  background: var(--bg-dark-blue);
-}
