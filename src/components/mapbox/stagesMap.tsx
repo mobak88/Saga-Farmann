@@ -7,7 +7,21 @@ import Modal from "./modal/modal";
 
 type GeoJSONLineString = Feature<LineString>;
 
-const StagesMap = ({ stages }: any) => {
+interface SingleStageProps {
+  id: number;
+  acf: {
+    coordinates: {
+      long: string;
+      lat: string;
+    };
+    stage_number: number;
+  };
+}
+export interface StagesProps {
+  stages: SingleStageProps[];
+}
+
+const StagesMap = ({ stages }: StagesProps) => {
   const [showModal, setShowModal] = useState(false);
   const [viewport, setViewport] = useState({
     latitude: 48.1351,

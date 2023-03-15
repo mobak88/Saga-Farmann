@@ -1,7 +1,8 @@
 import StagesMap from "@/components/mapbox/stagesMap";
 import React from "react";
+import { StagesProps } from "@/components/mapbox/stagesMap";
 
-const Map = ({ stages }: any) => {
+const Map = ({ stages }: StagesProps) => {
   return (
     <div>
       <h1>Map</h1>
