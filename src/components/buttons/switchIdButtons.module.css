@@ -1,0 +1,13 @@
+.change-id-btn-left,
+.change-id-btn-right {
+  background-color: transparent;
+  border: 2px solid var(--light-text-color);
+  color: var(--light-text-color);
+  width: 15rem;
+  padding: 2.5rem;
+  margin-top: 5rem;
+}
+
+.change-id-btn-left {
+  margin-right: 2rem;
+}

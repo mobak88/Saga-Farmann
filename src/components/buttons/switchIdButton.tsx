@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./switchIdButtons.module.css";
 
 type Props = {
   currentId: number;
@@ -19,8 +20,12 @@ const SwitchIdButton = ({ currentId, totalIds, setCurrentId }: Props) => {
 
   return (
     <div>
-      <button onClick={handlePrev}>Previous</button>
-      <button onClick={handleNext}>Next</button>
+      <button onClick={handlePrev} className={styles["change-id-btn-left"]}>
+        Previous
+      </button>
+      <button onClick={handleNext} className={styles["change-id-btn-right"]}>
+        Next
+      </button>
     </div>
   );
 };

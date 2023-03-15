@@ -5,6 +5,7 @@ import Card from "../../components/cards/crewCard/crewCard";
 import SwitchIdButton from "@/components/buttons/switchIdButton";
 import styles from "./crew.module.css";
 import { GetStaticProps } from "next";
+import HeadingTwo from "@/components/typography/headings/headingTwo";
 
 type Member = {
   member_image: string;
@@ -32,14 +33,14 @@ const CrewMemberPage = ({ crewMembers }: Props) => {
     <>
       <Navbar />
       <Header header={"Crew Page"} />
-      <h1>{title.rendered}</h1>
-      <SwitchIdButton
-        currentId={currentId}
-        totalIds={ids.length}
-        setCurrentId={setCurrentId}
-      />
-      <div className={styles["card-container"]}>
-        <div>
+      <div className={styles["main-wrapper"]}>
+        <SwitchIdButton
+          currentId={currentId}
+          totalIds={ids.length}
+          setCurrentId={setCurrentId}
+        />
+        <HeadingTwo>{title.rendered}</HeadingTwo>
+        <div className={styles["card-container"]}>
           {acf.member.map((member, index) => (
             <Card
               key={index}
