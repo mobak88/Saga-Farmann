@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Map, { Marker, Source, Layer, Popup } from "react-map-gl";
+import Map, { Marker, Source, Layer } from "react-map-gl";
 import { Feature, LineString } from "geojson";
 import "mapbox-gl/dist/mapbox-gl.css";
 import MapMarker from "./mapMarker";
@@ -8,7 +8,7 @@ import Modal from "./modal/modal";
 type GeoJSONLineString = Feature<LineString>;
 
 const StagesMap = () => {
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const [viewport, setViewport] = useState({
     latitude: 59.2677363,
     longitude: 10.4080715,
