@@ -7,23 +7,27 @@ import Modal from "./modal/modal";
 
 type GeoJSONLineString = Feature<LineString>;
 
-const StagesMap = () => {
+const StagesMap = ({ stages }: any) => {
   const [showModal, setShowModal] = useState(false);
   const [viewport, setViewport] = useState({
-    latitude: 59.2677363,
-    longitude: 10.4080715,
-    zoom: 5,
+    latitude: 48.1351,
+    longitude: 11.582,
+    zoom: 4.5,
   });
+
+  const lineCoordinates = stages
+    .sort((a, b) => a.acf.stage_number - b.acf.stage_number)
+    .map((stage) => [
+      parseInt(stage.acf.coordinates.long),
+      parseInt(stage.acf.coordinates.lat),
+    ]);
 
   const lineData: GeoJSONLineString = {
     type: "Feature",
     properties: {},
     geometry: {
       type: "LineString",
-      coordinates: [
-        [10.4080715, 59.2677363],
-        [10.684738, 53.866444],
-      ],
+      coordinates: lineCoordinates,
     },
   };
 
@@ -45,16 +49,17 @@ const StagesMap = () => {
       mapStyle="mapbox://styles/mustafabaker/clf808dwr00bt01qkc8rwflyc"
     >
       {showModal && <Modal onCloseClick={handleCloseModal} />}
-      <Marker
-        longitude={10.4080715}
-        latitude={59.2677363}
-        onClick={handleShowModal}
-      >
-        <MapMarker />
-      </Marker>
-      <Marker longitude={10.684738} latitude={53.866444}>
-        <MapMarker />
-      </Marker>
+      {stages &&
+        stages.map((stage) => (
+          <Marker
+            key={stage.id}
+            longitude={parseInt(stage.acf.coordinates.long)}
+            latitude={parseInt(stage.acf.coordinates.lat)}
+            onClick={handleShowModal}
+          >
+            <MapMarker />
+          </Marker>
+        ))}
       <Source id="polylineLayer" type="geojson" data={lineData}>
         <Layer
           id="lineLayer"
@@ -65,7 +70,7 @@ const StagesMap = () => {
           }}
           paint={{
             "line-color": "#bf625f",
-            "line-width": 8,
+            "line-width": 6,
           }}
         />
       </Source>
