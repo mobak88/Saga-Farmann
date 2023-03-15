@@ -47,19 +47,17 @@ const StagesMap = ({ stages }: StagesProps) => {
 
   const handleShowModal = () => {
     setShowModal(true);
-    console.log("show:", showModal);
   };
 
   const handleCloseModal = () => {
     setShowModal(false);
-    console.log("close:", showModal);
   };
 
   return (
     <Map
       mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_API_KEY}
       initialViewState={viewport}
-      style={{ width: "100%", height: "100dvh" }}
+      style={{ width: "100%", minHeight: "100dvh", height: "100rem" }}
       mapStyle="mapbox://styles/mustafabaker/clf808dwr00bt01qkc8rwflyc"
     >
       {showModal && <Modal onCloseClick={handleCloseModal} />}

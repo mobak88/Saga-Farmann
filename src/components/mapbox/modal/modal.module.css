@@ -59,3 +59,15 @@
     max-width: 95%;
   }
 }
+
+@media screen and (max-width: 50rem) {
+  .text-container {
+    gap: 3rem;
+    padding: 4rem;
+  }
+
+  .close-btn-container {
+    top: 2%;
+    right: 4%;
+  }
+}

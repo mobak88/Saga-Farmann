@@ -7,7 +7,7 @@ const ModalLinks = () => {
     <div className={styles["links-container"]}>
       <LinkTo url="/">Blog</LinkTo>
       <LinkTo url="/">Crew</LinkTo>
-      <LinkTo url="/">Destinations</LinkTo>
+      <LinkTo url="/">Destination</LinkTo>
     </div>
   );
 };
