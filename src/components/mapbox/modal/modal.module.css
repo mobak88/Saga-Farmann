@@ -72,7 +72,7 @@
 @media screen and (max-width: 50rem) {
   .modal {
     max-height: 60rem;
-    top: 40%;
+    top: 45%;
   }
 
   .text-container {
