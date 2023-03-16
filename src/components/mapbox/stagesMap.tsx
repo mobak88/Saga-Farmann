@@ -9,19 +9,14 @@ type GeoJSONLineString = Feature<LineString>;
 
 interface SingleStageProps {
   id: number;
-  title: { rendered: string };
-  acf: {
-    coordinates: {
-      long: string;
-      lat: string;
-    };
-    stage_number: number;
-    stage: [
-      {
-        stage_text_area: [{ stage_text: string }];
-      }
-    ];
+  title: string;
+  coordinates: {
+    long: string;
+    lat: string;
   };
+  stage_number: number;
+  stage_text_area: [{ stage_text: string }];
+  current_destination: boolean;
 }
 export interface StagesProps {
   stages: SingleStageProps[];
@@ -61,10 +56,10 @@ const StagesMap = ({ stages }: StagesProps) => {
   }, [showModal.stageId]);
 
   const lineCoordinates = stages
-    .sort((a, b) => a.acf.stage_number - b.acf.stage_number)
+    .sort((a, b) => a.stage_number - b.stage_number)
     .map((stage) => [
-      parseInt(stage.acf.coordinates.long),
-      parseInt(stage.acf.coordinates.lat),
+      parseInt(stage.coordinates.long),
+      parseInt(stage.coordinates.lat),
     ]);
 
   const lineData: GeoJSONLineString = {
@@ -93,8 +88,8 @@ const StagesMap = ({ stages }: StagesProps) => {
     >
       {showModal.modalOpen && modalStage && (
         <Modal
-          title={modalStage.title.rendered}
-          text={modalStage.acf.stage[0].stage_text_area[0].stage_text}
+          title={modalStage.title}
+          text={modalStage.stage_text_area[0].stage_text}
           onCloseClick={handleCloseModal}
         />
       )}
@@ -102,8 +97,8 @@ const StagesMap = ({ stages }: StagesProps) => {
         stages.map((stage) => (
           <Marker
             key={stage.id}
-            longitude={parseInt(stage.acf.coordinates.long)}
-            latitude={parseInt(stage.acf.coordinates.lat)}
+            longitude={parseInt(stage.coordinates.long)}
+            latitude={parseInt(stage.coordinates.lat)}
             onClick={() => handleShowModal(stage.id)}
           >
             <MapMarker />
