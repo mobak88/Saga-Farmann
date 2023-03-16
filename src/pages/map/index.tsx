@@ -3,6 +3,7 @@ import React from "react";
 import { StagesProps } from "@/components/mapbox/stagesMap";
 
 const Map = ({ stages }: StagesProps) => {
+  console.log(stages);
   return (
     <div>
       <h1>Map</h1>
@@ -13,7 +14,7 @@ const Map = ({ stages }: StagesProps) => {
 
 export async function getStaticProps() {
   const res = await fetch(
-    "https://dev.sagafarmann.com/wp/wp-json/wp/v2/destinations"
+    "https://dev.sagafarmann.com/wp/wp-json/wp/v2/stages"
   );
   const stages = await res.json();
 
