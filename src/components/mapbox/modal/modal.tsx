@@ -6,25 +6,22 @@ import styles from "./modal.module.css";
 import { IoCloseSharp } from "react-icons/io5";
 import ModalLinks from "./modalLinks/modalLinks";
 
-interface CloseModalProps {
+interface ModalProps {
   onCloseClick: () => void;
+  title: string;
+  text: string;
 }
 
-const Modal = ({ onCloseClick }: CloseModalProps) => {
+const Modal = ({ onCloseClick, title, text }: ModalProps) => {
   return (
     <div className={styles.modal}>
       <div className={styles["text-container"]}>
         <div className={styles["close-btn-container"]} onClick={onCloseClick}>
           <IoCloseSharp size={40} className={styles["modal-close-icon"]} />
         </div>
-        <h2 className={styles["modal-heading"]}>Modal</h2>
+        <h2 className={styles["modal-heading"]}>{title}</h2>
         <div className={styles["paragraph-container"]}>
-          <ParagraphsSmall>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-            doloremque aspernatur eveniet non nihil architecto assumenda officia
-            commodi sit, sed consequuntur modi impedit nemo maiores repellendus
-            optio, soluta quam. Magnam.
-          </ParagraphsSmall>
+          <ParagraphsSmall>{text}</ParagraphsSmall>
         </div>
         <ModalLinks />
       </div>

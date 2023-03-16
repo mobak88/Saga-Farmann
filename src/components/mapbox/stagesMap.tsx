@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Map, { Marker, Source, Layer } from "react-map-gl";
 import { Feature, LineString } from "geojson";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -9,25 +9,56 @@ type GeoJSONLineString = Feature<LineString>;
 
 interface SingleStageProps {
   id: number;
+  title: { rendered: string };
   acf: {
     coordinates: {
       long: string;
       lat: string;
     };
     stage_number: number;
+    stage: [
+      {
+        stage_text_area: [{ stage_text: string }];
+      }
+    ];
   };
 }
 export interface StagesProps {
   stages: SingleStageProps[];
 }
 
+interface ShowModalProps {
+  stageId: null | number;
+  modalOpen: boolean;
+}
+
 const StagesMap = ({ stages }: StagesProps) => {
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState<ShowModalProps>({
+    modalOpen: false,
+    stageId: null,
+  });
+
   const [viewport, setViewport] = useState({
     latitude: 48.1351,
     longitude: 11.582,
     zoom: 4.5,
   });
+
+  const [modalStage, setModalStage] = useState<SingleStageProps | null>(null);
+
+  useEffect(() => {
+    if (!showModal.stageId || showModal.stageId === null) {
+      return;
+    }
+
+    const stage = stages.find((stage) => stage.id === showModal.stageId);
+
+    if (!stage) {
+      return;
+    }
+
+    setModalStage(stage);
+  }, [showModal.stageId]);
 
   const lineCoordinates = stages
     .sort((a, b) => a.acf.stage_number - b.acf.stage_number)
@@ -45,12 +76,12 @@ const StagesMap = ({ stages }: StagesProps) => {
     },
   };
 
-  const handleShowModal = () => {
-    setShowModal(true);
+  const handleShowModal = (stageId: number) => {
+    setShowModal({ stageId: stageId, modalOpen: true });
   };
 
   const handleCloseModal = () => {
-    setShowModal(false);
+    setShowModal((prev) => ({ ...prev, modalOpen: false }));
   };
 
   return (
@@ -60,14 +91,20 @@ const StagesMap = ({ stages }: StagesProps) => {
       style={{ width: "100%", minHeight: "100dvh", height: "100rem" }}
       mapStyle="mapbox://styles/mustafabaker/clf808dwr00bt01qkc8rwflyc"
     >
-      {showModal && <Modal onCloseClick={handleCloseModal} />}
+      {showModal.modalOpen && modalStage && (
+        <Modal
+          title={modalStage.title.rendered}
+          text={modalStage.acf.stage[0].stage_text_area[0].stage_text}
+          onCloseClick={handleCloseModal}
+        />
+      )}
       {stages &&
         stages.map((stage) => (
           <Marker
             key={stage.id}
             longitude={parseInt(stage.acf.coordinates.long)}
             latitude={parseInt(stage.acf.coordinates.lat)}
-            onClick={handleShowModal}
+            onClick={() => handleShowModal(stage.id)}
           >
             <MapMarker />
           </Marker>
