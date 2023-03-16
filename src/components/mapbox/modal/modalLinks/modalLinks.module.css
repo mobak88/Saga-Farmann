@@ -10,3 +10,9 @@
     gap: 2rem;
   }
 }
+
+@media screen and (max-width: 35rem) {
+  .links-container {
+    gap: 1rem;
+  }
+}

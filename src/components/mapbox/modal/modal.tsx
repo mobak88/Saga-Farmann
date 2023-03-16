@@ -1,4 +1,4 @@
-import ParagraphsSmall from "@/components/typography/paragraphs/paragraphsSmall";
+import ParagraphsSmallTruncated from "@/components/typography/paragraphs/ParagraphsSmallTruncated";
 import Image from "next/image";
 import React from "react";
 import styles from "./modal.module.css";
@@ -20,7 +20,7 @@ const Modal = ({ onCloseClick, title, text }: ModalProps) => {
         </div>
         <h2 className={styles["modal-heading"]}>{title}</h2>
         <div className={styles["paragraph-container"]}>
-          <p className={styles["modal-paragraph"]}>{text}</p>
+          <ParagraphsSmallTruncated>{text}</ParagraphsSmallTruncated>
         </div>
         <ModalLinks />
       </div>

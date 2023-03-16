@@ -80,13 +80,6 @@
     padding: 4rem;
   }
 
-  .modal-paragraph {
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-  }
-
   .close-btn-container {
     top: 2%;
     right: 4%;

@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import styles from "./paragraphs.module.css";
 
-interface ParagraphProps {
+export interface ParagraphProps {
   children: ReactNode;
   dark?: boolean;
 }
