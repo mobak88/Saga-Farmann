@@ -1,4 +1,3 @@
-import HeadingTwo from "@/components/typography/headings/headingTwo";
 import ParagraphsSmall from "@/components/typography/paragraphs/paragraphsSmall";
 import Image from "next/image";
 import React from "react";
