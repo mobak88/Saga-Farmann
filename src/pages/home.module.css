@@ -1,0 +1,6 @@
+.grid-wrapper {
+  width: 100%;
+  background-color: var(--bg-pink-brown);
+  display: flex;
+  justify-content: center;
+}
