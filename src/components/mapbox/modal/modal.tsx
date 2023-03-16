@@ -20,7 +20,7 @@ const Modal = ({ onCloseClick, title, text }: ModalProps) => {
         </div>
         <h2 className={styles["modal-heading"]}>{title}</h2>
         <div className={styles["paragraph-container"]}>
-          <ParagraphsSmall>{text}</ParagraphsSmall>
+          <p className={styles["modal-paragraph"]}>{text}</p>
         </div>
         <ModalLinks />
       </div>
