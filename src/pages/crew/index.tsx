@@ -32,14 +32,17 @@ const CrewMemberPage = ({ crewMembers }: Props) => {
   return (
     <>
       <Navbar />
-      <Header header={"Crew Page"} />
+
+      <Header header={title.rendered} />
+
       <div className={styles["main-wrapper"]}>
         <SwitchIdButton
           currentId={currentId}
           totalIds={ids.length}
           setCurrentId={setCurrentId}
         />
-        <HeadingTwo>{title.rendered}</HeadingTwo>
+
+        <HeadingTwo>Current crew</HeadingTwo>
         <div className={styles["card-container"]}>
           {acf.member.map((member, index) => (
             <Card
