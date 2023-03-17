@@ -12,6 +12,15 @@
   --hamburger-margin: 1rem;
   --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
   --animation-timing: 200ms ease-in-out;
+
+  /* FONT SIZES */
+
+  --heading-one: 7.2rem;
+  --heading-two: 4.5rem;
+  --heading-three: 3.6rem;
+
+  --paragraph-size-l: 2.4rem;
+  --paragraph-size-sm: 1.8rem;
 }
 
 html,

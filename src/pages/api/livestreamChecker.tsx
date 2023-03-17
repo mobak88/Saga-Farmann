@@ -9,15 +9,13 @@ export default async function LivestreamStatus(
   res: NextApiResponse<LivestreamStatus>
 ) {
   const response = await fetch(
-    "https://www.youtube.com/embed/live_stream?channel=UCrOw0E3-URvN_y54hX9Jg6Q"
+    `https://www.youtube.com/embed/live_stream?channel=${process.env.NEXT_PUBLIC_CHANNEL_ID}`
   );
   const data = await response.text();
 
-  if (data.includes(`"ERROR`)) {
-    console.log("Livestream is offline");
-    res.status(200).json({ isOnline: false });
-  } else {
-    console.log("Livestream is online");
+  if (!data.includes(`"ERROR`)) {
     res.status(200).json({ isOnline: true });
+  } else {
+    res.status(200).json({ isOnline: false });
   }
 }

@@ -1,38 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./livestreamVideo.module.css";
-import YouTube, { YouTubeProps } from "react-youtube";
-import LivestreamStatus from "@/pages/api/livestreamChecker";
-import { NextApiRequest } from "next";
 
-//https:www.googleapis.com/youtube/v3/search?part=snippet&channelId=UC2rhxUIAPHCu5L5m83T_0xQ&type=video&eventType=live&key=AIzaSyAWHOtuJTr_da9Rh2QFpoNqBnoXmFNUIAY
-const LivestreamVideo = ({ data }: any) => {
-  const CHANNEL_ID = "UCrOw0E3-URvN_y54hX9Jg6Q";
-  let offlineDisplay: String = "Currently offline";
+const LivestreamVideo = () => {
+  const [isOnline, setIsOnline] = useState<Boolean>(false);
+
+  let offlineDisplay: string =
+    "https://media.discordapp.net/attachments/1084295088739471451/1086015257715167362/Hernok_Vikings_on_a_voyage_through_europe_sleeping_on_the_ship._861ec5d8-5b26-4882-9b93-0b164f9dd4ca.png?width=1576&height=909";
+
+  useEffect(() => {
+    getStatus();
+  }, []);
+
+  async function getStatus() {
+    var resp = await fetch("/api/livestreamChecker");
+    const data = await resp.json();
+    setIsOnline(data.isOnline);
+  }
 
   return (
-    <div className={styles["youtube-container"]}>
-      <div className={styles["youtube-wrapper"]}>
-        <iframe
-          className={styles["youtube-player"]}
-          src={`https://www.youtube.com/embed/live_stream?channel=${CHANNEL_ID}&autoplay=1&mute=1`}
-        ></iframe>
+    <>
+      <div className={styles["youtube-container"]}>
+        <div className={styles["youtube-wrapper"]}>
+          {isOnline ? (
+            <iframe
+              className={styles["youtube-player"]}
+              src={`https://www.youtube.com/embed/live_stream?channel=${process.env.NEXT_PUBLIC_CHANNEL_ID}&autoplay=1&mute=1`}
+            ></iframe>
+          ) : (
+            <div>
+              <img className={styles["youtube-player"]} src={offlineDisplay} />
+              <h1 className={styles["offline-display-text"]}>
+                We are currently not live
+              </h1>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 export default LivestreamVideo;
-{
-  /*  {videoId ? (<YouTube
-            className={styles["youtube-player"]}
-            videoId={`${videoId}`}
-            opts={opts}
-            onReady={onPlayerReady}
-          />  ) : (
-          <h1>{offlineDisplay}</h1>
-        )}
-		{isOnline ? (
-		   ) : (
-          <h1>{offlineDisplay}</h1>
-        )}
-		*/
-}
