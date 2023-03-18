@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Map, { Marker, Source, Layer } from "react-map-gl";
-import { Feature, LineString } from "geojson";
+import Map, { Marker } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import MapMarker from "./mapMarker";
 import Modal from "./modal/modal";
-
-type GeoJSONLineString = Feature<LineString>;
 
 interface SingleStageProps {
   id: number;
@@ -53,23 +50,7 @@ const StagesMap = ({ stages }: StagesProps) => {
     }
 
     setModalStage(stage);
-  }, [showModal.stageId]);
-
-  const lineCoordinates = stages
-    .sort((a, b) => a.stage_number - b.stage_number)
-    .map((stage) => [
-      parseInt(stage.coordinates.long),
-      parseInt(stage.coordinates.lat),
-    ]);
-
-  const lineData: GeoJSONLineString = {
-    type: "Feature",
-    properties: {},
-    geometry: {
-      type: "LineString",
-      coordinates: lineCoordinates,
-    },
-  };
+  }, [showModal.stageId, stages]);
 
   const handleShowModal = (stageId: number) => {
     setShowModal({ stageId: stageId, modalOpen: true });
@@ -77,6 +58,7 @@ const StagesMap = ({ stages }: StagesProps) => {
 
   const handleCloseModal = () => {
     setShowModal((prev) => ({ ...prev, modalOpen: false }));
+    setModalStage(null);
   };
 
   return (
@@ -84,7 +66,7 @@ const StagesMap = ({ stages }: StagesProps) => {
       mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_API_KEY}
       initialViewState={viewport}
       style={{ width: "100%", minHeight: "100dvh", height: "100rem" }}
-      mapStyle="mapbox://styles/mustafabaker/clf808dwr00bt01qkc8rwflyc"
+      mapStyle="mapbox://styles/mustafabaker/clfcpze8c00gv01mryfvd4i81"
     >
       {showModal.modalOpen && modalStage && (
         <Modal
@@ -97,27 +79,13 @@ const StagesMap = ({ stages }: StagesProps) => {
         stages.map((stage) => (
           <Marker
             key={stage.id}
-            longitude={parseInt(stage.coordinates.long)}
-            latitude={parseInt(stage.coordinates.lat)}
+            longitude={parseFloat(stage.coordinates.long)}
+            latitude={parseFloat(stage.coordinates.lat)}
             onClick={() => handleShowModal(stage.id)}
           >
             <MapMarker />
           </Marker>
         ))}
-      <Source id="polylineLayer" type="geojson" data={lineData}>
-        <Layer
-          id="lineLayer"
-          type="line"
-          layout={{
-            "line-join": "round",
-            "line-cap": "round",
-          }}
-          paint={{
-            "line-color": "#bf625f",
-            "line-width": 6,
-          }}
-        />
-      </Source>
     </Map>
   );
 };
