@@ -1,1 +1,16 @@
+.main-wrapper {
+  background-color: var(--bg-dark-blue);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  padding-top: 10rem;
+  height: 100%;
+}
 
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}

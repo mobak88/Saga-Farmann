@@ -1,6 +1,8 @@
 import Image, { StaticImageData } from "next/image";
 import React from "react";
+import HeadingOne from "../typography/headings/headingOne";
 import styles from "./Header.module.css";
+import ReactMarkdown from "react-markdown";
 
 interface HeaderInterface {
   header: string;
@@ -9,7 +11,9 @@ interface HeaderInterface {
 const Header = ({ header }: HeaderInterface) => {
   return (
     <div className={styles.wrapper}>
-      <h1>{header}</h1>
+      <HeadingOne>
+        <ReactMarkdown>{header}</ReactMarkdown>
+      </HeadingOne>
     </div>
   );
 };
