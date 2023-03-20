@@ -3,11 +3,8 @@ import destinationsData from "../../components/cards/destinationCard/data";
 import DestinationCard from "@/components/cards/destinationCard/destinationCard";
 import styles from "./destinations.module.css";
 import Header from "@/components/header/header";
-type LinkProps = {
-  links: { href: string; label: string }[];
-};
 
-const Destinations = ({ links }: LinkProps) => {
+const Destinations = () => {
   return (
     <div className={styles.wrapper}>
       <Header header={"Destinations"} />
