@@ -34,28 +34,39 @@ const LatestNewsSlider = ({ posts }: PostsProps) => {
       <div className={styles["swiper-nav-prev"]} ref={swiperNavPrevRef}>
         <BsFillArrowLeftCircleFill className={styles["arrow-icon"]} size={50} />
       </div>
-
       <Swiper
         navigation={{
           prevEl: swiperNavPrevRef.current,
           nextEl: swiperNavNextRef.current,
         }}
         onBeforeInit={onBeforeInit}
-        className="mySwiper"
+        className={styles["my-swiper"]}
         modules={[Navigation]}
         spaceBetween={20}
-        slidesPerView={3}
+        breakpoints={{
+          640: {
+            slidesPerView: 1,
+          },
+          768: {
+            slidesPerView: 2,
+          },
+          1000: {
+            slidesPerView: 3,
+          },
+        }}
         loop={true}
       >
         {posts &&
           posts.map((post) => (
             <SwiperSlide key={post.id}>
-              <SliderCard
-                imageSrc={post.imageSrc}
-                heading={post.heading}
-                text={post.text}
-                alt={post.alt}
-              />
+              <div className={styles["slider-card-container"]}>
+                <SliderCard
+                  imageSrc={post.imageSrc}
+                  heading={post.heading}
+                  text={post.text}
+                  alt={post.alt}
+                />
+              </div>
             </SwiperSlide>
           ))}
       </Swiper>
