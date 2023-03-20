@@ -1,12 +1,13 @@
+import type { ReactElement } from "react";
 import Head from "next/head";
 import LatestNews from "@/components/latestNews/latestNews";
 import sliderData from "@/components/latestNews/latestNewsSlider/sliderData";
 import HeadingOne from "@/components/typography/headings/headingOne";
-import Navbar from "@/components/navigation/navbar/navbar";
 import GridImagesAndText from "@/components/gridImagesAndText/gridImagesAndText";
 import styles from "./home.module.css";
 import StagesMap from "@/components/mapbox/stagesMap";
 import { StagesProps } from "@/components/mapbox/stagesMap";
+import LightLayout from "@/components/layout/LightLayout";
 
 interface SingleStageApiProps {
   id: number;
@@ -26,7 +27,7 @@ interface SingleStageApiProps {
   };
 }
 
-export default function Home({ stages }: StagesProps) {
+const Home = ({ stages }: StagesProps) => {
   return (
     <>
       <Head>
@@ -35,7 +36,6 @@ export default function Home({ stages }: StagesProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar />
       <main>
         <HeadingOne>Saga</HeadingOne>
         <div className={styles["grid-wrapper"]}>
@@ -50,7 +50,7 @@ export default function Home({ stages }: StagesProps) {
       </main>
     </>
   );
-}
+};
 
 export async function getStaticProps() {
   const res = await fetch(
@@ -78,3 +78,9 @@ export async function getStaticProps() {
     },
   };
 }
+
+Home.getLayout = (page: ReactElement) => {
+  return <LightLayout>{page}</LightLayout>;
+};
+
+export default Home;

@@ -1,8 +1,12 @@
-.navbar_container {
+.navbar-container {
   display: flex;
   padding: 2rem;
   justify-content: space-between;
   align-items: center;
   background-color: #172327;
   max-height: 4rem;
+}
+
+.navbar-container-light {
+  background-color: transparent;
 }
