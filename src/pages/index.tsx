@@ -2,8 +2,7 @@ import type { ReactElement } from "react";
 import Head from "next/head";
 import LatestNews from "@/components/latestNews/latestNews";
 import sliderData from "@/components/latestNews/latestNewsSlider/sliderData";
-import HeadingOne from "@/components/typography/headings/headingOne";
-import HeadingTwo from "@/components/typography/headings/headingTwo";
+import Hero from "@/components/hero/Hero";
 import GridImagesAndText from "@/components/gridImagesAndText/gridImagesAndText";
 import styles from "./home.module.css";
 import StagesMap from "@/components/mapbox/stagesMap";
@@ -39,25 +38,23 @@ const Home = ({ stages }: StagesProps) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <HeadingOne>Saga</HeadingOne>
-        <div className={styles["grid-wrapper"]}>
-          <GridImagesAndText />
-        </div>
-        <StagesMap stages={stages} />
-        <LivestreamVideo />
-        <ParagraphsSmall dark={true}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
-          accusantium facilis excepturi debitis perferendis, dignissimos cumque
-          atque amet illo nihil dolor ratione tempora minima sapiente quod.
-          Perferendis tempora labore omnis.
-        </ParagraphsSmall>
-        <LatestNews
-          postHeading="Latest News and  posts"
-          postText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut."
-          posts={sliderData}
-        />
-      </main>
+      <Hero />
+      <div className={styles["grid-wrapper"]}>
+        <GridImagesAndText />
+      </div>
+      <StagesMap stages={stages} />
+      <LivestreamVideo />
+      <ParagraphsSmall dark={true}>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
+        accusantium facilis excepturi debitis perferendis, dignissimos cumque
+        atque amet illo nihil dolor ratione tempora minima sapiente quod.
+        Perferendis tempora labore omnis.
+      </ParagraphsSmall>
+      <LatestNews
+        postHeading="Latest News and  posts"
+        postText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut."
+        posts={sliderData}
+      />
     </>
   );
 };
