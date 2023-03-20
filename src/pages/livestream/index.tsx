@@ -1,16 +1,17 @@
+import Header from "@/components/header/header";
 import LivestreamVideo from "@/components/livestream/livestreamVideo";
-import Navbar from "@/components/navigation/navbar/navbar";
+import HeadingTwo from "@/components/typography/headings/headingTwo";
 import React, { useState, useEffect } from "react";
 import styles from "./livestream.module.css";
 
 const Livestream = () => {
   return (
-    <div>
-      <Navbar />
+    <>
+      <Header header={"Livestream"} />
       <div className={styles["page-container"]}>
         <LivestreamVideo />
       </div>
-    </div>
+    </>
   );
 };
 

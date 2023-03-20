@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import HeadingTwo from "../typography/headings/headingTwo";
+import ParagraphsSmall from "../typography/paragraphs/paragraphsSmall";
 import styles from "./livestreamVideo.module.css";
 
 const LivestreamVideo = () => {
@@ -19,23 +21,37 @@ const LivestreamVideo = () => {
 
   return (
     <>
-      <div className={styles["youtube-container"]}>
-        <div className={styles["youtube-wrapper"]}>
-          {isOnline ? (
-            <iframe
-              className={styles["youtube-player"]}
-              src={`https://www.youtube.com/embed/live_stream?channel=${process.env.NEXT_PUBLIC_CHANNEL_ID}&autoplay=1&mute=1`}
-            ></iframe>
-          ) : (
-            <div>
-              <img className={styles["youtube-player"]} src={offlineDisplay} />
-              <h1 className={styles["offline-display-text"]}>
-                We are currently offline
-              </h1>
+      {isOnline ? (
+        <>
+          <div className={styles["heading-wrapper"]}>
+            <HeadingTwo>Title</HeadingTwo>
+          </div>
+          <div className={styles["content-container"]}>
+            <div className={styles["youtube-holder"]}>
+              <iframe
+                width={"560px"}
+                height={"315px"}
+                className={styles["youtube-player"]}
+                src={`https://www.youtube.com/embed/live_stream?channel=${process.env.NEXT_PUBLIC_CHANNEL_ID}&autoplay=1&mute=1`}
+              ></iframe>
             </div>
-          )}
+          </div>
+          <div className={styles["description-wrapper"]}>
+            <ParagraphsSmall>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis
+              hic sed rem excepturi expedita quidem, fugiat cum sequi, libero
+              impedit fugit eos consectetur provident quos inventore dignissimos
+              tenetur, maxime temporibus!
+            </ParagraphsSmall>
+          </div>
+        </>
+      ) : (
+        <div className={styles["offline"]}>
+          <div className={styles["offline-wrapper"]}>
+            <h2 className={styles["offline-text"]}>We are currently offline</h2>
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 };
