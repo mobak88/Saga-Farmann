@@ -66,7 +66,7 @@ const StagesMap = ({ stages }: StagesProps) => {
       mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_API_KEY}
       initialViewState={viewport}
       style={{ width: "100%", minHeight: "100dvh", height: "100rem" }}
-      mapStyle="mapbox://styles/mustafabaker/clfcpze8c00gv01mryfvd4i81"
+      mapStyle="mapbox://styles/mustafabaker/clffw0qpm001a01o0i6m1oisp"
     >
       {showModal.modalOpen && modalStage && (
         <Modal
