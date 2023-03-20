@@ -30,11 +30,11 @@ const StagesMap = ({ stages }: StagesProps) => {
     stageId: null,
   });
 
-  const [viewport, setViewport] = useState({
+  const viewport = {
     latitude: 48.1351,
     longitude: 11.582,
     zoom: 4.5,
-  });
+  };
 
   const [modalStage, setModalStage] = useState<SingleStageProps | null>(null);
 
@@ -58,7 +58,6 @@ const StagesMap = ({ stages }: StagesProps) => {
 
   const handleCloseModal = () => {
     setShowModal((prev) => ({ ...prev, modalOpen: false }));
-    setModalStage(null);
   };
 
   return (

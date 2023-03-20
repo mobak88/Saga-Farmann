@@ -1,8 +1,10 @@
 import React from "react";
+import styles from "./mapMarker.module.css";
 
 const MapMarker = () => {
   return (
     <svg
+      className={styles.marker}
       id="Component_61_4"
       data-name="Component 61 – 4"
       xmlns="http://www.w3.org/2000/svg"
