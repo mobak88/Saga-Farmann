@@ -13,6 +13,8 @@ export default async function LivestreamStatus(
   );
   const data = await response.text();
 
+  console.log(data);
+
   if (!data.includes(`"ERROR`)) {
     res.status(200).json({ isOnline: true });
   } else {

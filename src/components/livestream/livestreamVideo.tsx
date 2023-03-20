@@ -4,7 +4,7 @@ import styles from "./livestreamVideo.module.css";
 const LivestreamVideo = () => {
   const [isOnline, setIsOnline] = useState<Boolean>(false);
 
-  let offlineDisplay: string =
+  const offlineDisplay: string =
     "https://media.discordapp.net/attachments/1084295088739471451/1086015257715167362/Hernok_Vikings_on_a_voyage_through_europe_sleeping_on_the_ship._861ec5d8-5b26-4882-9b93-0b164f9dd4ca.png?width=1576&height=909";
 
   useEffect(() => {
@@ -12,7 +12,7 @@ const LivestreamVideo = () => {
   }, []);
 
   async function getStatus() {
-    var resp = await fetch("/api/livestreamChecker");
+    var resp = await fetch("/api/livestream/livestreamChecker");
     const data = await resp.json();
     setIsOnline(data.isOnline);
   }
@@ -30,7 +30,7 @@ const LivestreamVideo = () => {
             <div>
               <img className={styles["youtube-player"]} src={offlineDisplay} />
               <h1 className={styles["offline-display-text"]}>
-                We are currently not live
+                We are currently offline
               </h1>
             </div>
           )}
