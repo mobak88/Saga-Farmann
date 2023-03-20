@@ -1,3 +1,4 @@
+import LivestreamVideo from "@/components/livestream/livestreamVideo";
 import Head from "next/head";
 import LatestNews from "@/components/LatestNews/latestNews";
 import sliderData from "@/components/LatestNews/latestNewsSlider/sliderData";
@@ -21,6 +22,7 @@ export default function Home() {
         <div className={styles["grid-wrapper"]}>
           <GridImagesAndText />
         </div>
+        <LivestreamVideo />
         <LatestNews
           postHeading="Latest News and  posts"
           postText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut."
