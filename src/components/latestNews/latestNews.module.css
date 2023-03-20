@@ -1,5 +1,7 @@
-.section-container {
+.section-wrapper {
   background-color: var(--bg-dark-blue);
+}
+.section-container {
   padding: 8rem;
   display: flex;
   flex-direction: column;
