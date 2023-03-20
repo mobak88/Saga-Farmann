@@ -3,11 +3,21 @@
   background-color: transparent;
   border: 2px solid var(--light-text-color);
   color: var(--light-text-color);
-  width: 15rem;
-  padding: 2.5rem;
-  margin-top: 5rem;
+  width: 10rem;
+  padding: 1.5rem 2rem;
+  text-decoration: none;
+  font-family: "Comfortaa";
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: flex-end;
 }
 
-.change-id-btn-left {
+/* .change-id-btn-left {
   margin-right: 2rem;
+} */
+
+.btn-wrapper {
+  display: flex;
+  gap: 2rem;
 }
