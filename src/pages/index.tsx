@@ -3,11 +3,14 @@ import Head from "next/head";
 import LatestNews from "@/components/latestNews/latestNews";
 import sliderData from "@/components/latestNews/latestNewsSlider/sliderData";
 import HeadingOne from "@/components/typography/headings/headingOne";
+import HeadingTwo from "@/components/typography/headings/headingTwo";
 import GridImagesAndText from "@/components/gridImagesAndText/gridImagesAndText";
 import styles from "./home.module.css";
 import StagesMap from "@/components/mapbox/stagesMap";
 import { StagesProps } from "@/components/mapbox/stagesMap";
 import LightLayout from "@/components/layout/LightLayout";
+import LivestreamVideo from "@/components/livestream/livestreamVideo";
+import ParagraphsSmall from "@/components/typography/paragraphs/paragraphsSmall";
 
 interface SingleStageApiProps {
   id: number;
@@ -42,6 +45,13 @@ const Home = ({ stages }: StagesProps) => {
           <GridImagesAndText />
         </div>
         <StagesMap stages={stages} />
+        <LivestreamVideo />
+        <ParagraphsSmall dark={true}>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
+          accusantium facilis excepturi debitis perferendis, dignissimos cumque
+          atque amet illo nihil dolor ratione tempora minima sapiente quod.
+          Perferendis tempora labore omnis.
+        </ParagraphsSmall>
         <LatestNews
           postHeading="Latest News and  posts"
           postText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut."
