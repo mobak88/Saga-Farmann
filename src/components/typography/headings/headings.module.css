@@ -15,6 +15,10 @@
   font-size: var(--heading-one);
 }
 
+.heading-one-home {
+  font-size: 11rem;
+}
+
 /* H2 */
 .heading-two {
   font-size: var(--heading-two);

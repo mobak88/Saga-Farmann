@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react";
-import Navbar from "../navigation/navbar/navbar";
 
 interface LightLayoutProps {
   children: React.ReactNode;
@@ -8,7 +7,6 @@ interface LightLayoutProps {
 const LightLayout = ({ children }: LightLayoutProps) => {
   return (
     <>
-      <Navbar lightNavbar={true} />
       <main>{children}</main>
     </>
   );
