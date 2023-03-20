@@ -1,14 +1,35 @@
+
+import type { ReactElement } from "react";
 import LivestreamVideo from "@/components/livestream/livestreamVideo";
 import Head from "next/head";
 import LatestNews from "@/components/LatestNews/latestNews";
 import sliderData from "@/components/LatestNews/latestNewsSlider/sliderData";
 import HeadingOne from "@/components/typography/headings/headingOne";
-import Navbar from "@/components/navigation/navbar/navbar";
 import GridImagesAndText from "@/components/gridImagesAndText/gridImagesAndText";
 import styles from "./home.module.css";
 import StagesMap from "@/components/mapbox/stagesMap";
 import { StagesProps } from "@/components/mapbox/stagesMap";
+import LightLayout from "@/components/layout/LightLayout";
 
+interface SingleStageApiProps {
+  id: number;
+  title: { rendered: string };
+  acf: {
+    coordinates: {
+      long: string;
+      lat: string;
+    };
+    stage_number: number;
+    stage: [
+      {
+        stage_text_area: [{ stage_text: string }];
+      }
+    ];
+    current_destination: boolean;
+  };
+}
+
+const Home = ({ stages }: StagesProps) => {
 interface SingleStageApiProps {
   id: number;
   title: { rendered: string };
@@ -36,7 +57,6 @@ export default function Home({ stages }: StagesProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar />
       <main>
         <HeadingOne>Saga</HeadingOne>
         <div className={styles["grid-wrapper"]}>
@@ -52,7 +72,40 @@ export default function Home({ stages }: StagesProps) {
       </main>
     </>
   );
+};
+
+export async function getStaticProps() {
+  const res = await fetch(
+    "https://dev.sagafarmann.com/wp/wp-json/wp/v2/stages"
+  );
+  const stages = await res.json();
+
+  const newStages = stages.map((stage: SingleStageApiProps) => {
+    return {
+      id: stage.id,
+      title: stage.title.rendered,
+      coordinates: {
+        long: stage.acf.coordinates.long,
+        lat: stage.acf.coordinates.lat,
+      },
+      stage_number: stage.acf.stage_number,
+      stage_text_area: stage.acf.stage[0].stage_text_area,
+      current_destination: stage.acf.current_destination,
+    };
+  });
+
+  return {
+    props: {
+      stages: newStages,
+    },
+  };
 }
+
+Home.getLayout = (page: ReactElement) => {
+  return <LightLayout>{page}</LightLayout>;
+};
+
+export default Home;
 
 export async function getStaticProps() {
   const res = await fetch(
