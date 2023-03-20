@@ -1,7 +1,9 @@
+
 import type { ReactElement } from "react";
+import LivestreamVideo from "@/components/livestream/livestreamVideo";
 import Head from "next/head";
-import LatestNews from "@/components/latestNews/latestNews";
-import sliderData from "@/components/latestNews/latestNewsSlider/sliderData";
+import LatestNews from "@/components/LatestNews/latestNews";
+import sliderData from "@/components/LatestNews/latestNewsSlider/sliderData";
 import HeadingOne from "@/components/typography/headings/headingOne";
 import GridImagesAndText from "@/components/gridImagesAndText/gridImagesAndText";
 import styles from "./home.module.css";
@@ -42,6 +44,7 @@ const Home = ({ stages }: StagesProps) => {
           <GridImagesAndText />
         </div>
         <StagesMap stages={stages} />
+        <LivestreamVideo />
         <LatestNews
           postHeading="Latest News and  posts"
           postText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut."
