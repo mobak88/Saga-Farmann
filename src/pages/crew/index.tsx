@@ -39,7 +39,6 @@ const CrewMemberPage = ({ crewMembers, ids }: Props) => {
 
   return (
     <>
-      <Navbar />
       <Header header={title.rendered} />
       <div className={styles["main-wrapper"]}>
         <div className={styles["btn-link-container"]}>
