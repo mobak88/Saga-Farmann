@@ -44,23 +44,6 @@ interface GridSections {
   };
 }
 
-interface Props {
-  gridSection: GridSections;
-}
-
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const res = await fetch(
-    "https://dev.sagafarmann.com/wp/wp-json/wp/v2/pages/128"
-  );
-  const gridSection: GridSections = await res.json();
-
-  return {
-    props: {
-      gridSection: gridSection,
-    },
-  };
-};
-
 interface SingleStageApiProps {
   id: number;
   title: { rendered: string };
@@ -81,10 +64,10 @@ interface SingleStageApiProps {
 
 interface HomeProps {
   stages: SingleStageProps[];
-  homeData: any;
+  homeData: GridSections;
 }
 
-const Home = ({ stages, homeData, gridSection }: HomeProps) => {
+const Home = ({ stages, homeData }: HomeProps) => {
   console.log(homeData);
 
   return (
@@ -97,38 +80,30 @@ const Home = ({ stages, homeData, gridSection }: HomeProps) => {
       </Head>
       <Hero />
       <div className={styles["grid-wrapper"]}>
-          <GridImagesAndText
-            key={gridSection.id}
-            header1={
-              gridSection.acf.grid_section.first_block.first_block_heading
-            }
-            article1={gridSection.acf.grid_section.first_block.first_block_text}
-            header2={
-              gridSection.acf.grid_section.third_block.third_block_heading
-            }
-            article2={gridSection.acf.grid_section.third_block.third_block_text}
-            header3={
-              gridSection.acf.grid_section.fourth_block.fourth_block_heading
-            }
-            article3={
-              gridSection.acf.grid_section.fourth_block.fourth_block_text
-            }
-            header4={
-              gridSection.acf.grid_section.seventh_block.seventh_block_heading
-            }
-            article4={
-              gridSection.acf.grid_section.seventh_block.seventh_block_text
-            }
-            header5={
-              gridSection.acf.grid_section.eighth_block.eighth_block_heading
-            }
-            article5={
-              gridSection.acf.grid_section.eighth_block.eighth_block_text
-            }
-            image1={gridSection.acf.grid_section.second_block}
-            image2={gridSection.acf.grid_section.fifth_block}
-            image3={gridSection.acf.grid_section.sixth_block}
-          />
+        <GridImagesAndText
+          key={homeData.id}
+          header1={homeData.acf.grid_section.first_block.first_block_heading}
+          article1={homeData.acf.grid_section.first_block.first_block_text}
+          header2={homeData.acf.grid_section.third_block.third_block_heading}
+          article2={homeData.acf.grid_section.third_block.third_block_text}
+          header3={
+            homeData.acf.grid_section.fourth_block.fourth_block_heading
+          }
+          article3={homeData.acf.grid_section.fourth_block.fourth_block_text}
+          header4={
+            homeData.acf.grid_section.seventh_block.seventh_block_heading
+          }
+          article4={
+            homeData.acf.grid_section.seventh_block.seventh_block_text
+          }
+          header5={
+            homeData.acf.grid_section.eighth_block.eighth_block_heading
+          }
+          article5={homeData.acf.grid_section.eighth_block.eighth_block_text}
+          image1={homeData.acf.grid_section.second_block}
+          image2={homeData.acf.grid_section.fifth_block}
+          image3={homeData.acf.grid_section.sixth_block}
+        />
       </div>
       <StagesMap stages={stages} />
       <LivestreamVideo />
