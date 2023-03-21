@@ -6,12 +6,6 @@
   gap: 3rem;
 }
 
-.heading-wrapper {
-  text-align: left;
-  width: 1080px;
-  max-width: 1080px;
-}
-
 .youtube-holder {
   background-image: url("https://media.discordapp.net/attachments/1084295088739471451/1086015257715167362/Hernok_Vikings_on_a_voyage_through_europe_sleeping_on_the_ship._861ec5d8-5b26-4882-9b93-0b164f9dd4ca.png?width=1576&height=909");
   background-size: cover;

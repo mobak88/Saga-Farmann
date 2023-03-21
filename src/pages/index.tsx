@@ -12,6 +12,7 @@ import LivestreamVideo from "@/components/livestream/livestreamVideo";
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import { GridSections } from "@/components/gridImagesAndText/interfaces";
 import { SingleStageApiProps } from "@/components/mapbox/interfaces";
+import HeadingTwo from "@/components/typography/headings/headingTwo";
 
 export interface HomeProps {
   stages: SingleStageProps[];
@@ -35,6 +36,9 @@ const Home = ({ stages, gridSection, id }: HomeProps) => {
       </div>
       <StagesMap stages={stages} />
       <div className={styles["livestream-wrapper"]}>
+        <div className={styles["heading-wrapper"]}>
+        <HeadingTwo dark children={"Livestream"} />
+        </div>
         <LivestreamVideo />
       </div>
       <LatestNews

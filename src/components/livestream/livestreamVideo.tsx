@@ -22,9 +22,6 @@ const LivestreamVideo = () => {
   return (
     <>
       <div className={styles["content-container"]}>
-        <div className={styles["heading-wrapper"]}>
-          <HeadingTwo dark children={"Livestream"} />
-        </div>
         <div className={styles["youtube-holder"]}>
           {isOnline ? (
             <iframe
