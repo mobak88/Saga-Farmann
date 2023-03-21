@@ -12,19 +12,19 @@
 
 /* H1 */
 .heading-one {
-  font-size: var(--heading-one);
+  font-size: var(--h--step--3);
 }
 
 .heading-one-home {
-  font-size: 11rem;
+  font-size: var(--h--step-5);
 }
 
 /* H2 */
 .heading-two {
-  font-size: var(--heading-two);
+  font-size: var(--h--step-1);
 }
 
 /* H3 */
 .heading-three {
-  font-size: var(--heading-three);
+  font-size: var(--h--step-0);
 }
