@@ -11,37 +11,32 @@ import LightLayout from "@/components/layout/LightLayout";
 import LivestreamVideo from "@/components/livestream/livestreamVideo";
 import ParagraphsSmall from "@/components/typography/paragraphs/paragraphsSmall";
 import API_ENDPOINTS from "@/endpoints/endpoints";
-import { GetStaticProps } from "next";
 import Footer from "@/components/footer/Footer";
 
 export interface GridSections {
   id: number;
-  acf: {
-    grid_section: {
-      first_block: {
-        first_block_heading: string;
-        first_block_text: string;
-      };
-      second_block: string;
-      third_block: {
-        third_block_heading: string;
-        third_block_text: string;
-      };
-      fourth_block: {
-        fourth_block_heading: string;
-        fourth_block_text: string;
-      };
-      fifth_block: string;
-      sixth_block: string;
-      seventh_block: {
-        seventh_block_heading: string;
-        seventh_block_text: string;
-      };
-      eighth_block: {
-        eighth_block_heading: string;
-        eighth_block_text: string;
-      };
-    };
+  first_block: {
+    first_block_heading: string;
+    first_block_text: string;
+  };
+  second_block: string;
+  third_block: {
+    third_block_heading: string;
+    third_block_text: string;
+  };
+  fourth_block: {
+    fourth_block_heading: string;
+    fourth_block_text: string;
+  };
+  fifth_block: string;
+  sixth_block: string;
+  seventh_block: {
+    seventh_block_heading: string;
+    seventh_block_text: string;
+  };
+  eighth_block: {
+    eighth_block_heading: string;
+    eighth_block_text: string;
   };
 }
 
@@ -66,10 +61,12 @@ interface SingleStageApiProps {
 export interface HomeProps {
   stages: SingleStageProps[];
   homeData: GridSections;
+  gridSection: any;
+  id: number;
 }
 
-const Home = ({ stages, homeData }: HomeProps) => {
-  console.log(homeData);
+const Home = ({ stages, gridSection, id }: HomeProps) => {
+  console.log(gridSection);
 
   return (
     <>
@@ -81,7 +78,7 @@ const Home = ({ stages, homeData }: HomeProps) => {
       </Head>
       <Hero />
       <div className={styles["grid-wrapper"]}>
-        <GridImagesAndText gridContent={homeData}/>
+        <GridImagesAndText gridContent={gridSection} />
       </div>
       <StagesMap stages={stages} />
       <LivestreamVideo />
@@ -126,10 +123,15 @@ export async function getStaticProps() {
     };
   });
 
+  const { grid_section } = homeData.acf;
+  const { id } = homeData;
+
   return {
     props: {
       stages: newStages,
       homeData,
+      gridSection: grid_section,
+      id,
     },
   };
 }

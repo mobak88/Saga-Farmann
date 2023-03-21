@@ -8,30 +8,26 @@ interface Props {
   gridContent: GridSections;
 }
 
-const GridImagesAndText = ({gridContent}: Props) => {
+const GridImagesAndText = ({ gridContent }: Props) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles["textBox-follow-the-vikings"]}>
         <div className={styles.content}>
           <HeadingThree
-            children={
-              gridContent.acf.grid_section.first_block.first_block_heading
-            }
+            children={gridContent.first_block.first_block_heading}
           />
           <ParagraphsSmall
-            children={gridContent.acf.grid_section.first_block.first_block_text}
+            children={gridContent.first_block.first_block_text}
           />
         </div>
       </div>
       <div className={styles["textBox-follow-the-vikings-two"]}>
         <div className={styles.content}>
           <HeadingThree
-            children={
-              gridContent.acf.grid_section.third_block.third_block_heading
-            }
+            children={gridContent.third_block.third_block_heading}
           />
           <ParagraphsSmall
-            children={gridContent.acf.grid_section.third_block.third_block_text}
+            children={gridContent.third_block.third_block_text}
           />
         </div>
         <div className={styles.pointer}></div>
@@ -39,28 +35,24 @@ const GridImagesAndText = ({gridContent}: Props) => {
       <div
         className={styles["imageBox-one"]}
         style={{
-          backgroundImage: `url(${gridContent.acf.grid_section.second_block})`,
+          backgroundImage: `url(${gridContent.second_block})`,
         }}
       ></div>
       <div
         className={styles["imageBox-two"]}
         style={{
-          backgroundImage: `url(${gridContent.acf.grid_section.fifth_block})`,
+          backgroundImage: `url(${gridContent.fifth_block})`,
         }}
       ></div>
       <div className={styles["textBox-donations"]}>
         <div className={styles.content}>
           <HeadingThree
             dark
-            children={
-              gridContent.acf.grid_section.fourth_block.fourth_block_heading
-            }
+            children={gridContent.fourth_block.fourth_block_heading}
           />
           <ParagraphsSmall
             dark
-            children={
-              gridContent.acf.grid_section.fourth_block.fourth_block_text
-            }
+            children={gridContent.fourth_block.fourth_block_text}
           />
         </div>
       </div>
@@ -68,35 +60,27 @@ const GridImagesAndText = ({gridContent}: Props) => {
         <div className={styles.content}>
           <HeadingThree
             dark
-            children={
-              gridContent.acf.grid_section.seventh_block.seventh_block_heading
-            }
+            children={gridContent.seventh_block.seventh_block_heading}
           />
           <ParagraphsSmall
             dark
-            children={
-              gridContent.acf.grid_section.seventh_block.seventh_block_text
-            }
+            children={gridContent.seventh_block.seventh_block_text}
           />
         </div>
       </div>
       <div
         className={styles["imageBox-three"]}
         style={{
-          backgroundImage: `url(${gridContent.acf.grid_section.sixth_block})`,
+          backgroundImage: `url(${gridContent.sixth_block})`,
         }}
       ></div>
       <div className={styles["textBox-text"]}>
         <div className={styles.content}>
           <HeadingThree
-            children={
-              gridContent.acf.grid_section.eighth_block.eighth_block_heading
-            }
+            children={gridContent.eighth_block.eighth_block_heading}
           />
           <ParagraphsSmall
-            children={
-              gridContent.acf.grid_section.eighth_block.eighth_block_text
-            }
+            children={gridContent.eighth_block.eighth_block_text}
           />
         </div>
       </div>
