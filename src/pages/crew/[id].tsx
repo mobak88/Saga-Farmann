@@ -1,10 +1,10 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useState } from "react";
 import styles from "./crew.module.css";
-import Navbar from "@/components/navigation/navbar/navbar";
 import Header from "@/components/header/header";
 import SwitchIdButton from "@/components/buttons/switchIdButton";
 import Card from "@/components/cards/crewCard/crewCard";
+import API_ENDPOINTS from "@/endpoints/endpoints";
 
 type Member = {
   member_image: string;
@@ -30,7 +30,6 @@ const CrewMemberDetailPage = ({ crewMember }: Props) => {
 
   return (
     <>
-      <Navbar />
       <Header header={title.rendered} />
       <div className={styles["main-wrapper"]}>
         <div className={styles["btn-link-container"]}>
@@ -59,9 +58,7 @@ const CrewMemberDetailPage = ({ crewMember }: Props) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch(
-    `https://dev.sagafarmann.com/wp/wp-json/wp/v2/crew_members`
-  );
+  const res = await fetch(API_ENDPOINTS.crewMembers);
   const crewMembers: CrewMember[] = await res.json();
 
   const paths = crewMembers.map((crewMember) => ({
@@ -76,9 +73,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const id = Number(params?.id);
-  const res = await fetch(
-    `https://dev.sagafarmann.com/wp/wp-json/wp/v2/crew_members/${id}`
-  );
+  const res = await fetch(API_ENDPOINTS.singleCrew(id));
   const crewMember: CrewMember = await res.json();
 
   return {
