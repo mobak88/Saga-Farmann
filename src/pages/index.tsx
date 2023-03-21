@@ -11,7 +11,7 @@ import LightLayout from "@/components/layout/LightLayout";
 import LivestreamVideo from "@/components/livestream/livestreamVideo";
 import ParagraphsSmall from "@/components/typography/paragraphs/paragraphsSmall";
 import API_ENDPOINTS from "@/endpoints/endpoints";
-import Footer from "@/components/footer/Footer";
+import Footer from "@/components/footer/footer";
 
 export interface GridSections {
   id: number;
