@@ -12,6 +12,7 @@ import LivestreamVideo from "@/components/livestream/livestreamVideo";
 import ParagraphsSmall from "@/components/typography/paragraphs/paragraphsSmall";
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import { GetStaticProps } from "next";
+import Footer from "@/components/footer/Footer";
 
 export interface GridSections {
   id: number;
@@ -95,6 +96,7 @@ const Home = ({ stages, homeData }: HomeProps) => {
         postText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut."
         posts={sliderData}
       />
+      <Footer/>
     </>
   );
 };
