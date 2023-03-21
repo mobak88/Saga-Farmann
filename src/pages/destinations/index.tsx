@@ -1,5 +1,5 @@
 import React from "react";
-import destinationsData from "../../components/cards/destinationCard/data";
+import destinationsData from "@/components/cards/destinationCard/destinationCard";
 import DestinationCard from "@/components/cards/destinationCard/destinationCard";
 import styles from "./destinations.module.css";
 import Header from "@/components/header/header";
@@ -9,7 +9,7 @@ const Destinations = () => {
     <div className={styles.wrapper}>
       <Header header={"Destinations"} />
       <div className={styles["card-container"]}>
-        {destinationsData.map((value) => {
+        {/* {destinationsData.map((value: destinationsData) => {
           return (
             <DestinationCard
               key={value.id}
@@ -19,7 +19,7 @@ const Destinations = () => {
               link={"Read more"}
             />
           );
-        })}
+        })} */}
       </div>
     </div>
   );
