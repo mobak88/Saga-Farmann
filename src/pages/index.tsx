@@ -5,8 +5,57 @@ import HeadingOne from "@/components/typography/headings/headingOne";
 import Navbar from "@/components/navigation/navbar/navbar";
 import GridImagesAndText from "@/components/gridImagesAndText/gridImagesAndText";
 import styles from "./home.module.css";
+import { GetStaticProps } from "next";
 
-export default function Home() {
+interface GridSections {
+  id: number;
+  acf: {
+    grid_section: {
+      first_block: {
+        first_block_heading: string;
+        first_block_text: string;
+      };
+      second_block: string;
+      third_block: {
+        third_block_heading: string;
+        third_block_text: string;
+      };
+      fourth_block: {
+        fourth_block_heading: string;
+        fourth_block_text: string;
+      };
+      fifth_block: string;
+      sixth_block: string;
+      seventh_block: {
+        seventh_block_heading: string;
+        seventh_block_text: string;
+      };
+      eighth_block: {
+        eighth_block_heading: string;
+        eighth_block_text: string;
+      };
+    };
+  };
+}
+
+interface Props {
+  gridSection: GridSections;
+}
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const res = await fetch(
+    "https://dev.sagafarmann.com/wp/wp-json/wp/v2/pages/128"
+  );
+  const gridSection: GridSections = await res.json();
+
+  return {
+    props: {
+      gridSection: gridSection,
+    },
+  };
+};
+
+export default function Home({ gridSection }: Props) {
   return (
     <>
       <Head>
@@ -19,7 +68,38 @@ export default function Home() {
       <main>
         <HeadingOne>Saga</HeadingOne>
         <div className={styles["grid-wrapper"]}>
-          <GridImagesAndText />
+          <GridImagesAndText
+            key={gridSection.id}
+            header1={
+              gridSection.acf.grid_section.first_block.first_block_heading
+            }
+            article1={gridSection.acf.grid_section.first_block.first_block_text}
+            header2={
+              gridSection.acf.grid_section.third_block.third_block_heading
+            }
+            article2={gridSection.acf.grid_section.third_block.third_block_text}
+            header3={
+              gridSection.acf.grid_section.fourth_block.fourth_block_heading
+            }
+            article3={
+              gridSection.acf.grid_section.fourth_block.fourth_block_text
+            }
+            header4={
+              gridSection.acf.grid_section.seventh_block.seventh_block_heading
+            }
+            article4={
+              gridSection.acf.grid_section.seventh_block.seventh_block_text
+            }
+            header5={
+              gridSection.acf.grid_section.eighth_block.eighth_block_heading
+            }
+            article5={
+              gridSection.acf.grid_section.eighth_block.eighth_block_text
+            }
+            image1={gridSection.acf.grid_section.second_block}
+            image2={gridSection.acf.grid_section.fifth_block}
+            image3={gridSection.acf.grid_section.sixth_block}
+          />
         </div>
         <LatestNews
           postHeading="Latest News and  posts"
