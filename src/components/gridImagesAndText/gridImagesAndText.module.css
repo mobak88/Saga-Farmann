@@ -66,7 +66,7 @@
 .imageBox-one {
   grid-row-start: 1;
   grid-row-end: 4;
-  background-image: url(../../../public/assets/image-one.jpg);
+  /* background-image: url(../../../public/assets/image-one.jpg); */
   background-position: center;
   background-size: cover;
   position: relative;
@@ -88,7 +88,7 @@
 }
 
 .imageBox-two {
-  background-image: url(../../../public/assets/image-two.jpg);
+  /* background-image: url(../../../public/assets/image-two.jpg); */
   background-position: center;
   background-size: cover;
   grid-row-start: 4;
@@ -111,7 +111,7 @@
 }
 
 .imageBox-three {
-  background-image: url(../../../public/assets/image-three.jpg);
+  /* background-image: url(../../../public/assets/image-three.jpg); */
   background-position: center;
   background-size: cover;
   grid-row-start: 5;

@@ -6,7 +6,6 @@ import Navbar from "@/components/navigation/navbar/navbar";
 import GridImagesAndText from "@/components/gridImagesAndText/gridImagesAndText";
 import styles from "./home.module.css";
 import { GetStaticProps } from "next";
-import { useEffect } from "react";
 
 interface GridSections {
   id: number;
@@ -25,13 +24,16 @@ interface GridSections {
         fourth_block_heading: string;
         fourth_block_text: string;
       };
-      fift_block: string;
+      fifth_block: string;
       sixth_block: string;
       seventh_block: {
         seventh_block_heading: string;
         seventh_block_text: string;
       };
-      eighth_block: string;
+      eighth_block: {
+        eighth_block_heading: string;
+        eighth_block_text: string;
+      };
     };
   };
 }
@@ -46,10 +48,9 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   );
   const gridSection: GridSections = await res.json();
 
-  console.log("HEIIII", gridSection);
   return {
     props: {
-      gridSection: gridSection, // extract first item of array
+      gridSection: gridSection,
     },
   };
 };
@@ -89,9 +90,14 @@ export default function Home({ gridSection }: Props) {
             article4={
               gridSection.acf.grid_section.seventh_block.seventh_block_text
             }
-            article5={gridSection.acf.grid_section.eighth_block}
+            header5={
+              gridSection.acf.grid_section.eighth_block.eighth_block_heading
+            }
+            article5={
+              gridSection.acf.grid_section.eighth_block.eighth_block_text
+            }
             image1={gridSection.acf.grid_section.second_block}
-            image2={gridSection.acf.grid_section.fift_block}
+            image2={gridSection.acf.grid_section.fifth_block}
             image3={gridSection.acf.grid_section.sixth_block}
           />
         </div>

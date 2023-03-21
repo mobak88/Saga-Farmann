@@ -12,7 +12,7 @@ interface GridImagesAndTextProps {
   article3: string;
   header4: string;
   article4: string;
-  // header5: string;
+  header5: string;
   article5: string;
   image1: string;
   image2: string;
@@ -28,7 +28,7 @@ const GridImagesAndText = ({
   article3,
   header4,
   article4,
-  // header5,
+  header5,
   article5,
   image1,
   image2,
@@ -49,8 +49,14 @@ const GridImagesAndText = ({
         </div>
         <div className={styles.pointer}></div>
       </div>
-      <div className={styles["imageBox-one"]}></div>
-      <div className={styles["imageBox-two"]}></div>
+      <div
+        className={styles["imageBox-one"]}
+        style={{ backgroundImage: `url(${image1})` }}
+      ></div>
+      <div
+        className={styles["imageBox-two"]}
+        style={{ backgroundImage: `url(${image2})` }}
+      ></div>
       <div className={styles["textBox-donations"]}>
         <div className={styles.content}>
           <HeadingThree dark children={header3} />
@@ -63,10 +69,13 @@ const GridImagesAndText = ({
           <ParagraphsSmall dark children={article4} />
         </div>
       </div>
-      <div className={styles["imageBox-three"]}></div>
+      <div
+        className={styles["imageBox-three"]}
+        style={{ backgroundImage: `url(${image3})` }}
+      ></div>
       <div className={styles["textBox-text"]}>
         <div className={styles.content}>
-          {/* <HeadingThree children={"Follow the vikings"} /> */}
+          <HeadingThree children={header5} />
           <ParagraphsSmall children={article5} />
         </div>
       </div>
