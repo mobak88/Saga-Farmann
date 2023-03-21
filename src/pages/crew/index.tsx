@@ -7,6 +7,7 @@ import Header from "@/components/header/header";
 import SwitchIdButton from "@/components/buttons/switchIdButton";
 import Card from "../../components/cards/crewCard/crewCard";
 import HeadingTwo from "@/components/typography/headings/headingTwo";
+import API_ENDPOINTS from "@/endpoints/endpoints";
 
 type Member = {
   member_image: string;
@@ -72,9 +73,7 @@ const CrewMemberPage = ({ crewMembers, ids }: Props) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const res = await fetch(
-    `https://dev.sagafarmann.com/wp/wp-json/wp/v2/crew_members`
-  );
+  const res = await fetch(API_ENDPOINTS.crewMembers);
   const crewMembers: CrewMember[] = await res.json();
   const ids = crewMembers.map((member) => member.id);
   return {

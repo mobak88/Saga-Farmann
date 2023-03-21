@@ -10,6 +10,39 @@ import { SingleStageProps } from "@/components/mapbox/stagesMap";
 import LightLayout from "@/components/layout/LightLayout";
 import LivestreamVideo from "@/components/livestream/livestreamVideo";
 import ParagraphsSmall from "@/components/typography/paragraphs/paragraphsSmall";
+import API_ENDPOINTS from "@/endpoints/endpoints";
+import { GetStaticProps } from "next";
+
+interface GridSections {
+  id: number;
+  acf: {
+    grid_section: {
+      first_block: {
+        first_block_heading: string;
+        first_block_text: string;
+      };
+      second_block: string;
+      third_block: {
+        third_block_heading: string;
+        third_block_text: string;
+      };
+      fourth_block: {
+        fourth_block_heading: string;
+        fourth_block_text: string;
+      };
+      fifth_block: string;
+      sixth_block: string;
+      seventh_block: {
+        seventh_block_heading: string;
+        seventh_block_text: string;
+      };
+      eighth_block: {
+        eighth_block_heading: string;
+        eighth_block_text: string;
+      };
+    };
+  };
+}
 
 interface SingleStageApiProps {
   id: number;
@@ -31,11 +64,12 @@ interface SingleStageApiProps {
 
 interface HomeProps {
   stages: SingleStageProps[];
-  homeData: any;
+  homeData: GridSections;
 }
 
 const Home = ({ stages, homeData }: HomeProps) => {
   console.log(homeData);
+
   return (
     <>
       <Head>
@@ -46,7 +80,30 @@ const Home = ({ stages, homeData }: HomeProps) => {
       </Head>
       <Hero />
       <div className={styles["grid-wrapper"]}>
-        <GridImagesAndText />
+        <GridImagesAndText
+          key={homeData.id}
+          header1={homeData.acf.grid_section.first_block.first_block_heading}
+          article1={homeData.acf.grid_section.first_block.first_block_text}
+          header2={homeData.acf.grid_section.third_block.third_block_heading}
+          article2={homeData.acf.grid_section.third_block.third_block_text}
+          header3={
+            homeData.acf.grid_section.fourth_block.fourth_block_heading
+          }
+          article3={homeData.acf.grid_section.fourth_block.fourth_block_text}
+          header4={
+            homeData.acf.grid_section.seventh_block.seventh_block_heading
+          }
+          article4={
+            homeData.acf.grid_section.seventh_block.seventh_block_text
+          }
+          header5={
+            homeData.acf.grid_section.eighth_block.eighth_block_heading
+          }
+          article5={homeData.acf.grid_section.eighth_block.eighth_block_text}
+          image1={homeData.acf.grid_section.second_block}
+          image2={homeData.acf.grid_section.fifth_block}
+          image3={homeData.acf.grid_section.sixth_block}
+        />
       </div>
       <StagesMap stages={stages} />
       <LivestreamVideo />
@@ -67,8 +124,8 @@ const Home = ({ stages, homeData }: HomeProps) => {
 
 export async function getStaticProps() {
   const [resStages, resHomeData] = await Promise.all([
-    fetch("https://dev.sagafarmann.com/wp/wp-json/wp/v2/stages"),
-    fetch("https://dev.sagafarmann.com/wp/wp-json/wp/v2/pages/128"),
+    fetch(API_ENDPOINTS.stages),
+    fetch(API_ENDPOINTS.page(128)),
   ]);
 
   const [stages, homeData] = await Promise.all([
