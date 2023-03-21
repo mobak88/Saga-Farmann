@@ -10,6 +10,7 @@ import { SingleStageProps } from "@/components/mapbox/stagesMap";
 import LightLayout from "@/components/layout/LightLayout";
 import LivestreamVideo from "@/components/livestream/livestreamVideo";
 import ParagraphsSmall from "@/components/typography/paragraphs/paragraphsSmall";
+import API_ENDPOINTS from "@/endpoints/endpoints";
 
 interface SingleStageApiProps {
   id: number;
@@ -67,8 +68,8 @@ const Home = ({ stages, homeData }: HomeProps) => {
 
 export async function getStaticProps() {
   const [resStages, resHomeData] = await Promise.all([
-    fetch("https://dev.sagafarmann.com/wp/wp-json/wp/v2/stages"),
-    fetch("https://dev.sagafarmann.com/wp/wp-json/wp/v2/pages/128"),
+    fetch(API_ENDPOINTS.stages),
+    fetch(API_ENDPOINTS.page(128)),
   ]);
 
   const [stages, homeData] = await Promise.all([
