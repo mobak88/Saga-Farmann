@@ -21,37 +21,23 @@ const LivestreamVideo = () => {
 
   return (
     <>
-      {isOnline ? (
-        <>
-          <div className={styles["heading-wrapper"]}>
-            <HeadingTwo>Title</HeadingTwo>
-          </div>
-          <div className={styles["content-container"]}>
-            <div className={styles["youtube-holder"]}>
-              <iframe
-                width={"560px"}
-                height={"315px"}
-                className={styles["youtube-player"]}
-                src={`https://www.youtube.com/embed/live_stream?channel=${process.env.NEXT_PUBLIC_CHANNEL_ID}&autoplay=1&mute=1`}
-              ></iframe>
-            </div>
-          </div>
-          <div className={styles["description-wrapper"]}>
-            <ParagraphsSmall>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis
-              hic sed rem excepturi expedita quidem, fugiat cum sequi, libero
-              impedit fugit eos consectetur provident quos inventore dignissimos
-              tenetur, maxime temporibus!
-            </ParagraphsSmall>
-          </div>
-        </>
-      ) : (
-        <div className={styles["offline"]}>
-          <div className={styles["offline-wrapper"]}>
-            <h2 className={styles["offline-text"]}>We are currently offline</h2>
-          </div>
+      <div className={styles["content-container"]}>
+        <div className={styles["heading-wrapper"]}>
+          <HeadingTwo dark children={"Livestream"} />
         </div>
-      )}
+        <div className={styles["youtube-holder"]}>
+          {isOnline ? (
+            <iframe
+              width={"560px"}
+              height={"315px"}
+              className={styles["youtube-player"]}
+              src={`https://www.youtube.com/embed/live_stream?channel=${process.env.NEXT_PUBLIC_CHANNEL_ID}&autoplay=1&mute=1`}
+            ></iframe>
+          ) : (
+            <h2 className={styles["offline-text"]}>We are currently offline</h2>
+          )}
+        </div>
+      </div>
     </>
   );
 };

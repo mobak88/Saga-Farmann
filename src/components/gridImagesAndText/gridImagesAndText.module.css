@@ -1,10 +1,9 @@
 .wrapper {
-  width: 70em;
-  margin-top: 5em;
-  margin-bottom: 5em;
+  max-width: 75em;
+  padding: var(--section-padding) 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 30px 80px 120px 20px 180px 150px;
+  grid-template-rows: 30px 80px 120px 20px 180px 170px;
   text-align: center;
 }
 
@@ -66,7 +65,6 @@
 .imageBox-one {
   grid-row-start: 1;
   grid-row-end: 4;
-  /* background-image: url(../../../public/assets/image-one.jpg); */
   background-position: center;
   background-size: cover;
   position: relative;
@@ -88,7 +86,6 @@
 }
 
 .imageBox-two {
-  /* background-image: url(../../../public/assets/image-two.jpg); */
   background-position: center;
   background-size: cover;
   grid-row-start: 4;
@@ -111,7 +108,6 @@
 }
 
 .imageBox-three {
-  /* background-image: url(../../../public/assets/image-three.jpg); */
   background-position: center;
   background-size: cover;
   grid-row-start: 5;

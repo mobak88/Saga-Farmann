@@ -4,3 +4,7 @@
   display: flex;
   justify-content: center;
 }
+
+.livestream-wrapper {
+  padding: var(--section-padding) 0;
+}
