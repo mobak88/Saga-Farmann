@@ -24,6 +24,22 @@
 
   --paragraph-size-l: 2.4rem;
   --paragraph-size-sm: 1.8rem;
+
+  /* FONT SIZES HEADINGS */
+  --h--step-0: clamp(1.13rem, calc(-0.01rem + 5.65vw), 3.6rem);
+  --h--step-1: clamp(1.35rem, calc(-0.08rem + 7.16vw), 5.47rem);
+  --h--step-2: clamp(1.62rem, calc(-0.19rem + 9.07vw), 6.84rem);
+  --h--step-3: clamp(1.94rem, calc(-0.35rem + 11.48vw), 8.55rem);
+  --h--step-4: clamp(2.33rem, calc(-0.57rem + 14.52vw), 10.68rem);
+  --h--step-5: clamp(2.8rem, calc(-0.87rem + 18.35vw), 13.35rem);
+
+  /* FONT SIZES PARAGRAPHS */
+  --p--step--1: clamp(0.83rem, calc(0.71rem + 0.64vw), 1.2rem);
+  --p--step-0: clamp(1rem, calc(0.83rem + 0.87vw), 1.5rem);
+  --p--step-1: clamp(1.2rem, calc(0.97rem + 1.17vw), 1.88rem);
+  --p--step-2: clamp(1.44rem, calc(1.13rem + 1.57vw), 2.34rem);
+  --p--step-3: clamp(1.73rem, calc(1.31rem + 2.09vw), 2.93rem);
+  --p--step-4: clamp(2.07rem, calc(1.52rem + 2.76vw), 3.66rem);
 }
 
 html,
