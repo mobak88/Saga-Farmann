@@ -17,3 +17,12 @@
 .paragraphs-sm {
   font-size: var(--paragraph-size-sm);
 }
+
+@media screen and (max-width: 50rem) {
+  .paragraphs-truncated {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+}

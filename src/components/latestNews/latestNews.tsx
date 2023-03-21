@@ -20,14 +20,16 @@ interface LatestNewsProps extends PostsProps {
 
 const LatestNews = ({ posts, postHeading, postText }: LatestNewsProps) => {
   return (
-    <div className={styles["section-container"]}>
-      <div className={styles["text-container"]}>
-        <HeadingTwo>{postHeading}</HeadingTwo>
-        <div className={styles["paragraph-container"]}>
-          <ParagraphsSmall>{postText}</ParagraphsSmall>
+    <div className={styles["section-wrapper"]}>
+      <div className={styles["section-container"]}>
+        <div className={styles["text-container"]}>
+          <HeadingTwo>{postHeading}</HeadingTwo>
+          <div className={styles["paragraph-container"]}>
+            <ParagraphsSmall>{postText}</ParagraphsSmall>
+          </div>
         </div>
+        <LatestNewsSlider posts={posts} />
       </div>
-      <LatestNewsSlider posts={posts} />
     </div>
   );
 };

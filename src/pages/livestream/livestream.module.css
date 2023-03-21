@@ -1,0 +1,6 @@
+.page-container {
+  background-color: var(--bg-dark-blue);
+  height: 100%;
+  width: 100%;
+  padding: 8rem 0;
+}

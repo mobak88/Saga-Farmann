@@ -48,14 +48,14 @@
 }
 
 .dropdown-open nav {
-  margin-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 2.5rem);
+  margin-top: calc(var(--hamburger-height) + var(--hamburger-margin));
   padding: 2rem 2.5rem;
   background-color: var(--light-background-color);
   color: var(--dark-text-color);
-  max-width: 20rem;
   transition: var(--animation-timing);
   right: 20px;
   z-index: 1;
+  position: absolute;
   position: absolute;
 }
 .dropdown-closed {

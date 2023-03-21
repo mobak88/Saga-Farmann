@@ -1,12 +1,9 @@
-import React, { useState } from "react";
-import { GetStaticProps } from "next";
-import Link from "next/link";
+import { GetStaticPaths, GetStaticProps } from "next";
+import { useState } from "react";
 import styles from "./crew.module.css";
-import Navbar from "@/components/navigation/navbar/navbar";
 import Header from "@/components/header/header";
 import SwitchIdButton from "@/components/buttons/switchIdButton";
-import Card from "../../components/cards/crewCard/crewCard";
-import HeadingTwo from "@/components/typography/headings/headingTwo";
+import Card from "@/components/cards/crewCard/crewCard";
 import API_ENDPOINTS from "@/endpoints/endpoints";
 
 type Member = {
@@ -20,23 +17,16 @@ type CrewMember = {
   id: number;
   title: { rendered: string };
   acf: { member: Member[] };
-  current_crew: boolean;
 };
 
 type Props = {
-  crewMembers: CrewMember[];
-  ids: number[];
+  crewMember: CrewMember;
 };
 
-const CrewMemberPage = ({ crewMembers, ids }: Props) => {
-  const [isCurrentCrew, setIsCurrentCrew] = useState(
-    crewMembers.some((member) => member.current_crew)
-  );
-
-  const [currentId, setCurrentId] = useState(ids[0]);
-  const { title, acf } = crewMembers.find(
-    (member) => member.id === currentId
-  ) ?? { title: { rendered: "" }, acf: { member: [] } };
+const CrewMemberDetailPage = ({ crewMember }: Props) => {
+  const { title, acf } = crewMember;
+  const [currentId, setCurrentId] = useState(0);
+  const ids = [141, 142, 143, 144, 145, 146, 147];
 
   return (
     <>
@@ -51,11 +41,6 @@ const CrewMemberPage = ({ crewMembers, ids }: Props) => {
             ids={ids}
           />
         </div>
-
-        <HeadingTwo>
-          {isCurrentCrew ? "Current Crew" : "Upcoming Crew"}
-        </HeadingTwo>
-
         <div className={styles["card-container"]}>
           {acf.member.map((member, index) => (
             <Card
@@ -72,16 +57,30 @@ const CrewMemberPage = ({ crewMembers, ids }: Props) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const res = await fetch(API_ENDPOINTS.crewMembers);
   const crewMembers: CrewMember[] = await res.json();
-  const ids = crewMembers.map((member) => member.id);
+
+  const paths = crewMembers.map((crewMember) => ({
+    params: { id: crewMember.id.toString() },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+  const id = Number(params?.id);
+  const res = await fetch(API_ENDPOINTS.singleCrew(id));
+  const crewMember: CrewMember = await res.json();
+
   return {
     props: {
-      crewMembers,
-      ids,
+      crewMember,
     },
   };
 };
 
-export default CrewMemberPage;
+export default CrewMemberDetailPage;

@@ -24,4 +24,14 @@ const HeadingOne = ({ children, dark = false }: HeadingProps) => {
   );
 };
 
+export const HeadingOneHome = ({ children }: HeadingProps) => {
+  return (
+    <h1
+      className={`${styles.heading} ${styles["heading-one-home"]} ${styles["light"]}`}
+    >
+      {children}
+    </h1>
+  );
+};
+
 export default HeadingOne;
