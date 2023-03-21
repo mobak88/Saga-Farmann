@@ -6,7 +6,7 @@ import Hero from "@/components/hero/Hero";
 import GridImagesAndText from "@/components/gridImagesAndText/gridImagesAndText";
 import styles from "./home.module.css";
 import StagesMap from "@/components/mapbox/stagesMap";
-import { StagesProps } from "@/components/mapbox/stagesMap";
+import { SingleStageProps } from "@/components/mapbox/stagesMap";
 import LightLayout from "@/components/layout/LightLayout";
 
 interface SingleStageApiProps {
@@ -27,7 +27,13 @@ interface SingleStageApiProps {
   };
 }
 
-const Home = ({ stages }: StagesProps) => {
+interface HomeProps {
+  stages: SingleStageProps[];
+  homeData: any;
+}
+
+const Home = ({ stages, homeData }: HomeProps) => {
+  console.log(homeData);
   return (
     <>
       <Head>
@@ -51,10 +57,15 @@ const Home = ({ stages }: StagesProps) => {
 };
 
 export async function getStaticProps() {
-  const res = await fetch(
-    "https://dev.sagafarmann.com/wp/wp-json/wp/v2/stages"
-  );
-  const stages = await res.json();
+  const [resStages, resHomeData] = await Promise.all([
+    fetch("https://dev.sagafarmann.com/wp/wp-json/wp/v2/stages"),
+    fetch("https://dev.sagafarmann.com/wp/wp-json/wp/v2/pages/128"),
+  ]);
+
+  const [stages, homeData] = await Promise.all([
+    resStages.json(),
+    resHomeData.json(),
+  ]);
 
   const newStages = stages.map((stage: SingleStageApiProps) => {
     return {
@@ -73,6 +84,7 @@ export async function getStaticProps() {
   return {
     props: {
       stages: newStages,
+      homeData,
     },
   };
 }

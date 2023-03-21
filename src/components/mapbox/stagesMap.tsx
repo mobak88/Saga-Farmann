@@ -4,7 +4,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import MapMarker from "./mapMarker";
 import Modal from "./modal/modal";
 
-interface SingleStageProps {
+export interface SingleStageProps {
   id: number;
   title: string;
   coordinates: {
@@ -15,7 +15,7 @@ interface SingleStageProps {
   stage_text_area: [{ stage_text: string }];
   current_destination: boolean;
 }
-export interface StagesProps {
+interface StagesProps {
   stages: SingleStageProps[];
 }
 
