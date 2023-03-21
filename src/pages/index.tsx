@@ -13,7 +13,7 @@ import ParagraphsSmall from "@/components/typography/paragraphs/paragraphsSmall"
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import { GetStaticProps } from "next";
 
-interface GridSections {
+export interface GridSections {
   id: number;
   acf: {
     grid_section: {
@@ -62,7 +62,7 @@ interface SingleStageApiProps {
   };
 }
 
-interface HomeProps {
+export interface HomeProps {
   stages: SingleStageProps[];
   homeData: GridSections;
 }
@@ -80,30 +80,7 @@ const Home = ({ stages, homeData }: HomeProps) => {
       </Head>
       <Hero />
       <div className={styles["grid-wrapper"]}>
-        <GridImagesAndText
-          key={homeData.id}
-          header1={homeData.acf.grid_section.first_block.first_block_heading}
-          article1={homeData.acf.grid_section.first_block.first_block_text}
-          header2={homeData.acf.grid_section.third_block.third_block_heading}
-          article2={homeData.acf.grid_section.third_block.third_block_text}
-          header3={
-            homeData.acf.grid_section.fourth_block.fourth_block_heading
-          }
-          article3={homeData.acf.grid_section.fourth_block.fourth_block_text}
-          header4={
-            homeData.acf.grid_section.seventh_block.seventh_block_heading
-          }
-          article4={
-            homeData.acf.grid_section.seventh_block.seventh_block_text
-          }
-          header5={
-            homeData.acf.grid_section.eighth_block.eighth_block_heading
-          }
-          article5={homeData.acf.grid_section.eighth_block.eighth_block_text}
-          image1={homeData.acf.grid_section.second_block}
-          image2={homeData.acf.grid_section.fifth_block}
-          image3={homeData.acf.grid_section.sixth_block}
-        />
+        <GridImagesAndText gridContent={homeData}/>
       </div>
       <StagesMap stages={stages} />
       <LivestreamVideo />
