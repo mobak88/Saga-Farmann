@@ -13,22 +13,23 @@ const GridImagesAndText = ({ gridContent }: Props) => {
     <div className={styles.wrapper}>
       <div className={styles["textBox-follow-the-vikings"]}>
         <div className={styles.content}>
-          <HeadingThree
-            children={gridContent.first_block.first_block_heading}
-          />
-          <ParagraphsSmall
-            children={gridContent.first_block.first_block_text}
-          />
+          <HeadingThree>
+            {gridContent.first_block.first_block_heading}
+          </HeadingThree>
+
+          <ParagraphsSmall>
+            {gridContent.first_block.first_block_text}
+          </ParagraphsSmall>
         </div>
       </div>
       <div className={styles["textBox-follow-the-vikings-two"]}>
         <div className={styles.content}>
-          <HeadingThree
-            children={gridContent.third_block.third_block_heading}
-          />
-          <ParagraphsSmall
-            children={gridContent.third_block.third_block_text}
-          />
+          <HeadingThree>
+            {gridContent.third_block.third_block_heading}
+          </HeadingThree>
+          <ParagraphsSmall>
+            {gridContent.third_block.third_block_text}
+          </ParagraphsSmall>
         </div>
         <div className={styles.pointer}></div>
       </div>
@@ -46,26 +47,22 @@ const GridImagesAndText = ({ gridContent }: Props) => {
       ></div>
       <div className={styles["textBox-donations"]}>
         <div className={styles.content}>
-          <HeadingThree
-            dark
-            children={gridContent.fourth_block.fourth_block_heading}
-          />
-          <ParagraphsSmall
-            dark
-            children={gridContent.fourth_block.fourth_block_text}
-          />
+          <HeadingThree dark>
+            {gridContent.fourth_block.fourth_block_heading}
+          </HeadingThree>
+          <ParagraphsSmall dark>
+            {gridContent.fourth_block.fourth_block_text}
+          </ParagraphsSmall>
         </div>
       </div>
       <div className={styles["textBox-follow-the-vikings-three"]}>
         <div className={styles.content}>
-          <HeadingThree
-            dark
-            children={gridContent.seventh_block.seventh_block_heading}
-          />
-          <ParagraphsSmall
-            dark
-            children={gridContent.seventh_block.seventh_block_text}
-          />
+          <HeadingThree dark>
+            {gridContent.seventh_block.seventh_block_heading}
+          </HeadingThree>
+          <ParagraphsSmall dark>
+            {gridContent.seventh_block.seventh_block_text}
+          </ParagraphsSmall>
         </div>
       </div>
       <div
@@ -76,12 +73,12 @@ const GridImagesAndText = ({ gridContent }: Props) => {
       ></div>
       <div className={styles["textBox-text"]}>
         <div className={styles.content}>
-          <HeadingThree
-            children={gridContent.eighth_block.eighth_block_heading}
-          />
-          <ParagraphsSmall
-            children={gridContent.eighth_block.eighth_block_text}
-          />
+          <HeadingThree>
+            {gridContent.eighth_block.eighth_block_heading}
+          </HeadingThree>
+          <ParagraphsSmall>
+            {gridContent.eighth_block.eighth_block_text}
+          </ParagraphsSmall>
         </div>
       </div>
     </div>

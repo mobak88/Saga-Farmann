@@ -14,7 +14,7 @@ interface ModalProps {
 const Modal = forwardRef<HTMLDivElement, ModalProps>(
   ({ onCloseClick, title, text }, ref) => {
     return (
-      <div className={styles.modal} key="modla-wrapper" ref={ref}>
+      <div className={styles.modal} key="modal-wrapper" ref={ref}>
         <div className={styles["text-container"]}>
           <div className={styles["close-btn-container"]} onClick={onCloseClick}>
             <IoCloseSharp size={40} className={styles["modal-close-icon"]} />
@@ -38,5 +38,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
     );
   }
 );
+
+Modal.displayName = "Modal";
 
 export default Modal;

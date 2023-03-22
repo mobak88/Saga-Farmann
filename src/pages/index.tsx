@@ -45,7 +45,7 @@ const Home = ({ stages, gridSection, id }: HomeProps) => {
       </div>
       <div className={styles["livestream-wrapper"]}>
         <div className={styles["heading-wrapper"]}>
-          <HeadingTwo dark children={"Livestream"} />
+          <HeadingTwo dark={true}>Livestream</HeadingTwo>
         </div>
         <LivestreamVideo />
       </div>
