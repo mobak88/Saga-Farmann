@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Map, { Marker } from "react-map-gl";
+import Map, { Marker, FullscreenControl } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import MapMarker from "./mapMarker";
 import Modal from "./modal/modal";
@@ -67,6 +67,7 @@ const StagesMap = ({ stages }: StagesProps) => {
       style={{ width: "100%", minHeight: "100dvh", height: "100rem" }}
       mapStyle="mapbox://styles/mustafabaker/clffw0qpm001a01o0i6m1oisp"
     >
+      <FullscreenControl />
       {showModal.modalOpen && modalStage && (
         <Modal
           title={modalStage.title}
