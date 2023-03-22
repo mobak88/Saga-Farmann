@@ -1,17 +1,23 @@
 .modal-enter {
   opacity: 0;
   transform: scale(0.9);
+  transform: translate(-50%, -40%);
 }
+
 .modal-enter-active {
   opacity: 1;
-  transform: translateX(0);
-  transition: opacity 400ms, transform 400ms;
+  transition: opacity 350ms, transform 350ms;
+  transform: translate(-50%, -50%);
 }
+
 .modal-exit {
   opacity: 1;
+  transform: translate(-50%, -50%);
 }
+
 .modal-exit-active {
   opacity: 0;
   transform: scale(0.9);
-  transition: opacity 400ms, transform 400ms;
+  transition: opacity 350ms, transform 350ms;
+  transform: translate(-50%, -40%);
 }

@@ -4,6 +4,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import MapMarker from "./mapMarker";
 import Modal from "./modal/modal";
 import { CSSTransition } from "react-transition-group";
+import styles from "./StagesMap.module.css";
 
 export interface SingleStageProps {
   id: number;
@@ -70,15 +71,18 @@ const StagesMap = ({ stages }: StagesProps) => {
       style={{ width: "100%", minHeight: "100dvh", height: "100rem" }}
       mapStyle="mapbox://styles/mustafabaker/clffw0qpm001a01o0i6m1oisp"
     >
-      <FullscreenControl />
-
       <CSSTransition
         nodeRef={nodeRef}
         key="group"
         in={showModal.modalOpen}
         unmountOnExit
-        timeout={350}
-        classNames="modal"
+        timeout={700}
+        classNames={{
+          enter: styles["modal-enter"],
+          enterActive: styles["modal-enter-active"],
+          exit: styles["modal-exit"],
+          exitActive: styles["modal-exit-active"],
+        }}
       >
         <Modal
           ref={nodeRef}
