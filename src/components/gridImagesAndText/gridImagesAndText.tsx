@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./gridImagesAndText.module.css";
 import HeadingThree from "../typography/headings/headingThree";
 import ParagraphsSmall from "../typography/paragraphs/paragraphsSmall";
-import { GridSections } from "@/pages";
+import { GridSections } from "./interfaces";
 
 interface Props {
   gridContent: GridSections;

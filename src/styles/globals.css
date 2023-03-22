@@ -40,6 +40,9 @@
   --p--step-2: clamp(1.44rem, calc(1.13rem + 1.57vw), 2.34rem);
   --p--step-3: clamp(1.73rem, calc(1.31rem + 2.09vw), 2.93rem);
   --p--step-4: clamp(2.07rem, calc(1.52rem + 2.76vw), 3.66rem);
+
+  /* PADDING */
+  --section-padding: 8rem;
 }
 
 html,

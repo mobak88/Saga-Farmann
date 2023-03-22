@@ -9,54 +9,10 @@ import StagesMap from "@/components/mapbox/stagesMap";
 import { SingleStageProps } from "@/components/mapbox/stagesMap";
 import LightLayout from "@/components/layout/LightLayout";
 import LivestreamVideo from "@/components/livestream/livestreamVideo";
-import ParagraphsSmall from "@/components/typography/paragraphs/paragraphsSmall";
 import API_ENDPOINTS from "@/endpoints/endpoints";
-import Footer from "@/components/footer/footer";
-
-export interface GridSections {
-  id: number;
-  first_block: {
-    first_block_heading: string;
-    first_block_text: string;
-  };
-  second_block: string;
-  third_block: {
-    third_block_heading: string;
-    third_block_text: string;
-  };
-  fourth_block: {
-    fourth_block_heading: string;
-    fourth_block_text: string;
-  };
-  fifth_block: string;
-  sixth_block: string;
-  seventh_block: {
-    seventh_block_heading: string;
-    seventh_block_text: string;
-  };
-  eighth_block: {
-    eighth_block_heading: string;
-    eighth_block_text: string;
-  };
-}
-
-interface SingleStageApiProps {
-  id: number;
-  title: { rendered: string };
-  acf: {
-    coordinates: {
-      long: string;
-      lat: string;
-    };
-    stage_number: number;
-    stage: [
-      {
-        stage_text_area: [{ stage_text: string }];
-      }
-    ];
-    current_destination: boolean;
-  };
-}
+import { GridSections } from "@/components/gridImagesAndText/interfaces";
+import { SingleStageApiProps } from "@/components/mapbox/interfaces";
+import HeadingTwo from "@/components/typography/headings/headingTwo";
 
 export interface HomeProps {
   stages: SingleStageProps[];
@@ -66,8 +22,6 @@ export interface HomeProps {
 }
 
 const Home = ({ stages, gridSection, id }: HomeProps) => {
-  console.log(gridSection);
-
   return (
     <>
       <Head>
@@ -81,19 +35,17 @@ const Home = ({ stages, gridSection, id }: HomeProps) => {
         <GridImagesAndText gridContent={gridSection} />
       </div>
       <StagesMap stages={stages} />
-      <LivestreamVideo />
-      <ParagraphsSmall dark={true}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
-        accusantium facilis excepturi debitis perferendis, dignissimos cumque
-        atque amet illo nihil dolor ratione tempora minima sapiente quod.
-        Perferendis tempora labore omnis.
-      </ParagraphsSmall>
+      <div className={styles["livestream-wrapper"]}>
+        <div className={styles["heading-wrapper"]}>
+        <HeadingTwo dark children={"Livestream"} />
+        </div>
+        <LivestreamVideo />
+      </div>
       <LatestNews
         postHeading="Latest News and  posts"
         postText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut."
         posts={sliderData}
       />
-      <Footer/>
     </>
   );
 };
