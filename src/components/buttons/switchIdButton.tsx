@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./switchIdButtons.module.css";
 import Link from "next/link";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import HeadingTwo from "../typography/headings/headingTwo";
 
 type Props = {
   currentId: number;

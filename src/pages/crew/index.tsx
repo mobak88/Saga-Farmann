@@ -1,71 +1,41 @@
-import React, { useState } from "react";
+import React from "react";
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import styles from "./crew.module.css";
 import Navbar from "@/components/navigation/navbar/navbar";
 import Header from "@/components/header/header";
-import SwitchIdButton from "@/components/buttons/switchIdButton";
-import Card from "../../components/cards/crewCard/crewCard";
 import HeadingTwo from "@/components/typography/headings/headingTwo";
+import HeadingThree from "@/components/typography/headings/headingThree";
 
-type Member = {
-  member_image: string;
-  member_name: string;
-  member_role: string;
-  member_description: string;
-};
-
-type CrewMember = {
+interface CrewMember {
   id: number;
+  name: string;
+  role: string;
   title: { rendered: string };
-  acf: { member: Member[] };
-  current_crew: boolean;
-};
+}
 
-type Props = {
+interface Props {
   crewMembers: CrewMember[];
-  ids: number[];
-};
+}
 
-const CrewMemberPage = ({ crewMembers, ids }: Props) => {
-  const [isCurrentCrew, setIsCurrentCrew] = useState(
-    crewMembers.some((member) => member.current_crew)
-  );
-
-  const [currentId, setCurrentId] = useState(ids[0]);
-  const { title, acf } = crewMembers.find(
-    (member) => member.id === currentId
-  ) ?? { title: { rendered: "" }, acf: { member: [] } };
-
+const CrewMemberPage = ({ crewMembers }: Props) => {
   return (
     <>
       <Navbar />
-      <Header header={title.rendered} />
+      <Header header="Crew Page" />
       <div className={styles["main-wrapper"]}>
-        <div className={styles["btn-link-container"]}>
-          <SwitchIdButton
-            currentId={currentId}
-            totalIds={ids.length}
-            setCurrentId={setCurrentId}
-            baseUrl="/crew"
-            ids={ids}
-          />
-        </div>
-
-        <HeadingTwo>
-          {isCurrentCrew ? "Current Crew" : "Upcoming Crew"}
-        </HeadingTwo>
+        <HeadingTwo>All Crews </HeadingTwo>
 
         <div className={styles["card-container"]}>
-          {acf.member.map((member, index) => (
-            <Card
-              key={index}
-              member_image={member.member_image}
-              member_name={member.member_name}
-              member_role={member.member_role}
-              member_description={member.member_description}
-            />
-          ))}
+          <ul>
+            {crewMembers.map((crewMember) => (
+              <HeadingThree key={crewMember.id}>
+                <Link href={`/crew/${crewMember.id}`}>
+                  {crewMember.title.rendered}
+                </Link>
+              </HeadingThree>
+            ))}
+          </ul>
         </div>
       </div>
     </>
@@ -76,12 +46,11 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const res = await fetch(
     `https://dev.sagafarmann.com/wp/wp-json/wp/v2/crew_members`
   );
-  const crewMembers: CrewMember[] = await res.json();
-  const ids = crewMembers.map((member) => member.id);
+  const crewMembers = await res.json();
+  console.log(crewMembers);
   return {
     props: {
       crewMembers,
-      ids,
     },
   };
 };

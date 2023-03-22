@@ -1,10 +1,14 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import { useState } from "react";
+import React, { useState } from "react";
+import { ParsedUrlQuery } from "querystring";
 import styles from "./crew.module.css";
 import Navbar from "@/components/navigation/navbar/navbar";
 import Header from "@/components/header/header";
+import { useRouter } from "next/router";
+import Card from "../../components/cards/crewCard/crewCard";
+import HeadingTwo from "@/components/typography/headings/headingTwo";
+
 import SwitchIdButton from "@/components/buttons/switchIdButton";
-import Card from "@/components/cards/crewCard/crewCard";
 
 type Member = {
   member_image: string;
@@ -13,25 +17,55 @@ type Member = {
   member_description: string;
 };
 
-type CrewMember = {
+interface CrewMember {
   id: number;
   title: { rendered: string };
-  acf: { member: Member[] };
-};
+  acf: {
+    member: Member[];
+    current_crew: boolean;
+    crew_dates: { crew_date_from: string[]; crew_date_to: string[] };
+  };
+}
 
 type Props = {
   crewMember: CrewMember;
+  ids: number[];
 };
 
-const CrewMemberDetailPage = ({ crewMember }: Props) => {
-  const { title, acf } = crewMember;
-  const [currentId, setCurrentId] = useState(0);
-  const ids = [141, 142, 143, 144, 145, 146, 147];
+interface Params extends ParsedUrlQuery {
+  id: string;
+}
+
+const CrewMemberPage = ({ crewMember, ids }: Props) => {
+  const router = useRouter();
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
+
+  const [currentId, setCurrentId] = useState(ids[0]);
+  console.log(ids);
+  console.log(crewMember);
+
+  function isDatePassed(dateStr: string): boolean {
+    const date = new Date(dateStr);
+    const today = new Date();
+    return date < today;
+  }
+
+  function isFormerCrew(): boolean {
+    if (crewMember.acf.crew_dates && crewMember.acf.crew_dates.crew_date_to) {
+      const crewDateTo = crewMember.acf.crew_dates.crew_date_to[0];
+      return isDatePassed(crewDateTo);
+    }
+    return false;
+  }
+
+  const isCurrentCrew = crewMember.acf.current_crew;
 
   return (
     <>
       <Navbar />
-      <Header header={title.rendered} />
+      <Header header={crewMember.title.rendered} />
       <div className={styles["main-wrapper"]}>
         <div className={styles["btn-link-container"]}>
           <SwitchIdButton
@@ -42,8 +76,17 @@ const CrewMemberDetailPage = ({ crewMember }: Props) => {
             ids={ids}
           />
         </div>
+
+        <HeadingTwo>
+          {isCurrentCrew
+            ? "Current Crew"
+            : isFormerCrew()
+            ? "Former Crew"
+            : "Upcoming Crew"}
+        </HeadingTwo>
+
         <div className={styles["card-container"]}>
-          {acf.member.map((member, index) => (
+          {crewMember.acf.member.map((member, index) => (
             <Card
               key={index}
               member_image={member.member_image}
@@ -62,6 +105,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const res = await fetch(
     `https://dev.sagafarmann.com/wp/wp-json/wp/v2/crew_members`
   );
+
   const crewMembers: CrewMember[] = await res.json();
 
   const paths = crewMembers.map((crewMember) => ({
@@ -70,22 +114,32 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 };
 
-export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
-  const id = Number(params?.id);
+export const getStaticProps: GetStaticProps<Props, Params> = async ({
+  params,
+}) => {
+  const { id } = params ?? {};
+
   const res = await fetch(
     `https://dev.sagafarmann.com/wp/wp-json/wp/v2/crew_members/${id}`
   );
   const crewMember: CrewMember = await res.json();
 
+  const allCrewMembersRes = await fetch(
+    `https://dev.sagafarmann.com/wp/wp-json/wp/v2/crew_members`
+  );
+  const allCrewMembers: CrewMember[] = await allCrewMembersRes.json();
+  const ids = allCrewMembers.map((crewMember) => crewMember.id);
+
   return {
     props: {
       crewMember,
+      ids,
     },
   };
 };
 
-export default CrewMemberDetailPage;
+export default CrewMemberPage;

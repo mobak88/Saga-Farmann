@@ -4,6 +4,7 @@ import styles from "./crewCard.module.css";
 import ParagraphsSmall from "../../typography/paragraphs/paragraphsSmall";
 import ParagraphsBig from "@/components/typography/paragraphs/paragraphsBig";
 import HeadingTwo from "@/components/typography/headings/headingTwo";
+import HeadingThree from "@/components/typography/headings/headingThree";
 
 interface MemberProps {
   member_image: string;
@@ -25,7 +26,7 @@ const CrewCard = ({
           <img src={member_image} alt={member_name} className={styles.image} />
         </div>
         <div className={styles["card-text-wrapper"]}>
-          <HeadingTwo>{member_name}</HeadingTwo>
+          <HeadingThree>{member_name}</HeadingThree>
           <ParagraphsBig>{member_role}</ParagraphsBig>
           <ParagraphsSmall>{member_description}</ParagraphsSmall>
         </div>
