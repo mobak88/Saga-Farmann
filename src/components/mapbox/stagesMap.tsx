@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Map, { Marker, FullscreenControl } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import MapMarker from "./mapMarker";
 import Modal from "./modal/modal";
+import { CSSTransition } from "react-transition-group";
+import styles from "./StagesMap.module.css";
 
 export interface SingleStageProps {
   id: number;
@@ -38,6 +40,8 @@ const StagesMap = ({ stages }: StagesProps) => {
 
   const [modalStage, setModalStage] = useState<SingleStageProps | null>(null);
 
+  const nodeRef = useRef<HTMLInputElement>(null);
+
   useEffect(() => {
     if (!showModal.stageId || showModal.stageId === null) {
       return;
@@ -66,15 +70,30 @@ const StagesMap = ({ stages }: StagesProps) => {
       initialViewState={viewport}
       style={{ width: "100%", minHeight: "100dvh", height: "100rem" }}
       mapStyle="mapbox://styles/mustafabaker/clffw0qpm001a01o0i6m1oisp"
+      cooperativeGestures
     >
       <FullscreenControl />
-      {showModal.modalOpen && modalStage && (
+      <CSSTransition
+        nodeRef={nodeRef}
+        key="group"
+        in={showModal.modalOpen}
+        unmountOnExit
+        timeout={700}
+        classNames={{
+          enter: styles["modal-enter"],
+          enterActive: styles["modal-enter-active"],
+          exit: styles["modal-exit"],
+          exitActive: styles["modal-exit-active"],
+        }}
+      >
         <Modal
-          title={modalStage.title}
-          text={modalStage.stage_text_area[0].stage_text}
+          ref={nodeRef}
+          key="modal"
+          title={modalStage?.title}
+          text={modalStage?.stage_text_area[0].stage_text}
           onCloseClick={handleCloseModal}
         />
-      )}
+      </CSSTransition>
       {stages &&
         stages.map((stage) => (
           <Marker
