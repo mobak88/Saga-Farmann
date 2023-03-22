@@ -2,6 +2,8 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 type LivestreamStatus = {
   isOnline: Boolean;
+  livestreamTitle: string;
+  livestreamDescription: string;
 };
 
 export default async function LivestreamStatus(
@@ -13,11 +15,20 @@ export default async function LivestreamStatus(
   );
   const data = await response.text();
 
-  console.log(data);
+  /////////////// REMOVE CONSOLE LOG ///////////////
 
   if (!data.includes(`"ERROR`)) {
-    res.status(200).json({ isOnline: true });
+    res
+      .status(200)
+      .json({ isOnline: true, livestreamTitle: "", livestreamDescription: "" });
   } else {
-    res.status(200).json({ isOnline: false });
+    res.status(200).json({
+      isOnline: false,
+      livestreamTitle: "",
+      livestreamDescription: "",
+    });
   }
 }
+
+//   {\"title\":{\"runs\":[{\"text\":\"Purrple Cat 💜\"}]}
+// slice()
