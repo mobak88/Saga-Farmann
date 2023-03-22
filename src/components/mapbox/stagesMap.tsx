@@ -70,7 +70,9 @@ const StagesMap = ({ stages }: StagesProps) => {
       initialViewState={viewport}
       style={{ width: "100%", minHeight: "100dvh", height: "100rem" }}
       mapStyle="mapbox://styles/mustafabaker/clffw0qpm001a01o0i6m1oisp"
+      cooperativeGestures
     >
+      <FullscreenControl />
       <CSSTransition
         nodeRef={nodeRef}
         key="group"
@@ -92,7 +94,6 @@ const StagesMap = ({ stages }: StagesProps) => {
           onCloseClick={handleCloseModal}
         />
       </CSSTransition>
-
       {stages &&
         stages.map((stage) => (
           <Marker
