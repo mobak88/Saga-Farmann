@@ -29,18 +29,18 @@
   justify-self: start;
 }
 
-@media screen and (max-width: 140rem) {
-  /* .swiper-container {
-    display: grid;
-    grid-template-areas:
-      "swiper swiper"
-      "prev next";
-  } */
-}
-
 @media screen and (max-width: 176.8rem) {
   .slider-card-container {
     display: flex;
     justify-content: center;
+  }
+}
+
+@media screen and (max-width: 140rem) {
+  .swiper-container {
+    display: grid;
+    grid-template-areas:
+      "swiper swiper"
+      "prev next";
   }
 }

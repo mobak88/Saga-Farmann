@@ -18,3 +18,23 @@
   width: 1080px;
   max-width: 1080px;
 }
+
+.wave-container {
+  position: relative;
+  overflow: hidden;
+  bottom: 10rem;
+}
+
+.map-container {
+  margin-top: -10rem;
+}
+
+@media screen and (max-width: 75rem) {
+  .wave-container {
+    bottom: 2rem;
+  }
+
+  .map-container {
+    margin-top: -2rem;
+  }
+}
