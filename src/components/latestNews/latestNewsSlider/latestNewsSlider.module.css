@@ -1,7 +1,8 @@
 .swiper-container {
-  display: flex;
+  display: grid;
   align-items: center;
   gap: clamp(1rem, 5rem, 10rem);
+  grid-template-areas: "prev swiper next";
 }
 
 .arrow-icon {
