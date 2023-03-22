@@ -15,8 +15,6 @@ export default async function LivestreamStatus(
   );
   const data = await response.text();
 
-  /////////////// REMOVE CONSOLE LOG ///////////////
-
   if (!data.includes(`"ERROR`)) {
     res
       .status(200)
@@ -31,4 +29,3 @@ export default async function LivestreamStatus(
 }
 
 //   {\"title\":{\"runs\":[{\"text\":\"Purrple Cat 💜\"}]}
-// slice()
