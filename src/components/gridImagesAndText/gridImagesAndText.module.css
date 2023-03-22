@@ -1,6 +1,6 @@
 .wrapper {
   max-width: 80em;
-  padding: var(--section-padding) 0;
+  padding: 0 0 var(--section-padding) 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 40px 90px 130px 30px 190px 190px;

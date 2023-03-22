@@ -1,0 +1,21 @@
+.wave {
+  display: block;
+}
+
+.wave-small {
+  display: none;
+}
+
+.wave-bottom {
+  transform: rotate(180deg);
+}
+
+@media screen and (max-width: 75rem) {
+  .wave {
+    display: none;
+  }
+
+  .wave-small {
+    display: block;
+  }
+}
