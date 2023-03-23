@@ -59,7 +59,7 @@ const BlogPage = ({ posts }: Props) => {
         <div>
           {posts.map((post) => (
             <BlogCard
-              key={post.id}
+              id={post.id}
               post_image={post.modified}
               modified={post.modified}
               title={post.title.rendered}

@@ -1,8 +1,10 @@
 import ParagraphsSmall from "@/components/typography/paragraphs/paragraphsSmall";
 import HeadingTwo from "@/components/typography/headings/headingTwo";
 import styles from "./blogCard.module.css";
+import Link from "next/link";
 
 interface BlogProps {
+  id: number;
   post_image: string;
   modified: string;
   title: string;
@@ -10,13 +12,14 @@ interface BlogProps {
 }
 
 const BlogCard = ({
+  id,
   post_image,
   modified,
   title,
   post_description,
 }: BlogProps) => {
   return (
-    <>
+    <Link key={id} href={`/blogs/${id}`}>
       <div className={styles[""]}>
         <div className={styles[""]}>
           <img src={post_image} alt={title} className={styles[""]} />
@@ -27,7 +30,7 @@ const BlogCard = ({
           <ParagraphsSmall dark={true}>{post_description}</ParagraphsSmall>
         </div>
       </div>
-    </>
+    </Link>
   );
 };
 export default BlogCard;
