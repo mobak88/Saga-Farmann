@@ -70,12 +70,11 @@ const BlogPage = ({ posts }: Props) => {
       </div>
     </>
   );
-  //  NOT WORKING ???? post_image={post.acf.post_first_section.post_images.post_image}
+  //  NOT WORKING ???? Se error melding når dato brukes post_image={post.acf.post_first_section.post_images.post_image}
 };
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const res = await fetch(API_ENDPOINTS.blogPosts);
   const posts: Posts[] = await res.json();
-  const id = posts.map((post) => post.id);
   return {
     props: {
       posts,

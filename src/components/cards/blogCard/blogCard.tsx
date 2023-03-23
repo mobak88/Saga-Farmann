@@ -5,7 +5,6 @@ import styles from "./blogCard.module.css";
 interface BlogProps {
   post_image: string;
   modified: string;
-
   title: string;
   post_description: string;
 }
@@ -13,7 +12,6 @@ interface BlogProps {
 const BlogCard = ({
   post_image,
   modified,
-
   title,
   post_description,
 }: BlogProps) => {
