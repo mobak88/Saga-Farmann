@@ -23,7 +23,7 @@ interface CrewMember {
   acf: {
     member: Member[];
     current_crew: boolean;
-    crew_dates: { crew_date_from: number; crew_date_to: number };
+    crew_dates: { crew_date_to: number };
   };
 }
 
@@ -44,8 +44,6 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
 
   const [currentId, setCurrentId] = useState(ids[0]);
   ids.reverse();
-  // console.log(ids);
-  // console.log(crewMember);
 
   const isCurrentCrew = crewMember.acf.current_crew;
   const dateFromApi = crewMember.acf.crew_dates.crew_date_to.toString();
@@ -56,9 +54,6 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
   let month = (date.getMonth() + 1).toString().padStart(2, "0");
   let day = date.getDate().toString().padStart(2, "0");
   let currentDate = parseInt(`${year}${month}${day}`);
-
-  console.log(currentDate);
-  console.log("Date from api", +crewDateTo);
 
   function isFormerCrew(): boolean {
     if (crewDateTo > currentDate) {
@@ -72,7 +67,7 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
       <Navbar />
       <Header header={crewMember.title.rendered} />
       <div className={styles["main-wrapper"]}>
-        <div className={styles["btn-link-container"]}>
+        <div className={styles["button-heading-wrapper"]}>
           <SwitchIdButton
             currentId={currentId}
             totalIds={ids.length}
@@ -80,16 +75,16 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
             baseUrl="/crew"
             ids={ids}
           />
+          <div className={styles["heading-wrapper"]}>
+            <HeadingTwo>
+              {isCurrentCrew
+                ? "Current Crew"
+                : isFormerCrew()
+                ? "Upcoming Crew"
+                : "Former Crew"}
+            </HeadingTwo>
+          </div>
         </div>
-
-        <HeadingTwo>
-          {isCurrentCrew
-            ? "Current Crew"
-            : isFormerCrew()
-            ? "Upcoming Crew"
-            : "Former Crew"}
-        </HeadingTwo>
-
         <div className={styles["card-container"]}>
           {crewMember.acf.member.map((member, index) => (
             <Card
@@ -112,7 +107,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   );
 
   const crewMembers: CrewMember[] = await res.json();
-
   const paths = crewMembers.map((crewMember) => ({
     params: { id: crewMember.id.toString() },
   }));
@@ -127,17 +121,16 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
   params,
 }) => {
   const { id } = params ?? {};
-
-  const res = await fetch(
+  const crewRes = await fetch(
     `https://dev.sagafarmann.com/wp/wp-json/wp/v2/crew_members/${id}`
   );
-  const crewMember: CrewMember = await res.json();
 
-  const allCrewMembersRes = await fetch(
+  const crewMember: CrewMember = await crewRes.json();
+  const allCrewsRes = await fetch(
     `https://dev.sagafarmann.com/wp/wp-json/wp/v2/crew_members`
   );
-  const allCrewMembers: CrewMember[] = await allCrewMembersRes.json();
-  const ids = allCrewMembers.map((crewMember) => crewMember.id);
+  const allCrews: CrewMember[] = await allCrewsRes.json();
+  const ids = allCrews.map((crewMember) => crewMember.id);
 
   return {
     props: {

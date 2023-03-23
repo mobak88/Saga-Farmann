@@ -6,6 +6,7 @@ import Navbar from "@/components/navigation/navbar/navbar";
 import Header from "@/components/header/header";
 import HeadingTwo from "@/components/typography/headings/headingTwo";
 import HeadingThree from "@/components/typography/headings/headingThree";
+import ReactMarkdown from "react-markdown";
 
 interface CrewMember {
   id: number;
@@ -17,23 +18,28 @@ interface Props {
 }
 
 const CrewMemberPage = ({ crewMembers }: Props) => {
+  console.log(crewMembers);
+
   return (
     <>
       <Navbar />
-      <Header header="Crew Page" />
+      <Header header="Crews" />
       <div className={styles["main-wrapper"]}>
-        <HeadingTwo>All Crews </HeadingTwo>
+        <HeadingTwo>Saga Asia 2023</HeadingTwo>
 
         <div className={styles["card-container"]}>
-          <ul>
+          <div className={styles["crew-links-wrapper"]}>
             {crewMembers.map((crewMember) => (
               <HeadingThree key={crewMember.id}>
-                <Link href={`/crew/${crewMember.id}`}>
-                  {crewMember.title.rendered}
+                <Link
+                  href={`/crew/${crewMember.id}`}
+                  className={styles["crews-links"]}
+                >
+                  <ReactMarkdown>{crewMember.title.rendered}</ReactMarkdown>
                 </Link>
               </HeadingThree>
             ))}
-          </ul>
+          </div>
         </div>
       </div>
     </>
@@ -45,7 +51,13 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     `https://dev.sagafarmann.com/wp/wp-json/wp/v2/crew_members`
   );
   const crewMembers = await res.json();
-  console.log(crewMembers);
+  function swapElements(arr: any[], i1: number, i2: number) {
+    let temp = arr[i1];
+    arr[i1] = arr[i2];
+    arr[i2] = temp;
+  }
+  swapElements(crewMembers, 6, 7);
+  // console.log(crewMembers);
   return {
     props: {
       crewMembers,
