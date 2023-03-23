@@ -23,7 +23,7 @@ interface CrewMember {
   acf: {
     member: Member[];
     current_crew: boolean;
-    crew_dates: { crew_date_from: string[]; crew_date_to: string[] };
+    crew_dates: { crew_date_from: number; crew_date_to: number };
   };
 }
 
@@ -43,24 +43,29 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
   }
 
   const [currentId, setCurrentId] = useState(ids[0]);
-  console.log(ids);
-  console.log(crewMember);
+  ids.reverse();
+  // console.log(ids);
+  // console.log(crewMember);
 
-  function isDatePassed(dateStr: string): boolean {
-    const date = new Date(dateStr);
-    const today = new Date();
-    return date < today;
-  }
+  const isCurrentCrew = crewMember.acf.current_crew;
+  const dateFromApi = crewMember.acf.crew_dates.crew_date_to.toString();
+  const crewDateTo = parseInt(dateFromApi);
+
+  let date = new Date();
+  let year = date.getFullYear();
+  let month = (date.getMonth() + 1).toString().padStart(2, "0");
+  let day = date.getDate().toString().padStart(2, "0");
+  let currentDate = parseInt(`${year}${month}${day}`);
+
+  console.log(currentDate);
+  console.log("Date from api", +crewDateTo);
 
   function isFormerCrew(): boolean {
-    if (crewMember.acf.crew_dates && crewMember.acf.crew_dates.crew_date_to) {
-      const crewDateTo = crewMember.acf.crew_dates.crew_date_to[0];
-      return isDatePassed(crewDateTo);
+    if (crewDateTo > currentDate) {
+      return true;
     }
     return false;
   }
-
-  const isCurrentCrew = crewMember.acf.current_crew;
 
   return (
     <>
@@ -81,8 +86,8 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
           {isCurrentCrew
             ? "Current Crew"
             : isFormerCrew()
-            ? "Former Crew"
-            : "Upcoming Crew"}
+            ? "Upcoming Crew"
+            : "Former Crew"}
         </HeadingTwo>
 
         <div className={styles["card-container"]}>

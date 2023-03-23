@@ -9,8 +9,6 @@ import HeadingThree from "@/components/typography/headings/headingThree";
 
 interface CrewMember {
   id: number;
-  name: string;
-  role: string;
   title: { rendered: string };
 }
 
