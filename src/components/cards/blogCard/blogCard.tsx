@@ -19,7 +19,7 @@ const BlogCard = ({
   post_description,
 }: BlogProps) => {
   return (
-    <Link key={id} href={`/blogs/${id}`}>
+    <Link key={id} href={`/blog/${id}`}>
       <div className={styles[""]}>
         <div className={styles[""]}>
           <img src={post_image} alt={title} className={styles[""]} />
