@@ -13,11 +13,7 @@
   align-items: flex-end;
 }
 
-/* .change-id-btn-left {
-  margin-right: 2rem;
-} */
-
 .btn-wrapper {
   display: flex;
-  gap: 2rem;
+  gap: 30rem;
 }
