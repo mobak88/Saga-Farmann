@@ -8,14 +8,14 @@ import SwitchIdButton from "@/components/buttons/switchIdButton";
 import Card from "../../components/cards/crewCard/crewCard";
 import HeadingTwo from "@/components/typography/headings/headingTwo";
 import API_ENDPOINTS from "@/endpoints/endpoints";
-
+// crewMembers.acf.member
 type Member = {
   member_image: string;
   member_name: string;
   member_role: string;
   member_description: string;
 };
-// Utenfor ACF
+// crewMember
 type CrewMember = {
   id: number;
   title: { rendered: string };
@@ -23,7 +23,7 @@ type CrewMember = {
   current_crew: boolean;
 };
 
-// Innenfor ACF
+// crewMember
 type Props = {
   crewMembers: CrewMember[];
   ids: number[];
