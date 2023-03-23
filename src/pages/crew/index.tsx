@@ -15,7 +15,7 @@ type Member = {
   member_role: string;
   member_description: string;
 };
-
+// Utenfor ACF
 type CrewMember = {
   id: number;
   title: { rendered: string };
@@ -23,6 +23,7 @@ type CrewMember = {
   current_crew: boolean;
 };
 
+// Innenfor ACF
 type Props = {
   crewMembers: CrewMember[];
   ids: number[];
