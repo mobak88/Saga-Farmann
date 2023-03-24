@@ -25,9 +25,11 @@ const BlogCard = ({
           <img src={post_image} alt={title} className={styles[""]} />
         </div>
         <div className={styles[""]}>
-          <ParagraphsSmall dark={true}>{modified}</ParagraphsSmall>
-          <HeadingTwo dark={true}>{title}</HeadingTwo>
-          <ParagraphsSmall dark={true}>{post_description}</ParagraphsSmall>
+          <ParagraphsSmall dark={true}>Posted: {modified}</ParagraphsSmall>
+          <HeadingTwo dark={true}>Title: {title}</HeadingTwo>
+          <ParagraphsSmall dark={true}>
+            Description: {post_description}
+          </ParagraphsSmall>
         </div>
       </div>
     </Link>
