@@ -1,8 +1,6 @@
 .wrapper {
-  max-width: 80em;
-  padding: var(--section-padding) 0;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 25em 25em 25em;
   grid-template-rows: 40px 90px 130px 30px 190px 190px;
   text-align: center;
 }
@@ -58,9 +56,9 @@
 }
 
 .pointer {
-  border-left: 21rem solid transparent;
-  border-right: 21rem solid transparent;
-  border-top: 10rem solid var(--very-dark-blue);
+  border-left: 20rem solid transparent;
+  border-right: 20rem solid transparent;
+  border-top: 9rem solid var(--very-dark-blue);
 }
 
 .imageBox-one {
@@ -134,4 +132,114 @@
   grid-row-start: 6;
   grid-row-end: 7;
   width: 100%;
+}
+
+@media screen and (min-width: 1900px) {
+  .wrapper {
+    grid-template-columns: 30em 30em 30em;
+    grid-template-rows: 40px 120px 150px 30px 210px 230px;
+  }
+  .pointer {
+    border-left: 24rem solid transparent;
+    border-right: 24rem solid transparent;
+    border-top: 10rem solid var(--very-dark-blue);
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .wrapper {
+    grid-template-columns: 18em 18em 18em;
+  }
+  .pointer {
+    border-left: 14rem solid transparent;
+    border-right: 14rem solid transparent;
+    border-top: 6rem solid var(--very-dark-blue);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .wrapper {
+    grid-template-columns: 17em 17em 17em;
+  }
+  .imageBox-three::after {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .wrapper {
+    grid-template-columns: 30em;
+    grid-template-rows: 200px 16px 300px 48px 300px 16px 250px 16px 250px 16px 250px;
+  }
+
+  .imageBox-three::after {
+    display: none;
+  }
+
+  .textBox-follow-the-vikings {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: var(--very-dark-blue);
+  }
+
+  .textBox-follow-the-vikings-two {
+    grid-row-start: 5;
+    grid-row-end: 6;
+  }
+
+  .pointer {
+    border-left: 24rem solid transparent;
+    border-right: 24rem solid transparent;
+    border-top: 8rem solid var(--very-dark-blue);
+  }
+
+  .imageBox-one {
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+
+  .imageBox-one::after {
+    display: none;
+  }
+
+  .imageBox-two {
+    display: none;
+  }
+
+  .textBox-donations {
+    grid-row-start: 7;
+    grid-row-end: 8;
+  }
+
+  .textBox-follow-the-vikings-three {
+    grid-row-start: 9;
+    grid-row-end: 10;
+    width: 100%;
+  }
+
+  .imageBox-three {
+    display: none;
+  }
+
+  .imageBox-three::after {
+    display: none;
+  }
+
+  .textBox-text {
+    grid-row-start: 11;
+    grid-row-end: 12;
+    background-color: var(--very-dark-blue);
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .wrapper {
+    grid-template-columns: 20em;
+    grid-template-rows: 200px 16px 200px 48px 260px 16px 200px 16px 200px 16px 200px;
+  }
+  .pointer {
+    border-left: 16rem solid transparent;
+    border-right: 16rem solid transparent;
+    border-top: 6rem solid var(--very-dark-blue);
+  }
 }

@@ -1,8 +1,6 @@
 .content-container {
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 3rem;
 }
 
@@ -28,4 +26,27 @@
   color: var(--light-text-color);
   background-color: rgba(0, 0, 0, 0.6);
   font-size: var(--heading-two);
+}
+
+@media screen and (max-width: 1300px) {
+  .youtube-holder {
+    width: 720px;
+    height: 405px;
+    max-width: 720px;
+    max-height: 405px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .youtube-holder {
+    width: 420px;
+    height: 270px;
+    max-width: 420px;
+    max-height: 270px;
+  }
+  .offline-text {
+    color: var(--light-text-color);
+    background-color: rgba(0, 0, 0, 0.6);
+    font-size: var(--heading-three);
+  }
 }
