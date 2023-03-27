@@ -21,7 +21,7 @@ interface CrewMember {
   acf: {
     member: Member[];
     current_crew: boolean;
-    crew_dates: { crew_date_to: number };
+    crew_dates: { crew_date_from: number; crew_date_to: number };
   };
 }
 
@@ -42,8 +42,9 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
   }
 
   const isCurrentCrew = crewMember.acf.current_crew;
-  const dateFromApi = crewMember.acf.crew_dates.crew_date_to.toString();
-  const crewDateTo = parseInt(dateFromApi);
+  const crewDateToApi = crewMember.acf.crew_dates.crew_date_to.toString();
+  const crewDateTo = parseInt(crewDateToApi);
+  console.log(crewMember.acf.crew_dates.crew_date_to);
 
   let date = new Date();
   let year = date.getFullYear();
@@ -51,12 +52,12 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
   let day = date.getDate().toString().padStart(2, "0");
   let currentDate = parseInt(`${year}${month}${day}`);
 
-  function isFormerCrew(): boolean {
+  const isFormerCrew = (): boolean => {
     if (crewDateTo > currentDate) {
       return true;
     }
     return false;
-  }
+  };
 
   return (
     <>
@@ -119,13 +120,18 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
   const crewRes = await fetch(
     `https://dev.sagafarmann.com/wp/wp-json/wp/v2/crew_members/${id}`
   );
-
   const crewMember: CrewMember = await crewRes.json();
+
   const allCrewsRes = await fetch(
     `https://dev.sagafarmann.com/wp/wp-json/wp/v2/crew_members`
   );
   const allCrews: CrewMember[] = await allCrewsRes.json();
-  const ids = allCrews.reverse().map((crewMember) => crewMember.id);
+  allCrews.sort((a, b) => {
+    const aDateFrom = a.acf.crew_dates.crew_date_from;
+    const bDateFrom = b.acf.crew_dates.crew_date_from;
+    return aDateFrom - bDateFrom;
+  });
+  const ids = allCrews.map((crewMember) => crewMember.id);
 
   return {
     props: {
