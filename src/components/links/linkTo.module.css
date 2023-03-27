@@ -1,0 +1,11 @@
+.link {
+  display: flex;
+  align-items: center;
+  text-decoration-color: var(--bg-pink-brown);
+  text-underline-position: under;
+  gap: 1rem;
+}
+
+.link-icon {
+  color: var(--bg-pink-brown);
+}

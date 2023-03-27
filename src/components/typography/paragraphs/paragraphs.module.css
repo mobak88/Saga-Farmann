@@ -11,9 +11,18 @@
 }
 
 .paragraphs-l {
-  font-size: var(--paragraph-size-l);
+  font-size: var(--p--step-2);
 }
 
 .paragraphs-sm {
-  font-size: var(--paragraph-size-sm);
+  font-size: var(--p--step-1);
+}
+
+@media screen and (max-width: 50rem) {
+  .paragraphs-truncated {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
 }

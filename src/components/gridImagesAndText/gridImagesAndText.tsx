@@ -2,81 +2,83 @@ import React from "react";
 import styles from "./gridImagesAndText.module.css";
 import HeadingThree from "../typography/headings/headingThree";
 import ParagraphsSmall from "../typography/paragraphs/paragraphsSmall";
+import { GridSections } from "./interfaces";
 
-interface GridImagesAndTextProps {
-  header1: string;
-  article1: string;
-  header2: string;
-  article2: string;
-  header3: string;
-  article3: string;
-  header4: string;
-  article4: string;
-  header5: string;
-  article5: string;
-  image1: string;
-  image2: string;
-  image3: string;
+interface Props {
+  gridContent: GridSections;
 }
 
-const GridImagesAndText = ({
-  header1,
-  article1,
-  header2,
-  article2,
-  header3,
-  article3,
-  header4,
-  article4,
-  header5,
-  article5,
-  image1,
-  image2,
-  image3,
-}: GridImagesAndTextProps) => {
+const GridImagesAndText = ({ gridContent }: Props) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles["textBox-follow-the-vikings"]}>
         <div className={styles.content}>
-          <HeadingThree children={header1} />
-          <ParagraphsSmall children={article1} />
+          <HeadingThree>
+            {gridContent.first_block.first_block_heading}
+          </HeadingThree>
+
+          <ParagraphsSmall>
+            {gridContent.first_block.first_block_text}
+          </ParagraphsSmall>
         </div>
       </div>
       <div className={styles["textBox-follow-the-vikings-two"]}>
         <div className={styles.content}>
-          <HeadingThree children={header2} />
-          <ParagraphsSmall children={article2} />
+          <HeadingThree>
+            {gridContent.third_block.third_block_heading}
+          </HeadingThree>
+          <ParagraphsSmall>
+            {gridContent.third_block.third_block_text}
+          </ParagraphsSmall>
         </div>
         <div className={styles.pointer}></div>
       </div>
       <div
         className={styles["imageBox-one"]}
-        style={{ backgroundImage: `url(${image1})` }}
+        style={{
+          backgroundImage: `url(${gridContent.second_block})`,
+        }}
       ></div>
       <div
         className={styles["imageBox-two"]}
-        style={{ backgroundImage: `url(${image2})` }}
+        style={{
+          backgroundImage: `url(${gridContent.fifth_block})`,
+        }}
       ></div>
       <div className={styles["textBox-donations"]}>
         <div className={styles.content}>
-          <HeadingThree dark children={header3} />
-          <ParagraphsSmall dark children={article3} />
+          <HeadingThree dark>
+            {gridContent.fourth_block.fourth_block_heading}
+          </HeadingThree>
+          <ParagraphsSmall dark>
+            {gridContent.fourth_block.fourth_block_text}
+          </ParagraphsSmall>
         </div>
       </div>
       <div className={styles["textBox-follow-the-vikings-three"]}>
         <div className={styles.content}>
-          <HeadingThree dark children={header4} />
-          <ParagraphsSmall dark children={article4} />
+          <HeadingThree dark>
+            {gridContent.seventh_block.seventh_block_heading}
+          </HeadingThree>
+          <ParagraphsSmall dark>
+            {gridContent.seventh_block.seventh_block_text}
+          </ParagraphsSmall>
         </div>
       </div>
       <div
         className={styles["imageBox-three"]}
-        style={{ backgroundImage: `url(${image3})` }}
+        style={{
+          backgroundImage: `url(${gridContent.sixth_block})`,
+        }}
       ></div>
       <div className={styles["textBox-text"]}>
         <div className={styles.content}>
-          <HeadingThree children={header5} />
-          <ParagraphsSmall children={article5} />
+          <HeadingThree>
+            {gridContent.eighth_block.eighth_block_heading}
+          </HeadingThree>
+          <ParagraphsSmall>
+            {gridContent.eighth_block.eighth_block_text}
+          </ParagraphsSmall>
         </div>
       </div>
     </div>

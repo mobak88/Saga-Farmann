@@ -4,3 +4,37 @@
   display: flex;
   justify-content: center;
 }
+
+.livestream-wrapper {
+  padding: var(--section-padding) 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.heading-wrapper {
+  width: 1080px;
+  max-width: 1080px;
+}
+
+.wave-container {
+  position: relative;
+  overflow: hidden;
+  bottom: 10rem;
+}
+
+.map-container {
+  margin-top: -10rem;
+}
+
+@media screen and (max-width: 75rem) {
+  .wave-container {
+    bottom: 2rem;
+  }
+
+  .map-container {
+    margin-top: -2rem;
+  }
+}

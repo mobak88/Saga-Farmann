@@ -1,6 +1,8 @@
-.section-container {
+.section-wrapper {
   background-color: var(--bg-dark-blue);
-  padding: 8rem;
+}
+
+.section-container {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -12,8 +14,31 @@
   display: flex;
   justify-content: space-between;
   padding: 0 clamp(0rem, 10rem, 15rem);
+  text-align: center;
 }
 
 .paragraph-container {
   max-width: 50%;
+}
+
+@media screen and (max-width: 140rem) {
+  .text-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem;
+  }
+  .paragraph-container {
+    max-width: 90%;
+  }
+
+  .section-container {
+    padding: 0 2rem;
+  }
+}
+
+@media screen and (max-width: 75rem) {
+  .section-container {
+    padding: var(--section-padding) 2rem;
+  }
 }

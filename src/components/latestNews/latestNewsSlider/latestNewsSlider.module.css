@@ -1,7 +1,8 @@
 .swiper-container {
-  display: flex;
+  display: grid;
   align-items: center;
   gap: clamp(1rem, 5rem, 10rem);
+  grid-template-areas: "prev swiper next";
 }
 
 .arrow-icon {
@@ -12,4 +13,35 @@
 .swiper-nav-prev,
 .swiper-nav-next {
   cursor: pointer;
+  display: flex;
+}
+
+.my-swiper {
+  grid-area: swiper;
+}
+
+.swiper-nav-prev {
+  grid-area: prev;
+  justify-self: end;
+}
+
+.swiper-nav-next {
+  grid-area: next;
+  justify-self: start;
+}
+
+@media screen and (max-width: 176.8rem) {
+  .slider-card-container {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 140rem) {
+  .swiper-container {
+    display: grid;
+    grid-template-areas:
+      "swiper swiper"
+      "prev next";
+  }
 }
