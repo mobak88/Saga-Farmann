@@ -26,10 +26,12 @@ const CrewCard = ({
             src={member_image}
             alt={member_name}
             className={styles.image}
+            width={400}
+            height={300}
           />
         </div>
         <div className={styles["card-text-wrapper"]}>
-          <HeadingThree>{member_name}</HeadingThree>
+          <ParagraphsBig>{member_name}</ParagraphsBig>
           <ParagraphsBig>{member_role}</ParagraphsBig>
           <ParagraphsSmall>{member_description}</ParagraphsSmall>
         </div>
