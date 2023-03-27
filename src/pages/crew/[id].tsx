@@ -6,7 +6,6 @@ import Header from "@/components/header/header";
 import { useRouter } from "next/router";
 import Card from "../../components/cards/crewCard/crewCard";
 import HeadingTwo from "@/components/typography/headings/headingTwo";
-
 import SwitchIdButton from "@/components/buttons/switchIdButton";
 
 type Member = {
@@ -58,7 +57,7 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
     }
     return false;
   }
-  console.log(ids);
+
   return (
     <>
       <Header header={crewMember.title.rendered} />
