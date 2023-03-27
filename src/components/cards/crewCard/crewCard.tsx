@@ -1,9 +1,8 @@
-import Image, { StaticImageData } from "next/image";
 import React from "react";
+import Image from "next/image";
 import styles from "./crewCard.module.css";
 import ParagraphsSmall from "../../typography/paragraphs/paragraphsSmall";
 import ParagraphsBig from "@/components/typography/paragraphs/paragraphsBig";
-import HeadingTwo from "@/components/typography/headings/headingTwo";
 import HeadingThree from "@/components/typography/headings/headingThree";
 
 interface MemberProps {
@@ -23,7 +22,11 @@ const CrewCard = ({
     <>
       <div className={styles.card}>
         <div className={styles["image-wrapper"]}>
-          <img src={member_image} alt={member_name} className={styles.image} />
+          <Image
+            src={member_image}
+            alt={member_name}
+            className={styles.image}
+          />
         </div>
         <div className={styles["card-text-wrapper"]}>
           <HeadingThree>{member_name}</HeadingThree>
