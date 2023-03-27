@@ -3,6 +3,7 @@
   background-color: var(--bg-pink-brown);
   display: flex;
   justify-content: center;
+  padding: var(--section-padding) 0;
 }
 
 .livestream-wrapper {
@@ -12,11 +13,6 @@
   align-items: center;
   flex-direction: column;
   gap: 2rem;
-}
-
-.heading-wrapper {
-  width: 1080px;
-  max-width: 1080px;
 }
 
 .wave-container {

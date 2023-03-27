@@ -44,9 +44,6 @@ const Home = ({ stages, gridSection, id }: HomeProps) => {
         <StagesMap stages={stages} />
       </div>
       <div className={styles["livestream-wrapper"]}>
-        <div className={styles["heading-wrapper"]}>
-          <HeadingTwo dark={true}>Livestream</HeadingTwo>
-        </div>
         <LivestreamVideo />
       </div>
       <LatestNews
