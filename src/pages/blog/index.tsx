@@ -3,6 +3,7 @@ import API_ENDPOINTS from "@/endpoints/endpoints";
 import ParagraphsSmall from "@/components/typography/paragraphs/paragraphsSmall";
 import BlogCard from "../../components/cards/blogCard/blogCard";
 import Header from "@/components/header/header";
+import styles from "./blog.module.css";
 
 interface Props {
   posts: Posts[];
@@ -48,21 +49,19 @@ interface PostSecondSectionTexts extends PostSecondSection {
 const BlogPage = ({ posts }: Props) => {
   return (
     <>
-      <div>
-        <Header header={"Blog"} />
-        <div>
-          {posts.map((post) => (
-            <BlogCard
-              id={post.id}
-              post_image={
-                post.acf.post_first_section[0].post_images[0].post_image
-              }
-              modified={post.modified}
-              title={post.title.rendered}
-              post_description={post.acf.post_description}
-            />
-          ))}
-        </div>
+      <Header header={"Blog"} />
+      <div className={styles["blog-page-wrapper"]}>
+        {posts.map((post) => (
+          <BlogCard
+            id={post.id}
+            post_image={
+              post.acf.post_first_section[0].post_images[0].post_image
+            }
+            modified={post.modified}
+            title={post.title.rendered}
+            post_description={post.acf.post_description}
+          />
+        ))}
       </div>
     </>
   );

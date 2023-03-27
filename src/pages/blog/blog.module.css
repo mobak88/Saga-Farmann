@@ -1,0 +1,12 @@
+.blog-page-wrapper {
+  margin: 5rem 10rem 0 10rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
+@media screen and (max-width: 1100px) {
+  .blog-page-wrapper {
+    grid-template-columns: 1fr;
+    margin: 1rem 2rem 0 2rem;
+  }
+}
