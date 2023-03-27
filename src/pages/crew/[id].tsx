@@ -36,13 +36,11 @@ interface Params extends ParsedUrlQuery {
 }
 
 const CrewMemberPage = ({ crewMember, ids }: Props) => {
+  const [currentId, setCurrentId] = useState(ids[0]);
   const router = useRouter();
   if (router.isFallback) {
     return <div>Loading...</div>;
   }
-
-  const [currentId, setCurrentId] = useState(ids[0]);
-  ids.reverse();
 
   const isCurrentCrew = crewMember.acf.current_crew;
   const dateFromApi = crewMember.acf.crew_dates.crew_date_to.toString();
@@ -60,7 +58,7 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
     }
     return false;
   }
-
+  console.log(ids);
   return (
     <>
       <Header header={crewMember.title.rendered} />
@@ -128,7 +126,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
     `https://dev.sagafarmann.com/wp/wp-json/wp/v2/crew_members`
   );
   const allCrews: CrewMember[] = await allCrewsRes.json();
-  const ids = allCrews.map((crewMember) => crewMember.id);
+  const ids = allCrews.reverse().map((crewMember) => crewMember.id);
 
   return {
     props: {
