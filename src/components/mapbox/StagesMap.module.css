@@ -6,7 +6,13 @@
 
 .modal-enter-active {
   opacity: 1;
-  transition: opacity 350ms, transform 350ms;
+  transition: opacity 345ms, transform 345ms;
+  transform: translate(-50%, -50%);
+}
+
+.modal-enter-done {
+  opacity: 1;
+  transition: opacity 5ms, transform 5ms;
   transform: translate(-50%, -50%);
 }
 

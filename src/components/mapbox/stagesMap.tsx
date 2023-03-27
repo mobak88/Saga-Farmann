@@ -82,6 +82,7 @@ const StagesMap = ({ stages }: StagesProps) => {
         classNames={{
           enter: styles["modal-enter"],
           enterActive: styles["modal-enter-active"],
+          enterDone: styles["modal-enter-done"],
           exit: styles["modal-exit"],
           exitActive: styles["modal-exit-active"],
         }}
