@@ -7,7 +7,7 @@ const Hamburger = () => {
 
   const links = [
     { href: "/", label: "Home" },
-    { href: "/crew", label: "Crew" },
+    { href: "/crew/", label: "Crew" },
     { href: "/blog", label: "Blog" },
     { href: "/destinations", label: "Destinations" },
     { href: "/livestream", label: "Livestream" },

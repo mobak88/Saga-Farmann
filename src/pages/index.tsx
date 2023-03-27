@@ -13,6 +13,8 @@ import API_ENDPOINTS from "@/endpoints/endpoints";
 import { GridSections } from "@/components/gridImagesAndText/interfaces";
 import { SingleStageApiProps } from "@/components/mapbox/interfaces";
 import HeadingTwo from "@/components/typography/headings/headingTwo";
+import WaveRedBrownTop from "@/components/waves/wavesLargeScreen/WaveRedBrownTop";
+import WaveRedBrownSmall from "@/components/waves/wavesSmallScreen/WaveRedBrownSmall";
 
 export interface HomeProps {
   stages: SingleStageProps[];
@@ -31,10 +33,16 @@ const Home = ({ stages, gridSection, id }: HomeProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Hero />
-      <div className={styles["grid-wrapper"]}>
-        <GridImagesAndText gridContent={gridSection} />
+      <div className={styles["wave-container"]}>
+        <WaveRedBrownTop />
+        <WaveRedBrownSmall />
+        <div className={styles["grid-wrapper"]}>
+          <GridImagesAndText gridContent={gridSection} />
+        </div>
       </div>
-      <StagesMap stages={stages} />
+      <div className={styles["map-container"]}>
+        <StagesMap stages={stages} />
+      </div>
       <div className={styles["livestream-wrapper"]}>
         <LivestreamVideo />
       </div>

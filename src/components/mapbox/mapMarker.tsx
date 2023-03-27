@@ -11,6 +11,7 @@ const MapMarker = () => {
       width="30"
       height="30"
       viewBox="0 0 63 59"
+      aria-hidden="true"
     >
       <ellipse
         id="Ellipse_55"

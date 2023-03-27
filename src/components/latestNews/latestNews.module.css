@@ -3,7 +3,6 @@
 }
 
 .section-container {
-  padding: 8rem;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -34,6 +33,12 @@
   }
 
   .section-container {
-    padding: 8rem 2rem;
+    padding: 0 2rem;
+  }
+}
+
+@media screen and (max-width: 75rem) {
+  .section-container {
+    padding: var(--section-padding) 2rem;
   }
 }

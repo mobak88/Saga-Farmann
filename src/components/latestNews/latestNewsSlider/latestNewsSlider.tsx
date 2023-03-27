@@ -34,6 +34,12 @@ const LatestNewsSlider = ({ posts }: PostsProps) => {
       <div className={styles["swiper-nav-prev"]} ref={swiperNavPrevRef}>
         <BsFillArrowLeftCircleFill className={styles["arrow-icon"]} size={50} />
       </div>
+      <div className={styles["swiper-nav-next"]} ref={swiperNavNextRef}>
+        <BsFillArrowRightCircleFill
+          className={styles["arrow-icon"]}
+          size={50}
+        />
+      </div>
       <Swiper
         navigation={{
           prevEl: swiperNavPrevRef.current,
@@ -70,12 +76,6 @@ const LatestNewsSlider = ({ posts }: PostsProps) => {
             </SwiperSlide>
           ))}
       </Swiper>
-      <div className={styles["swiper-nav-next"]} ref={swiperNavNextRef}>
-        <BsFillArrowRightCircleFill
-          className={styles["arrow-icon"]}
-          size={50}
-        />
-      </div>
     </div>
   );
 };

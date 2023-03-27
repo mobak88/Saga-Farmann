@@ -5,7 +5,7 @@ import styles from "./footer.module.css";
 const Footer = () => {
   return (
     <div className={styles.wrapper}>
-      <HeadingThree children={"E-post@adresse.com"} />
+      <HeadingThree>E-post@adresse.com</HeadingThree>
     </div>
   );
 };
