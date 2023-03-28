@@ -7,7 +7,7 @@ interface BlogProps {
 
 const BlogSecondText = ({ post_second_section_text }: BlogProps) => {
   return (
-    <div>
+    <div className={styles[""]}>
       <ParagraphsSmall dark={true}>
         Second section text: {post_second_section_text}
       </ParagraphsSmall>

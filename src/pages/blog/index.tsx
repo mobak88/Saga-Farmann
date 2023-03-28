@@ -1,6 +1,5 @@
 import { GetStaticProps } from "next";
 import API_ENDPOINTS from "@/endpoints/endpoints";
-import ParagraphsSmall from "@/components/typography/paragraphs/paragraphsSmall";
 import BlogCard from "../../components/cards/blogCard/blogCard";
 import Header from "@/components/header/header";
 import styles from "./blog.module.css";

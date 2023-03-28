@@ -12,14 +12,12 @@ interface BlogProps {
 
 const BlogInfo = ({ id, modified, title, post_description }: BlogProps) => {
   return (
-    <div key={id} className={styles[""]}>
-      <div className={styles[""]}>
-        <ParagraphsSmall dark={true}>Posted: {modified}</ParagraphsSmall>
-        <HeadingTwo dark={true}>Title: {title}</HeadingTwo>
-        <ParagraphsSmall dark={true}>
-          Description: {post_description}
-        </ParagraphsSmall>
-      </div>
+    <div key={id} className={styles["blog-id-info-wrapper"]}>
+      <ParagraphsSmall dark={true}>Posted: {modified}</ParagraphsSmall>
+      <HeadingTwo dark={true}>Title: {title}</HeadingTwo>
+      <ParagraphsSmall dark={true}>
+        Description: {post_description}
+      </ParagraphsSmall>
     </div>
   );
 };

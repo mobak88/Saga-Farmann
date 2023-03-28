@@ -5,6 +5,7 @@ import BlogImage from "@/components/blog/blogImages/blogImages";
 import Header from "@/components/header/header";
 import BlogSecondText from "@/components/blog/blogSecondText/blogSecondText";
 import BlogSecondHeading from "@/components/blog/blogSecondHeading/blogSecondHeading";
+import styles from "./blog.module.css";
 
 // Hele greia
 interface Props {
@@ -53,30 +54,48 @@ interface PostSecondSectionTexts extends PostSecondSection {
 
 const BlogDetails = ({ post }: Props) => {
   return (
-    <div>
+    <>
       <Header header={"Blog"} />
-      {post.acf.post_first_section[0].post_images.map((image) => (
-        <BlogImage image={image.post_image} alt={"Blog Image"} />
-      ))}
-      <BlogInfo
-        id={post.id}
-        modified={post.modified}
-        title={post.title.rendered}
-        post_description={post.acf.post_description}
-      />
-      {post.acf.post_second_section.post_second_section_headings.map(
-        (heading) => (
-          <BlogSecondHeading
-            post_second_section_heading={heading.post_second_section_heading}
+      <div className={styles["blog-id-container"]}>
+        <div className={styles["grid-wrap"]}>
+          <ul>
+            {post.acf.post_first_section[0].post_images.map((image, index) => (
+              <BlogImage
+                image={image.post_image}
+                alt={"Blog Image"}
+                id={index}
+              />
+            ))}
+          </ul>
+        </div>
+        <div className={styles["blog-id-first-section"]}>
+          <BlogInfo
+            id={post.id}
+            modified={post.modified}
+            title={post.title.rendered}
+            post_description={post.acf.post_description}
           />
-        )
-      )}
-      {post.acf.post_second_section.post_second_section_texts.map((text) => (
-        <BlogSecondText
-          post_second_section_text={text.post_second_section_text}
-        />
-      ))}
-    </div>
+        </div>
+        <div className={styles["blog-id-second-section"]}>
+          {post.acf.post_second_section.post_second_section_headings.map(
+            (heading) => (
+              <BlogSecondHeading
+                post_second_section_heading={
+                  heading.post_second_section_heading
+                }
+              />
+            )
+          )}
+          {post.acf.post_second_section.post_second_section_texts.map(
+            (text) => (
+              <BlogSecondText
+                post_second_section_text={text.post_second_section_text}
+              />
+            )
+          )}
+        </div>
+      </div>
+    </>
   );
 };
 

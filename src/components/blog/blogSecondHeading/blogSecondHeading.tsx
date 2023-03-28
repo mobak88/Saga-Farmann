@@ -7,7 +7,7 @@ interface BlogProps {
 
 const BlogSecondHeading = ({ post_second_section_heading }: BlogProps) => {
   return (
-    <div>
+    <div className={styles["blog-id-second-heading"]}>
       <HeadingThree dark={true}>
         Second section heading: {post_second_section_heading}
       </HeadingThree>
