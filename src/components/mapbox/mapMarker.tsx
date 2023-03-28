@@ -1,7 +1,11 @@
 import React from "react";
 import styles from "./mapMarker.module.css";
 
-const MapMarker = () => {
+interface MarkerColor {
+  nextYear?: boolean;
+}
+
+const MapMarker = ({ nextYear }: MarkerColor) => {
   return (
     <svg
       className={styles.marker}
@@ -20,7 +24,7 @@ const MapMarker = () => {
         cy="29.5"
         rx="31.5"
         ry="29.5"
-        fill="#bf625f"
+        fill={nextYear ? "#142c34" : "#bf625f"}
       />
       <path
         id="Icon_awesome-anchor"

@@ -15,3 +15,20 @@ export interface SingleStageApiProps {
     current_destination: boolean;
   };
 }
+export interface SingleDestinationApiProps {
+  id: number;
+  title: { rendered: string };
+  acf: {
+    destination_coordinates: {
+      destination_long: string;
+      destination_lat: string;
+    };
+    destination_number: number;
+    destination_text_fields: [
+      {
+        destination_text: [{ stage_text: string }];
+      }
+    ];
+    next_year_destination: boolean;
+  };
+}

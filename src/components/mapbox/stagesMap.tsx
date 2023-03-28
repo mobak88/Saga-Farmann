@@ -17,8 +17,22 @@ export interface SingleStageProps {
   stage_text_area: [{ stage_text: string }];
   current_destination: boolean;
 }
+export interface SingleDestinationProps {
+  id: number;
+  title: string;
+  coordinates: {
+    long: string;
+    lat: string;
+  };
+  destination_number: number;
+  destination_text_area: string;
+  next_year_destination: boolean;
+}
 interface StagesProps {
   stages: SingleStageProps[];
+}
+interface DestinationsProps {
+  destinations: SingleDestinationProps[];
 }
 
 interface ShowModalProps {
@@ -26,7 +40,8 @@ interface ShowModalProps {
   modalOpen: boolean;
 }
 
-const StagesMap = ({ stages }: StagesProps) => {
+const StagesMap = ({ destinations }: DestinationsProps) => {
+  console.log(destinations);
   const [showModal, setShowModal] = useState<ShowModalProps>({
     modalOpen: false,
     stageId: null,
@@ -38,7 +53,8 @@ const StagesMap = ({ stages }: StagesProps) => {
     zoom: 4.5,
   };
 
-  const [modalStage, setModalStage] = useState<SingleStageProps | null>(null);
+  const [modalDestination, setDestination] =
+    useState<SingleDestinationProps | null>(null);
 
   const nodeRef = useRef<HTMLInputElement>(null);
 
@@ -47,14 +63,16 @@ const StagesMap = ({ stages }: StagesProps) => {
       return;
     }
 
-    const stage = stages.find((stage) => stage.id === showModal.stageId);
+    const destination = destinations.find(
+      (destination) => destination.id === showModal.stageId
+    );
 
-    if (!stage) {
+    if (!destination) {
       return;
     }
 
-    setModalStage(stage);
-  }, [showModal.stageId, stages]);
+    setDestination(destination);
+  }, [showModal.stageId, destinations]);
 
   const handleShowModal = (stageId: number) => {
     setShowModal({ stageId: stageId, modalOpen: true });
@@ -90,22 +108,37 @@ const StagesMap = ({ stages }: StagesProps) => {
         <Modal
           ref={nodeRef}
           key="modal"
-          title={modalStage?.title}
-          text={modalStage?.stage_text_area[0].stage_text}
+          title={modalDestination?.title}
+          text={modalDestination?.destination_text_area}
           onCloseClick={handleCloseModal}
         />
       </CSSTransition>
-      {stages &&
-        stages.map((stage) => (
-          <Marker
-            key={stage.id}
-            longitude={parseFloat(stage.coordinates.long)}
-            latitude={parseFloat(stage.coordinates.lat)}
-            onClick={() => handleShowModal(stage.id)}
-          >
-            <MapMarker />
-          </Marker>
-        ))}
+      {destinations &&
+        destinations
+          .filter((destination) => destination.next_year_destination === false)
+          .map((destination) => (
+            <Marker
+              key={destination.id}
+              longitude={parseFloat(destination.coordinates.long)}
+              latitude={parseFloat(destination.coordinates.lat)}
+              onClick={() => handleShowModal(destination.id)}
+            >
+              <MapMarker />
+            </Marker>
+          ))}
+      {destinations &&
+        destinations
+          .filter((destination) => destination.next_year_destination === true)
+          .map((destination) => (
+            <Marker
+              key={destination.id}
+              longitude={parseFloat(destination.coordinates.long)}
+              latitude={parseFloat(destination.coordinates.lat)}
+              onClick={() => handleShowModal(destination.id)}
+            >
+              <MapMarker nextYear={true} />
+            </Marker>
+          ))}
     </Map>
   );
 };

@@ -6,13 +6,18 @@ import Hero from "@/components/hero/Hero";
 import GridImagesAndText from "@/components/gridImagesAndText/gridImagesAndText";
 import styles from "./home.module.css";
 import StagesMap from "@/components/mapbox/stagesMap";
-import { SingleStageProps } from "@/components/mapbox/stagesMap";
+import {
+  SingleStageProps,
+  SingleDestinationProps,
+} from "@/components/mapbox/stagesMap";
 import LightLayout from "@/components/layout/LightLayout";
 import LivestreamVideo from "@/components/livestream/livestreamVideo";
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import { GridSections } from "@/components/gridImagesAndText/interfaces";
-import { SingleStageApiProps } from "@/components/mapbox/interfaces";
-import HeadingTwo from "@/components/typography/headings/headingTwo";
+import {
+  SingleStageApiProps,
+  SingleDestinationApiProps,
+} from "@/components/mapbox/interfaces";
 import WaveRedBrownTop from "@/components/waves/wavesLargeScreen/WaveRedBrownTop";
 import WaveRedBrownSmall from "@/components/waves/wavesSmallScreen/WaveRedBrownSmall";
 
@@ -21,9 +26,10 @@ export interface HomeProps {
   homeData: GridSections;
   gridSection: any;
   id: number;
+  destinations: SingleDestinationProps[];
 }
 
-const Home = ({ stages, gridSection, id }: HomeProps) => {
+const Home = ({ stages, gridSection, destinations }: HomeProps) => {
   return (
     <>
       <Head>
@@ -41,7 +47,7 @@ const Home = ({ stages, gridSection, id }: HomeProps) => {
         </div>
       </div>
       <div className={styles["map-container"]}>
-        <StagesMap stages={stages} />
+        <StagesMap destinations={destinations} />
       </div>
       <div className={styles["livestream-wrapper"]}>
         <LivestreamVideo />
@@ -56,14 +62,16 @@ const Home = ({ stages, gridSection, id }: HomeProps) => {
 };
 
 export async function getStaticProps() {
-  const [resStages, resHomeData] = await Promise.all([
+  const [resStages, resHomeData, resDestinations] = await Promise.all([
     fetch(API_ENDPOINTS.stages),
     fetch(API_ENDPOINTS.page(128)),
+    fetch(API_ENDPOINTS.destinations),
   ]);
 
-  const [stages, homeData] = await Promise.all([
+  const [stages, homeData, destinations] = await Promise.all([
     resStages.json(),
     resHomeData.json(),
+    resDestinations.json(),
   ]);
 
   const newStages = stages.map((stage: SingleStageApiProps) => {
@@ -80,6 +88,23 @@ export async function getStaticProps() {
     };
   });
 
+  const newDestinations = destinations.map(
+    (destination: SingleDestinationApiProps) => {
+      return {
+        id: destination.id,
+        title: destination.title.rendered,
+        coordinates: {
+          long: destination.acf.destination_coordinates.destination_long,
+          lat: destination.acf.destination_coordinates.destination_lat,
+        },
+        destination_number: destination.acf.destination_number,
+        destination_text_area:
+          destination.acf.destination_text_fields[0].destination_text,
+        next_year_destination: destination.acf.next_year_destination,
+      };
+    }
+  );
+
   const { grid_section } = homeData.acf;
   const { id } = homeData;
 
@@ -89,6 +114,7 @@ export async function getStaticProps() {
       homeData,
       gridSection: grid_section,
       id,
+      destinations: newDestinations,
     },
   };
 }
