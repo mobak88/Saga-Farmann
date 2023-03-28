@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import HeadingTwo from "../typography/headings/headingTwo";
-import ParagraphsSmall from "../typography/paragraphs/paragraphsSmall";
+import HeadingTwo from "../typography/headings/HeadingTwo";
+import ParagraphsSmall from "../typography/paragraphs/ParagraphsSmall";
 import styles from "./livestreamVideo.module.css";
 
 const LivestreamVideo = () => {
@@ -23,7 +23,7 @@ const LivestreamVideo = () => {
     <>
       <div className={styles["content-container"]}>
         <div className={styles["heading-wrapper"]}>
-          <HeadingTwo dark children={"Livestream"} />
+          <HeadingTwo dark>Livestream</HeadingTwo>
         </div>
         <div className={styles["youtube-holder"]}>
           {isOnline ? (
