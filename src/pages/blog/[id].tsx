@@ -25,14 +25,14 @@ export interface Post extends Props {
 }
 
 //posts.acf.post_first_section
-export interface PostFirstSection {
+interface PostFirstSection {
   post_images: PostImages[];
   post_first_heading: string;
   post_first_text: string;
 }
 
 //posts.acf.post_first_section.post_images
-export interface PostImages {
+interface PostImages {
   post_image: string;
 }
 
@@ -64,7 +64,6 @@ const BlogDetails = ({ post }: Props) => {
         </div>
         <div className={styles["blog-id-first-section"]}>
           <BlogInfo
-            key={Math.random()}
             id={post.id}
             modified={post.modified}
             title={post.title.rendered}
@@ -73,9 +72,10 @@ const BlogDetails = ({ post }: Props) => {
         </div>
         <div className={styles["blog-id-second-section"]}>
           {post.acf.post_second_section.map((secondSection) => (
-            <>
+            <div
+              key={secondSection.post_second_section_heading + Math.random()}
+            >
               <BlogSecondHeading
-                key={secondSection.post_second_section_heading + Math.random()}
                 post_second_section_heading={
                   secondSection.post_second_section_heading
                 }
@@ -88,7 +88,7 @@ const BlogDetails = ({ post }: Props) => {
                   post_second_section_text={text.post_second_section_text}
                 />
               ))}
-            </>
+            </div>
           ))}
         </div>
       </div>
