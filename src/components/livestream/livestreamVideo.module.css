@@ -1,24 +1,58 @@
-.youtube-player {
+.content-container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  max-width: 1080px;
+  max-height: 607.5px; /* adjust to the maximum height you want to allow for the video */
+  width: 90%;
+}
+
+.youtube-holder {
+  position: relative; /* add position relative */
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 56.25%; /* aspect ratio of 16:9 (9/16 x 100) */
+  background-image: url("https://media.discordapp.net/attachments/1084295088739471451/1086015257715167362/Hernok_Vikings_on_a_voyage_through_europe_sleeping_on_the_ship._861ec5d8-5b26-4882-9b93-0b164f9dd4ca.png?width=1576&height=909");
+}
+
+.youtube-holder::before {
+  content: "";
+  display: block;
   position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.youtube-holder > iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
 }
-.youtube-container {
-  margin: 0 auto;
-  max-width: 1000px;
-}
-.youtube-wrapper {
-  position: relative;
-  overflow: hidden;
-  height: 0;
-  padding-bottom: 56.25%;
-}
-.offline-display-text {
-  color: var(--light-text-color);
-  background-color: rgba(0, 0, 0, 0.6);
-  font-size: var(--heading-two);
+
+.offline-text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  left: 50%;
+  text-align: center;
   top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 1rem;
 }
