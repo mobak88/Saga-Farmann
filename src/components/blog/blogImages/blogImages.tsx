@@ -8,9 +8,9 @@ interface ImageProps {
 
 const BlogImage = ({ image, alt, id }: ImageProps) => {
   return (
-    <li>
+    <div>
       <img src={image} alt={alt} className={styles["blog-id-image" + id]} />
-    </li>
+    </div>
   );
 };
 export default BlogImage;

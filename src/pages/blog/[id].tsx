@@ -13,42 +13,37 @@ interface Props {
 }
 
 //posts
-interface Post extends Props {
+export interface Post extends Props {
   id: number;
   modified: string;
   title: { rendered: string };
   acf: {
     post_first_section: PostFirstSection[];
-    post_second_section: PostSecondSection;
+    post_second_section: PostSecondSection[];
     post_description: string;
   };
 }
 
 //posts.acf.post_first_section.post_images
-interface PostImages extends PostFirstSection {
+export interface PostImages extends PostFirstSection {
   post_image: string;
 }
 
 //posts.acf.post_first_section
-interface PostFirstSection extends Post {
+export interface PostFirstSection {
   post_images: PostImages[];
   post_first_heading: string;
   post_first_text: string;
 }
 
 //posts.acf.post_second_section
-interface PostSecondSection extends Post {
-  post_second_section_headings: PostSecondSectionHeading[];
+interface PostSecondSection {
+  post_second_section_heading: string;
   post_second_section_texts: PostSecondSectionTexts[];
 }
 
-//post.acf.post_second_section.post_second_section_headings
-interface PostSecondSectionHeading extends PostSecondSection {
-  post_second_section_heading: string;
-}
-
 //post.acf.post_second_section.post_second_section_texts
-interface PostSecondSectionTexts extends PostSecondSection {
+interface PostSecondSectionTexts {
   post_second_section_text: string;
 }
 
@@ -58,15 +53,9 @@ const BlogDetails = ({ post }: Props) => {
       <Header header={"Blog"} />
       <div className={styles["blog-id-container"]}>
         <div className={styles["grid-wrap"]}>
-          <ul>
-            {post.acf.post_first_section[0].post_images.map((image, index) => (
-              <BlogImage
-                image={image.post_image}
-                alt={"Blog Image"}
-                id={index}
-              />
-            ))}
-          </ul>
+          {post.acf.post_first_section[0].post_images.map((image, index) => (
+            <BlogImage image={image.post_image} alt={"Blog Image"} id={index} />
+          ))}
         </div>
         <div className={styles["blog-id-first-section"]}>
           <BlogInfo
@@ -77,22 +66,20 @@ const BlogDetails = ({ post }: Props) => {
           />
         </div>
         <div className={styles["blog-id-second-section"]}>
-          {post.acf.post_second_section.post_second_section_headings.map(
-            (heading) => (
-              <BlogSecondHeading
-                post_second_section_heading={
-                  heading.post_second_section_heading
-                }
-              />
-            )
-          )}
-          {post.acf.post_second_section.post_second_section_texts.map(
-            (text) => (
-              <BlogSecondText
-                post_second_section_text={text.post_second_section_text}
-              />
-            )
-          )}
+          {post.acf.post_second_section.map((secondSection) => (
+            <BlogSecondHeading
+              post_second_section_heading={
+                secondSection.post_second_section_heading
+              }
+            />
+            //  {secondSection.map(
+            // (text) => (
+            //   <BlogSecondText
+            //     post_second_section_text={text.post_second_section_text}
+            //   />
+            // )
+            //)}
+          ))}
         </div>
       </div>
     </>
