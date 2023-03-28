@@ -3,15 +3,23 @@ import Hamburger from "../navigation/hamburger/Hamburger";
 import { HeadingOneHome } from "../typography/headings/HeadingOne";
 import HeadingTwo from "../typography/headings/HeadingTwo";
 import styles from "./Hero.module.css";
+import { HeroSection } from "./interfaces";
 
-const Hero = () => {
+interface Props {
+  data: HeroSection;
+}
+
+const Hero = ({ data }: Props) => {
   return (
-    <div className={styles["hero-background"]}>
+    <div className={styles["hero-wrapper"]}>
+      <Hamburger />
+      <video className={styles["hero-background"]} loop autoPlay muted>
+        <source src={data.hero_background_image} type="video/mp4" />
+      </video>
       <div className={styles["hero-text-container"]}>
         <HeadingOneHome>Saga asia</HeadingOneHome>
-        <HeadingTwo>Follow the vikings</HeadingTwo>
+        <HeadingTwo>{data.hero_text}</HeadingTwo>
       </div>
-      <Hamburger />
     </div>
   );
 };

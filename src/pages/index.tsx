@@ -14,17 +14,20 @@ import { GridSections } from "@/components/gridImagesAndText/interfaces";
 import { SingleStageApiProps } from "@/components/mapbox/interfaces";
 import WaveRedBrownTop from "@/components/waves/wavesLargeScreen/WaveRedBrownTop";
 import WaveRedBrownSmall from "@/components/waves/wavesSmallScreen/WaveRedBrownSmall";
+import { HeroSection } from "@/components/hero/interfaces";
 import SponsorUsSection from "@/components/sponsorUsSection/SponsorUsSection";
 import { SponsorUsSectionInterface } from "@/components/sponsorUsSection/interfaces";
 
 export interface HomeProps {
   stages: SingleStageProps[];
   gridSection: GridSections;
+  heroSection: HeroSection;
   sponsorUsSection: SponsorUsSectionInterface;
   id: number;
 }
 
-const Home = ({ stages, gridSection, id, sponsorUsSection }: HomeProps) => {
+const Home = ({ stages, gridSection, id, sponsorUsSection, heroSection }: HomeProps) => {
+
   return (
     <>
       <Head>
@@ -33,7 +36,7 @@ const Home = ({ stages, gridSection, id, sponsorUsSection }: HomeProps) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Hero />
+      <Hero data={heroSection} />
       <div className={styles["wave-container"]}>
         <WaveRedBrownTop />
         <WaveRedBrownSmall />
@@ -87,6 +90,7 @@ export async function getStaticProps() {
   });
 
   const { grid_section } = homeData.acf;
+  const { hero_section } = homeData.acf;
   const sponsorUsSection = sponsorUs.acf;
   const { id } = homeData;
 
@@ -94,6 +98,7 @@ export async function getStaticProps() {
     props: {
       stages: newStages,
       homeData,
+      heroSection: hero_section,
       gridSection: grid_section,
       id,
       sponsorUsSection,
