@@ -8,7 +8,9 @@ interface MarkerColor {
 const MapMarker = ({ nextYear }: MarkerColor) => {
   return (
     <svg
-      className={styles.marker}
+      className={
+        nextYear ? `${styles["marker-next-year"]}` : `${styles.marker}`
+      }
       id="Component_61_4"
       data-name="Component 61 – 4"
       xmlns="http://www.w3.org/2000/svg"

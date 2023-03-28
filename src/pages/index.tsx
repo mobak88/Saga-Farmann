@@ -6,15 +6,13 @@ import Hero from "@/components/hero/Hero";
 import GridImagesAndText from "@/components/gridImagesAndText/gridImagesAndText";
 import styles from "./home.module.css";
 import StagesMap from "@/components/mapbox/stagesMap";
-import {
-  SingleStageProps,
-  SingleDestinationProps,
-} from "@/components/mapbox/stagesMap";
 import LightLayout from "@/components/layout/LightLayout";
 import LivestreamVideo from "@/components/livestream/livestreamVideo";
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import { GridSections } from "@/components/gridImagesAndText/interfaces";
 import {
+  SingleStageProps,
+  SingleDestinationProps,
   SingleStageApiProps,
   SingleDestinationApiProps,
 } from "@/components/mapbox/interfaces";

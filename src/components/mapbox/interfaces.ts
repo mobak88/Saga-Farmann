@@ -32,3 +32,26 @@ export interface SingleDestinationApiProps {
     next_year_destination: boolean;
   };
 }
+
+export interface SingleStageProps {
+  id: number;
+  title: string;
+  coordinates: {
+    long: string;
+    lat: string;
+  };
+  stage_number: number;
+  stage_text_area: [{ stage_text: string }];
+  current_destination: boolean;
+}
+export interface SingleDestinationProps {
+  id: number;
+  title: string;
+  coordinates: {
+    long: string;
+    lat: string;
+  };
+  destination_number: number;
+  destination_text_area: string;
+  next_year_destination: boolean;
+}

@@ -4,30 +4,9 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import MapMarker from "./mapMarker";
 import Modal from "./modal/modal";
 import { CSSTransition } from "react-transition-group";
+import { SingleStageProps, SingleDestinationProps } from "./interfaces";
 import styles from "./StagesMap.module.css";
 
-export interface SingleStageProps {
-  id: number;
-  title: string;
-  coordinates: {
-    long: string;
-    lat: string;
-  };
-  stage_number: number;
-  stage_text_area: [{ stage_text: string }];
-  current_destination: boolean;
-}
-export interface SingleDestinationProps {
-  id: number;
-  title: string;
-  coordinates: {
-    long: string;
-    lat: string;
-  };
-  destination_number: number;
-  destination_text_area: string;
-  next_year_destination: boolean;
-}
 interface StagesProps {
   stages: SingleStageProps[];
 }
@@ -41,7 +20,11 @@ interface ShowModalProps {
 }
 
 const StagesMap = ({ destinations }: DestinationsProps) => {
-  console.log(destinations);
+  console.log(
+    destinations.filter(
+      (destination) => destination.next_year_destination === true
+    )
+  );
   const [showModal, setShowModal] = useState<ShowModalProps>({
     modalOpen: false,
     stageId: null,
@@ -134,7 +117,6 @@ const StagesMap = ({ destinations }: DestinationsProps) => {
               key={destination.id}
               longitude={parseFloat(destination.coordinates.long)}
               latitude={parseFloat(destination.coordinates.lat)}
-              onClick={() => handleShowModal(destination.id)}
             >
               <MapMarker nextYear={true} />
             </Marker>
