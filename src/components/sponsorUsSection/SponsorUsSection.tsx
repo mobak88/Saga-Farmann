@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import HeadingTwo from "../typography/headings/headingTwo";
-import ParagraphsSmall from "../typography/paragraphs/paragraphsSmall";
+import HeadingTwo from "../typography/headings/HeadingTwo";
+import ParagraphsSmall from "../typography/paragraphs/ParagraphsSmall";
 import styles from "./sponsorUsSection.module.css";
 import { SponsorUsSectionInterface, SponsorUsCard } from "./interfaces";
-import HeadingThree from "../typography/headings/headingThree";
+import HeadingThree from "../typography/headings/HeadingThree";
 
 interface Props {
   data: SponsorUsSectionInterface;

@@ -12,7 +12,6 @@ import LivestreamVideo from "@/components/livestream/livestreamVideo";
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import { GridSections } from "@/components/gridImagesAndText/interfaces";
 import { SingleStageApiProps } from "@/components/mapbox/interfaces";
-import HeadingTwo from "@/components/typography/headings/headingTwo";
 import WaveRedBrownTop from "@/components/waves/wavesLargeScreen/WaveRedBrownTop";
 import WaveRedBrownSmall from "@/components/waves/wavesSmallScreen/WaveRedBrownSmall";
 import SponsorUsSection from "@/components/sponsorUsSection/SponsorUsSection";
