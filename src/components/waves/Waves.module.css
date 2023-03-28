@@ -8,6 +8,7 @@
 
 .wave-bottom {
   transform: rotate(180deg);
+  background-color: var(--bg-pink-brown);
 }
 
 @media screen and (max-width: 75rem) {

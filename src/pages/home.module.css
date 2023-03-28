@@ -15,6 +15,15 @@
   gap: 2rem;
 }
 
+.sponsor-us-wrapper {
+  background-color: var(--bg-pink-brown);
+  padding: var(--section-padding);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 .wave-container {
   position: relative;
   overflow: hidden;
