@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./gridImagesAndText.module.css";
-import HeadingThree from "../typography/headings/headingThree";
-import ParagraphsSmall from "../typography/paragraphs/paragraphsSmall";
+import HeadingThree from "../typography/headings/HeadingThree";
+import ParagraphsSmall from "../typography/paragraphs/ParagraphsSmall";
 import { GridSections } from "./interfaces";
 
 interface Props {

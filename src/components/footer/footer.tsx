@@ -1,5 +1,5 @@
 import React from "react";
-import HeadingThree from "../typography/headings/headingThree";
+import HeadingThree from "../typography/headings/HeadingThree";
 import styles from "./footer.module.css";
 
 const Footer = () => {

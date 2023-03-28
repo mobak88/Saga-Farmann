@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import SliderCard from "@/components/cards/sliderCard/sliderCard";
-import { PostsProps } from "../latestNews";
+import SliderCard from "@/components/cards/sliderCard/SliderCard";
+import { PostsProps } from "../LatestNews";
 
 import SwiperCore from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";

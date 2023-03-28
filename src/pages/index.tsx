@@ -16,16 +16,19 @@ import HeadingTwo from "@/components/typography/headings/headingTwo";
 import WaveRedBrownTop from "@/components/waves/wavesLargeScreen/WaveRedBrownTop";
 import WaveRedBrownSmall from "@/components/waves/wavesSmallScreen/WaveRedBrownSmall";
 import { HeroSection } from "@/components/hero/interfaces";
+import SponsorUsSection from "@/components/sponsorUsSection/SponsorUsSection";
+import { SponsorUsSectionInterface } from "@/components/sponsorUsSection/interfaces";
 
 export interface HomeProps {
   stages: SingleStageProps[];
-  homeData: GridSections;
+  gridSection: GridSections;
   heroSection: HeroSection;
-  gridSection: any;
+  sponsorUsSection: SponsorUsSectionInterface;
   id: number;
 }
 
-const Home = ({ stages, gridSection, id, heroSection }: HomeProps) => {
+const Home = ({ stages, gridSection, id, sponsorUsSection, heroSection }: HomeProps) => {
+
   return (
     <>
       <Head>
@@ -53,19 +56,24 @@ const Home = ({ stages, gridSection, id, heroSection }: HomeProps) => {
         postText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut."
         posts={sliderData}
       />
+      <div className={styles["sponsor-us-wrapper"]}>
+        <SponsorUsSection data={sponsorUsSection} />
+      </div>
     </>
   );
 };
 
 export async function getStaticProps() {
-  const [resStages, resHomeData] = await Promise.all([
+  const [resStages, resHomeData, resSponsorUs] = await Promise.all([
     fetch(API_ENDPOINTS.stages),
     fetch(API_ENDPOINTS.page(128)),
+    fetch(API_ENDPOINTS.page(222)),
   ]);
 
-  const [stages, homeData] = await Promise.all([
+  const [stages, homeData, sponsorUs] = await Promise.all([
     resStages.json(),
     resHomeData.json(),
+    resSponsorUs.json(),
   ]);
 
   const newStages = stages.map((stage: SingleStageApiProps) => {
@@ -84,6 +92,7 @@ export async function getStaticProps() {
 
   const { grid_section } = homeData.acf;
   const { hero_section } = homeData.acf;
+  const sponsorUsSection = sponsorUs.acf;
   const { id } = homeData;
 
   return {
@@ -93,6 +102,7 @@ export async function getStaticProps() {
       heroSection: hero_section,
       gridSection: grid_section,
       id,
+      sponsorUsSection,
     },
   };
 }

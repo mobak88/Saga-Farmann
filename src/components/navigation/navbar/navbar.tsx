@@ -1,5 +1,5 @@
-import Hamburger from "../hamburger/hamburger";
-import Title from "../navtitle/title";
+import Hamburger from "../hamburger/Hamburger";
+import Title from "../navtitle/Title";
 import styles from "./navbar.module.css";
 
 interface NavbarProps {
