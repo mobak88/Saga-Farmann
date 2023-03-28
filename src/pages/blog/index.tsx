@@ -22,6 +22,7 @@ const BlogPage = ({ posts }: Posts) => {
             modified={post.modified}
             title={post.title.rendered}
             post_description={post.acf.post_description}
+            blog_place={post.acf.blog_place}
           />
         ))}
       </div>

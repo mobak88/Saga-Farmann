@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import BlogInfo from "@/components/blog/blogInfo/blogInfo";
-import BlogImage from "@/components/blog/blogImages/blogImages";
+import BlogImageSlider from "@/components/blog/blogImageSlider/blogImageSlider";
 import Header from "@/components/header/header";
 import BlogSecondText from "@/components/blog/blogSecondText/blogSecondText";
 import BlogSecondHeading from "@/components/blog/blogSecondHeading/blogSecondHeading";
@@ -21,6 +21,7 @@ export interface Post extends Props {
     post_first_section: PostFirstSection;
     post_second_section: PostSecondSection[];
     post_description: string;
+    blog_place: string;
   };
 }
 
@@ -53,14 +54,11 @@ const BlogDetails = ({ post }: Props) => {
       <Header header={"Blog"} />
       <div className={styles["blog-id-container"]}>
         <div className={styles["grid-wrap"]}>
-          {post.acf.post_first_section.post_images.map((image, index) => (
-            <BlogImage
-              key={image.post_image + Math.random()}
-              image={image.post_image}
-              alt={"Blog Image"}
-              id={index}
-            />
-          ))}
+          <BlogImageSlider
+            images={post.acf.post_first_section.post_images}
+            alt={"Blog Image"}
+            id={post.id + Math.random()}
+          />
         </div>
         <div className={styles["blog-id-first-section"]}>
           <BlogInfo
