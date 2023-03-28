@@ -15,15 +15,17 @@ import { SingleStageApiProps } from "@/components/mapbox/interfaces";
 import HeadingTwo from "@/components/typography/headings/headingTwo";
 import WaveRedBrownTop from "@/components/waves/wavesLargeScreen/WaveRedBrownTop";
 import WaveRedBrownSmall from "@/components/waves/wavesSmallScreen/WaveRedBrownSmall";
+import { HeroSection } from "@/components/hero/interfaces";
 
 export interface HomeProps {
   stages: SingleStageProps[];
   homeData: GridSections;
+  heroSection: HeroSection;
   gridSection: any;
   id: number;
 }
 
-const Home = ({ stages, gridSection, id }: HomeProps) => {
+const Home = ({ stages, gridSection, id, heroSection }: HomeProps) => {
   return (
     <>
       <Head>
@@ -32,7 +34,7 @@ const Home = ({ stages, gridSection, id }: HomeProps) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Hero />
+      <Hero data={heroSection} />
       <div className={styles["wave-container"]}>
         <WaveRedBrownTop />
         <WaveRedBrownSmall />
@@ -81,12 +83,14 @@ export async function getStaticProps() {
   });
 
   const { grid_section } = homeData.acf;
+  const { hero_section } = homeData.acf;
   const { id } = homeData;
 
   return {
     props: {
       stages: newStages,
       homeData,
+      heroSection: hero_section,
       gridSection: grid_section,
       id,
     },
