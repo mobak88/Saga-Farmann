@@ -9,7 +9,7 @@ const LightLayout = ({ children }: LightLayoutProps) => {
   return (
     <>
       <main>{children}</main>
-      <Footer/>
+      <Footer />
     </>
   );
 };

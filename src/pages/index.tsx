@@ -15,15 +15,17 @@ import { SingleStageApiProps } from "@/components/mapbox/interfaces";
 import HeadingTwo from "@/components/typography/headings/headingTwo";
 import WaveRedBrownTop from "@/components/waves/wavesLargeScreen/WaveRedBrownTop";
 import WaveRedBrownSmall from "@/components/waves/wavesSmallScreen/WaveRedBrownSmall";
+import SponsorUsSection from "@/components/sponsorUsSection/SponsorUsSection";
+import { SponsorUsSectionInterface } from "@/components/sponsorUsSection/interfaces";
 
 export interface HomeProps {
   stages: SingleStageProps[];
-  homeData: GridSections;
-  gridSection: any;
+  gridSection: GridSections;
+  sponsorUsSection: SponsorUsSectionInterface;
   id: number;
 }
 
-const Home = ({ stages, gridSection, id }: HomeProps) => {
+const Home = ({ stages, gridSection, id, sponsorUsSection }: HomeProps) => {
   return (
     <>
       <Head>
@@ -51,19 +53,24 @@ const Home = ({ stages, gridSection, id }: HomeProps) => {
         postText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut."
         posts={sliderData}
       />
+      <div className={styles["sponsor-us-wrapper"]}>
+        <SponsorUsSection data={sponsorUsSection} />
+      </div>
     </>
   );
 };
 
 export async function getStaticProps() {
-  const [resStages, resHomeData] = await Promise.all([
+  const [resStages, resHomeData, resSponsorUs] = await Promise.all([
     fetch(API_ENDPOINTS.stages),
     fetch(API_ENDPOINTS.page(128)),
+    fetch(API_ENDPOINTS.page(222)),
   ]);
 
-  const [stages, homeData] = await Promise.all([
+  const [stages, homeData, sponsorUs] = await Promise.all([
     resStages.json(),
     resHomeData.json(),
+    resSponsorUs.json(),
   ]);
 
   const newStages = stages.map((stage: SingleStageApiProps) => {
@@ -81,6 +88,7 @@ export async function getStaticProps() {
   });
 
   const { grid_section } = homeData.acf;
+  const sponsorUsSection = sponsorUs.acf;
   const { id } = homeData;
 
   return {
@@ -89,6 +97,7 @@ export async function getStaticProps() {
       homeData,
       gridSection: grid_section,
       id,
+      sponsorUsSection,
     },
   };
 }

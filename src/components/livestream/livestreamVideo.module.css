@@ -50,3 +50,18 @@
     font-size: var(--heading-three);
   }
 }
+
+@media screen and (max-width: 450px) {
+  .youtube-holder {
+    width: 240px;
+    height: 135px;
+    max-width: 240px;
+    max-height: 135px;
+  }
+  .offline-text {
+    font-size: var(--h--step-1);
+  }
+  .content-container {
+    gap: 1rem;
+  }
+}
