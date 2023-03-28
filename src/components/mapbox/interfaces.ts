@@ -13,6 +13,7 @@ export interface SingleStageApiProps {
       }
     ];
     current_destination: boolean;
+    next_year: boolean;
   };
 }
 export interface SingleDestinationApiProps {
@@ -43,6 +44,7 @@ export interface SingleStageProps {
   stage_number: number;
   stage_text_area: [{ stage_text: string }];
   current_destination: boolean;
+  next_year: boolean;
 }
 export interface SingleDestinationProps {
   id: number;

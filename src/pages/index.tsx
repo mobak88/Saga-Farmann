@@ -45,7 +45,7 @@ const Home = ({ stages, gridSection, destinations }: HomeProps) => {
         </div>
       </div>
       <div className={styles["map-container"]}>
-        <StagesMap destinations={destinations} />
+        <StagesMap destinations={destinations} stages={stages} />
       </div>
       <div className={styles["livestream-wrapper"]}>
         <LivestreamVideo />
@@ -83,6 +83,7 @@ export async function getStaticProps() {
       stage_number: stage.acf.stage_number,
       stage_text_area: stage.acf.stage[0].stage_text_area,
       current_destination: stage.acf.current_destination,
+      next_year: stage.acf.next_year,
     };
   });
 

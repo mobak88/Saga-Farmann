@@ -6,12 +6,11 @@ import Modal from "./modal/modal";
 import { CSSTransition } from "react-transition-group";
 import { SingleStageProps, SingleDestinationProps } from "./interfaces";
 import styles from "./StagesMap.module.css";
+import MapStageButton from "../buttons/mapStageButton/MapStageButton";
 
-interface StagesProps {
-  stages: SingleStageProps[];
-}
-interface DestinationsProps {
+interface MapProps {
   destinations: SingleDestinationProps[];
+  stages: SingleStageProps[];
 }
 
 interface ShowModalProps {
@@ -19,7 +18,7 @@ interface ShowModalProps {
   modalOpen: boolean;
 }
 
-const StagesMap = ({ destinations }: DestinationsProps) => {
+const StagesMap = ({ destinations, stages }: MapProps) => {
   console.log(
     destinations.filter(
       (destination) => destination.next_year_destination === true
@@ -96,6 +95,18 @@ const StagesMap = ({ destinations }: DestinationsProps) => {
           onCloseClick={handleCloseModal}
         />
       </CSSTransition>
+      {stages &&
+        stages
+          .filter((stage) => stage.next_year === false)
+          .map((stage) => (
+            <Marker
+              key={stage.id}
+              longitude={parseFloat(stage.coordinates.long)}
+              latitude={parseFloat(stage.coordinates.lat)}
+            >
+              <MapStageButton stageName={stage.title} />
+            </Marker>
+          ))}
       {destinations &&
         destinations
           .filter((destination) => destination.next_year_destination === false)

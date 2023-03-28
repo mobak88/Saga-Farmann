@@ -1,7 +1,7 @@
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 const API_ENDPOINTS = {
-  stages: `${BASE_URL}/stages`,
+  stages: `${BASE_URL}/stages/?per_page=100`,
   destinations: `${BASE_URL}/destinations/?per_page=100`,
   singelDestination: (destinationId: number) => {
     return `${BASE_URL}/destinations/${destinationId}`;
