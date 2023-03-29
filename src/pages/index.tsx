@@ -11,22 +11,33 @@ import LivestreamVideo from "@/components/livestream/livestreamVideo";
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import { GridSections } from "@/components/gridImagesAndText/interfaces";
 import {
-  SingleStageProps,
   SingleStageApiProps,
+  SingleStageProps,
   SingleDestinationApiProps,
 } from "@/components/mapbox/interfaces";
 import WaveRedBrownTop from "@/components/waves/wavesLargeScreen/WaveRedBrownTop";
 import WaveRedBrownSmall from "@/components/waves/wavesSmallScreen/WaveRedBrownSmall";
+import { HeroSection } from "@/components/hero/interfaces";
+import SponsorUsSection from "@/components/sponsorUsSection/SponsorUsSection";
+import { SponsorUsSectionInterface } from "@/components/sponsorUsSection/interfaces";
 
 export interface HomeProps {
   stages: SingleStageProps[];
-  homeData: GridSections;
-  gridSection: any;
+  gridSection: GridSections;
+  heroSection: HeroSection;
+  sponsorUsSection: SponsorUsSectionInterface;
   id: number;
   destinations: SingleStageProps[];
 }
 
-const Home = ({ stages, gridSection, destinations }: HomeProps) => {
+const Home = ({
+  stages,
+  destinations,
+  gridSection,
+  id,
+  sponsorUsSection,
+  heroSection,
+}: HomeProps) => {
   return (
     <>
       <Head>
@@ -35,7 +46,7 @@ const Home = ({ stages, gridSection, destinations }: HomeProps) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Hero />
+      <Hero data={heroSection} />
       <div className={styles["wave-container"]}>
         <WaveRedBrownTop />
         <WaveRedBrownSmall />
@@ -54,21 +65,27 @@ const Home = ({ stages, gridSection, destinations }: HomeProps) => {
         postText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut."
         posts={sliderData}
       />
+      <div className={styles["sponsor-us-wrapper"]}>
+        <SponsorUsSection data={sponsorUsSection} />
+      </div>
     </>
   );
 };
 
 export async function getStaticProps() {
-  const [resStages, resHomeData, resDestinations] = await Promise.all([
-    fetch(API_ENDPOINTS.stages),
-    fetch(API_ENDPOINTS.page(128)),
-    fetch(API_ENDPOINTS.destinations),
-  ]);
+  const [resStages, resHomeData, resDestinations, resSponsorUs] =
+    await Promise.all([
+      fetch(API_ENDPOINTS.stages),
+      fetch(API_ENDPOINTS.page(128)),
+      fetch(API_ENDPOINTS.destinations),
+      fetch(API_ENDPOINTS.page(222)),
+    ]);
 
-  const [stages, homeData, destinations] = await Promise.all([
+  const [stages, homeData, destinations, sponsorUs] = await Promise.all([
     resStages.json(),
     resHomeData.json(),
     resDestinations.json(),
+    resSponsorUs.json(),
   ]);
 
   const newStages = stages.map((stage: SingleStageApiProps) => {
@@ -103,15 +120,19 @@ export async function getStaticProps() {
   );
 
   const { grid_section } = homeData.acf;
+  const { hero_section } = homeData.acf;
+  const sponsorUsSection = sponsorUs.acf;
   const { id } = homeData;
 
   return {
     props: {
       stages: newStages,
       homeData,
+      heroSection: hero_section,
       gridSection: grid_section,
       id,
       destinations: newDestinations,
+      sponsorUsSection,
     },
   };
 }

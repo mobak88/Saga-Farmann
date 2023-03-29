@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./paragraphs.module.css";
-import { ParagraphProps } from "./paragraphsBig";
+import { ParagraphProps } from "./ParagraphsBig";
 
 const ParagraphsSmallTruncated = ({
   children,

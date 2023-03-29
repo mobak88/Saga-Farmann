@@ -1,7 +1,7 @@
 .wrapper {
   display: grid;
-  grid-template-columns: 25em 25em 25em;
-  grid-template-rows: 40px 90px 130px 30px 190px 190px;
+  grid-template-columns: 22em 22em 22em;
+  grid-template-rows: 40px 90px 120px 30px 170px 170px;
   text-align: center;
 }
 
@@ -56,9 +56,9 @@
 }
 
 .pointer {
-  border-left: 20rem solid transparent;
-  border-right: 20rem solid transparent;
-  border-top: 9rem solid var(--very-dark-blue);
+  border-left: 17.5rem solid transparent;
+  border-right: 17.5rem solid transparent;
+  border-top: 7rem solid var(--very-dark-blue);
 }
 
 .imageBox-one {
@@ -148,11 +148,12 @@
 
 @media screen and (max-width: 1300px) {
   .wrapper {
-    grid-template-columns: 18em 18em 18em;
+    grid-template-columns: 20em 20em 20em;
+    grid-template-rows: 40px 90px 100px 30px 190px 170px;
   }
   .pointer {
-    border-left: 14rem solid transparent;
-    border-right: 14rem solid transparent;
+    border-left: 16rem solid transparent;
+    border-right: 16rem solid transparent;
     border-top: 6rem solid var(--very-dark-blue);
   }
 }
@@ -160,6 +161,11 @@
 @media screen and (max-width: 1000px) {
   .wrapper {
     grid-template-columns: 17em 17em 17em;
+  }
+  .pointer {
+    border-left: 13.5rem solid transparent;
+    border-right: 13.5rem solid transparent;
+    border-top: 7rem solid var(--very-dark-blue);
   }
   .imageBox-three::after {
     display: none;

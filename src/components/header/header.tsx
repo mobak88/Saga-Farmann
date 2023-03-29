@@ -1,5 +1,5 @@
 import React from "react";
-import HeadingOne from "../typography/headings/headingOne";
+import HeadingOne from "../typography/headings/HeadingOne";
 import styles from "./Header.module.css";
 import he from "he";
 

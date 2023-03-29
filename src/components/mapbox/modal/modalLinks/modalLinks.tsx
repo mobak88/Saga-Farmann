@@ -1,4 +1,4 @@
-import LinkTo from "@/components/links/linkTo";
+import LinkTo from "@/components/links/LinkTo";
 import React from "react";
 import styles from "./modalLinks.module.css";
 
