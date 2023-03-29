@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import Map, { FullscreenControl } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import MapMarker from "./MapMarker";
-import Modal from "./modal/modal";
+import Modal from "./modal/Modal";
 import { CSSTransition } from "react-transition-group";
-import { SingleStageProps } from "./interfaces";
+import { SingleStageProps } from "./Interfaces";
 import styles from "./StagesMap.module.css";
 import MapMarkers from "./mapMarkers/MapMarkers";
 
