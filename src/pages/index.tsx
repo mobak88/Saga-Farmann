@@ -12,7 +12,6 @@ import API_ENDPOINTS from "@/endpoints/endpoints";
 import { GridSections } from "@/components/gridImagesAndText/interfaces";
 import {
   SingleStageProps,
-  SingleDestinationProps,
   SingleStageApiProps,
   SingleDestinationApiProps,
 } from "@/components/mapbox/interfaces";
@@ -24,7 +23,7 @@ export interface HomeProps {
   homeData: GridSections;
   gridSection: any;
   id: number;
-  destinations: SingleDestinationProps[];
+  destinations: SingleStageProps[];
 }
 
 const Home = ({ stages, gridSection, destinations }: HomeProps) => {
@@ -80,9 +79,9 @@ export async function getStaticProps() {
         long: stage.acf.coordinates.long,
         lat: stage.acf.coordinates.lat,
       },
-      stage_number: stage.acf.stage_number,
-      stage_text_area: stage.acf.stage[0].stage_text_area,
-      current_destination: stage.acf.current_destination,
+      number: stage.acf.stage_number,
+      text_area: stage.acf.stage[0].stage_text_area,
+      current: stage.acf.current_destination,
       next_year: stage.acf.next_year,
     };
   });
@@ -96,10 +95,9 @@ export async function getStaticProps() {
           long: destination.acf.destination_coordinates.destination_long,
           lat: destination.acf.destination_coordinates.destination_lat,
         },
-        destination_number: destination.acf.destination_number,
-        destination_text_area:
-          destination.acf.destination_text_fields[0].destination_text,
-        next_year_destination: destination.acf.next_year_destination,
+        number: destination.acf.destination_number,
+        text_area: destination.acf.destination_text_fields[0].destination_text,
+        next_year: destination.acf.next_year_destination,
       };
     }
   );

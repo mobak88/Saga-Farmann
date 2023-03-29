@@ -4,60 +4,58 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import MapMarker from "./mapMarker";
 import Modal from "./modal/modal";
 import { CSSTransition } from "react-transition-group";
-import { SingleStageProps, SingleDestinationProps } from "./interfaces";
+import { SingleStageProps } from "./interfaces";
 import styles from "./StagesMap.module.css";
 import MapStageButton from "../buttons/mapStageButton/MapStageButton";
+import MapMarkers from "./mapMarkers/MapMarkers";
 
 interface MapProps {
-  destinations: SingleDestinationProps[];
+  destinations: SingleStageProps[];
   stages: SingleStageProps[];
 }
 
 interface ShowModalProps {
-  stageId: null | number;
+  destinationId: null | number;
   modalOpen: boolean;
 }
 
 const StagesMap = ({ destinations, stages }: MapProps) => {
-  console.log(
-    destinations.filter(
-      (destination) => destination.next_year_destination === true
-    )
-  );
   const [showModal, setShowModal] = useState<ShowModalProps>({
     modalOpen: false,
-    stageId: null,
+    destinationId: null,
   });
 
+  const currentStage = stages.find((stage) => stage.current === true);
+
   const viewport = {
-    latitude: 48.1351,
-    longitude: 11.582,
-    zoom: 4.5,
+    latitude: parseFloat(currentStage!.coordinates.lat),
+    longitude: parseFloat(currentStage!.coordinates.long),
+    zoom: 5,
   };
 
-  const [modalDestination, setDestination] =
-    useState<SingleDestinationProps | null>(null);
+  const [modalDestination, setModalDestination] =
+    useState<SingleStageProps | null>(null);
 
   const nodeRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (!showModal.stageId || showModal.stageId === null) {
+    if (!showModal.destinationId || showModal.destinationId === null) {
       return;
     }
 
     const destination = destinations.find(
-      (destination) => destination.id === showModal.stageId
+      (destination) => destination.id === showModal.destinationId
     );
 
     if (!destination) {
       return;
     }
 
-    setDestination(destination);
-  }, [showModal.stageId, destinations]);
+    setModalDestination(destination);
+  }, [showModal.destinationId, destinations]);
 
   const handleShowModal = (stageId: number) => {
-    setShowModal({ stageId: stageId, modalOpen: true });
+    setShowModal({ destinationId: stageId, modalOpen: true });
   };
 
   const handleCloseModal = () => {
@@ -91,47 +89,17 @@ const StagesMap = ({ destinations, stages }: MapProps) => {
           ref={nodeRef}
           key="modal"
           title={modalDestination?.title}
-          text={modalDestination?.destination_text_area}
+          text={modalDestination?.text_area}
           onCloseClick={handleCloseModal}
         />
       </CSSTransition>
-      {stages &&
-        stages
-          .filter((stage) => stage.next_year === false)
-          .map((stage) => (
-            <Marker
-              key={stage.id}
-              longitude={parseFloat(stage.coordinates.long)}
-              latitude={parseFloat(stage.coordinates.lat)}
-            >
-              <MapStageButton stageName={stage.title} />
-            </Marker>
-          ))}
-      {destinations &&
-        destinations
-          .filter((destination) => destination.next_year_destination === false)
-          .map((destination) => (
-            <Marker
-              key={destination.id}
-              longitude={parseFloat(destination.coordinates.long)}
-              latitude={parseFloat(destination.coordinates.lat)}
-              onClick={() => handleShowModal(destination.id)}
-            >
-              <MapMarker />
-            </Marker>
-          ))}
-      {destinations &&
-        destinations
-          .filter((destination) => destination.next_year_destination === true)
-          .map((destination) => (
-            <Marker
-              key={destination.id}
-              longitude={parseFloat(destination.coordinates.long)}
-              latitude={parseFloat(destination.coordinates.lat)}
-            >
-              <MapMarker nextYear={true} />
-            </Marker>
-          ))}
+      <MapMarkers arr={stages} isNextYear={false} />
+      <MapMarkers arr={destinations} isNextYear={false}>
+        <MapMarker />
+      </MapMarkers>
+      <MapMarkers arr={destinations} isNextYear={true}>
+        <MapMarker nextYear={true} />
+      </MapMarkers>
     </Map>
   );
 };

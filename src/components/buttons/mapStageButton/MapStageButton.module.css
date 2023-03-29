@@ -1,0 +1,9 @@
+.stage-button {
+  background-color: var(--bg-pink-brown);
+  border: none;
+  padding: 0.8rem;
+  color: var(--light-text-color);
+  font-family: "Comfortaa";
+  font-size: var(--p--step-0);
+  cursor: pointer;
+}
