@@ -1,67 +1,75 @@
 import React, { useState, useEffect, useRef } from "react";
-import Map, { Marker, FullscreenControl } from "react-map-gl";
+import Map, { FullscreenControl } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import MapMarker from "./mapMarker";
 import Modal from "./modal/modal";
 import { CSSTransition } from "react-transition-group";
+import { SingleStageProps } from "./interfaces";
 import styles from "./StagesMap.module.css";
+import MapMarkers from "./mapMarkers/MapMarkers";
 
-export interface SingleStageProps {
-  id: number;
-  title: string;
-  coordinates: {
-    long: string;
-    lat: string;
-  };
-  stage_number: number;
-  stage_text_area: [{ stage_text: string }];
-  current_destination: boolean;
-}
-interface StagesProps {
+interface MapProps {
+  destinations: SingleStageProps[];
   stages: SingleStageProps[];
 }
 
 interface ShowModalProps {
-  stageId: null | number;
+  id: null | number;
   modalOpen: boolean;
 }
 
-const StagesMap = ({ stages }: StagesProps) => {
+const StagesMap = ({ destinations, stages }: MapProps) => {
+  console.log(stages);
+  console.log(destinations);
   const [showModal, setShowModal] = useState<ShowModalProps>({
     modalOpen: false,
-    stageId: null,
+    id: null,
   });
 
-  const viewport = {
-    latitude: 48.1351,
-    longitude: 11.582,
-    zoom: 4.5,
-  };
+  const currentStage = stages.find((stage) => stage.current === true);
 
-  const [modalStage, setModalStage] = useState<SingleStageProps | null>(null);
+  const [modal, setModal] = useState<SingleStageProps | null>(null);
 
   const nodeRef = useRef<HTMLInputElement>(null);
 
+  const viewport = {
+    latitude: parseFloat(currentStage!.coordinates.lat),
+    longitude: parseFloat(currentStage!.coordinates.long),
+    zoom: 5,
+  };
+
   useEffect(() => {
-    if (!showModal.stageId || showModal.stageId === null) {
+    if (!showModal.id || showModal.id === null) {
       return;
     }
 
-    const stage = stages.find((stage) => stage.id === showModal.stageId);
+    const destination = destinations.find(
+      (destination) => destination.id === showModal.id
+    );
 
-    if (!stage) {
-      return;
+    console.log(destination);
+
+    if (destination) {
+      setModal(destination);
     }
 
-    setModalStage(stage);
-  }, [showModal.stageId, stages]);
+    if (!destination) {
+      const stage = stages.find((stage) => stage.id === showModal.id);
+      console.log(stage);
+      if (!stage) {
+        return;
+      }
+
+      setModal(stage);
+    }
+  }, [showModal.id, destinations, stages]);
 
   const handleShowModal = (stageId: number) => {
-    setShowModal({ stageId: stageId, modalOpen: true });
+    setShowModal({ id: stageId, modalOpen: true });
   };
 
   const handleCloseModal = () => {
-    setShowModal((prev) => ({ ...prev, modalOpen: false }));
+    setShowModal({ id: null, modalOpen: false });
   };
 
   return (
@@ -90,22 +98,22 @@ const StagesMap = ({ stages }: StagesProps) => {
         <Modal
           ref={nodeRef}
           key="modal"
-          title={modalStage?.title}
-          text={modalStage?.stage_text_area[0].stage_text}
+          title={modal?.title}
+          text={modal?.text_area}
           onCloseClick={handleCloseModal}
         />
       </CSSTransition>
-      {stages &&
-        stages.map((stage) => (
-          <Marker
-            key={stage.id}
-            longitude={parseFloat(stage.coordinates.long)}
-            latitude={parseFloat(stage.coordinates.lat)}
-            onClick={() => handleShowModal(stage.id)}
-          >
-            <MapMarker />
-          </Marker>
-        ))}
+      <MapMarkers arr={stages} isNextYear={false} showModal={handleShowModal} />
+      <MapMarkers
+        arr={destinations}
+        isNextYear={false}
+        showModal={handleShowModal}
+      >
+        <MapMarker />
+      </MapMarkers>
+      <MapMarkers arr={destinations} isNextYear={true}>
+        <MapMarker nextYear={true} />
+      </MapMarkers>
     </Map>
   );
 };
