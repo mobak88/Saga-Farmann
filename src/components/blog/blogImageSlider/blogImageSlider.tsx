@@ -2,25 +2,41 @@ import React, { useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import Image from "next/image";
-
-import "swiper/swiper.css";
+import "swiper/swiper-bundle.min.css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-import styles from "./blogImageSlider.module.css";
+import styles from "./swiper.module.css";
+import ImageModal from "./imageOverlay/ImageModal";
+import Modal from "react-modal";
 
 interface SliderProps {
   images: { post_image: string }[];
   alt: string;
   id: number;
 }
-
+interface ImageModalProps {
+  image: string;
+  alt: string;
+}
 const BlogImageSlider = ({ images, alt }: SliderProps) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openModal = (index: number) => {
+    setModalIsOpen(true);
+    setActiveImageIndex(index);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
   return (
     <div className={styles["swiper-container"]}>
       {images.length > 1 ? (
-        <div>
+        <>
           <Swiper
             className={styles["main-swiper"]}
             loop={true}
@@ -29,14 +45,13 @@ const BlogImageSlider = ({ images, alt }: SliderProps) => {
             thumbs={{ swiper: thumbsSwiper }}
             modules={[FreeMode, Navigation, Thumbs]}
           >
-            {images.map((image) => (
+            {images.map((image, i) => (
               <SwiperSlide className={styles["main-slide"]}>
-                <Image
+                <img
                   src={image.post_image}
                   alt={alt}
                   className={styles["main-image"]}
-                  width={1000}
-                  height={1000}
+                  onClick={() => openModal(i)}
                 />
               </SwiperSlide>
             ))}
@@ -53,30 +68,44 @@ const BlogImageSlider = ({ images, alt }: SliderProps) => {
           >
             {images.map((image) => (
               <SwiperSlide className={styles["preview-slide"]}>
-                <Image
+                <img
                   src={image.post_image}
                   alt={alt}
-                  width={200}
-                  height={200}
                   className={styles["preview-image"]}
                 />
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
+        </>
       ) : (
         <>
           {images.map((image) => (
-            <Image
+            <img
               src={image.post_image}
               alt={alt}
               className={styles["single-image"]}
-              width={360}
-              height={250}
             />
           ))}
         </>
       )}
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        className={styles.modal}
+        overlayClassName={styles.overlay}
+        ariaHideApp={false}
+        style={{ overlay: { zIndex: 10 }, content: { zIndex: 11 } }}
+      >
+        <img
+          src={images[activeImageIndex].post_image}
+          alt={alt}
+          className={styles["modal-image"]}
+        />
+
+        <button onClick={closeModal} className={styles["close-button"]}>
+          &times;
+        </button>
+      </Modal>
     </div>
   );
 };
