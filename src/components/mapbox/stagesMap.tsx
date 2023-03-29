@@ -14,17 +14,23 @@ interface MapProps {
 }
 
 interface ShowModalProps {
-  destinationId: null | number;
+  id: null | number;
   modalOpen: boolean;
 }
 
 const StagesMap = ({ destinations, stages }: MapProps) => {
+  console.log(stages);
+  console.log(destinations);
   const [showModal, setShowModal] = useState<ShowModalProps>({
     modalOpen: false,
-    destinationId: null,
+    id: null,
   });
 
   const currentStage = stages.find((stage) => stage.current === true);
+
+  const [modal, setModal] = useState<SingleStageProps | null>(null);
+
+  const nodeRef = useRef<HTMLInputElement>(null);
 
   const viewport = {
     latitude: parseFloat(currentStage!.coordinates.lat),
@@ -32,34 +38,38 @@ const StagesMap = ({ destinations, stages }: MapProps) => {
     zoom: 5,
   };
 
-  const [modalDestination, setModalDestination] =
-    useState<SingleStageProps | null>(null);
-
-  const nodeRef = useRef<HTMLInputElement>(null);
-
   useEffect(() => {
-    if (!showModal.destinationId || showModal.destinationId === null) {
+    if (!showModal.id || showModal.id === null) {
       return;
     }
 
     const destination = destinations.find(
-      (destination) => destination.id === showModal.destinationId
+      (destination) => destination.id === showModal.id
     );
 
-    if (!destination) {
-      return;
+    console.log(destination);
+
+    if (destination) {
+      setModal(destination);
     }
 
-    setModalDestination(destination);
-  }, [showModal.destinationId, destinations]);
+    if (!destination) {
+      const stage = stages.find((stage) => stage.id === showModal.id);
+      console.log(stage);
+      if (!stage) {
+        return;
+      }
+
+      setModal(stage);
+    }
+  }, [showModal.id, destinations, stages]);
 
   const handleShowModal = (stageId: number) => {
-    console.log(stageId);
-    setShowModal({ destinationId: stageId, modalOpen: true });
+    setShowModal({ id: stageId, modalOpen: true });
   };
 
   const handleCloseModal = () => {
-    setShowModal((prev) => ({ ...prev, modalOpen: false }));
+    setShowModal({ id: null, modalOpen: false });
   };
 
   return (
@@ -88,12 +98,12 @@ const StagesMap = ({ destinations, stages }: MapProps) => {
         <Modal
           ref={nodeRef}
           key="modal"
-          title={modalDestination?.title}
-          text={modalDestination?.text_area}
+          title={modal?.title}
+          text={modal?.text_area}
           onCloseClick={handleCloseModal}
         />
       </CSSTransition>
-      <MapMarkers arr={stages} isNextYear={false} />
+      <MapMarkers arr={stages} isNextYear={false} showModal={handleShowModal} />
       <MapMarkers
         arr={destinations}
         isNextYear={false}

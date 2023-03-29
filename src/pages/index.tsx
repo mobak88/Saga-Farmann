@@ -80,7 +80,7 @@ export async function getStaticProps() {
         lat: stage.acf.coordinates.lat,
       },
       number: stage.acf.stage_number,
-      text_area: stage.acf.stage[0].stage_text_area,
+      text_area: stage.acf.stage[0].stage_text_area[0].stage_text,
       current: stage.acf.current_destination,
       next_year: stage.acf.next_year,
     };

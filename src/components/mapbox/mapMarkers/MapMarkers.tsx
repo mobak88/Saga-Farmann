@@ -34,6 +34,7 @@ const MapMarkers = ({
                 <MapStageButton
                   stageNumber={obj.number}
                   stageName={obj.title}
+                  showModal={() => showModal && showModal(obj.id)}
                 />
               )}
             </Marker>
