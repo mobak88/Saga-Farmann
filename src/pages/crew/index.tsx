@@ -3,8 +3,8 @@ import { GetStaticProps } from "next";
 import Link from "next/link";
 import styles from "./crew.module.css";
 import Header from "@/components/header/header";
-import HeadingTwo from "@/components/typography/headings/headingTwo";
-import HeadingThree from "@/components/typography/headings/headingThree";
+import HeadingTwo from "@/components/typography/headings/HeadingTwo";
+import HeadingThree from "@/components/typography/headings/HeadingThree";
 import ReactMarkdown from "react-markdown";
 
 interface CrewMember {
