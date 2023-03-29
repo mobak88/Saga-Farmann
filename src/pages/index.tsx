@@ -1,7 +1,7 @@
 import type { ReactElement } from "react";
 import Head from "next/head";
 import LatestNews from "@/components/latestNews/LatestNews";
-import sliderData from "@/components/latestNews/latestNewsSlider/SliderData";
+import sliderData from "@/components/latestNews/latestNewsSlider/sliderData";
 import Hero from "@/components/hero/Hero";
 import GridImagesAndText from "@/components/gridImagesAndText/GridImagesAndText";
 import styles from "./home.module.css";

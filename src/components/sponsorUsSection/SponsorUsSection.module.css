@@ -47,6 +47,22 @@
   padding: 16px;
 }
 
+@media screen and (max-width: 1390px) {
+  .image-two {
+    display: none;
+  }
+  .wrapper {
+    align-items: center;
+    gap: 32px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .wrapper {
+    padding-top: 8rem;
+  }
+}
+
 @media screen and (max-width: 450px) {
   .image-two {
     display: none;
@@ -73,15 +89,5 @@
   .card-content-wrapper {
     gap: 16px;
     padding: 0px 32px;
-  }
-}
-
-@media screen and (max-width: 1390px) {
-  .image-two {
-    display: none;
-  }
-  .wrapper {
-    align-items: center;
-    gap: 32px;
   }
 }
