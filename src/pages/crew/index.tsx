@@ -49,13 +49,13 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     `https://dev.sagafarmann.com/wp/wp-json/wp/v2/crew_members`
   );
   const crewMembers = await res.json();
-  function swapElements(arr: any[], i1: number, i2: number) {
+  const swapElements = (arr: any[], i1: number, i2: number) => {
     let temp = arr[i1];
     arr[i1] = arr[i2];
     arr[i2] = temp;
-  }
+  };
   swapElements(crewMembers, 6, 7);
-  // console.log(crewMembers);
+
   return {
     props: {
       crewMembers,

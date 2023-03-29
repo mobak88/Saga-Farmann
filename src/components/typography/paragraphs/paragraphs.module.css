@@ -15,7 +15,7 @@
 }
 
 .paragraphs-sm {
-  font-size: var(--p--step-1);
+  font-size: var(--p--step-0);
 }
 
 @media screen and (max-width: 50rem) {
