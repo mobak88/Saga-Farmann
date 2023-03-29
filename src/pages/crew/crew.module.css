@@ -49,3 +49,36 @@
 .heading-wrapper {
   position: absolute;
 }
+
+@media only screen and (max-width: 850px) {
+  .card-container {
+    max-width: 800px;
+    justify-content: center;
+    padding-bottom: 3rem;
+    gap: 2rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .main-wrapper {
+    gap: 2rem;
+    padding-top: 5rem;
+  }
+  .card-container {
+    max-width: 600px;
+  }
+  .button-heading-wrapper {
+    width: 70%;
+    height: 15rem;
+  }
+  .heading-wrapper {
+    position: relative;
+    margin-top: 3rem;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .card-container {
+    max-width: 425px;
+  }
+}

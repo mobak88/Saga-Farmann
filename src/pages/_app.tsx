@@ -22,7 +22,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <MainLayout>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </MainLayout>
   );
 }
