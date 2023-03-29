@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: 16px;
   width: fit-content;
+  margin-top: 200px;
 }
 
 .images-and-card-wrapper {
@@ -47,6 +48,11 @@
   padding: 16px;
 }
 
+@media screen and (max-width: 1200px) {
+  .wrapper {
+    margin-top: 0;
+  }
+}
 @media screen and (max-width: 450px) {
   .image-two {
     display: none;
