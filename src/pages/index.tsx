@@ -1,13 +1,13 @@
 import type { ReactElement } from "react";
 import Head from "next/head";
-import LatestNews from "@/components/latestNews/latestNews";
-import sliderData from "@/components/latestNews/latestNewsSlider/sliderData";
+import LatestNews from "@/components/latestNews/LatestNews";
+import sliderData from "@/components/latestNews/latestNewsSlider/SliderData";
 import Hero from "@/components/hero/Hero";
-import GridImagesAndText from "@/components/gridImagesAndText/gridImagesAndText";
+import GridImagesAndText from "@/components/gridImagesAndText/GridImagesAndText";
 import styles from "./home.module.css";
-import StagesMap from "@/components/mapbox/stagesMap";
+import StagesMap from "@/components/mapbox/StagesMap";
 import LightLayout from "@/components/layout/LightLayout";
-import LivestreamVideo from "@/components/livestream/livestreamVideo";
+import LivestreamVideo from "@/components/livestream/LivestreamVideo";
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import { GridSections } from "@/components/gridImagesAndText/interfaces";
 import {
