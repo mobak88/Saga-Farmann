@@ -1,54 +1,109 @@
-/* blogImageSlider.module.css */
-
-.image-swiper-container {
+/* .swiper-container {
   position: relative;
+  margin: 0;
+  padding: 0;
 }
 
-.image-swiper {
+.main-swiper {
+  height: 80%;
   width: 100%;
-  height: 400px;
 }
 
-.swiper-preview-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  cursor: pointer;
-  opacity: 0.5;
-  transition: opacity 0.2s ease-in-out;
-}
+.main-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
 
-.swiper-preview-image:hover {
-  opacity: 1;
-}
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
 
-.swiper-focus-image {
+.main-image {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
 .preview-swiper {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80%;
-  margin-bottom: 20px;
-  z-index: 1;
+  height: 20%;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+.preview-slide {
+  background-size: cover;
+  background-position: center;
+}
+
+.preview-image {
+}
+
+.single-image {
+}
+
+*/
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide Image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper {
+  width: 100%;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+
+.main-swiper {
+  height: 80%;
+  width: 100%;
+}
+
+.preview-swiper {
+  height: 20%;
+  box-sizing: border-box;
+  padding: 10px 0;
 }
 
 .preview-swiper .swiper-slide {
-  width: 120px;
-  height: 80px;
-  margin-right: 10px;
-  cursor: pointer;
+  width: 25%;
+  height: 100%;
+  opacity: 0.4;
 }
 
-@media screen and (max-width: 768px) {
-  .preview-swiper .swiper-slide {
-    width: 80px;
-    height: 60px;
-    margin-right: 5px;
-  }
+.preview-swiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+.swiper-slide Image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

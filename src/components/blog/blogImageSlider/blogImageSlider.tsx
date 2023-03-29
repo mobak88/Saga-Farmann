@@ -1,10 +1,13 @@
 import React, { useState, useRef } from "react";
-import styles from "./blogImageSlider.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper";
-import "swiper/css";
-import "swiper/css/navigation";
 import Image from "next/image";
+
+import "swiper/swiper.css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
+import styles from "./blogImageSlider.module.css";
 
 interface SliderProps {
   images: { post_image: string }[];
@@ -15,46 +18,47 @@ interface SliderProps {
 const BlogImageSlider = ({ images, alt }: SliderProps) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   return (
-    <div className={styles["image-swiper-container"]}>
+    <div className={styles["swiper-container"]}>
       {images.length > 1 ? (
         <div>
           <Swiper
-            className={styles["image-swiper"]}
+            className={styles["main-swiper"]}
+            loop={true}
             spaceBetween={10}
             navigation={true}
             thumbs={{ swiper: thumbsSwiper }}
             modules={[FreeMode, Navigation, Thumbs]}
-            loop={true}
           >
             {images.map((image) => (
-              <SwiperSlide>
+              <SwiperSlide className={styles["main-slide"]}>
                 <Image
                   src={image.post_image}
                   alt={alt}
-                  className={styles["swiper-focus-image"]}
-                  width={360}
-                  height={250}
+                  className={styles["main-image"]}
+                  width={1000}
+                  height={1000}
                 />
               </SwiperSlide>
             ))}
           </Swiper>
           <Swiper
             onSwiper={() => setThumbsSwiper}
+            loop={true}
             spaceBetween={10}
             slidesPerView={images.length > 4 ? 4 : 3 ? 3 : 2 ? 2 : 1}
             freeMode={true}
             watchSlidesProgress={true}
             modules={[FreeMode, Navigation, Thumbs]}
-            className="preview-swiper"
+            className={styles["preview-swiper"]}
           >
             {images.map((image) => (
-              <SwiperSlide>
+              <SwiperSlide className={styles["preview-slide"]}>
                 <Image
                   src={image.post_image}
                   alt={alt}
-                  className={styles["swiper-preview-image"]}
-                  width={360}
-                  height={250}
+                  width={200}
+                  height={200}
+                  className={styles["preview-image"]}
                 />
               </SwiperSlide>
             ))}
@@ -66,7 +70,7 @@ const BlogImageSlider = ({ images, alt }: SliderProps) => {
             <Image
               src={image.post_image}
               alt={alt}
-              className={styles["swiper-focus-image"]}
+              className={styles["single-image"]}
               width={360}
               height={250}
             />
@@ -77,3 +81,4 @@ const BlogImageSlider = ({ images, alt }: SliderProps) => {
   );
 };
 export default BlogImageSlider;
+// className={styles[""]}
