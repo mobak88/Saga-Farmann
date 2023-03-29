@@ -51,8 +51,10 @@
 @media screen and (max-width: 1200px) {
   .wrapper {
     margin-top: 0;
+    padding-top: 8rem;
   }
 }
+
 @media screen and (max-width: 450px) {
   .image-two {
     display: none;

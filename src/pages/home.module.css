@@ -3,7 +3,7 @@
   background-color: var(--bg-pink-brown);
   display: flex;
   justify-content: center;
-  padding: var(--section-padding) 0;
+  padding: 8rem 0 16rem 0;
 }
 
 .livestream-wrapper {
@@ -17,12 +17,11 @@
 
 .sponsor-us-wrapper {
   background-color: var(--bg-pink-brown);
-  padding: var(--section-padding);
+  padding: 12rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 
 .wave-container {
   position: relative;
