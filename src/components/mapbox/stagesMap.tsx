@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import Map, { Marker, FullscreenControl } from "react-map-gl";
+import Map, { FullscreenControl } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import MapMarker from "./mapMarker";
 import Modal from "./modal/modal";
 import { CSSTransition } from "react-transition-group";
 import { SingleStageProps } from "./interfaces";
 import styles from "./StagesMap.module.css";
-import MapStageButton from "../buttons/mapStageButton/MapStageButton";
 import MapMarkers from "./mapMarkers/MapMarkers";
 
 interface MapProps {
@@ -55,6 +54,7 @@ const StagesMap = ({ destinations, stages }: MapProps) => {
   }, [showModal.destinationId, destinations]);
 
   const handleShowModal = (stageId: number) => {
+    console.log(stageId);
     setShowModal({ destinationId: stageId, modalOpen: true });
   };
 
@@ -94,7 +94,11 @@ const StagesMap = ({ destinations, stages }: MapProps) => {
         />
       </CSSTransition>
       <MapMarkers arr={stages} isNextYear={false} />
-      <MapMarkers arr={destinations} isNextYear={false}>
+      <MapMarkers
+        arr={destinations}
+        isNextYear={false}
+        showModal={handleShowModal}
+      >
         <MapMarker />
       </MapMarkers>
       <MapMarkers arr={destinations} isNextYear={true}>
