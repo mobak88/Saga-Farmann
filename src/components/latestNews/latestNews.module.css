@@ -1,5 +1,6 @@
 .section-wrapper {
   background-color: var(--bg-dark-blue);
+  display: block;
 }
 
 .section-container {
