@@ -7,7 +7,6 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import styles from "./swiper.module.css";
-import ImageModal from "./imageOverlay/ImageModal";
 import Modal from "react-modal";
 
 interface SliderProps {
@@ -94,7 +93,14 @@ const BlogImageSlider = ({ images, alt }: SliderProps) => {
         className={styles.modal}
         overlayClassName={styles.overlay}
         ariaHideApp={false}
-        style={{ overlay: { zIndex: 10 }, content: { zIndex: 11 } }}
+        style={{
+          overlay: {
+            zIndex: 10,
+            background: "rgba(0, 0, 0, 0.7)",
+            backdropFilter: "blur(5px)",
+          },
+          content: { zIndex: 11 },
+        }}
       >
         <img
           src={images[activeImageIndex].post_image}
