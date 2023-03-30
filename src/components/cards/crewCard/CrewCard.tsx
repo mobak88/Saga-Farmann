@@ -26,7 +26,7 @@ const CrewCard = ({
             alt={member_name}
             className={styles.image}
             width={400}
-            height={300}
+            height={400}
           />
         </div>
         <div className={styles["card-text-wrapper"]}>
