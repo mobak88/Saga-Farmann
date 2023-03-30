@@ -4,6 +4,8 @@ import { HeadingOneHome } from "../typography/headings/HeadingOne";
 import HeadingTwo from "../typography/headings/HeadingTwo";
 import styles from "./Hero.module.css";
 import { HeroSection } from "./interfaces";
+import WaveRedBrownTop from "../waves/wavesLargeScreen/WaveRedBrownTop";
+import WaveRedBrownSmall from "../waves/wavesSmallScreen/WaveRedBrownSmall";
 
 interface Props {
   data: HeroSection;
@@ -19,6 +21,10 @@ const Hero = ({ data }: Props) => {
       <div className={styles["hero-text-container"]}>
         <HeadingOneHome>Saga asia</HeadingOneHome>
         <HeadingTwo>{data.hero_text}</HeadingTwo>
+      </div>
+      <div className={styles["wave-container"]}>
+        <WaveRedBrownTop />
+        <WaveRedBrownSmall />
       </div>
     </div>
   );

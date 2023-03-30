@@ -3,7 +3,7 @@
   background-color: var(--bg-pink-brown);
   display: flex;
   justify-content: center;
-  padding: 8rem 0 16rem 0;
+  padding: 5rem 0 16rem 0;
 }
 
 .livestream-wrapper {
@@ -23,26 +23,8 @@
   justify-content: center;
 }
 
-.wave-container {
-  position: relative;
-  overflow: hidden;
-  bottom: 10rem;
-}
-
-.map-container {
-  margin-top: -10rem;
-}
-
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 75rem) {
   .sponsor-us-wrapper {
-    margin-top: 7rem;
-  }
-
-  .wave-container {
-    bottom: 2rem;
-  }
-
-  .map-container {
-    margin-top: -2rem;
+    padding: 0 0 8rem 0;
   }
 }
