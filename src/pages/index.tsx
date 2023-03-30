@@ -47,12 +47,8 @@ const Home = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Hero data={heroSection} />
-      <div className={styles["wave-container"]}>
-        <WaveRedBrownTop />
-        <WaveRedBrownSmall />
-        <div className={styles["grid-wrapper"]}>
-          <GridImagesAndText gridContent={gridSection} />
-        </div>
+      <div className={styles["grid-wrapper"]}>
+        <GridImagesAndText gridContent={gridSection} />
       </div>
       <div className={styles["map-container"]}>
         <StagesMap destinations={destinations} stages={stages} />

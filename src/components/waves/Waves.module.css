@@ -12,8 +12,6 @@
 
 .wave-dark-bottom-pink {
   background-color: var(--bg-pink-brown);
-  position: absolute;
-  z-index: 1;
 }
 
 @media screen and (max-width: 75rem) {

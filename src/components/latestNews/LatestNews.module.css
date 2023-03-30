@@ -1,7 +1,5 @@
 .section-wrapper {
   background-color: var(--bg-dark-blue);
-  position: relative;
-  z-index: 2;
 }
 
 .section-container {
@@ -41,6 +39,6 @@
 
 @media screen and (max-width: 75rem) {
   .section-container {
-    padding: var(--section-padding) 2rem;
+    padding: 0 2rem;
   }
 }
