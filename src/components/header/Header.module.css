@@ -8,7 +8,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--light-text-color);
-  font-family: Norse;
-  font-size: 72px;
+  font-size: var(--h--step-3);
 }

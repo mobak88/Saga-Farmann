@@ -6,8 +6,7 @@
   justify-content: center;
   gap: 5rem;
   align-items: center;
-  padding-top: 10rem;
-  height: 100%;
+  padding: 5rem 0;
 }
 
 .card-container {
@@ -23,12 +22,15 @@
   display: flex;
   flex-direction: column-reverse;
   gap: 2rem;
-  justify-content: center;
-  align-items: center;
+  background-color: var(--very-dark-blue);
+  box-shadow: var(--box-shadow);
 }
 
 .crews-links {
   color: var(--light-text-color);
+  text-decoration: none;
+  font-size: var(--p--step-4);
+  font-family: "Norse";
 }
 
 .crews-links:hover {
@@ -48,4 +50,37 @@
 
 .heading-wrapper {
   position: absolute;
+}
+
+@media only screen and (max-width: 850px) {
+  .card-container {
+    max-width: 800px;
+    justify-content: center;
+    padding-bottom: 3rem;
+    gap: 2rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .main-wrapper {
+    gap: 2rem;
+    padding-top: 5rem;
+  }
+  .card-container {
+    max-width: 600px;
+  }
+  .button-heading-wrapper {
+    width: 70%;
+    height: 15rem;
+  }
+  .heading-wrapper {
+    position: relative;
+    margin-top: 3rem;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .card-container {
+    max-width: 425px;
+  }
 }

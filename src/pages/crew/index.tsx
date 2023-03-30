@@ -17,25 +17,20 @@ interface Props {
 }
 
 const CrewMemberPage = ({ crewMembers }: Props) => {
-  console.log(crewMembers);
-
   return (
     <>
-      <Header header="Crews" />
+      <Header header="Crews 2023" />
       <div className={styles["main-wrapper"]}>
-        <HeadingTwo>Saga Asia 2023</HeadingTwo>
-
         <div className={styles["card-container"]}>
           <div className={styles["crew-links-wrapper"]}>
             {crewMembers.map((crewMember) => (
-              <HeadingThree key={crewMember.id}>
-                <Link
-                  href={`/crew/${crewMember.id}`}
-                  className={styles["crews-links"]}
-                >
-                  <ReactMarkdown>{crewMember.title.rendered}</ReactMarkdown>
-                </Link>
-              </HeadingThree>
+              <Link
+                key={crewMember.id}
+                href={`/crew/${crewMember.id}`}
+                className={styles["crews-links"]}
+              >
+                <ReactMarkdown>{crewMember.title.rendered}</ReactMarkdown>
+              </Link>
             ))}
           </div>
         </div>
