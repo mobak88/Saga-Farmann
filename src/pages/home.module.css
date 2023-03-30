@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   padding: 5rem 0 16rem 0;
+  overflow: hidden;
 }
 
 .livestream-wrapper {
