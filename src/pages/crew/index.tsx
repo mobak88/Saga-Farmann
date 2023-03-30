@@ -3,9 +3,11 @@ import { GetStaticProps } from "next";
 import Link from "next/link";
 import styles from "./crew.module.css";
 import Header from "@/components/header/Header";
-import HeadingTwo from "@/components/typography/headings/HeadingTwo";
-import HeadingThree from "@/components/typography/headings/HeadingThree";
 import ReactMarkdown from "react-markdown";
+import DarkContainer from "@/components/containers/darkContainer/DarkContainer";
+import SponsorUsSection from "@/components/sponsorUsSection/SponsorUsSection";
+import { SponsorUsSectionInterface } from "@/components/sponsorUsSection/interfaces";
+import API_ENDPOINTS from "@/endpoints/endpoints";
 
 interface CrewMember {
   id: number;
@@ -14,13 +16,14 @@ interface CrewMember {
 
 interface Props {
   crewMembers: CrewMember[];
+  sponsorUsSection: SponsorUsSectionInterface;
 }
 
-const CrewMemberPage = ({ crewMembers }: Props) => {
+const CrewMemberPage = ({ crewMembers, sponsorUsSection }: Props) => {
   return (
     <>
       <Header header="Crews 2023" />
-      <div className={styles["main-wrapper"]}>
+      <DarkContainer>
         <div className={styles["card-container"]}>
           <div className={styles["crew-links-wrapper"]}>
             {crewMembers.map((crewMember) => (
@@ -34,26 +37,37 @@ const CrewMemberPage = ({ crewMembers }: Props) => {
             ))}
           </div>
         </div>
-      </div>
+      </DarkContainer>
+      <SponsorUsSection data={sponsorUsSection} />
     </>
   );
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const res = await fetch(
-    `https://dev.sagafarmann.com/wp/wp-json/wp/v2/crew_members`
-  );
-  const crewMembers = await res.json();
+  const [resCrewMembers, resSponsorUs] = await Promise.all([
+    fetch(API_ENDPOINTS.crewMembers),
+    fetch(API_ENDPOINTS.page(222)),
+  ]);
+
+  const [crewMembers, sponsorUs] = await Promise.all([
+    resCrewMembers.json(),
+    resSponsorUs.json(),
+  ]);
+
   const swapElements = (arr: any[], i1: number, i2: number) => {
     let temp = arr[i1];
     arr[i1] = arr[i2];
     arr[i2] = temp;
   };
+
   swapElements(crewMembers, 6, 7);
+
+  const sponsorUsSection = sponsorUs.acf;
 
   return {
     props: {
       crewMembers,
+      sponsorUsSection,
     },
   };
 };

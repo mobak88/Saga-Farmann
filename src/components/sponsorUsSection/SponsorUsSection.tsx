@@ -12,33 +12,35 @@ interface Props {
 
 const SponsorUsSection = ({ data }: Props) => {
   return (
-    <div className={styles.wrapper}>
-      <HeadingTwo>{data.sponsor_us_heading}</HeadingTwo>
-      <div className={styles["images-and-card-wrapper"]}>
-        <Image
-          className={styles["image-one"]}
-          src={data.sponsor_us_first_image}
-          alt="image"
-          width={500}
-          height={500}
-        />
+    <div className={styles["sponsor-us-wrapper"]}>
+      <div className={styles.container}>
+        <HeadingTwo>{data.sponsor_us_heading}</HeadingTwo>
+        <div className={styles["images-and-card-wrapper"]}>
+          <Image
+            className={styles["image-one"]}
+            src={data.sponsor_us_first_image}
+            alt="image"
+            width={500}
+            height={500}
+          />
 
-        <Image
-          className={styles["image-two"]}
-          src={data.sponsor_us_second_image}
-          alt="image"
-          width={500}
-          height={500}
-        />
-        <div className={styles["card"]}>
-          <div className={styles["card-content-wrapper"]}>
-            <HeadingThree dark>
-              {data.sponsor_us_card.sponsor_us_card_heading}
-            </HeadingThree>
-            <ParagraphsSmall dark>
-              {data.sponsor_us_card.sponsor_us_card_text}
-            </ParagraphsSmall>
-            <button className={styles["sponsor-us-button"]}>Donate</button>
+          <Image
+            className={styles["image-two"]}
+            src={data.sponsor_us_second_image}
+            alt="image"
+            width={500}
+            height={500}
+          />
+          <div className={styles["card"]}>
+            <div className={styles["card-content-wrapper"]}>
+              <HeadingThree dark>
+                {data.sponsor_us_card.sponsor_us_card_heading}
+              </HeadingThree>
+              <ParagraphsSmall dark>
+                {data.sponsor_us_card.sponsor_us_card_text}
+              </ParagraphsSmall>
+              <button className={styles["sponsor-us-button"]}>Donate</button>
+            </div>
           </div>
         </div>
       </div>

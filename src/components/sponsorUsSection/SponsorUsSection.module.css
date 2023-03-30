@@ -1,4 +1,12 @@
-.wrapper {
+.sponsor-us-wrapper {
+  background-color: var(--bg-pink-brown);
+  padding: 12rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
   display: flex;
   flex-direction: column;
   gap: 16px;

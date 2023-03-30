@@ -57,9 +57,7 @@ const Home = ({
         postText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut."
         posts={sliderData}
       />
-      <div className={styles["sponsor-us-wrapper"]}>
-        <SponsorUsSection data={sponsorUsSection} />
-      </div>
+      <SponsorUsSection data={sponsorUsSection} />
     </>
   );
 };
