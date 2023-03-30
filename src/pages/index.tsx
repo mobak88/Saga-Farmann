@@ -24,7 +24,6 @@ export interface HomeProps {
   gridSection: GridSections;
   heroSection: HeroSection;
   sponsorUsSection: SponsorUsSectionInterface;
-  id: number;
   destinations: SingleStageProps[];
 }
 
@@ -32,7 +31,6 @@ const Home = ({
   stages,
   destinations,
   gridSection,
-  id,
   sponsorUsSection,
   heroSection,
 }: HomeProps) => {
@@ -116,7 +114,6 @@ export async function getStaticProps() {
   const { grid_section } = homeData.acf;
   const { hero_section } = homeData.acf;
   const sponsorUsSection = sponsorUs.acf;
-  const { id } = homeData;
 
   return {
     props: {
@@ -124,7 +121,6 @@ export async function getStaticProps() {
       homeData,
       heroSection: hero_section,
       gridSection: grid_section,
-      id,
       destinations: newDestinations,
       sponsorUsSection,
     },
