@@ -1,10 +1,10 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import API_ENDPOINTS from "@/endpoints/endpoints";
-import BlogInfo from "@/components/blog/blogInfo/blogInfo";
-import BlogImageSlider from "@/components/blog/blogImageSlider/blogImageSlider";
-import Header from "@/components/header/header";
-import BlogSecondText from "@/components/blog/blogSecondText/blogSecondText";
-import BlogSecondHeading from "@/components/blog/blogSecondHeading/blogSecondHeading";
+import BlogInfo from "@/components/blog/blogInfo/BlogInfo";
+import BlogImageSlider from "@/components/blog/blogImageSlider/BlogImageSlider";
+import Header from "@/components/header/Header";
+import BlogSecondText from "@/components/blog/blogSecondText/BlogSecondText";
+import BlogSecondHeading from "@/components/blog/blogSecondHeading/BlogSecondHeading";
 import styles from "./blog.module.css";
 
 interface Props {

@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import API_ENDPOINTS from "@/endpoints/endpoints";
-import BlogCard from "../../components/cards/blogCard/blogCard";
-import Header from "@/components/header/header";
+import BlogCard from "../../components/cards/blogCard/BlogCard";
+import Header from "@/components/header/Header";
 import styles from "./blog.module.css";
 import { Post } from "./[id]";
 

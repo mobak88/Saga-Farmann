@@ -6,7 +6,7 @@ import "swiper/swiper-bundle.min.css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-import styles from "./swiper.module.css";
+import styles from "./Swiper.module.css";
 import Modal from "react-modal";
 
 interface SliderProps {

@@ -1,5 +1,5 @@
-import ParagraphsSmall from "@/components/typography/paragraphs/paragraphsSmall";
-import styles from "./blogSecondText.module.css";
+import ParagraphsSmall from "@/components/typography/paragraphs/ParagraphsSmall";
+import styles from "./BlogSecondText.module.css";
 
 interface BlogProps {
   post_second_section_text: string;

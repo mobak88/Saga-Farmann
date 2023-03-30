@@ -1,7 +1,6 @@
-import HeadingThree from "@/components/typography/headings/headingThree";
-import HeadingTwo from "@/components/typography/headings/headingTwo";
-import ParagraphsSmall from "@/components/typography/paragraphs/paragraphsSmall";
-import styles from "./blogInfo.module.css";
+import HeadingTwo from "@/components/typography/headings/HeadingTwo";
+import ParagraphsSmall from "@/components/typography/paragraphs/ParagraphsSmall";
+import styles from "./BlogInfo.module.css";
 
 interface BlogProps {
   id: number;
