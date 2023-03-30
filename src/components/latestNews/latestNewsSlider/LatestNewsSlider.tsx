@@ -46,7 +46,7 @@ const LatestNewsSlider = ({ posts }: PostsProps) => {
           nextEl: swiperNavNextRef.current,
         }}
         onBeforeInit={onBeforeInit}
-        className={styles["my-swiper"]}
+        className={styles["news-swiper"]}
         modules={[Navigation]}
         spaceBetween={20}
         breakpoints={{
@@ -64,7 +64,7 @@ const LatestNewsSlider = ({ posts }: PostsProps) => {
       >
         {posts &&
           posts.map((post) => (
-            <SwiperSlide key={post.id}>
+            <SwiperSlide key={post.id} className={styles["news-swiper-slide"]}>
               <div className={styles["slider-card-container"]}>
                 <SliderCard
                   imageSrc={post.imageSrc}
