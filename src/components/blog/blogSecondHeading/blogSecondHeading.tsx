@@ -1,5 +1,5 @@
-import HeadingThree from "@/components/typography/headings/headingThree";
-import styles from "./blogSecondHeading.module.css";
+import HeadingThree from "@/components/typography/headings/HeadingThree";
+import styles from "./BlogSecondHeading.module.css";
 
 interface BlogProps {
   post_second_section_heading: string;

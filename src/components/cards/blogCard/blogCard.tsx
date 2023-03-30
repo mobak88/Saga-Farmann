@@ -1,8 +1,8 @@
 import ParagraphsSmall from "@/components/typography/paragraphs/paragraphsSmall";
 import HeadingTwo from "@/components/typography/headings/headingTwo";
-import styles from "./blogCard.module.css";
+import styles from "./BlogCard.module.css";
 import Link from "next/link";
-import ParagraphsBig from "@/components/typography/paragraphs/paragraphsBig";
+import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
 
 interface BlogProps {
   id: number;

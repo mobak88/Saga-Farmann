@@ -19,8 +19,6 @@ interface ShowModalProps {
 }
 
 const StagesMap = ({ destinations, stages }: MapProps) => {
-  console.log(stages);
-  console.log(destinations);
   const [showModal, setShowModal] = useState<ShowModalProps>({
     modalOpen: false,
     id: null,
@@ -47,15 +45,12 @@ const StagesMap = ({ destinations, stages }: MapProps) => {
       (destination) => destination.id === showModal.id
     );
 
-    console.log(destination);
-
     if (destination) {
       setModal(destination);
     }
 
     if (!destination) {
       const stage = stages.find((stage) => stage.id === showModal.id);
-      console.log(stage);
       if (!stage) {
         return;
       }

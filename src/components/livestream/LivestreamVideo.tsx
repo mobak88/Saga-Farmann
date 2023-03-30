@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import HeadingTwo from "../typography/headings/HeadingTwo";
-import styles from "./livestreamVideo.module.css";
+import styles from "./LivestreamVideo.module.css";
 
 const LivestreamVideo = () => {
   const [isOnline, setIsOnline] = useState<Boolean>(false);
@@ -21,9 +21,6 @@ const LivestreamVideo = () => {
   return (
     <>
       <div className={styles["content-container"]}>
-        <div className={styles["heading-wrapper"]}>
-          <HeadingTwo dark>Livestream</HeadingTwo>
-        </div>
         <div className={styles["youtube-holder"]}>
           {isOnline ? (
             <iframe
@@ -33,7 +30,9 @@ const LivestreamVideo = () => {
               src={`https://www.youtube.com/embed/live_stream?channel=${process.env.NEXT_PUBLIC_CHANNEL_ID}&autoplay=1&mute=1`}
             ></iframe>
           ) : (
-            <h2 className={styles["offline-text"]}>We are currently offline</h2>
+            <div className={styles["offline-text-container"]}>
+              <HeadingTwo>We are currently offline</HeadingTwo>
+            </div>
           )}
         </div>
       </div>
