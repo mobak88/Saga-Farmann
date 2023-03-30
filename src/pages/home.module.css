@@ -21,6 +21,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 20rem;
 }
 
 @media screen and (max-width: 75rem) {
