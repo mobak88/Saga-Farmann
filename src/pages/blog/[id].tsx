@@ -7,12 +7,10 @@ import BlogSecondText from "@/components/blog/blogSecondText/blogSecondText";
 import BlogSecondHeading from "@/components/blog/blogSecondHeading/blogSecondHeading";
 import styles from "./blog.module.css";
 
-// Hele greia
 interface Props {
   post: Post;
 }
 
-//posts
 export interface Post extends Props {
   id: number;
   modified: string;
@@ -25,25 +23,21 @@ export interface Post extends Props {
   };
 }
 
-//posts.acf.post_first_section
 interface PostFirstSection {
   post_images: PostImages[];
   post_first_heading: string;
   post_first_text: string;
 }
 
-//posts.acf.post_first_section.post_images
 interface PostImages {
   post_image: string;
 }
 
-//posts.acf.post_second_section
 interface PostSecondSection {
   post_second_section_heading: string;
   post_second_section_texts: PostSecondSectionTexts[];
 }
 
-//post.acf.post_second_section.post_second_section_texts
 interface PostSecondSectionTexts {
   post_second_section_text: string;
 }
