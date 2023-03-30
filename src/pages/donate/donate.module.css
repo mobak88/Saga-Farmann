@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   gap: 4rem;
-  height: 100vh;
+  padding: 5rem;
 }
 
 .image-box,
@@ -25,7 +25,7 @@
 .text-box-content {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 5rem;
   height: 100%;
   padding: 3rem;
 }
@@ -37,14 +37,23 @@
 }
 
 .donate-button {
-  width: 15rem;
+  width: 17rem;
   padding: 1rem 2rem;
   border-radius: 10px;
   text-transform: uppercase;
+  font-family: "Comfortaa";
+  letter-spacing: 2px;
+  font-weight: bold;
   color: var(--light-text-color);
   background-color: var(--donate-button);
   border: none;
-  box-shadow: var(--box-shadow);
+}
+
+.donate-button:hover {
+  box-shadow: none;
+  cursor: pointer;
+  background-color: var(--bg-pink-brown);
+  transition: 0.5s;
 }
 
 @media only screen and (max-width: 1200px) {
