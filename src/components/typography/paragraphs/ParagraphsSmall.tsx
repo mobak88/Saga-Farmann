@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./paragraphs.module.css";
+import styles from "./Paragraphs.module.css";
 import { ParagraphProps } from "./ParagraphsBig";
 
 export default function ParagraphsSmall({
