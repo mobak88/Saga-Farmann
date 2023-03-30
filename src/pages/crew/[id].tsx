@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import Card from "../../components/cards/crewCard/CrewCard";
 import HeadingTwo from "@/components/typography/headings/HeadingTwo";
 import SwitchIdButton from "@/components/buttons/SwitchIdButton";
+import DarkContainer from "@/components/containers/darkContainer/DarkContainer";
 
 type Member = {
   member_image: string;
@@ -61,37 +62,39 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
   return (
     <>
       <Header header={crewMember.title.rendered} />
-      <div className={styles["main-wrapper"]}>
-        <div className={styles["button-heading-wrapper"]}>
-          <SwitchIdButton
-            currentId={currentId}
-            totalIds={ids.length}
-            setCurrentId={setCurrentId}
-            baseUrl="/crew"
-            ids={ids}
-          />
-          <div className={styles["heading-wrapper"]}>
-            <HeadingTwo>
-              {isCurrentCrew
-                ? "Current Crew"
-                : isFormerCrew()
-                ? "Upcoming Crew"
-                : "Former Crew"}
-            </HeadingTwo>
+      <DarkContainer>
+        <div className={styles["main-wrapper"]}>
+          <div className={styles["button-heading-wrapper"]}>
+            <SwitchIdButton
+              currentId={currentId}
+              totalIds={ids.length}
+              setCurrentId={setCurrentId}
+              baseUrl="/crew"
+              ids={ids}
+            />
+            <div className={styles["heading-wrapper"]}>
+              <HeadingTwo>
+                {isCurrentCrew
+                  ? "Current Crew"
+                  : isFormerCrew()
+                  ? "Upcoming Crew"
+                  : "Former Crew"}
+              </HeadingTwo>
+            </div>
+          </div>
+          <div className={styles["card-container"]}>
+            {crewMember.acf.member.map((member, index) => (
+              <Card
+                key={index}
+                member_image={member.member_image}
+                member_name={member.member_name}
+                member_role={member.member_role}
+                member_description={member.member_description}
+              />
+            ))}
           </div>
         </div>
-        <div className={styles["card-container"]}>
-          {crewMember.acf.member.map((member, index) => (
-            <Card
-              key={index}
-              member_image={member.member_image}
-              member_name={member.member_name}
-              member_role={member.member_role}
-              member_description={member.member_description}
-            />
-          ))}
-        </div>
-      </div>
+      </DarkContainer>
     </>
   );
 };

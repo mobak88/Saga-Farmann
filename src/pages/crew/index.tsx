@@ -3,9 +3,8 @@ import { GetStaticProps } from "next";
 import Link from "next/link";
 import styles from "./crew.module.css";
 import Header from "@/components/header/Header";
-import HeadingTwo from "@/components/typography/headings/HeadingTwo";
-import HeadingThree from "@/components/typography/headings/HeadingThree";
 import ReactMarkdown from "react-markdown";
+import DarkContainer from "@/components/containers/darkContainer/DarkContainer";
 
 interface CrewMember {
   id: number;
@@ -20,7 +19,7 @@ const CrewMemberPage = ({ crewMembers }: Props) => {
   return (
     <>
       <Header header="Crews 2023" />
-      <div className={styles["main-wrapper"]}>
+      <DarkContainer>
         <div className={styles["card-container"]}>
           <div className={styles["crew-links-wrapper"]}>
             {crewMembers.map((crewMember) => (
@@ -34,7 +33,7 @@ const CrewMemberPage = ({ crewMembers }: Props) => {
             ))}
           </div>
         </div>
-      </div>
+      </DarkContainer>
     </>
   );
 };

@@ -3,10 +3,8 @@
 }
 
 .card-container {
-  width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 64px;
-  margin-top: 32px;
 }
