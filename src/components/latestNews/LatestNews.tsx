@@ -1,11 +1,15 @@
 import React from "react";
-import { SliderCardProps } from "../cards/sliderCard/sliderCard";
-import HeadingTwo from "../typography/headings/headingTwo";
-import ParagraphsSmall from "../typography/paragraphs/paragraphsSmall";
-import WaveDarkHome from "../waves/wavesLargeScreen/WaveDarkHome";
-import WaveDarkHomeSmall from "../waves/wavesSmallScreen/WaveDarkHomeSmall";
+import { SliderCardProps } from "../cards/sliderCard/SliderCard";
+import HeadingTwo from "../typography/headings/HeadingTwo";
+import ParagraphsSmall from "../typography/paragraphs/ParagraphsSmall";
+import WaveDarkHome, {
+  WaveDarkHomeBottomPink,
+} from "../waves/wavesLargeScreen/WaveDarkHome";
+import WaveDarkHomeSmall, {
+  WaveDarkHomeSmallBottomPink,
+} from "../waves/wavesSmallScreen/WaveDarkHomeSmall";
 import styles from "./latestNews.module.css";
-import LatestNewsSlider from "./latestNewsSlider/latestNewsSlider";
+import LatestNewsSlider from "./latestNewsSlider/LatestNewsSlider";
 
 interface SinglePostProps extends SliderCardProps {
   id: number;
@@ -36,8 +40,8 @@ const LatestNews = ({ posts, postHeading, postText }: LatestNewsProps) => {
           <LatestNewsSlider posts={posts} />
         </div>
       </div>
-      <WaveDarkHome bottom={true} />
-      <WaveDarkHomeSmall bottom={true} />
+      <WaveDarkHomeBottomPink />
+      <WaveDarkHomeSmallBottomPink />
     </>
   );
 };

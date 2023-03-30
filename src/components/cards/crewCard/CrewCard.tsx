@@ -1,9 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import styles from "./crewCard.module.css";
-import ParagraphsSmall from "../../typography/paragraphs/paragraphsSmall";
-import ParagraphsBig from "@/components/typography/paragraphs/paragraphsBig";
-import HeadingThree from "@/components/typography/headings/headingThree";
+import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
+import ParagraphsSmall from "@/components/typography/paragraphs/ParagraphsSmall";
 
 interface MemberProps {
   member_image: string;

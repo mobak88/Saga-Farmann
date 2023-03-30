@@ -1,29 +1,43 @@
 import type { ReactElement } from "react";
 import Head from "next/head";
-import LatestNews from "@/components/latestNews/latestNews";
-import sliderData from "@/components/latestNews/latestNewsSlider/sliderData";
+import LatestNews from "@/components/latestNews/LatestNews";
+import sliderData from "@/components/latestNews/latestNewsSlider/SliderData";
 import Hero from "@/components/hero/Hero";
-import GridImagesAndText from "@/components/gridImagesAndText/gridImagesAndText";
+import GridImagesAndText from "@/components/gridImagesAndText/GridImagesAndText";
 import styles from "./home.module.css";
-import StagesMap from "@/components/mapbox/stagesMap";
-import { SingleStageProps } from "@/components/mapbox/stagesMap";
+import StagesMap from "@/components/mapbox/StagesMap";
 import LightLayout from "@/components/layout/LightLayout";
-import LivestreamVideo from "@/components/livestream/livestreamVideo";
+import LivestreamVideo from "@/components/livestream/LivestreamVideo";
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import { GridSections } from "@/components/gridImagesAndText/interfaces";
-import { SingleStageApiProps } from "@/components/mapbox/interfaces";
-import HeadingTwo from "@/components/typography/headings/headingTwo";
+import {
+  SingleStageApiProps,
+  SingleStageProps,
+  SingleDestinationApiProps,
+} from "@/components/mapbox/interfaces";
 import WaveRedBrownTop from "@/components/waves/wavesLargeScreen/WaveRedBrownTop";
 import WaveRedBrownSmall from "@/components/waves/wavesSmallScreen/WaveRedBrownSmall";
+import { HeroSection } from "@/components/hero/interfaces";
+import SponsorUsSection from "@/components/sponsorUsSection/SponsorUsSection";
+import { SponsorUsSectionInterface } from "@/components/sponsorUsSection/interfaces";
 
 export interface HomeProps {
   stages: SingleStageProps[];
-  homeData: GridSections;
-  gridSection: any;
+  gridSection: GridSections;
+  heroSection: HeroSection;
+  sponsorUsSection: SponsorUsSectionInterface;
   id: number;
+  destinations: SingleStageProps[];
 }
 
-const Home = ({ stages, gridSection, id }: HomeProps) => {
+const Home = ({
+  stages,
+  destinations,
+  gridSection,
+  id,
+  sponsorUsSection,
+  heroSection,
+}: HomeProps) => {
   return (
     <>
       <Head>
@@ -32,7 +46,7 @@ const Home = ({ stages, gridSection, id }: HomeProps) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Hero />
+      <Hero data={heroSection} />
       <div className={styles["wave-container"]}>
         <WaveRedBrownTop />
         <WaveRedBrownSmall />
@@ -41,12 +55,9 @@ const Home = ({ stages, gridSection, id }: HomeProps) => {
         </div>
       </div>
       <div className={styles["map-container"]}>
-        <StagesMap stages={stages} />
+        <StagesMap destinations={destinations} stages={stages} />
       </div>
       <div className={styles["livestream-wrapper"]}>
-        <div className={styles["heading-wrapper"]}>
-          <HeadingTwo dark={true}>Livestream</HeadingTwo>
-        </div>
         <LivestreamVideo />
       </div>
       <LatestNews
@@ -54,19 +65,27 @@ const Home = ({ stages, gridSection, id }: HomeProps) => {
         postText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut."
         posts={sliderData}
       />
+      <div className={styles["sponsor-us-wrapper"]}>
+        <SponsorUsSection data={sponsorUsSection} />
+      </div>
     </>
   );
 };
 
 export async function getStaticProps() {
-  const [resStages, resHomeData] = await Promise.all([
-    fetch(API_ENDPOINTS.stages),
-    fetch(API_ENDPOINTS.page(128)),
-  ]);
+  const [resStages, resHomeData, resDestinations, resSponsorUs] =
+    await Promise.all([
+      fetch(API_ENDPOINTS.stages),
+      fetch(API_ENDPOINTS.page(128)),
+      fetch(API_ENDPOINTS.destinations),
+      fetch(API_ENDPOINTS.page(222)),
+    ]);
 
-  const [stages, homeData] = await Promise.all([
+  const [stages, homeData, destinations, sponsorUs] = await Promise.all([
     resStages.json(),
     resHomeData.json(),
+    resDestinations.json(),
+    resSponsorUs.json(),
   ]);
 
   const newStages = stages.map((stage: SingleStageApiProps) => {
@@ -77,21 +96,43 @@ export async function getStaticProps() {
         long: stage.acf.coordinates.long,
         lat: stage.acf.coordinates.lat,
       },
-      stage_number: stage.acf.stage_number,
-      stage_text_area: stage.acf.stage[0].stage_text_area,
-      current_destination: stage.acf.current_destination,
+      number: stage.acf.stage_number,
+      text_area: stage.acf.stage[0].stage_text_area[0].stage_text,
+      current: stage.acf.current_destination,
+      next_year: stage.acf.next_year,
     };
   });
 
+  const newDestinations = destinations.map(
+    (destination: SingleDestinationApiProps) => {
+      return {
+        id: destination.id,
+        title: destination.title.rendered,
+        coordinates: {
+          long: destination.acf.destination_coordinates.destination_long,
+          lat: destination.acf.destination_coordinates.destination_lat,
+        },
+        number: destination.acf.destination_number,
+        text_area: destination.acf.destination_text_fields[0].destination_text,
+        next_year: destination.acf.next_year_destination,
+      };
+    }
+  );
+
   const { grid_section } = homeData.acf;
+  const { hero_section } = homeData.acf;
+  const sponsorUsSection = sponsorUs.acf;
   const { id } = homeData;
 
   return {
     props: {
       stages: newStages,
       homeData,
+      heroSection: hero_section,
       gridSection: grid_section,
       id,
+      destinations: newDestinations,
+      sponsorUsSection,
     },
   };
 }

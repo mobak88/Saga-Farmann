@@ -1,5 +1,7 @@
 .section-wrapper {
   background-color: var(--bg-dark-blue);
+  position: relative;
+  z-index: 2;
 }
 
 .section-container {

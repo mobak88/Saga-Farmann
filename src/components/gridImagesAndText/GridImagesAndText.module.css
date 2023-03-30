@@ -1,0 +1,251 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 22em 22em 22em;
+  grid-template-rows: 40px 90px 120px 30px 170px 170px;
+  text-align: center;
+}
+
+.textBox-follow-the-vikings,
+.textBox-follow-the-vikings-two,
+.textBox-follow-the-vikings-three,
+.textBox-donations,
+.textBox-text,
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  gap: 16px;
+  padding: 8px 20px;
+}
+
+.textBox-follow-the-vikings {
+  color: var(--light-text-color);
+  grid-row-start: 1;
+  grid-row-end: 4;
+  width: 100%;
+}
+
+.textBox-follow-the-vikings-two {
+  grid-row-start: 4;
+  grid-row-end: 7;
+  position: relative;
+  color: var(--light-text-color);
+  z-index: 10;
+}
+
+.textBox-follow-the-vikings-two .content {
+  background-color: var(--very-dark-blue);
+  height: 100%;
+  margin-top: 2rem;
+}
+
+.textBox-follow-the-vikings-two::after {
+  position: absolute;
+  background-color: var(--very-dark-blue);
+  height: 100px;
+  z-index: -1;
+  top: 0;
+  content: "";
+  transform-origin: top left;
+  transform: skewY(-3deg);
+  width: 100%;
+}
+
+.pointer {
+  border-left: 17.5rem solid transparent;
+  border-right: 17.5rem solid transparent;
+  border-top: 7rem solid var(--very-dark-blue);
+}
+
+.imageBox-one {
+  grid-row-start: 1;
+  grid-row-end: 4;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+.imageBox-one::after {
+  position: absolute;
+  height: 25px;
+  background: var(--bg-pink-brown);
+  z-index: -1;
+  top: -25px;
+  left: 0;
+  content: "";
+  transform-origin: top left;
+  transform: skewY(3deg);
+  width: 100%;
+}
+
+.imageBox-two {
+  background-position: center;
+  background-size: cover;
+  grid-row-start: 4;
+  grid-row-end: 6;
+  width: 100%;
+}
+
+.textBox-donations {
+  grid-row-start: 6;
+  grid-row-end: 7;
+  background-color: var(--light-background-color);
+  width: 100%;
+}
+
+.textBox-follow-the-vikings-three {
+  background-color: var(--light-background-color);
+  grid-row-start: 2;
+  grid-row-end: 5;
+  width: 95%;
+}
+
+.imageBox-three {
+  background-position: center;
+  background-size: cover;
+  grid-row-start: 5;
+  grid-row-end: 6;
+  z-index: 10;
+  position: relative;
+  width: 100%;
+}
+
+.imageBox-three::after {
+  position: absolute;
+  background: var(--bg-pink-brown);
+  z-index: -1;
+  right: -35px;
+  content: "";
+  transform-origin: top left;
+  transform: skewX(-6deg);
+  width: 40px;
+  height: 100%;
+}
+
+.textBox-text {
+  grid-row-start: 6;
+  grid-row-end: 7;
+  width: 100%;
+}
+
+@media screen and (min-width: 1900px) {
+  .wrapper {
+    grid-template-columns: 30em 30em 30em;
+    grid-template-rows: 40px 120px 150px 30px 210px 230px;
+  }
+  .pointer {
+    border-left: 24rem solid transparent;
+    border-right: 24rem solid transparent;
+    border-top: 10rem solid var(--very-dark-blue);
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .wrapper {
+    grid-template-columns: 20em 20em 20em;
+    grid-template-rows: 40px 90px 100px 30px 190px 170px;
+  }
+  .pointer {
+    border-left: 16rem solid transparent;
+    border-right: 16rem solid transparent;
+    border-top: 6rem solid var(--very-dark-blue);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .wrapper {
+    grid-template-columns: 17em 17em 17em;
+  }
+  .pointer {
+    border-left: 13.5rem solid transparent;
+    border-right: 13.5rem solid transparent;
+    border-top: 7rem solid var(--very-dark-blue);
+  }
+  .imageBox-three::after {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .wrapper {
+    grid-template-columns: 30em;
+    grid-template-rows: 200px 16px 300px 48px 300px 16px 250px 16px 250px 16px 250px;
+  }
+
+  .imageBox-three::after {
+    display: none;
+  }
+
+  .textBox-follow-the-vikings {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: var(--very-dark-blue);
+  }
+
+  .textBox-follow-the-vikings-two {
+    grid-row-start: 5;
+    grid-row-end: 6;
+  }
+
+  .pointer {
+    border-left: 24rem solid transparent;
+    border-right: 24rem solid transparent;
+    border-top: 8rem solid var(--very-dark-blue);
+  }
+
+  .imageBox-one {
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+
+  .imageBox-one::after {
+    display: none;
+  }
+
+  .imageBox-two {
+    display: none;
+  }
+
+  .textBox-donations {
+    grid-row-start: 7;
+    grid-row-end: 8;
+  }
+
+  .textBox-follow-the-vikings-three {
+    grid-row-start: 9;
+    grid-row-end: 10;
+    width: 100%;
+  }
+
+  .imageBox-three {
+    display: none;
+  }
+
+  .imageBox-three::after {
+    display: none;
+  }
+
+  .textBox-text {
+    grid-row-start: 11;
+    grid-row-end: 12;
+    background-color: var(--very-dark-blue);
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .wrapper {
+    grid-template-columns: 20em;
+    grid-template-rows: 200px 16px 200px 48px 260px 16px 200px 16px 200px 16px 200px;
+  }
+  .pointer {
+    border-left: 16rem solid transparent;
+    border-right: 16rem solid transparent;
+    border-top: 6rem solid var(--very-dark-blue);
+  }
+}
