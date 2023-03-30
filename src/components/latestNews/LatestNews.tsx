@@ -8,7 +8,7 @@ import WaveDarkHome, {
 import WaveDarkHomeSmall, {
   WaveDarkHomeSmallBottomPink,
 } from "../waves/wavesSmallScreen/WaveDarkHomeSmall";
-import styles from "./latestNews.module.css";
+import styles from "./LatestNews.module.css";
 import LatestNewsSlider from "./latestNewsSlider/LatestNewsSlider";
 
 interface SinglePostProps extends SliderCardProps {
@@ -39,9 +39,9 @@ const LatestNews = ({ posts, postHeading, postText }: LatestNewsProps) => {
           </div>
           <LatestNewsSlider posts={posts} />
         </div>
+        <WaveDarkHomeBottomPink />
+        <WaveDarkHomeSmallBottomPink />
       </div>
-      <WaveDarkHomeBottomPink />
-      <WaveDarkHomeSmallBottomPink />
     </>
   );
 };

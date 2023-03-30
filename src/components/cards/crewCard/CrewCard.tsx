@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import styles from "./crewCard.module.css";
+import styles from "./CrewCard.module.css";
 import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
 import ParagraphsSmall from "@/components/typography/paragraphs/ParagraphsSmall";
 

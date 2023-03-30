@@ -1,6 +1,6 @@
-import Header from "@/components/header/header";
-import LivestreamVideo from "@/components/livestream/livestreamVideo";
-import HeadingTwo from "@/components/typography/headings/headingTwo";
+import Header from "@/components/header/Header";
+import LivestreamVideo from "@/components/livestream/LivestreamVideo";
+import HeadingTwo from "@/components/typography/headings/HeadingTwo";
 import React, { useState, useEffect } from "react";
 import styles from "./livestream.module.css";
 

@@ -2,7 +2,7 @@ import React from "react";
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import styles from "./crew.module.css";
-import Header from "@/components/header/header";
+import Header from "@/components/header/Header";
 import HeadingTwo from "@/components/typography/headings/HeadingTwo";
 import HeadingThree from "@/components/typography/headings/HeadingThree";
 import ReactMarkdown from "react-markdown";

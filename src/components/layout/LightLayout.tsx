@@ -1,6 +1,5 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import Footer from "../footer/Footer";
-
 
 interface LightLayoutProps {
   children: React.ReactNode;

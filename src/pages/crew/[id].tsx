@@ -2,11 +2,11 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import React, { useState } from "react";
 import { ParsedUrlQuery } from "querystring";
 import styles from "./crew.module.css";
-import Header from "@/components/header/header";
+import Header from "@/components/header/Header";
 import { useRouter } from "next/router";
-import Card from "../../components/cards/crewCard/crewCard";
-import HeadingTwo from "@/components/typography/headings/headingTwo";
-import SwitchIdButton from "@/components/buttons/switchIdButton";
+import Card from "../../components/cards/crewCard/CrewCard";
+import HeadingTwo from "@/components/typography/headings/HeadingTwo";
+import SwitchIdButton from "@/components/buttons/SwitchIdButton";
 
 type Member = {
   member_image: string;

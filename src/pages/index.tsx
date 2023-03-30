@@ -15,8 +15,6 @@ import {
   SingleStageProps,
   SingleDestinationApiProps,
 } from "@/components/mapbox/interfaces";
-import WaveRedBrownTop from "@/components/waves/wavesLargeScreen/WaveRedBrownTop";
-import WaveRedBrownSmall from "@/components/waves/wavesSmallScreen/WaveRedBrownSmall";
 import { HeroSection } from "@/components/hero/interfaces";
 import SponsorUsSection from "@/components/sponsorUsSection/SponsorUsSection";
 import { SponsorUsSectionInterface } from "@/components/sponsorUsSection/interfaces";

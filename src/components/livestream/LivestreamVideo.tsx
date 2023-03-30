@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import HeadingTwo from "../typography/headings/HeadingTwo";
-import ParagraphsSmall from "../typography/paragraphs/ParagraphsSmall";
 import styles from "./livestreamVideo.module.css";
 
 const LivestreamVideo = () => {

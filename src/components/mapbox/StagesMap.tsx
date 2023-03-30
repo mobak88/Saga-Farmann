@@ -4,7 +4,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import MapMarker from "./MapMarker";
 import Modal from "./modal/Modal";
 import { CSSTransition } from "react-transition-group";
-import { SingleStageProps } from "./Interfaces";
+import { SingleStageProps } from "./interfaces";
 import styles from "./StagesMap.module.css";
 import MapMarkers from "./mapMarkers/MapMarkers";
 

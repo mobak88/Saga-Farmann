@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
-import styles from "./hamburger.module.css";
+import styles from "./Hamburger.module.css";
 
 const Hamburger = () => {
   const [isOpen, setIsOpen] = useState<Boolean>(false);

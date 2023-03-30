@@ -1,8 +1,8 @@
 import React from "react";
-import destinationsData from "@/components/cards/destinationCard/data";
-import DestinationCard from "@/components/cards/destinationCard/destinationCard";
+import destinationsData from "@/components/cards/destinationCard/Data";
+import DestinationCard from "@/components/cards/destinationCard/DestinationCard";
 import styles from "./destinations.module.css";
-import Header from "@/components/header/header";
+import Header from "@/components/header/Header";
 
 const Destinations = () => {
   return (

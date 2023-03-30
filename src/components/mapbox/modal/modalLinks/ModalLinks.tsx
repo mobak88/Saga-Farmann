@@ -1,6 +1,6 @@
 import LinkTo from "@/components/links/LinkTo";
 import React from "react";
-import styles from "./modalLinks.module.css";
+import styles from "./ModalLinks.module.css";
 
 const ModalLinks = () => {
   return (
