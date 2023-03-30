@@ -204,16 +204,4 @@ body {
   font-display: swap;
 }
 
-.swiper {
-  width: 100%;
-}
-
-.swiper-slide {
-  /* Center slide text vertically */
-  justify-content: center;
-  align-items: center;
-}
-
-.swiper-slide img {
-  display: block;
-}
+/* ---------- SWIPER BLOG ---------- */

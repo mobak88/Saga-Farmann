@@ -1,0 +1,31 @@
+.blog-page-card {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border: 1px solid red;
+  margin-bottom: 5rem;
+}
+
+.blog-card-image-wrapper {
+}
+.blog-card-image {
+  width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+.blog-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.blog-card-read-more:hover {
+  text-decoration: underline;
+}
+@media screen and (max-width: 1100px) {
+  .blog-card-info {
+    height: auto;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+}
