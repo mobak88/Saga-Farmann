@@ -1,5 +1,7 @@
 .section-wrapper {
   background-color: var(--bg-dark-blue);
+  position: relative;
+  z-index: 2;
 }
 
 .section-container {
@@ -8,6 +10,7 @@
   margin: 0 auto;
   max-width: 125rem;
   gap: 6rem;
+  background-color: var(--bg-dark-blue);
 }
 
 .text-container {

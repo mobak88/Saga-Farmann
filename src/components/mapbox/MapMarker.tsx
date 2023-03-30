@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./mapMarker.module.css";
+import styles from "./MapMarker.module.css";
 
 interface MarkerColor {
   nextYear?: boolean;

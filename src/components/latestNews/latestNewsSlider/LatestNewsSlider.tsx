@@ -13,7 +13,7 @@ import {
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 
-import styles from "./latestNewsSlider.module.css";
+import styles from "./LatestNewsSlider.module.css";
 
 const LatestNewsSlider = ({ posts }: PostsProps) => {
   const swiperNavPrevRef = useRef<HTMLDivElement>(null);

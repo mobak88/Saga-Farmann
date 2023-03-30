@@ -1,6 +1,6 @@
 import Hamburger from "../hamburger/Hamburger";
 import Title from "../navtitle/Title";
-import styles from "./navbar.module.css";
+import styles from "./Navbar.module.css";
 
 interface NavbarProps {
   lightNavbar?: boolean;

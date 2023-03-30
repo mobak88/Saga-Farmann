@@ -1,9 +1,9 @@
 import React, { forwardRef } from "react";
 import ParagraphsSmallTruncated from "@/components/typography/paragraphs/ParagraphsSmallTruncated";
 import Image from "next/image";
-import styles from "./modal.module.css";
+import styles from "./Modal.module.css";
 import { IoCloseSharp } from "react-icons/io5";
-import ModalLinks from "./modalLinks/modalLinks";
+import ModalLinks from "./modalLinks/ModalLinks";
 
 interface ModalProps {
   onCloseClick: () => void;

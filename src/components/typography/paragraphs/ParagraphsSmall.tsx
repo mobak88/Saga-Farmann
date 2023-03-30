@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import styles from "./paragraphs.module.css";
 import { ParagraphProps } from "./ParagraphsBig";
 

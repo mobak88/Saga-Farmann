@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import ParagraphsBig from "../typography/paragraphs/ParagraphsBig";
-import styles from "./linkTo.module.css";
+import styles from "./LinkTo.module.css";
 
 interface LinkToProps {
   url: string;
