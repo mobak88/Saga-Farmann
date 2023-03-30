@@ -16,8 +16,19 @@
   display: flex;
 }
 
-.my-swiper {
+.news-swiper {
   grid-area: swiper;
+  width: 100%;
+}
+
+.news-swiper-slide {
+  /* Center slide text vertically */
+  justify-content: center;
+  align-items: center;
+}
+
+.news-swiper-slide img {
+  display: block;
 }
 
 .swiper-nav-prev {
