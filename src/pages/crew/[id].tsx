@@ -44,7 +44,6 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
   const isCurrentCrew = crewMember.acf.current_crew;
   const crewDateToApi = crewMember.acf.crew_dates.crew_date_to.toString();
   const crewDateTo = parseInt(crewDateToApi);
-  console.log(crewMember.acf.crew_dates.crew_date_to);
 
   let date = new Date();
   let year = date.getFullYear();
