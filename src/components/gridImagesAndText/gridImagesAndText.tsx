@@ -3,6 +3,7 @@ import styles from "./gridImagesAndText.module.css";
 import HeadingThree from "../typography/headings/headingThree";
 import ParagraphsSmall from "../typography/paragraphs/paragraphsSmall";
 import { GridSections } from "./interfaces";
+import ParagraphsBig from "../typography/paragraphs/paragraphsBig";
 
 interface Props {
   gridContent: GridSections;
@@ -11,28 +12,30 @@ interface Props {
 const GridImagesAndText = ({ gridContent }: Props) => {
   return (
     <div className={styles.wrapper}>
-      <div className={styles["textBox-follow-the-vikings"]}>
+      <div className={styles["textBox-one"]}>
         <div className={styles.content}>
           <HeadingThree>
             {gridContent.first_block.first_block_heading}
           </HeadingThree>
 
-          <ParagraphsSmall>
+          <ParagraphsBig>
             {gridContent.first_block.first_block_text}
-          </ParagraphsSmall>
+          </ParagraphsBig>
         </div>
       </div>
-      <div className={styles["textBox-follow-the-vikings-two"]}>
+      <div className={styles["empty-box1"]}></div>
+      <div className={styles["textBox-two"]}>
         <div className={styles.content}>
           <HeadingThree>
             {gridContent.third_block.third_block_heading}
           </HeadingThree>
-          <ParagraphsSmall>
+          <ParagraphsBig>
             {gridContent.third_block.third_block_text}
-          </ParagraphsSmall>
+          </ParagraphsBig>
         </div>
         <div className={styles.pointer}></div>
       </div>
+      <div className={styles["empty-box2"]}></div>
       <div
         className={styles["imageBox-one"]}
         style={{
@@ -45,24 +48,24 @@ const GridImagesAndText = ({ gridContent }: Props) => {
           backgroundImage: `url(${gridContent.fifth_block})`,
         }}
       ></div>
-      <div className={styles["textBox-donations"]}>
+      <div className={styles["textBox-three"]}>
         <div className={styles.content}>
           <HeadingThree dark>
             {gridContent.fourth_block.fourth_block_heading}
           </HeadingThree>
-          <ParagraphsSmall dark>
+          <ParagraphsBig dark>
             {gridContent.fourth_block.fourth_block_text}
-          </ParagraphsSmall>
+          </ParagraphsBig>
         </div>
       </div>
-      <div className={styles["textBox-follow-the-vikings-three"]}>
+      <div className={styles["textBox-four"]}>
         <div className={styles.content}>
           <HeadingThree dark>
             {gridContent.seventh_block.seventh_block_heading}
           </HeadingThree>
-          <ParagraphsSmall dark>
+          <ParagraphsBig dark>
             {gridContent.seventh_block.seventh_block_text}
-          </ParagraphsSmall>
+          </ParagraphsBig>
         </div>
       </div>
       <div
@@ -71,16 +74,17 @@ const GridImagesAndText = ({ gridContent }: Props) => {
           backgroundImage: `url(${gridContent.sixth_block})`,
         }}
       ></div>
-      <div className={styles["textBox-text"]}>
+      <div className={styles["textBox-five"]}>
         <div className={styles.content}>
           <HeadingThree>
             {gridContent.eighth_block.eighth_block_heading}
           </HeadingThree>
-          <ParagraphsSmall>
+          <ParagraphsBig>
             {gridContent.eighth_block.eighth_block_text}
-          </ParagraphsSmall>
+          </ParagraphsBig>
         </div>
       </div>
+      <div className={styles['emtpy-box4']}></div>
     </div>
   );
 };

@@ -5,6 +5,7 @@ import ParagraphsSmall from "../typography/paragraphs/paragraphsSmall";
 import styles from "./sponsorUsSection.module.css";
 import { SponsorUsSectionInterface, SponsorUsCard } from "./interfaces";
 import HeadingThree from "../typography/headings/headingThree";
+import { BsFillArrowRightCircleFill } from "react-icons/bs";
 
 interface Props {
   data: SponsorUsSectionInterface;
@@ -13,6 +14,7 @@ interface Props {
 const SponsorUsSection = ({ data }: Props) => {
   return (
     <div className={styles.wrapper}>
+      <div className={styles["header-wrapper"]}></div>
       <HeadingTwo>{data.sponsor_us_heading}</HeadingTwo>
       <div className={styles["images-and-card-wrapper"]}>
         <Image
