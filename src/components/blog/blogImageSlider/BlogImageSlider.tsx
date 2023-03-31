@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Navigation, Thumbs } from "swiper";
+import SwiperCore, { FreeMode, Navigation, Thumbs } from "swiper";
 import Image from "next/image";
 import "swiper/swiper-bundle.min.css";
 import "swiper/css/free-mode";
@@ -19,7 +19,7 @@ interface ImageModalProps {
   alt: string;
 }
 const BlogImageSlider = ({ images, alt }: SliderProps) => {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -39,13 +39,15 @@ const BlogImageSlider = ({ images, alt }: SliderProps) => {
           <Swiper
             className={styles["main-swiper"]}
             loop={true}
-            spaceBetween={10}
             navigation={true}
-            thumbs={{ swiper: thumbsSwiper }}
             modules={[FreeMode, Navigation, Thumbs]}
+            thumbs={{
+              swiper:
+                thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+            }}
           >
             {images.map((image, i) => (
-              <SwiperSlide className={styles["main-slide"]}>
+              <SwiperSlide className={styles["main-slide"]} key={Math.random()}>
                 <img
                   src={image.post_image}
                   alt={alt}
@@ -56,17 +58,20 @@ const BlogImageSlider = ({ images, alt }: SliderProps) => {
             ))}
           </Swiper>
           <Swiper
-            onSwiper={() => setThumbsSwiper}
+            className={`${styles.previewSwiper} previewSwiper`}
+            onSwiper={setThumbsSwiper}
             loop={true}
             spaceBetween={10}
             slidesPerView={images.length > 4 ? 4 : 3 ? 3 : 2 ? 2 : 1}
             freeMode={true}
             watchSlidesProgress={true}
             modules={[FreeMode, Navigation, Thumbs]}
-            className={styles["preview-swiper"]}
           >
             {images.map((image) => (
-              <SwiperSlide className={styles["preview-slide"]}>
+              <SwiperSlide
+                className={`${styles["preview-slide"]}`}
+                key={Math.random()}
+              >
                 <img
                   src={image.post_image}
                   alt={alt}
@@ -80,6 +85,7 @@ const BlogImageSlider = ({ images, alt }: SliderProps) => {
         <>
           {images.map((image) => (
             <img
+              key={Math.random()}
               src={image.post_image}
               alt={alt}
               className={styles["single-image"]}

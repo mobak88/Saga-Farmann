@@ -196,3 +196,9 @@ body {
 }
 
 /* ---------- SWIPER BLOG ---------- */
+.previewSwiper .swiper-slide {
+  opacity: 0.4;
+}
+.previewSwiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
