@@ -25,10 +25,11 @@
   cursor: pointer;
 }
 
-.preview-swiper {
+.previewSwiper {
   position: relative;
   height: 70px;
   width: 50%;
+  cursor: pointer;
 }
 
 .preview-image {

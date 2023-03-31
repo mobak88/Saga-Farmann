@@ -2,7 +2,11 @@ import Link from "next/link";
 import { useState } from "react";
 import styles from "./Hamburger.module.css";
 
-const Hamburger = () => {
+interface HamburgerProps {
+  light?: boolean;
+}
+
+const Hamburger = ({ light }: HamburgerProps) => {
   const [isOpen, setIsOpen] = useState<Boolean>(false);
 
   const links = [
@@ -16,6 +20,10 @@ const Hamburger = () => {
     { href: "/aboutus", label: "About Us" },
     { href: "/technical", label: "Technical" },
   ];
+
+  const isLight = light
+    ? `${styles["dropdown-open"]} ${styles["dropdown-open-light"]}`
+    : styles["dropdown-open"];
 
   return (
     <header className={styles["menu-head"]}>
@@ -32,9 +40,7 @@ const Hamburger = () => {
         />
       </label>
 
-      <div
-        className={isOpen ? styles["dropdown-open"] : styles["dropdown-closed"]}
-      >
+      <div className={isOpen ? isLight : styles["dropdown-closed"]}>
         <nav>
           {isOpen
             ? links.map(({ href, label }) => (
