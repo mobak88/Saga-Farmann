@@ -56,8 +56,12 @@
   right: 20px;
   z-index: 1;
   position: absolute;
-  position: absolute;
 }
+
+.dropdown-open-light nav {
+  margin-top: calc(var(--hamburger-height) + 4rem);
+}
+
 .dropdown-closed {
   background-color: transparent;
 }

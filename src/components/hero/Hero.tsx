@@ -14,7 +14,7 @@ interface Props {
 const Hero = ({ data }: Props) => {
   return (
     <div className={styles["hero-wrapper"]}>
-      <Hamburger />
+      <Hamburger light={true} />
       <video className={styles["hero-background"]} loop autoPlay muted>
         <source src={data.hero_background_image} type="video/mp4" />
       </video>
