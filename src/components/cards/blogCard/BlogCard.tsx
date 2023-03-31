@@ -1,8 +1,8 @@
-import ParagraphsSmall from "@/components/typography/paragraphs/paragraphsSmall";
-import HeadingTwo from "@/components/typography/headings/headingTwo";
+import ParagraphsSmall from "@/components/typography/paragraphs/ParagraphsSmall";
 import styles from "./BlogCard.module.css";
 import Link from "next/link";
 import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
+import { BsFillArrowRightCircleFill } from "react-icons/bs";
 
 interface BlogProps {
   id: number;
@@ -33,19 +33,30 @@ const BlogCard = ({
         </div>
         <div className={styles["blog-card-info"]}>
           <div className={styles["blog-card-place"]}>
-            <ParagraphsSmall dark={true}>{blog_place}</ParagraphsSmall>
-            <ParagraphsSmall dark={true}>Posted: {modified}</ParagraphsSmall>
+            <ParagraphsSmall>{blog_place}</ParagraphsSmall>
+            <ParagraphsSmall>
+              Posted: {modified.replace("T", " ")}
+            </ParagraphsSmall>
           </div>
-          <ParagraphsBig dark={true}>Title: {title}</ParagraphsBig>
-          <ParagraphsSmall dark={true}>
-            Description: {post_description}
-          </ParagraphsSmall>
+          <div className={styles["title-container"]}>
+            <ParagraphsBig>Title: {title}</ParagraphsBig>
+          </div>
+          <div className={styles["description-container"]}>
+            <ParagraphsSmall>Description: {post_description}</ParagraphsSmall>
+          </div>
           <div className={styles["blog-card-read-more"]}>
-            <ParagraphsSmall dark={true}>Read more</ParagraphsSmall>
+            <ParagraphsSmall>
+              Read more
+              <BsFillArrowRightCircleFill
+                className={styles["arrow-icon"]}
+                size={30}
+              />
+            </ParagraphsSmall>
           </div>
         </div>
       </Link>
     </div>
   );
 };
+
 export default BlogCard;
