@@ -12,7 +12,7 @@
 }
 
 .icons-exit-active {
-  opacity: 0;
+  /* opacity: 0; */
   transition: opacity 300ms ease-in-out;
 }
 
@@ -44,7 +44,6 @@
   top: 8rem;
   right: 0;
   width: 400px;
-  /* height: fit-content; */
   background-color: var(--very-dark-blue);
   padding: 10px;
   z-index: 10;
@@ -52,6 +51,7 @@
   flex-direction: column;
   gap: 2rem;
   padding: 4rem 0;
+  box-shadow: var(--box-shadow);
 }
 
 .hamburger-icons {
@@ -60,7 +60,6 @@
 
 .menu-icon {
   color: var(--light-text-color);
-  /* transition: transform 0.3s ease-in-out; */
 }
 
 .page-link {

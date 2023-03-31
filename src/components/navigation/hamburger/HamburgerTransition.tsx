@@ -7,6 +7,7 @@ import { IoIosMenu, IoMdClose } from "react-icons/io";
 const HamburgerTransition = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [click, setClick] = useState(false);
+  const nodeRef = useRef(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -34,7 +35,17 @@ const HamburgerTransition = () => {
   return (
     <>
       <div className={styles["hamburger-icons"]} onClick={toggleMenu}>
-        <CSSTransition in={isOpen} timeout={300} classNames="icons">
+        <CSSTransition
+          nodeRef={nodeRef}
+          in={isOpen}
+          timeout={300}
+          classNames={{
+            enter: styles["icons-enter"],
+            enterActive: styles["icons-enter-active"],
+            exit: styles["icons-exit"],
+            exitActive: styles["icons-exit-active"],
+          }}
+        >
           {click ? (
             <IoMdClose size={50} className={styles["menu-icon"]} />
           ) : (
@@ -43,6 +54,7 @@ const HamburgerTransition = () => {
         </CSSTransition>
       </div>
       <CSSTransition
+        nodeRef={nodeRef}
         in={isOpen}
         timeout={300}
         classNames={{
