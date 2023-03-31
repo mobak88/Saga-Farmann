@@ -1,5 +1,5 @@
 .blog-page-wrapper {
-  margin: 5rem 20rem 0 20rem;
+  /* padding: 5% 20% 0 20%; */
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
@@ -9,21 +9,29 @@
 @media screen and (max-width: 1100px) {
   .blog-page-wrapper {
     grid-template-columns: 1fr;
-    margin: 1rem 2rem 0 2rem;
+    padding: 1rem 2rem 0 2rem;
   }
 }
 
 /*--- ID PAGE ---*/
 .blog-id-container {
-  padding: 5rem 20% 0 20%;
-  background-color: var(--bg-dark-blue);
+  padding: 12rem 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
 }
 
 .blog-id-first-section {
-  margin: 5rem 0 5rem 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
 }
 
 .blog-id-second-section {
-  margin: 5rem 0 5rem 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 5%;
   box-sizing: border-box;
+  width: 80%;
 }
