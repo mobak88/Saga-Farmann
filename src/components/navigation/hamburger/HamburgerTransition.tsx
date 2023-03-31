@@ -36,9 +36,9 @@ const HamburgerTransition = () => {
     <>
       <div className={styles["hamburger-icons"]} onClick={toggleMenu}>
         <CSSTransition
-          nodeRef={nodeRef}
           in={isOpen}
           timeout={300}
+          nodeRef={nodeRef}
           classNames={{
             enter: styles["icons-enter"],
             enterActive: styles["icons-enter-active"],
@@ -54,7 +54,6 @@ const HamburgerTransition = () => {
         </CSSTransition>
       </div>
       <CSSTransition
-        nodeRef={nodeRef}
         in={isOpen}
         timeout={300}
         classNames={{
