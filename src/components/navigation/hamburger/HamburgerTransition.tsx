@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import styles from "./HamburgerTransition.module.css";
 import Link from "next/link";
@@ -34,13 +34,25 @@ const HamburgerTransition = () => {
   return (
     <>
       <div className={styles["hamburger-icons"]} onClick={toggleMenu}>
-        {click ? (
-          <IoMdClose size={50} style={{ color: "#fff" }} />
-        ) : (
-          <IoIosMenu size={50} style={{ color: "#fff" }} />
-        )}
+        <CSSTransition in={isOpen} timeout={300} classNames="icons">
+          {click ? (
+            <IoMdClose size={50} className={styles["menu-icon"]} />
+          ) : (
+            <IoIosMenu size={50} className={styles["menu-icon"]} />
+          )}
+        </CSSTransition>
       </div>
-      <CSSTransition in={isOpen} timeout={0} classNames="menu" unmountOnExit>
+      <CSSTransition
+        in={isOpen}
+        timeout={300}
+        classNames={{
+          enter: styles["menu-enter"],
+          enterActive: styles["menu-enter-active"],
+          exit: styles["menu-exit"],
+          exitActive: styles["menu-exit-active"],
+        }}
+        unmountOnExit
+      >
         <div className={styles.menu}>
           {links.map(({ href, label }) => (
             <div key={href}>

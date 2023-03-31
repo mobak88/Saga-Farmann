@@ -1,3 +1,21 @@
+.icons-enter {
+  opacity: 0;
+}
+
+.icons-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in-out;
+}
+
+.icons-exit {
+  opacity: 1;
+}
+
+.icons-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+
 .menu-enter {
   opacity: 0;
   transform: translateX(100%);
@@ -6,7 +24,7 @@
 .menu-enter-active {
   opacity: 1;
   transform: translateX(0%);
-  transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
+  transition: transform 300ms ease-in-out;
 }
 
 .menu-exit {
@@ -17,7 +35,7 @@
 .menu-exit-active {
   opacity: 0;
   transform: translateX(100%);
-  transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
+  transition: transform 300ms ease-in-out;
 }
 
 .menu {
@@ -35,11 +53,20 @@
   padding: 4rem 0;
 }
 
+.hamburger-icons {
+  cursor: pointer;
+}
+
+.menu-icon {
+  color: var(--light-text-color);
+  transition: transform 0.3s ease-in-out;
+}
+
 .page-link {
   text-decoration: none;
   color: var(--light-text-color);
   font-family: "Comfortaa";
-  font-size: var(--p--step-1);
+  font-size: var(--p--step-2);
   margin: 5rem;
   padding: 2rem 0;
 }
