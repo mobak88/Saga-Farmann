@@ -47,16 +47,11 @@ const BlogImageSlider = ({ images, alt }: SliderProps) => {
             }}
           >
             {images.map((image, i) => (
-<<<<<<< HEAD
-              <SwiperSlide className={styles["main-slide"]} key={Math.random()}>
-                <img
-=======
               <SwiperSlide
                 className={styles["main-slide"]}
                 key={image.post_image + i}
               >
                 <Image
->>>>>>> 9c192542dc822fa1be49bfe8172f9b5e0bb9174b
                   src={image.post_image}
                   alt={alt}
                   className={styles["main-image"]}
@@ -77,21 +72,12 @@ const BlogImageSlider = ({ images, alt }: SliderProps) => {
             watchSlidesProgress={true}
             modules={[FreeMode, Navigation, Thumbs]}
           >
-<<<<<<< HEAD
-            {images.map((image) => (
-              <SwiperSlide
-                className={`${styles["preview-slide"]}`}
-                key={Math.random()}
-              >
-                <img
-=======
             {images.map((image, i) => (
               <SwiperSlide
                 className={styles["preview-slide"]}
                 key={image.post_image + i}
               >
                 <Image
->>>>>>> 9c192542dc822fa1be49bfe8172f9b5e0bb9174b
                   src={image.post_image}
                   alt={alt}
                   className={styles["preview-image"]}
@@ -104,15 +90,9 @@ const BlogImageSlider = ({ images, alt }: SliderProps) => {
         </>
       ) : (
         <>
-<<<<<<< HEAD
-          {images.map((image) => (
-            <img
-              key={Math.random()}
-=======
           {images.map((image, i) => (
             <Image
               key={image.post_image + i}
->>>>>>> 9c192542dc822fa1be49bfe8172f9b5e0bb9174b
               src={image.post_image}
               alt={alt}
               className={styles["single-image"]}
