@@ -1,5 +1,5 @@
 .blog-page-wrapper {
-  padding: 5% 20% 0 20%;
+  /* padding: 5% 20% 0 20%; */
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
@@ -15,8 +15,11 @@
 
 /*--- ID PAGE ---*/
 .blog-id-container {
-  padding: 5rem 20% 0 20%;
-  background-color: var(--bg-dark-blue);
+  padding: 12rem 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
 }
 
 .blog-id-first-section {

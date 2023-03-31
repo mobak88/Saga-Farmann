@@ -45,12 +45,17 @@ const BlogImageSlider = ({ images, alt }: SliderProps) => {
             modules={[FreeMode, Navigation, Thumbs]}
           >
             {images.map((image, i) => (
-              <SwiperSlide className={styles["main-slide"]}>
-                <img
+              <SwiperSlide
+                className={styles["main-slide"]}
+                key={image.post_image + i}
+              >
+                <Image
                   src={image.post_image}
                   alt={alt}
                   className={styles["main-image"]}
                   onClick={() => openModal(i)}
+                  height={600}
+                  width={1000}
                 />
               </SwiperSlide>
             ))}
@@ -65,12 +70,17 @@ const BlogImageSlider = ({ images, alt }: SliderProps) => {
             modules={[FreeMode, Navigation, Thumbs]}
             className={styles["preview-swiper"]}
           >
-            {images.map((image) => (
-              <SwiperSlide className={styles["preview-slide"]}>
-                <img
+            {images.map((image, i) => (
+              <SwiperSlide
+                className={styles["preview-slide"]}
+                key={image.post_image + i}
+              >
+                <Image
                   src={image.post_image}
                   alt={alt}
                   className={styles["preview-image"]}
+                  width={180}
+                  height={100}
                 />
               </SwiperSlide>
             ))}
@@ -78,11 +88,14 @@ const BlogImageSlider = ({ images, alt }: SliderProps) => {
         </>
       ) : (
         <>
-          {images.map((image) => (
-            <img
+          {images.map((image, i) => (
+            <Image
+              key={image.post_image + i}
               src={image.post_image}
               alt={alt}
               className={styles["single-image"]}
+              height={600}
+              width={1000}
             />
           ))}
         </>
@@ -102,10 +115,12 @@ const BlogImageSlider = ({ images, alt }: SliderProps) => {
           content: { zIndex: 11 },
         }}
       >
-        <img
+        <Image
           src={images[activeImageIndex].post_image}
           alt={alt}
           className={styles["modal-image"]}
+          height={600}
+          width={1000}
         />
 
         <button onClick={closeModal} className={styles["close-button"]}>

@@ -19,8 +19,6 @@
 
 .main-image {
   display: block;
-  height: 600px;
-  width: 80%;
   object-fit: cover;
   cursor: pointer;
 }
@@ -33,9 +31,7 @@
 
 .preview-image {
   display: block;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+  object-fit: fill;
 }
 
 .single-image {
@@ -72,4 +68,20 @@
   color: #ffffff;
   background-color: rgba(0, 0, 0, 0.8);
   border: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .main-image {
+    width: 100%;
+    height: 54%;
+  }
+
+  .preview-image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .preview-swiper {
+    width: 100%;
+  }
 }
