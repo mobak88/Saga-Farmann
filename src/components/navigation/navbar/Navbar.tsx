@@ -1,4 +1,5 @@
-import Hamburger from "../hamburger/Hamburger";
+// import Hamburger from "../hamburger/Hamburger";
+import HamburgerTransition from "../hamburger/HamburgerTransition";
 import Title from "../navtitle/Title";
 import styles from "./Navbar.module.css";
 
@@ -19,7 +20,8 @@ const Navbar = ({ lightNavbar }: NavbarProps) => {
         <Title />
       </div>
       <div>
-        <Hamburger />
+        {/* <Hamburger /> */}
+        <HamburgerTransition />
       </div>
     </nav>
   );
