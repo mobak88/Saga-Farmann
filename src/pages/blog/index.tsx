@@ -3,7 +3,7 @@ import API_ENDPOINTS from "@/endpoints/endpoints";
 import BlogCard from "../../components/cards/blogCard/BlogCard";
 import Header from "@/components/header/Header";
 import styles from "./blog.module.css";
-import { Post } from "./[id]";
+import { Post } from "./interfaces";
 
 interface Posts {
   posts: Post[];

@@ -82,6 +82,20 @@
     width: 100%;
     max-width: 81.6rem;
   }
+
+  .image-two {
+    display: none;
+  }
+  .wrapper {
+    align-items: center;
+    gap: 32px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .wrapper {
+    padding-top: 8rem;
+  }
 }
 
 @media screen and (max-width: 980px) {
@@ -95,22 +109,6 @@
   .header-wrapper {
     display: flex;
     justify-content: center;
-  }
-}
-
-@media screen and (max-width: 1390px) {
-  .image-two {
-    display: none;
-  }
-  .wrapper {
-    align-items: center;
-    gap: 32px;
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .wrapper {
-    padding-top: 8rem;
   }
 }
 

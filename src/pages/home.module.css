@@ -16,7 +16,7 @@
   gap: 2rem;
 }
 
-@media screen and (max-width: 75rem) {
+@media screen and (max-width: 1200px) {
   .sponsor-us-wrapper {
     padding: 0 0 8rem 0;
   }

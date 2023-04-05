@@ -41,14 +41,12 @@
   justify-self: start;
 }
 
-@media screen and (max-width: 176.8rem) {
-  .slider-card-container {
-    display: flex;
-    justify-content: center;
-  }
+.slider-card-container {
+  display: flex;
+  justify-content: center;
 }
 
-@media screen and (max-width: 140rem) {
+@media screen and (max-width: 1400px) {
   .swiper-container {
     display: grid;
     grid-template-areas:
