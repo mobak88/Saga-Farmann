@@ -46,7 +46,7 @@
   height: 150px;
 }
 
-.image-container {
+.image-wrapper {
   display: flex;
   justify-content: center;
 }

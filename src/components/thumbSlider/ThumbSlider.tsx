@@ -62,7 +62,7 @@ const ImageSlider = ({ images, alt }: SliderProps) => {
                   className={styles["main-slide"]}
                   key={image.image + i}
                 >
-                  <div className={styles["image-container"]}>
+                  <div className={styles["image-wrapper"]}>
                     <Image
                       src={image.image}
                       alt={alt}
@@ -106,7 +106,7 @@ const ImageSlider = ({ images, alt }: SliderProps) => {
         ) : (
           <>
             {images.map((image, i) => (
-              <div key={image.image + i} className={styles["image-container"]}>
+              <div key={image.image + i} className={styles["image-wrapper"]}>
                 <Image
                   src={image.image}
                   alt={alt}
