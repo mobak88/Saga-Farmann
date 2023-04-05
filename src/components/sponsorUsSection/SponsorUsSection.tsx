@@ -13,8 +13,9 @@ interface Props {
 const SponsorUsSection = ({ data }: Props) => {
   return (
     <div className={styles.wrapper}>
-      <div className={styles["header-wrapper"]}></div>
-      <HeadingTwo>{data.sponsor_us_heading}</HeadingTwo>
+      <div className={styles["header-wrapper"]}>
+        <HeadingTwo>{data.sponsor_us_heading}</HeadingTwo>
+      </div>
       <div className={styles["images-and-card-wrapper"]}>
         <Image
           className={styles["image-one"]}

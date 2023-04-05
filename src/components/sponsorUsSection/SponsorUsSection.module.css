@@ -1,9 +1,16 @@
-.sponsor-us-wrapper {
+.wrapper {
   background-color: var(--bg-pink-brown);
   padding: 12rem 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 4rem;
+}
+
+.header-wrapper {
+  width: 100%;
+  max-width: 123.2rem;
 }
 
 .container {
@@ -11,11 +18,6 @@
   flex-direction: column;
   gap: 32px;
   width: fit-content;
-}
-
-.header-wrapper {
-  /* display: flex;
-  justify-content: flex-start; */
 }
 
 .images-and-card-wrapper {
@@ -75,6 +77,11 @@
   .image-two {
     display: none;
   }
+
+  .header-wrapper {
+    width: 100%;
+    max-width: 81.6rem;
+  }
 }
 
 @media screen and (max-width: 980px) {
@@ -83,6 +90,11 @@
   }
   .wrapper {
     align-items: center;
+  }
+
+  .header-wrapper {
+    display: flex;
+    justify-content: center;
   }
 }
 
