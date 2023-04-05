@@ -32,23 +32,26 @@
   cursor: pointer;
 }
 
-.preview-slide {
-  width: 25%;
+.previewSwiper-three-images {
+  width: 75%;
+}
+.previewSwiper-two-images {
+  width: 50%;
 }
 
 .preview-image {
   display: block;
   object-fit: fill;
   width: 100%;
-  height: auto;
+  height: 150px;
 }
 
 .single-image {
   display: block;
-  max-height: 500px;
-  max-width: 100%;
+  width: 100%;
   margin-top: 10px;
   cursor: pointer;
+  object-fit: cover;
 }
 
 .modal {

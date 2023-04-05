@@ -30,6 +30,18 @@ const BlogImageSlider = ({ images, alt }: SliderProps) => {
     setModalIsOpen(false);
   };
 
+  const previewSliderImageCount = () => {
+    if (images.length === 4) {
+      return "";
+    } else if (images.length === 3) {
+      return styles["previewSwiper-three-images"];
+    } else if (images.length === 2) {
+      return styles["previewSwiper-two-images"];
+    } else {
+      return "";
+    }
+  };
+
   return (
     <div className={styles["swiper-wrapper"]}>
       <div className={styles["swiper-container"]}>
@@ -62,11 +74,13 @@ const BlogImageSlider = ({ images, alt }: SliderProps) => {
               ))}
             </Swiper>
             <Swiper
-              className={`${styles.previewSwiper} previewSwiper`}
+              className={`${
+                styles.previewSwiper
+              } ${previewSliderImageCount()} previewSwiper`}
               onSwiper={setThumbsSwiper}
               loop={true}
               spaceBetween={10}
-              slidesPerView={images.length > 4 ? 4 : 3 ? 3 : 2 ? 2 : 1}
+              slidesPerView={images.length >= 4 ? 4 : images.length}
               freeMode={true}
               watchSlidesProgress={true}
               modules={[FreeMode, Navigation, Thumbs]}
