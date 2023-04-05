@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import BlogInfo from "@/components/blog/blogInfo/BlogInfo";
-import BlogImageSlider from "@/components/blog/blogImageSlider/BlogImageSlider";
+import BlogImageSlider from "@/components/thumbSlider/ThumbSlider";
 import Header from "@/components/header/Header";
 import BlogSecondText from "@/components/blog/blogSecondText/BlogSecondText";
 import BlogSecondHeading from "@/components/blog/blogSecondHeading/BlogSecondHeading";

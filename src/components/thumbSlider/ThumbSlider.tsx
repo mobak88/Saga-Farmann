@@ -6,7 +6,7 @@ import "swiper/swiper-bundle.min.css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-import styles from "./Swiper.module.css";
+import styles from "./ThumbSwiper.module.css";
 import Modal from "react-modal";
 import { ImageProps } from "@/pages/blog/interfaces";
 
@@ -16,7 +16,7 @@ interface SliderProps {
   id: number;
 }
 
-const BlogImageSlider = ({ images, alt }: SliderProps) => {
+const ImageSlider = ({ images, alt }: SliderProps) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -149,4 +149,4 @@ const BlogImageSlider = ({ images, alt }: SliderProps) => {
   );
 };
 
-export default BlogImageSlider;
+export default ImageSlider;
