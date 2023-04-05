@@ -104,14 +104,18 @@ const BlogImageSlider = ({ images, alt }: SliderProps) => {
         ) : (
           <>
             {images.map((image, i) => (
-              <Image
+              <div
                 key={image.image + i}
-                src={image.image}
-                alt={alt}
-                className={styles["single-image"]}
-                height={600}
-                width={1000}
-              />
+                className={styles["single-image-container"]}
+              >
+                <Image
+                  src={image.image}
+                  alt={alt}
+                  className={styles["single-image"]}
+                  height={600}
+                  width={1000}
+                />
+              </div>
             ))}
           </>
         )}
