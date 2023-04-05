@@ -9,8 +9,13 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 32px;
   width: fit-content;
+}
+
+.header-wrapper {
+  /* display: flex;
+  justify-content: flex-start; */
 }
 
 .images-and-card-wrapper {
@@ -45,14 +50,40 @@
 }
 
 .sponsor-us-button {
-  background-color: var(--light-background-color);
   border: 3px solid var(--bg-pink-brown);
   color: var(--bg-pink-brown);
   font-weight: 600;
-  font-size: 18px;
+  font-size: var(--p--step-1);
   font-family: comfortaa;
   text-transform: uppercase;
-  padding: 16px;
+  padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  transition: all 200ms ease-in-out;
+  -webkit-transition: all 200ms ease-in-out;
+}
+
+.sponsor-us-button:hover {
+  letter-spacing: 2px;
+  box-shadow: 0 0 18px 4px var(--bg-pink-brown);
+}
+
+@media screen and (max-width: 1390px) {
+  .image-two {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .image-two {
+    display: none;
+  }
+  .wrapper {
+    align-items: center;
+  }
 }
 
 @media screen and (max-width: 1390px) {
@@ -82,14 +113,14 @@
   }
 }
 
-@media screen and (max-width: 250px) {
+@media screen and (max-width: 350px) {
   .image-two {
     display: none;
   }
   .image-one,
   .card {
-    width: 200px;
-    height: 220px;
+    width: 220px;
+    height: 250px;
   }
   .sponsor-us-button {
     padding: 8px;
