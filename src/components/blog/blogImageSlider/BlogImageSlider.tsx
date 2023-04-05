@@ -8,16 +8,14 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import styles from "./Swiper.module.css";
 import Modal from "react-modal";
+import { ImageProps } from "@/pages/blog/interfaces";
 
 interface SliderProps {
-  images: { post_image: string }[];
+  images: ImageProps[];
   alt: string;
   id: number;
 }
-interface ImageModalProps {
-  image: string;
-  alt: string;
-}
+
 const BlogImageSlider = ({ images, alt }: SliderProps) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -49,10 +47,10 @@ const BlogImageSlider = ({ images, alt }: SliderProps) => {
             {images.map((image, i) => (
               <SwiperSlide
                 className={styles["main-slide"]}
-                key={image.post_image + i}
+                key={image.image + i}
               >
                 <Image
-                  src={image.post_image}
+                  src={image.image}
                   alt={alt}
                   className={styles["main-image"]}
                   onClick={() => openModal(i)}
@@ -75,10 +73,10 @@ const BlogImageSlider = ({ images, alt }: SliderProps) => {
             {images.map((image, i) => (
               <SwiperSlide
                 className={styles["preview-slide"]}
-                key={image.post_image + i}
+                key={image.image + i}
               >
                 <Image
-                  src={image.post_image}
+                  src={image.image}
                   alt={alt}
                   className={styles["preview-image"]}
                   width={180}
@@ -92,8 +90,8 @@ const BlogImageSlider = ({ images, alt }: SliderProps) => {
         <>
           {images.map((image, i) => (
             <Image
-              key={image.post_image + i}
-              src={image.post_image}
+              key={image.image + i}
+              src={image.image}
               alt={alt}
               className={styles["single-image"]}
               height={600}
@@ -118,13 +116,12 @@ const BlogImageSlider = ({ images, alt }: SliderProps) => {
         }}
       >
         <Image
-          src={images[activeImageIndex].post_image}
+          src={images[activeImageIndex].image}
           alt={alt}
           className={styles["modal-image"]}
           height={600}
           width={1000}
         />
-
         <button onClick={closeModal} className={styles["close-button"]}>
           &times;
         </button>
@@ -132,5 +129,5 @@ const BlogImageSlider = ({ images, alt }: SliderProps) => {
     </div>
   );
 };
+
 export default BlogImageSlider;
-// className={styles[""]}

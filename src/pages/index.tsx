@@ -109,8 +109,7 @@ export async function getStaticProps() {
     }
   );
 
-  const { grid_section } = homeData.acf;
-  const { hero_section } = homeData.acf;
+  const { grid_section, hero_section } = homeData.acf;
   const sponsorUsSection = sponsorUs.acf;
 
   return {
