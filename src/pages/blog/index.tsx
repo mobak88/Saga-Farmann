@@ -30,8 +30,8 @@ const BlogPage = ({ posts }: Posts) => {
       </div>
     </>
   );
-  //  NOT WORKING ???? Se error melding når dato brukes post_image={post.acf.post_first_section.post_images.post_image}
 };
+
 export const getStaticProps: GetStaticProps<Posts> = async () => {
   const res = await fetch(API_ENDPOINTS.blogPosts);
   const posts: Post[] = await res.json();
@@ -41,4 +41,5 @@ export const getStaticProps: GetStaticProps<Posts> = async () => {
     },
   };
 };
+
 export default BlogPage;

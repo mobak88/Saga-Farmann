@@ -2,8 +2,8 @@ import React from "react";
 import HeadingOne from "../typography/headings/HeadingOne";
 import styles from "./Header.module.css";
 import he from "he";
-import WaveDarkHeading from "../waves/wavesLargeScreen/WaveDarkHeader";
-
+import WaveDarkHeader from "../waves/wavesLargeScreen/WaveDarkHeader";
+import WaveDarkHeaderSmall from "../waves/wavesSmallScreen/WaveDarkHeaderSmall";
 interface HeaderInterface {
   header: string;
 }
@@ -16,7 +16,8 @@ const Header = ({ header }: HeaderInterface) => {
     <div className={styles.wrapper}>
       <HeadingOne>{replacedHeader}</HeadingOne>
       <div className={styles["wave-container"]}>
-        <WaveDarkHeading />
+        <WaveDarkHeader />
+        <WaveDarkHeaderSmall />
       </div>
     </div>
   );
