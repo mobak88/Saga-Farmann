@@ -14,7 +14,7 @@
   background-color: var(--bg-pink-brown);
 }
 
-@media screen and (max-width: 75rem) {
+@media screen and (max-width: 1200px) {
   .wave {
     display: none;
   }

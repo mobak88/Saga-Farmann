@@ -34,7 +34,7 @@
   color: var(--light-text-color);
   font-family: "Comfortaa";
   font-weight: 500;
-  font-size: var(--heading-three);
+  font-size: var(--h--step-0);
   line-height: 1.2;
 }
 
@@ -59,7 +59,7 @@
   overflow: hidden;
 }
 
-@media screen and (max-width: 140rem) {
+@media screen and (max-width: 1400px) {
   .modal {
     width: 90%;
   }
@@ -69,7 +69,7 @@
   }
 }
 
-@media screen and (max-width: 50rem) {
+@media screen and (max-width: 500px) {
   .modal {
     max-height: 60rem;
     top: 45%;
@@ -86,7 +86,7 @@
   }
 }
 
-@media screen and (max-width: 35rem) {
+@media screen and (max-width: 350px) {
   .text-container {
     gap: 2rem;
     padding: 2rem;

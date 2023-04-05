@@ -12,42 +12,44 @@ const BlogDetails = ({ post, images }: Props) => {
   return (
     <>
       <Header header={"Blog"} />
-      <div className={styles["blog-id-container"]}>
-        <div className={styles["grid-wrap"]}>
-          <BlogImageSlider
-            images={images}
-            alt={"Blog Image"}
-            id={post.id + Math.random()}
-          />
-        </div>
-        <div className={styles["blog-id-first-section"]}>
-          <BlogInfo
-            id={post.id}
-            modified={post.modified}
-            title={post.title.rendered}
-            post_description={post.acf.post_description}
-          />
-        </div>
-        <div className={styles["blog-id-second-section"]}>
-          {post.acf.post_second_section.map((secondSection) => (
-            <div
-              key={secondSection.post_second_section_heading + Math.random()}
-            >
-              <BlogSecondHeading
-                post_second_section_heading={
-                  secondSection.post_second_section_heading
-                }
-              />
-              {secondSection.post_second_section_texts.map((text) => (
-                <BlogSecondText
-                  key={
-                    text.post_second_section_text.slice(0, 20) + Math.random()
+      <div className={styles["blog-id-wrapper"]}>
+        <div className={styles["blog-id-container"]}>
+          <div className={styles["grid-wrap"]}>
+            <BlogImageSlider
+              images={images}
+              alt={"Blog Image"}
+              id={post.id + Math.random()}
+            />
+          </div>
+          <div className={styles["blog-id-first-section"]}>
+            <BlogInfo
+              id={post.id}
+              modified={post.modified}
+              title={post.title.rendered}
+              post_description={post.acf.post_description}
+            />
+          </div>
+          <div className={styles["blog-id-second-section"]}>
+            {post.acf.post_second_section.map((secondSection) => (
+              <div
+                key={secondSection.post_second_section_heading + Math.random()}
+              >
+                <BlogSecondHeading
+                  post_second_section_heading={
+                    secondSection.post_second_section_heading
                   }
-                  post_second_section_text={text.post_second_section_text}
                 />
-              ))}
-            </div>
-          ))}
+                {secondSection.post_second_section_texts.map((text) => (
+                  <BlogSecondText
+                    key={
+                      text.post_second_section_text.slice(0, 20) + Math.random()
+                    }
+                    post_second_section_text={text.post_second_section_text}
+                  />
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </>

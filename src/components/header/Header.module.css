@@ -18,3 +18,10 @@
   bottom: 0rem;
   width: 100%;
 }
+
+@media screen and (max-width: 750px) {
+  .wrapper {
+    height: 140px;
+    padding-bottom: 10px;
+  }
+}

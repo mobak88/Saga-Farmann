@@ -30,102 +30,118 @@ const BlogImageSlider = ({ images, alt }: SliderProps) => {
     setModalIsOpen(false);
   };
 
+  const previewSliderImageCount = () => {
+    if (images.length === 4) {
+      return "";
+    } else if (images.length === 3) {
+      return styles["previewSwiper-three-images"];
+    } else if (images.length === 2) {
+      return styles["previewSwiper-two-images"];
+    } else {
+      return "";
+    }
+  };
+
   return (
-    <div className={styles["swiper-container"]}>
-      {images.length > 1 ? (
-        <>
-          <Swiper
-            className={styles["main-swiper"]}
-            loop={true}
-            navigation={true}
-            modules={[FreeMode, Navigation, Thumbs]}
-            thumbs={{
-              swiper:
-                thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
-            }}
-          >
+    <div className={styles["swiper-wrapper"]}>
+      <div className={styles["swiper-container"]}>
+        {images.length > 1 ? (
+          <>
+            <Swiper
+              className={styles["main-swiper"]}
+              loop={true}
+              navigation={true}
+              modules={[FreeMode, Navigation, Thumbs]}
+              thumbs={{
+                swiper:
+                  thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+              }}
+            >
+              {images.map((image, i) => (
+                <SwiperSlide
+                  className={styles["main-slide"]}
+                  key={image.image + i}
+                >
+                  <Image
+                    src={image.image}
+                    alt={alt}
+                    className={styles["main-image"]}
+                    onClick={() => openModal(i)}
+                    height={600}
+                    width={1000}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            <Swiper
+              className={`${
+                styles.previewSwiper
+              } ${previewSliderImageCount()} previewSwiper`}
+              onSwiper={setThumbsSwiper}
+              loop={true}
+              spaceBetween={10}
+              slidesPerView={images.length >= 4 ? 4 : images.length}
+              freeMode={true}
+              watchSlidesProgress={true}
+              modules={[FreeMode, Navigation, Thumbs]}
+            >
+              {images.map((image, i) => (
+                <SwiperSlide
+                  className={styles["preview-slide"]}
+                  key={image.image + i}
+                >
+                  <Image
+                    src={image.image}
+                    alt={alt}
+                    className={styles["preview-image"]}
+                    width={180}
+                    height={100}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </>
+        ) : (
+          <>
             {images.map((image, i) => (
-              <SwiperSlide
-                className={styles["main-slide"]}
+              <Image
                 key={image.image + i}
-              >
-                <Image
-                  src={image.image}
-                  alt={alt}
-                  className={styles["main-image"]}
-                  onClick={() => openModal(i)}
-                  height={600}
-                  width={1000}
-                />
-              </SwiperSlide>
+                src={image.image}
+                alt={alt}
+                className={styles["single-image"]}
+                height={600}
+                width={1000}
+              />
             ))}
-          </Swiper>
-          <Swiper
-            className={`${styles.previewSwiper} previewSwiper`}
-            onSwiper={setThumbsSwiper}
-            loop={true}
-            spaceBetween={10}
-            slidesPerView={images.length > 4 ? 4 : 3 ? 3 : 2 ? 2 : 1}
-            freeMode={true}
-            watchSlidesProgress={true}
-            modules={[FreeMode, Navigation, Thumbs]}
-          >
-            {images.map((image, i) => (
-              <SwiperSlide
-                className={styles["preview-slide"]}
-                key={image.image + i}
-              >
-                <Image
-                  src={image.image}
-                  alt={alt}
-                  className={styles["preview-image"]}
-                  width={180}
-                  height={100}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </>
-      ) : (
-        <>
-          {images.map((image, i) => (
-            <Image
-              key={image.image + i}
-              src={image.image}
-              alt={alt}
-              className={styles["single-image"]}
-              height={600}
-              width={1000}
-            />
-          ))}
-        </>
-      )}
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        className={styles.modal}
-        overlayClassName={styles.overlay}
-        ariaHideApp={false}
-        style={{
-          overlay: {
-            zIndex: 10,
-            background: "rgba(0, 0, 0, 0.7)",
-            backdropFilter: "blur(5px)",
-          },
-          content: { zIndex: 11 },
-        }}
-      >
-        <Image
-          src={images[activeImageIndex].image}
-          alt={alt}
-          className={styles["modal-image"]}
-          height={600}
-          width={1000}
-        />
-        <button onClick={closeModal} className={styles["close-button"]}>
-          &times;
-        </button>
-      </Modal>
+          </>
+        )}
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          className={styles.modal}
+          overlayClassName={styles.overlay}
+          ariaHideApp={false}
+          style={{
+            overlay: {
+              zIndex: 10,
+              background: "rgba(0, 0, 0, 0.7)",
+              backdropFilter: "blur(5px)",
+            },
+            content: { zIndex: 11 },
+          }}
+        >
+          <Image
+            src={images[activeImageIndex].image}
+            alt={alt}
+            className={styles["modal-image"]}
+            height={600}
+            width={1000}
+          />
+          <button onClick={closeModal} className={styles["close-button"]}>
+            &times;
+          </button>
+        </Modal>
+      </div>
     </div>
   );
 };
