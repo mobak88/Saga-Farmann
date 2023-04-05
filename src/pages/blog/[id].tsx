@@ -6,50 +6,16 @@ import Header from "@/components/header/Header";
 import BlogSecondText from "@/components/blog/blogSecondText/BlogSecondText";
 import BlogSecondHeading from "@/components/blog/blogSecondHeading/BlogSecondHeading";
 import styles from "./blog.module.css";
+import { Props, Post } from "./interfaces";
 
-interface Props {
-  post: Post;
-}
-
-export interface Post extends Props {
-  id: number;
-  modified: string;
-  title: { rendered: string };
-  acf: {
-    post_first_section: PostFirstSection;
-    post_second_section: PostSecondSection[];
-    post_description: string;
-    blog_place: string;
-  };
-}
-
-interface PostFirstSection {
-  post_images: PostImages[];
-  post_first_heading: string;
-  post_first_text: string;
-}
-
-interface PostImages {
-  post_image: string;
-}
-
-interface PostSecondSection {
-  post_second_section_heading: string;
-  post_second_section_texts: PostSecondSectionTexts[];
-}
-
-interface PostSecondSectionTexts {
-  post_second_section_text: string;
-}
-
-const BlogDetails = ({ post }: Props) => {
+const BlogDetails = ({ post, images }: Props) => {
   return (
     <>
       <Header header={"Blog"} />
       <div className={styles["blog-id-container"]}>
         <div className={styles["grid-wrap"]}>
           <BlogImageSlider
-            images={post.acf.post_first_section.post_images}
+            images={images}
             alt={"Blog Image"}
             id={post.id + Math.random()}
           />
@@ -91,7 +57,6 @@ const BlogDetails = ({ post }: Props) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const res = await fetch(API_ENDPOINTS.blogPosts);
   const posts: Post[] = await res.json();
-
   const paths = posts.map((post) => ({
     params: { id: post.id.toString() },
   }));
@@ -106,9 +71,16 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const id = Number(params?.id);
   const res = await fetch(API_ENDPOINTS.post(id));
   const post: Post = await res.json();
+  const { post_images } = post.acf.post_first_section;
+
+  const images = post_images.map((image) => {
+    return { image: image.post_image };
+  });
+
   return {
     props: {
       post,
+      images,
     },
   };
 };

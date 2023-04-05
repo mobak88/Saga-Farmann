@@ -1,15 +1,15 @@
 .wrapper {
   display: grid;
-  grid-template-columns: 22em 22em 22em;
-  grid-template-rows: 40px 90px 120px 30px 170px 170px;
+  grid-template-columns: 40rem 40rem 40rem;
+  grid-template-rows: 40px 90px 100px 30px 200px 180px 50px;
   text-align: center;
 }
 
-.textBox-follow-the-vikings,
-.textBox-follow-the-vikings-two,
-.textBox-follow-the-vikings-three,
-.textBox-donations,
-.textBox-text,
+.textBox-one,
+.textBox-two,
+.textBox-three,
+.textBox-four,
+.textBox-five,
 .content {
   display: flex;
   flex-direction: column;
@@ -19,46 +19,56 @@
 
 .content {
   gap: 16px;
-  padding: 8px 20px;
+  padding: 8px 16px;
 }
 
-.textBox-follow-the-vikings {
+.textBox-one {
   color: var(--light-text-color);
   grid-row-start: 1;
   grid-row-end: 4;
   width: 100%;
 }
 
-.textBox-follow-the-vikings-two {
+.empty-box {
   grid-row-start: 4;
+  grid-row-end: 5;
+}
+
+.textBox-two {
+  grid-row-start: 5;
   grid-row-end: 7;
   position: relative;
   color: var(--light-text-color);
   z-index: 10;
 }
 
-.textBox-follow-the-vikings-two .content {
+.textBox-two .content {
   background-color: var(--very-dark-blue);
   height: 100%;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
 }
 
-.textBox-follow-the-vikings-two::after {
+.textBox-two::after {
   position: absolute;
   background-color: var(--very-dark-blue);
-  height: 100px;
+  height: 10rem;
   z-index: -1;
-  top: 0;
+  top: -1rem;
   content: "";
   transform-origin: top left;
   transform: skewY(-3deg);
   width: 100%;
 }
 
+.empty-box2 {
+  grid-row-start: 7;
+  grid-row-end: 8;
+}
+
 .pointer {
-  border-left: 17.5rem solid transparent;
-  border-right: 17.5rem solid transparent;
-  border-top: 7rem solid var(--very-dark-blue);
+  border-left: 20rem solid transparent;
+  border-right: 20rem solid transparent;
+  border-top: 3rem solid var(--very-dark-blue);
 }
 
 .imageBox-one {
@@ -68,15 +78,14 @@
   background-size: cover;
   position: relative;
   z-index: 10;
-  width: 100%;
 }
 
 .imageBox-one::after {
   position: absolute;
-  height: 25px;
+  height: 2.5rem;
   background: var(--bg-pink-brown);
   z-index: -1;
-  top: -25px;
+  top: -2.5rem;
   left: 0;
   content: "";
   transform-origin: top left;
@@ -89,17 +98,15 @@
   background-size: cover;
   grid-row-start: 4;
   grid-row-end: 6;
-  width: 100%;
 }
 
-.textBox-donations {
+.textBox-three {
   grid-row-start: 6;
-  grid-row-end: 7;
+  grid-row-end: 8;
   background-color: var(--light-background-color);
-  width: 100%;
 }
 
-.textBox-follow-the-vikings-three {
+.textBox-four {
   background-color: var(--light-background-color);
   grid-row-start: 2;
   grid-row-end: 5;
@@ -113,66 +120,89 @@
   grid-row-end: 6;
   z-index: 10;
   position: relative;
-  width: 100%;
 }
 
 .imageBox-three::after {
   position: absolute;
   background: var(--bg-pink-brown);
   z-index: -1;
-  right: -35px;
+  right: -3.5rem;
   content: "";
   transform-origin: top left;
   transform: skewX(-6deg);
-  width: 40px;
+  width: 4rem;
   height: 100%;
 }
 
-.textBox-text {
+.textBox-five {
   grid-row-start: 6;
-  grid-row-end: 7;
-  width: 100%;
+  grid-row-end: 8;
 }
 
 @media screen and (min-width: 1900px) {
   .wrapper {
-    grid-template-columns: 30em 30em 30em;
-    grid-template-rows: 40px 120px 150px 30px 210px 230px;
+    grid-template-columns: 50rem 50rem 50rem;
+    grid-template-rows: 40px 130px 140px 30px 230px 220px 30px;
   }
   .pointer {
-    border-left: 24rem solid transparent;
-    border-right: 24rem solid transparent;
-    border-top: 10rem solid var(--very-dark-blue);
+    border-left: 25rem solid transparent;
+    border-right: 25rem solid transparent;
+    border-top: 4rem solid var(--very-dark-blue);
+  }
+  .imageBox-one::after {
+    height: 2.5rem;
+    top: -3rem;
+    left: 0;
+    content: "";
+    transform-origin: top left;
+    transform: skewY(3deg);
+    width: 100%;
   }
 }
 
 @media screen and (max-width: 1300px) {
   .wrapper {
-    grid-template-columns: 20em 20em 20em;
-    grid-template-rows: 40px 90px 100px 30px 190px 170px;
+    grid-template-columns: 35rem 35rem 35rem;
+    grid-template-rows: 40px 90px 100px 30px 190px 170px 50px;
+  }
+  .pointer {
+    border-left: 17.5rem solid transparent;
+    border-right: 17.5rem solid transparent;
+    border-top: 3rem solid var(--very-dark-blue);
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .wrapper {
+    grid-template-columns: 32rem 32rem 32rem;
+    grid-template-rows: 40px 90px 100px 30px 190px 170px 50px;
   }
   .pointer {
     border-left: 16rem solid transparent;
     border-right: 16rem solid transparent;
-    border-top: 6rem solid var(--very-dark-blue);
+    border-top: 3rem solid var(--very-dark-blue);
   }
 }
 
-@media screen and (max-width: 1000px) {
+/* @media screen and (max-width: 1000px) {
   .wrapper {
-    grid-template-columns: 17em 17em 17em;
+    grid-template-columns: 29rem 29rem 29rem;
+    grid-template-rows: 40px 90px 100px 30px 190px 170px 10px;
   }
   .pointer {
-    border-left: 13.5rem solid transparent;
-    border-right: 13.5rem solid transparent;
-    border-top: 7rem solid var(--very-dark-blue);
+    border-left: 14.5rem solid transparent;
+    border-right: 14.5rem solid transparent;
+    border-top: 3rem solid var(--very-dark-blue);
   }
   .imageBox-three::after {
     display: none;
   }
-}
+  .content {
+    font-size: 12px;
+  }
+} */
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1000px) {
   .wrapper {
     grid-template-columns: 30em;
     grid-template-rows: 200px 16px 300px 48px 300px 16px 250px 16px 250px 16px 250px;
@@ -182,13 +212,13 @@
     display: none;
   }
 
-  .textBox-follow-the-vikings {
+  .textBox-one {
     grid-row-start: 1;
     grid-row-end: 2;
     background-color: var(--very-dark-blue);
   }
 
-  .textBox-follow-the-vikings-two {
+  .textBox-two {
     grid-row-start: 5;
     grid-row-end: 6;
   }
@@ -196,7 +226,7 @@
   .pointer {
     border-left: 24rem solid transparent;
     border-right: 24rem solid transparent;
-    border-top: 8rem solid var(--very-dark-blue);
+    border-top: 4rem solid var(--very-dark-blue);
   }
 
   .imageBox-one {
@@ -212,12 +242,12 @@
     display: none;
   }
 
-  .textBox-donations {
+  .textBox-three {
     grid-row-start: 7;
     grid-row-end: 8;
   }
 
-  .textBox-follow-the-vikings-three {
+  .textBox-four {
     grid-row-start: 9;
     grid-row-end: 10;
     width: 100%;
@@ -231,10 +261,13 @@
     display: none;
   }
 
-  .textBox-text {
+  .textBox-five {
     grid-row-start: 11;
     grid-row-end: 12;
     background-color: var(--very-dark-blue);
+  }
+  .empty-box2 {
+    display: none;
   }
 }
 
@@ -246,6 +279,30 @@
   .pointer {
     border-left: 16rem solid transparent;
     border-right: 16rem solid transparent;
-    border-top: 6rem solid var(--very-dark-blue);
+    border-top: 3rem solid var(--very-dark-blue);
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .wrapper {
+    grid-template-columns: 18em;
+    grid-template-rows: 150px 16px 170px 48px 230px 16px 150px 16px 150px 16px 150px;
+  }
+  .pointer {
+    border-left: 14rem solid transparent;
+    border-right: 14rem solid transparent;
+    border-top: 3rem solid var(--very-dark-blue);
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .wrapper {
+    grid-template-columns: 15em;
+    grid-template-rows: 150px 16px 170px 48px 230px 16px 150px 16px 150px 16px 150px;
+  }
+  .pointer {
+    border-left: 12rem solid transparent;
+    border-right: 12rem solid transparent;
+    border-top: 2rem solid var(--very-dark-blue);
   }
 }
