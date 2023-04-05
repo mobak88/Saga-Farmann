@@ -15,11 +15,15 @@
 
 /*--- ID PAGE ---*/
 .blog-id-container {
-  padding: 12rem 0;
+  padding: 4rem 0;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   max-width: 1200px;
+}
+
+.blog-id-wrapper {
+  background-color: var(--bg-dark-blue);
 }
 
 .blog-id-first-section {

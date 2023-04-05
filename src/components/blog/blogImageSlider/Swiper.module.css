@@ -15,6 +15,7 @@
   justify-content: center;
   align-items: center;
   max-height: 100%; /* set height to 100% to make the slide use all the height of the swiper */
+  margin-bottom: 0.5rem;
 }
 
 .main-image {
@@ -25,14 +26,21 @@
 
 .previewSwiper {
   position: relative;
-  height: 70px;
-  width: 50%;
+  height: 100px;
+  width: 100%;
+  max-width: 100rem;
   cursor: pointer;
+}
+
+.preview-slide {
+  width: 25%;
 }
 
 .preview-image {
   display: block;
   object-fit: fill;
+  width: 100%;
+  height: auto;
 }
 
 .single-image {
@@ -72,9 +80,17 @@
 }
 
 @media screen and (max-width: 1000px) {
+  .swiper-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .swiper-container {
+    width: 95%;
+  }
+
   .main-image {
     width: 100%;
-    height: 54%;
   }
 
   .preview-image {

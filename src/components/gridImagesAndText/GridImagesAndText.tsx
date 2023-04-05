@@ -3,7 +3,7 @@ import styles from "./gridImagesAndText.module.css";
 import HeadingThree from "../typography/headings/HeadingThree";
 import ParagraphsSmall from "../typography/paragraphs/ParagraphsSmall";
 import { GridSections } from "./interfaces";
-import ParagraphsBig from "../typography/paragraphs/paragraphsBig";
+import ParagraphsBig from "../typography/paragraphs/ParagraphsBig";
 
 interface Props {
   gridContent: GridSections;
@@ -84,7 +84,7 @@ const GridImagesAndText = ({ gridContent }: Props) => {
           </ParagraphsBig>
         </div>
       </div>
-      <div className={styles['emtpy-box4']}></div>
+      <div className={styles["emtpy-box4"]}></div>
     </div>
   );
 };
