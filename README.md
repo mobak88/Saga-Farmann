@@ -12,7 +12,6 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
   - [Built with](#built-with)
   - [Github flow](#github-flow)
   - [CMS](#cms)
-  - [Incremental Static Regeneration](#incremental-static-regeneration)
 - [Variables](#Variables)
   - [Base url](#base-url)
   - [Color scheme](#color-scheme)
@@ -24,6 +23,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
   - [Backend](#backend)
 - [Code style](#code-style)
 - [Fetching data](#fetching-data)
+  - [Static Generation](#static-generation)
+  - [Incremental Static Regeneration](#incremental-static-regeneration)
 - [Technical debt](#technical-debt)
 
 ## Getting Started
@@ -118,10 +119,6 @@ know beforehand what needs to be filled out and uploaded, we have also provided 
 in the CMS so that they dont need us to use the solution and understand what everything is, that is our CMS documentation
 because it provides everything they need to know.
 
-### Incremental Static Regeneration
-
-Write about Incremental Static Regeneration
-
 ## Variables
 
 ### Base url
@@ -175,6 +172,16 @@ Write more about further development
 - Export default for components
 - Break down components when it makes sense or if it can be reused
 - Empty tags instead of React Fragments
+
+## Fetching data
+
+### Static Generation
+
+The HTML is generated at build time and will be reused on each request, we have utilized getStaticProps and getStaticPaths [read more about Static Generation](https://nextjs.org/docs/basic-features/pages#static-generation)
+
+### Incremental Static Regeneration
+
+Incremental Static Regeneration ensures static pages gets updated automatically by rebuilding the pages that has changes [read more about Incremental Static Regeneration](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration#on-demand-revalidation-beta)
 
 ## Technical debt
 
