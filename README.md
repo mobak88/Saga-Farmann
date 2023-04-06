@@ -2,6 +2,30 @@
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+### Table of contents
+
+- [Getting started](#getting-started)
+- [Overview](#overview)
+  - [Tech utilization](#tech-utilization)
+  - [Site features](#site-features)
+- [Our process](#our-process)
+  - [Built with](#built-with)
+  - [Github flow](#github-flow)
+  - [CMS](#cms)
+  - [Incremental Static Regeneration](#incremental-static-regeneration)
+- [Variables](#Variables)
+  - [Base url](#base-url)
+  - [Color scheme](#color-scheme)
+  - [Endpoints](#endpoints)
+- [Maintenance](#maintenance)
+  - [Backend maintenance](#backend-maintenance)
+  - [Frontend maintenance](#frontend-maintenance)
+- [Further development](#my-process)
+  - [Backend](#backend)
+- [Code style](#code-style)
+- [Fetching data](#fetching-data)
+- [Technical debt](#technical-debt)
+
 ## Getting Started
 
 First, run the development server:
@@ -36,29 +60,6 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-### Table of contents
-
-- [Overview](#overview)
-  - [Tech utilization](#tech-utilization)
-  - [Site features](#site-features)
-- [Our process](#our-process)
-  - [Built with](#built-with)
-  - [Github flow](#github-flow)
-  - [CMS](#cms)
-  - [Incremental Static Regeneration](#incremental-static-regeneration)
-- [Variables](#Variables)
-  - [Base url](#base-url)
-  - [Color scheme](#color-scheme)
-  - [Endpoints](#endpoints)
-- [Maintenance](#maintenance)
-  - [Backend maintenance](#backend-maintenance)
-  - [Frontend maintenance](#frontend-maintenance)
-- [Further development](#my-process)
-  - [Backend](#backend)
-- [Code style](#code-style)
-- [Fetching data](#fetching-data)
-- [Technical debt](#technical-debt)
 
 ## Overview
 
