@@ -1,0 +1,24 @@
+.change-id-btn-left,
+.change-id-btn-right {
+  background-color: transparent;
+  border: 2px solid var(--light-text-color);
+  color: var(--light-text-color);
+  width: 10rem;
+  padding: 1.5rem 2rem;
+  text-decoration: none;
+  font-family: "Comfortaa";
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+.btn-wrapper {
+  display: flex;
+  gap: 30rem;
+}
+@media only screen and (max-width: 600px) {
+  .btn-wrapper {
+    gap: 5rem;
+  }
+}

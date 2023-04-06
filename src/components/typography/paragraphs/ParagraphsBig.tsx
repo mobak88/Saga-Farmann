@@ -1,12 +1,12 @@
 import React, { ReactNode } from "react";
-import styles from "./paragraphs.module.css";
+import styles from "./Paragraphs.module.css";
 
-interface ParagraphProps {
+export interface ParagraphProps {
   children: ReactNode;
   dark?: boolean;
 }
 
-export default function paragraphsBig({
+export default function ParagraphsBig({
   children,
   dark = false,
 }: ParagraphProps) {

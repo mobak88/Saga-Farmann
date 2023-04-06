@@ -5,10 +5,23 @@
   background-position: center;
   width: 100%;
   height: 180px;
+  padding-bottom: 36px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--light-text-color);
-  font-family: Norse;
-  font-size: 72px;
+  font-size: var(--h--step-3);
+  position: relative;
+}
+
+.wave-container {
+  position: absolute;
+  bottom: 0rem;
+  width: 100%;
+}
+
+@media screen and (max-width: 750px) {
+  .wrapper {
+    height: 140px;
+    padding-bottom: 10px;
+  }
 }

@@ -1,0 +1,56 @@
+.swiper-container {
+  display: grid;
+  align-items: center;
+  gap: clamp(1rem, 5rem, 10rem);
+  grid-template-areas: "prev swiper next";
+}
+
+.arrow-icon {
+  color: var(--bg-pink-brown);
+  background: rgba(0, 0, 0, 0);
+}
+
+.swiper-nav-prev,
+.swiper-nav-next {
+  cursor: pointer;
+  display: flex;
+}
+
+.news-swiper {
+  grid-area: swiper;
+  width: 100%;
+}
+
+.news-swiper-slide {
+  /* Center slide text vertically */
+  justify-content: center;
+  align-items: center;
+}
+
+.news-swiper-slide img {
+  display: block;
+}
+
+.swiper-nav-prev {
+  grid-area: prev;
+  justify-self: end;
+}
+
+.swiper-nav-next {
+  grid-area: next;
+  justify-self: start;
+}
+
+.slider-card-container {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1400px) {
+  .swiper-container {
+    display: grid;
+    grid-template-areas:
+      "swiper swiper"
+      "prev next";
+  }
+}

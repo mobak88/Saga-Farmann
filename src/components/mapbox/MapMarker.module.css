@@ -1,0 +1,7 @@
+.marker {
+  cursor: pointer;
+}
+
+.marker-next-year {
+  cursor: default;
+}

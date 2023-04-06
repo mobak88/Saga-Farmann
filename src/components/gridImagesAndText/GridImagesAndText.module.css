@@ -1,0 +1,308 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 40rem 40rem 40rem;
+  grid-template-rows: 40px 90px 100px 30px 200px 180px 50px;
+  text-align: center;
+}
+
+.textBox-one,
+.textBox-two,
+.textBox-three,
+.textBox-four,
+.textBox-five,
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  gap: 16px;
+  padding: 8px 16px;
+}
+
+.textBox-one {
+  color: var(--light-text-color);
+  grid-row-start: 1;
+  grid-row-end: 4;
+  width: 100%;
+}
+
+.empty-box {
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+
+.textBox-two {
+  grid-row-start: 5;
+  grid-row-end: 7;
+  position: relative;
+  color: var(--light-text-color);
+  z-index: 10;
+}
+
+.textBox-two .content {
+  background-color: var(--very-dark-blue);
+  height: 100%;
+  /* margin-top: 2rem; */
+}
+
+.textBox-two::after {
+  position: absolute;
+  background-color: var(--very-dark-blue);
+  height: 10rem;
+  z-index: -1;
+  top: -1rem;
+  content: "";
+  transform-origin: top left;
+  transform: skewY(-3deg);
+  width: 100%;
+}
+
+.empty-box2 {
+  grid-row-start: 7;
+  grid-row-end: 8;
+}
+
+.pointer {
+  border-left: 20rem solid transparent;
+  border-right: 20rem solid transparent;
+  border-top: 3rem solid var(--very-dark-blue);
+}
+
+.imageBox-one {
+  grid-row-start: 1;
+  grid-row-end: 4;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  z-index: 10;
+}
+
+.imageBox-one::after {
+  position: absolute;
+  height: 2.5rem;
+  background: var(--bg-pink-brown);
+  z-index: -1;
+  top: -2.5rem;
+  left: 0;
+  content: "";
+  transform-origin: top left;
+  transform: skewY(3deg);
+  width: 100%;
+}
+
+.imageBox-two {
+  background-position: center;
+  background-size: cover;
+  grid-row-start: 4;
+  grid-row-end: 6;
+}
+
+.textBox-three {
+  grid-row-start: 6;
+  grid-row-end: 8;
+  background-color: var(--light-background-color);
+}
+
+.textBox-four {
+  background-color: var(--light-background-color);
+  grid-row-start: 2;
+  grid-row-end: 5;
+  width: 95%;
+}
+
+.imageBox-three {
+  background-position: center;
+  background-size: cover;
+  grid-row-start: 5;
+  grid-row-end: 6;
+  z-index: 10;
+  position: relative;
+}
+
+.imageBox-three::after {
+  position: absolute;
+  background: var(--bg-pink-brown);
+  z-index: -1;
+  right: -3.5rem;
+  content: "";
+  transform-origin: top left;
+  transform: skewX(-6deg);
+  width: 4rem;
+  height: 100%;
+}
+
+.textBox-five {
+  grid-row-start: 6;
+  grid-row-end: 8;
+}
+
+@media screen and (min-width: 1900px) {
+  .wrapper {
+    grid-template-columns: 50rem 50rem 50rem;
+    grid-template-rows: 40px 130px 140px 30px 230px 220px 30px;
+  }
+  .pointer {
+    border-left: 25rem solid transparent;
+    border-right: 25rem solid transparent;
+    border-top: 4rem solid var(--very-dark-blue);
+  }
+  .imageBox-one::after {
+    height: 2.5rem;
+    top: -3rem;
+    left: 0;
+    content: "";
+    transform-origin: top left;
+    transform: skewY(3deg);
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .wrapper {
+    grid-template-columns: 35rem 35rem 35rem;
+    grid-template-rows: 40px 90px 100px 30px 190px 170px 50px;
+  }
+  .pointer {
+    border-left: 17.5rem solid transparent;
+    border-right: 17.5rem solid transparent;
+    border-top: 3rem solid var(--very-dark-blue);
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .wrapper {
+    grid-template-columns: 32rem 32rem 32rem;
+    grid-template-rows: 40px 90px 100px 30px 190px 170px 50px;
+  }
+  .pointer {
+    border-left: 16rem solid transparent;
+    border-right: 16rem solid transparent;
+    border-top: 3rem solid var(--very-dark-blue);
+  }
+}
+
+/* @media screen and (max-width: 1000px) {
+  .wrapper {
+    grid-template-columns: 29rem 29rem 29rem;
+    grid-template-rows: 40px 90px 100px 30px 190px 170px 10px;
+  }
+  .pointer {
+    border-left: 14.5rem solid transparent;
+    border-right: 14.5rem solid transparent;
+    border-top: 3rem solid var(--very-dark-blue);
+  }
+  .imageBox-three::after {
+    display: none;
+  }
+  .content {
+    font-size: 12px;
+  }
+} */
+
+@media screen and (max-width: 1000px) {
+  .wrapper {
+    grid-template-columns: 30em;
+    grid-template-rows: 200px 16px 300px 48px 300px 16px 250px 16px 250px 16px 250px;
+  }
+
+  .imageBox-three::after {
+    display: none;
+  }
+
+  .textBox-one {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: var(--very-dark-blue);
+  }
+
+  .textBox-two {
+    grid-row-start: 5;
+    grid-row-end: 6;
+  }
+
+  .pointer {
+    border-left: 24rem solid transparent;
+    border-right: 24rem solid transparent;
+    border-top: 4rem solid var(--very-dark-blue);
+  }
+
+  .imageBox-one {
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+
+  .imageBox-one::after {
+    display: none;
+  }
+
+  .imageBox-two {
+    display: none;
+  }
+
+  .textBox-three {
+    grid-row-start: 7;
+    grid-row-end: 8;
+  }
+
+  .textBox-four {
+    grid-row-start: 9;
+    grid-row-end: 10;
+    width: 100%;
+  }
+
+  .imageBox-three {
+    display: none;
+  }
+
+  .imageBox-three::after {
+    display: none;
+  }
+
+  .textBox-five {
+    grid-row-start: 11;
+    grid-row-end: 12;
+    background-color: var(--very-dark-blue);
+  }
+  .empty-box2 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .wrapper {
+    grid-template-columns: 20em;
+    grid-template-rows: 200px 16px 200px 48px 260px 16px 200px 16px 200px 16px 200px;
+  }
+  .pointer {
+    border-left: 16rem solid transparent;
+    border-right: 16rem solid transparent;
+    border-top: 3rem solid var(--very-dark-blue);
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .wrapper {
+    grid-template-columns: 18em;
+    grid-template-rows: 150px 16px 170px 48px 230px 16px 150px 16px 150px 16px 150px;
+  }
+  .pointer {
+    border-left: 14rem solid transparent;
+    border-right: 14rem solid transparent;
+    border-top: 3rem solid var(--very-dark-blue);
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .wrapper {
+    grid-template-columns: 15em;
+    grid-template-rows: 150px 16px 170px 48px 230px 16px 150px 16px 150px 16px 150px;
+  }
+  .pointer {
+    border-left: 12rem solid transparent;
+    border-right: 12rem solid transparent;
+    border-top: 2rem solid var(--very-dark-blue);
+  }
+}

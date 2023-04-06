@@ -1,0 +1,142 @@
+.wrapper {
+  background-color: var(--bg-pink-brown);
+  padding: 12rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.header-wrapper {
+  width: 100%;
+  max-width: 123.2rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: fit-content;
+}
+
+.images-and-card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.image-one,
+.image-two {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.card {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  background-color: var(--light-background-color);
+}
+
+.card-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 0px 40px;
+}
+
+.sponsor-us-button {
+  border: 3px solid var(--bg-pink-brown);
+  color: var(--bg-pink-brown);
+  font-weight: 600;
+  font-size: var(--p--step-1);
+  font-family: comfortaa;
+  text-transform: uppercase;
+  padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  transition: all 200ms ease-in-out;
+  -webkit-transition: all 200ms ease-in-out;
+}
+
+.sponsor-us-button:hover {
+  letter-spacing: 2px;
+  box-shadow: 0 0 18px 4px var(--bg-pink-brown);
+}
+
+@media screen and (max-width: 1390px) {
+  .image-two {
+    display: none;
+  }
+
+  .header-wrapper {
+    width: 100%;
+    max-width: 81.6rem;
+  }
+
+  .image-two {
+    display: none;
+  }
+  .wrapper {
+    align-items: center;
+    gap: 32px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .wrapper {
+    padding-top: 8rem;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .image-two {
+    display: none;
+  }
+  .wrapper {
+    align-items: center;
+  }
+
+  .header-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .image-two {
+    display: none;
+  }
+  .image-one,
+  .card {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .image-two {
+    display: none;
+  }
+  .image-one,
+  .card {
+    width: 220px;
+    height: 250px;
+  }
+  .sponsor-us-button {
+    padding: 8px;
+  }
+  .card-content-wrapper {
+    gap: 16px;
+    padding: 0px 32px;
+  }
+}

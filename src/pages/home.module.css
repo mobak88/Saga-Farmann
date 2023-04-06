@@ -1,0 +1,23 @@
+.grid-wrapper {
+  width: 100%;
+  background-color: var(--bg-pink-brown);
+  display: flex;
+  justify-content: center;
+  padding: 5rem 0 16rem 0;
+  overflow: hidden;
+}
+
+.livestream-wrapper {
+  padding: var(--section-padding) 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .sponsor-us-wrapper {
+    padding: 0 0 8rem 0;
+  }
+}

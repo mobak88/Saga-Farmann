@@ -5,6 +5,8 @@
   --light-text-color: #e7ffff;
   --dark-text-color: #000;
   --light-background-color: #f2f2f2;
+  --donate-button: #31754b;
+  --box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
   /*----------Hamburger----------*/
   --bar-width: 50px;
@@ -14,14 +16,24 @@
   --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
   --animation-timing: 200ms ease-in-out;
 
-  /* FONT SIZES */
+  /* FONT SIZES HEADINGS */
+  --h--step-0: clamp(1.13rem, calc(-0.01rem + 5.65vw), 3.6rem);
+  --h--step-1: clamp(1.35rem, calc(-0.08rem + 7.16vw), 5.47rem);
+  --h--step-2: clamp(1.62rem, calc(-0.19rem + 9.07vw), 6.84rem);
+  --h--step-3: clamp(1.94rem, calc(-0.35rem + 11.48vw), 8.55rem);
+  --h--step-4: clamp(2.33rem, calc(-0.57rem + 14.52vw), 10.68rem);
+  --h--step-5: clamp(2.8rem, calc(-0.87rem + 18.35vw), 13.35rem);
 
-  --heading-one: 7.2rem;
-  --heading-two: 4.5rem;
-  --heading-three: 3.6rem;
+  /* FONT SIZES PARAGRAPHS */
+  --p--step--1: clamp(0.83rem, calc(0.71rem + 0.64vw), 1.2rem);
+  --p--step-0: clamp(1rem, calc(0.83rem + 0.87vw), 1.5rem);
+  --p--step-1: clamp(1.2rem, calc(0.97rem + 1.17vw), 1.88rem);
+  --p--step-2: clamp(1.44rem, calc(1.13rem + 1.57vw), 2.34rem);
+  --p--step-3: clamp(1.73rem, calc(1.31rem + 2.09vw), 2.93rem);
+  --p--step-4: clamp(2.07rem, calc(1.52rem + 2.76vw), 3.66rem);
 
-  --paragraph-size-l: 2.4rem;
-  --paragraph-size-sm: 1.8rem;
+  /* PADDING */
+  --section-padding: 8rem;
 }
 
 html,
@@ -158,14 +170,13 @@ body {
 }
 @font-face {
   font-family: "Comfortaa";
-  src: url("../components/fonts/comfortaa/Comfortaa-Regular.eot");
-  src: url("../components/fonts/comfortaa/Comfortaa-Regular.eot?#iefix")
+  src: url("../../src/fonts/comfortaa/Comfortaa-Regular.eot");
+  src: url("../../src/fonts/comfortaa/Comfortaa-Regular.eot?#iefix")
       format("embedded-opentype"),
-    url("../components/fonts/comfortaa/Comfortaa-Regular.woff2") format("woff2"),
-    url("../components/fonts/comfortaa/Comfortaa-Regular.woff") format("woff"),
-    url("../components/fonts/comfortaa/Comfortaa-Regular.ttf")
-      format("truetype"),
-    url("../components/fonts/comfortaa/Comfortaa-Regular.svg#Comfortaa-Regular")
+    url("../../src/fonts/comfortaa/Comfortaa-Regular.woff2") format("woff2"),
+    url("../../src/fonts/comfortaa/Comfortaa-Regular.woff") format("woff"),
+    url("../../src/fonts/comfortaa/Comfortaa-Regular.ttf") format("truetype"),
+    url("../../src/fonts/comfortaa/Comfortaa-Regular.svg#Comfortaa-Regular")
       format("svg");
   font-weight: normal;
   font-style: normal;
@@ -173,28 +184,21 @@ body {
 }
 @font-face {
   font-family: "Norse";
-  src: url("../components/fonts/norse/Norse.eot");
-  src: url("../components/fonts/norse/Norse.eot?#iefix")
-      format("embedded-opentype"),
-    url("../components/fonts/norse/Norse.woff2") format("woff2"),
-    url("../components/fonts/norse/Norse.woff") format("woff"),
-    url("../components/fonts/norse/Norse.ttf") format("truetype"),
-    url("../components/fonts/norse/Norse.svg#Norse") format("svg");
+  src: url("../../src/fonts/norse/Norse.eot");
+  src: url("../../src/fonts/norse/Norse.eot?#iefix") format("embedded-opentype"),
+    url("../../src/fonts/norse/Norse.woff2") format("woff2"),
+    url("../../src/fonts/norse/Norse.woff") format("woff"),
+    url("../../src/fonts/norse/Norse.ttf") format("truetype"),
+    url("../../src/fonts/norse/Norse.svg#Norse") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
-.swiper {
-  width: 100%;
+/* ---------- SWIPER BLOG ---------- */
+.previewSwiper .swiper-slide {
+  opacity: 0.4;
 }
-
-.swiper-slide {
-  /* Center slide text vertically */
-  justify-content: center;
-  align-items: center;
-}
-
-.swiper-slide img {
-  display: block;
+.previewSwiper .swiper-slide-thumb-active {
+  opacity: 1;
 }

@@ -1,1 +1,84 @@
+/* index and id files style */
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5rem;
+  align-items: center;
+}
 
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5rem;
+  max-width: 850px;
+}
+
+/* index.tsx styling only */
+.crew-links-wrapper {
+  padding: 5rem;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2rem;
+  background-color: var(--very-dark-blue);
+  box-shadow: var(--box-shadow);
+}
+
+.crews-links {
+  color: var(--light-text-color);
+  text-decoration: none;
+  font-size: var(--p--step-4);
+  font-family: "Norse";
+}
+
+.crews-links:hover {
+  color: var(--bg-pink-brown);
+}
+
+/* [id].tsx styling only */
+.button-heading-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  position: relative;
+}
+
+.heading-wrapper {
+  position: absolute;
+}
+
+@media only screen and (max-width: 850px) {
+  .card-container {
+    max-width: 800px;
+    justify-content: center;
+    padding-bottom: 3rem;
+    gap: 2rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .main-wrapper {
+    gap: 2rem;
+    padding-top: 5rem;
+  }
+  .card-container {
+    max-width: 600px;
+  }
+  .button-heading-wrapper {
+    width: 70%;
+    height: 15rem;
+  }
+  .heading-wrapper {
+    position: relative;
+    margin-top: 3rem;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .card-container {
+    max-width: 425px;
+  }
+}

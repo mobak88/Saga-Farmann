@@ -1,0 +1,28 @@
+.paragraphs {
+  font-family: "Comfortaa";
+}
+
+.light {
+  color: var(--light-text-color);
+}
+
+.dark {
+  color: var(--dark-text-color);
+}
+
+.paragraphs-l {
+  font-size: var(--p--step-2);
+}
+
+.paragraphs-sm {
+  font-size: var(--p--step-0);
+}
+
+@media screen and (max-width: 800px) {
+  .paragraphs-truncated {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+}
