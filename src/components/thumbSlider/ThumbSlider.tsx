@@ -62,14 +62,16 @@ const ImageSlider = ({ images, alt }: SliderProps) => {
                   className={styles["main-slide"]}
                   key={image.image + i}
                 >
-                  <Image
-                    src={image.image}
-                    alt={alt}
-                    className={styles["main-image"]}
-                    onClick={() => openModal(i)}
-                    height={600}
-                    width={1000}
-                  />
+                  <div className={styles["image-wrapper"]}>
+                    <Image
+                      src={image.image}
+                      alt={alt}
+                      className={styles["main-image"]}
+                      onClick={() => openModal(i)}
+                      height={600}
+                      width={1000}
+                    />
+                  </div>
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -104,10 +106,7 @@ const ImageSlider = ({ images, alt }: SliderProps) => {
         ) : (
           <>
             {images.map((image, i) => (
-              <div
-                key={image.image + i}
-                className={styles["single-image-container"]}
-              >
+              <div key={image.image + i} className={styles["image-wrapper"]}>
                 <Image
                   src={image.image}
                   alt={alt}
