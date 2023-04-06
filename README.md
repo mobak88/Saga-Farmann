@@ -134,7 +134,7 @@ Color scheme can be found in globals.css file as variables.
 
 ### Endpoints
 
-All the standard endpoints from wordpres can be found: [REST API Developer Endpoint Reference](https://developer.wordpress.org/rest-api/reference/)<br />
+All the standard endpoints from Wordpress can be found: [REST API Developer Endpoint Reference](https://developer.wordpress.org/rest-api/reference/)<br />
 In adition we have the following endpoints:
 
 | Name                 | Request type | Endpoint                                                 |
