@@ -121,6 +121,7 @@ export async function getStaticProps() {
       destinations: newDestinations,
       sponsorUsSection,
     },
+    revalidate: 1,
   };
 }
 
