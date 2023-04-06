@@ -45,6 +45,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - [Our process](#our-process)
   - [Built with](#built-with)
   - [Github flow](#github-flow)
+  - [CMS](#cms)
 - [Variables](#Variables)
   - [Base url](#base-url)
   - [Color scheme](#color-scheme)
@@ -106,6 +107,14 @@ Users can:
 
 We decided that we use test-main as the test branch and merge to main when test-main is working without bugs to keep main bug free,
 we have also decided to have someone else than the person that pushed the code to look over the code and merge.
+
+### CMS
+
+We have used Wordpress as a headless CMS and made the Wordpress site inaccessable for non logged in users.
+We have also used fields in Wordpress that can be filled out so that all the data is organised and the client
+know beforehand what needs to be filled out and uploaded, we have also provided an explanation for what everything is
+in the CMS so that they dont need us to use the solution and understand what everything is, that is our CMS documentation
+because it provides everything they need to know.
 
 ## Variables
 
