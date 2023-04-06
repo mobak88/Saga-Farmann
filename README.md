@@ -1,5 +1,9 @@
 # Saga Farmann - Follow the vikings
 
+Saga Farmann is a web application for a viking boat expedition.
+
+![](./public/assets/saga-printscreen.jpg)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ### Table of contents
