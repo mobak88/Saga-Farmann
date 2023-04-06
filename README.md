@@ -134,7 +134,18 @@ Color scheme can be found in globals.css file as variables.
 
 ### Endpoints
 
-Endpoints can be found as an object in endpoints.ts
+All the standard endpoints from wordpres can be found: [REST API Developer Endpoint Reference](https://developer.wordpress.org/rest-api/reference/)
+In adition we have the following endpoints:
+
+| Name                 | Request type | Endpoint                                                 |
+| -------------------- | ------------ | -------------------------------------------------------- |
+| Get all crews        | GET          | http://localhost:3000/wp/wp-json/wp/v2/crew_members      |
+| Get a crew           | GET          | http://localhost:3000/wp/wp-json/wp/v2/crew_members/{id} |
+| Get all sponsors     | GET          | http://localhost:3000/wp/wp-json/wp/v2/sponsors          |
+| Get all destinations | GET          | http://localhost:3000/wp/wp-json/wp/v2/destinations      |
+| Get a destination    | GET          | http://localhost:3000/wp/wp-json/wp/v2/destinations/{id} |
+| Get all stages       | GET          | http://localhost:3000/wp/wp-json/wp/v2/stages            |
+| Get a stage          | GET          | http://localhost:3000/wp/wp-json/wp/v2/stages/{id}       |
 
 ## Maintenance
 
