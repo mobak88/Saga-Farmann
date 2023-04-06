@@ -46,6 +46,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
   - [Built with](#built-with)
   - [Github flow](#github-flow)
   - [CMS](#cms)
+  - [Incremental Static Regeneration](#incremental-static-regeneration)
 - [Variables](#Variables)
   - [Base url](#base-url)
   - [Color scheme](#color-scheme)
@@ -115,6 +116,10 @@ We have also used fields in Wordpress that can be filled out so that all the dat
 know beforehand what needs to be filled out and uploaded, we have also provided an explanation for what everything is
 in the CMS so that they dont need us to use the solution and understand what everything is, that is our CMS documentation
 because it provides everything they need to know.
+
+### Incremental Static Regeneration
+
+Write about Incremental Static Regeneration
 
 ## Variables
 
