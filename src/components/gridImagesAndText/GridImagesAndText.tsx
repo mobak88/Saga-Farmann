@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./GridImagesAndText.module.css";
 import HeadingThree from "../typography/headings/HeadingThree";
-import ParagraphsSmall from "../typography/paragraphs/ParagraphsSmall";
 import { GridSections } from "./interfaces";
 import ParagraphsBig from "../typography/paragraphs/ParagraphsBig";
 
