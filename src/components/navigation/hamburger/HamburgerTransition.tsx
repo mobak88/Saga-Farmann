@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, RefObject, createRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import styles from "./HamburgerTransition.module.css";
 import Link from "next/link";
@@ -7,7 +7,8 @@ import { IoIosMenu, IoMdClose } from "react-icons/io";
 const HamburgerTransition = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [click, setClick] = useState(false);
-  const nodeRef = useRef(null);
+  const nodeRef1 = useRef(null);
+  const nodeRef2 = useRef(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -36,9 +37,9 @@ const HamburgerTransition = () => {
     <>
       <div className={styles["hamburger-icons"]} onClick={toggleMenu}>
         <CSSTransition
+          nodeRef={nodeRef1}
           in={isOpen}
           timeout={300}
-          nodeRef={nodeRef}
           classNames={{
             enter: styles["icons-enter"],
             enterActive: styles["icons-enter-active"],
@@ -47,13 +48,19 @@ const HamburgerTransition = () => {
           }}
         >
           {click ? (
-            <IoMdClose size={50} className={styles["menu-icon"]} />
+            <div ref={nodeRef1}>
+              <IoMdClose size={50} className={styles["menu-icon"]} />
+            </div>
           ) : (
-            <IoIosMenu size={50} className={styles["menu-icon"]} />
+            <div ref={nodeRef1}>
+              <IoIosMenu size={50} className={styles["menu-icon"]} />
+            </div>
           )}
         </CSSTransition>
       </div>
+
       <CSSTransition
+        nodeRef={nodeRef2}
         in={isOpen}
         timeout={300}
         classNames={{
@@ -64,7 +71,7 @@ const HamburgerTransition = () => {
         }}
         unmountOnExit
       >
-        <div className={styles.menu}>
+        <div ref={nodeRef2} className={styles.menu}>
           {links.map(({ href, label }) => (
             <div key={href}>
               <Link
