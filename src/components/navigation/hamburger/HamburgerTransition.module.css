@@ -22,6 +22,7 @@
 
 .menu-icon {
   color: var(--light-text-color);
+  cursor: pointer;
 }
 /*--Menu--*/
 .menu-enter {
