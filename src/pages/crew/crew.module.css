@@ -32,7 +32,8 @@
 }
 
 .crews-links:hover {
-  color: var(--bg-pink-brown);
+  /* color: var(--bg-pink-brown); */
+  text-shadow: 2px 2px 2px var(--bg-pink-brown);
 }
 
 /* [id].tsx styling only */
