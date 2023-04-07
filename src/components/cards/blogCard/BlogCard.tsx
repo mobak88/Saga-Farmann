@@ -30,8 +30,8 @@ const BlogCard = ({
             src={post_image}
             alt={title}
             className={styles["blog-card-image"]}
-            width={400}
-            height={400}
+            height={600}
+            width={1000}
           />
         </div>
         <div className={styles["blog-card-info"]}>
