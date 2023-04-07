@@ -7,8 +7,16 @@ import BlogSecondText from "@/components/blog/blogSecondText/BlogSecondText";
 import BlogSecondHeading from "@/components/blog/blogSecondHeading/BlogSecondHeading";
 import styles from "./blog.module.css";
 import { Props, Post } from "./interfaces";
+import BlogSkeleton from "@/components/skeletons/blog/BlogSkeleton";
 
 const BlogDetails = ({ post, images }: Props) => {
+  if (!post)
+    return (
+      <div className={styles["blog-id-skeleton-wrapper"]}>
+        <BlogSkeleton />
+      </div>
+    );
+
   return (
     <>
       <Header header={"Blog"} />
@@ -65,7 +73,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 };
 
@@ -73,8 +81,17 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const id = Number(params?.id);
   const res = await fetch(API_ENDPOINTS.post(id));
   const post: Post = await res.json();
-  const { post_images } = post.acf.post_first_section;
 
+  //Not working???
+  if (!post.id) {
+    return {
+      redirect: {
+        destination: "/blog",
+        permanent: false,
+      },
+    };
+  }
+  const { post_images } = post.acf?.post_first_section;
   const images = post_images.map((image) => {
     return { image: image.post_image };
   });
@@ -84,6 +101,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
       post,
       images,
     },
+    revalidate: 1,
   };
 };
 
