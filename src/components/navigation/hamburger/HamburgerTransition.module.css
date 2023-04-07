@@ -8,13 +8,22 @@
 }
 
 .icons-exit {
-  opacity: 1;
+  opacity: 0;
 }
 
 .icons-exit-active {
+  opacity: 1;
   transition: opacity 300ms ease-in-out;
 }
 
+.hamburger-icons {
+  cursor: pointer;
+}
+
+.menu-icon {
+  color: var(--light-text-color);
+}
+/*--Menu--*/
 .menu-enter {
   opacity: 0;
   transform: translateX(100%);
@@ -51,14 +60,6 @@
   gap: 2rem;
   padding: 4rem 0;
   box-shadow: var(--box-shadow);
-}
-
-.hamburger-icons {
-  cursor: pointer;
-}
-
-.menu-icon {
-  color: var(--light-text-color);
 }
 
 .page-link {

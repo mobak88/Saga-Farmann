@@ -7,8 +7,8 @@ import { IoIosMenu, IoMdClose } from "react-icons/io";
 const HamburgerTransition = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [click, setClick] = useState(false);
-  const nodeRef1 = useRef(null);
-  const nodeRef2 = useRef(null);
+  const nodeRef1 = React.useRef<HTMLDivElement>(null);
+  const nodeRef2 = React.useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -29,8 +29,8 @@ const HamburgerTransition = () => {
   ];
 
   const handleLinkClick = () => {
-    setIsOpen(false);
-    setClick(false);
+    setIsOpen(!isOpen);
+    setClick(!click);
   };
 
   return (
