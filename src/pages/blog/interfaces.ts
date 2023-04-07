@@ -20,7 +20,7 @@ export interface Post {
 }
 
 export interface PostFirstSection {
-  post_images: PostImages[] | undefined;
+  post_images: PostImages[];
   post_first_heading: string;
   post_first_text: string;
 }
