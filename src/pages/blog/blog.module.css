@@ -11,6 +11,11 @@
   max-width: 200rem;
 }
 
+.blog-id-skeleton-wrapper {
+  height: 100vh;
+  background-color: var(--bg-dark-blue);
+}
+
 .blog-id-container {
   padding: 4rem 0;
   margin: 0 auto;
