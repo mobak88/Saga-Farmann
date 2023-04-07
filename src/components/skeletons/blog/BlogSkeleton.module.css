@@ -1,0 +1,27 @@
+.skeleton {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  max-width: 50%;
+}
+
+.skeleton > div {
+  background-color: var(--very-dark-blue);
+  border-radius: 4px;
+  margin: 20px 0;
+}
+.s-banner {
+  padding: 12% 0;
+}
+.s-header {
+  padding: 15px 0;
+  max-width: 500px;
+}
+.s-content {
+  padding: 8px 0;
+  max-width: 800px;
+}
+.s-content-2 {
+  padding: 16px 0;
+  max-width: 1000px;
+}

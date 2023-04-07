@@ -111,7 +111,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: "blocking",
+    fallback: true,
   };
 };
 
@@ -140,6 +140,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
       crewMember,
       ids,
     },
+    revalidate: 1,
   };
 };
 
