@@ -81,17 +81,17 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const id = Number(params?.id);
   const res = await fetch(API_ENDPOINTS.post(id));
   const post: Post = await res.json();
-  const { post_images } = post.acf?.post_first_section;
 
   //Not working???
-  if (post_images === undefined) {
+  if (!post.id) {
     return {
       redirect: {
-        destination: "/",
+        destination: "/blog",
         permanent: false,
       },
     };
   }
+  const { post_images } = post.acf?.post_first_section;
   const images = post_images.map((image) => {
     return { image: image.post_image };
   });
