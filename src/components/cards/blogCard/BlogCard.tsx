@@ -3,6 +3,7 @@ import styles from "./BlogCard.module.css";
 import Link from "next/link";
 import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import Image from "next/image";
 
 interface BlogProps {
   id: number;
@@ -25,10 +26,12 @@ const BlogCard = ({
     <div className={styles["blog-page-card"]}>
       <Link style={{ textDecoration: "none" }} key={id} href={`/blog/${id}`}>
         <div className={styles["blog-card-image-wrapper"]}>
-          <img
+          <Image
             src={post_image}
             alt={title}
             className={styles["blog-card-image"]}
+            width={400}
+            height={400}
           />
         </div>
         <div className={styles["blog-card-info"]}>
