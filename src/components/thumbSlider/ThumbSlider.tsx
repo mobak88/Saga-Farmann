@@ -8,7 +8,7 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import styles from "./ThumbSlider.module.css";
 import Modal from "react-modal";
-import { ImageProps } from "@/pages/blog/interfaces";
+import { ImageProps } from "@/components/blog/interfaces";
 
 interface SliderProps {
   images: ImageProps[];

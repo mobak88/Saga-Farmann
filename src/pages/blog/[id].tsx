@@ -6,7 +6,7 @@ import Header from "@/components/header/Header";
 import BlogSecondText from "@/components/blog/blogSecondText/BlogSecondText";
 import BlogSecondHeading from "@/components/blog/blogSecondHeading/BlogSecondHeading";
 import styles from "./blog.module.css";
-import { Props, Post } from "./interfaces";
+import { Props, Post } from "../../components/blog/interfaces";
 import BlogSkeleton from "@/components/skeletons/blog/BlogSkeleton";
 
 const BlogDetails = ({ post, images }: Props) => {
