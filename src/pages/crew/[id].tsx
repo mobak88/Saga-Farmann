@@ -61,7 +61,7 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
 
   return (
     <>
-      <Header header={crewMember.title.rendered} />
+      <Header header={crewMember && crewMember.title.rendered} />
       <DarkContainer>
         <div className={styles["main-wrapper"]}>
           <div className={styles["button-heading-wrapper"]}>
@@ -83,15 +83,16 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
             </div>
           </div>
           <div className={styles["card-container"]}>
-            {crewMember.acf.member.map((member, index) => (
-              <Card
-                key={index}
-                member_image={member.member_image}
-                member_name={member.member_name}
-                member_role={member.member_role}
-                member_description={member.member_description}
-              />
-            ))}
+            {crewMember &&
+              crewMember.acf.member.map((member, index) => (
+                <Card
+                  key={index}
+                  member_image={member.member_image}
+                  member_name={member.member_name}
+                  member_role={member.member_role}
+                  member_description={member.member_description}
+                />
+              ))}
           </div>
         </div>
       </DarkContainer>
