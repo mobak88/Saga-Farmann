@@ -66,7 +66,6 @@ const HamburgerTransition = () => {
           )}
         </CSSTransition>
       </div>
-
       <CSSTransition
         nodeRef={nodeRefMenu}
         in={isOpen}
@@ -79,7 +78,7 @@ const HamburgerTransition = () => {
         }}
         unmountOnExit
       >
-        <div ref={nodeRefMenu} className={styles.menu}>
+        <div className={styles.menu} ref={nodeRefMenu}>
           {links.map(({ href, label }) => (
             <div key={href}>
               <Link
