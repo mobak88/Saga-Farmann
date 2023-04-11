@@ -63,6 +63,10 @@
   box-shadow: var(--box-shadow);
 }
 
+.sr-menu {
+  visibility: hidden;
+}
+
 .page-link {
   text-decoration: none;
   color: var(--light-text-color);

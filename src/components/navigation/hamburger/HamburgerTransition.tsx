@@ -7,7 +7,7 @@ import { IoIosMenu, IoMdClose } from "react-icons/io";
 const HamburgerTransition = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [click, setClick] = useState(false);
-  const nodeRefBurger = useRef<HTMLDivElement>(null);
+  const nodeRefBurger = useRef<HTMLButtonElement>(null);
   const nodeRefMenu = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
@@ -48,21 +48,23 @@ const HamburgerTransition = () => {
           }}
         >
           {click ? (
-            <div ref={nodeRefBurger}>
+            <button ref={nodeRefBurger}>
+              <span className={styles["sr-menu"]}>Menu</span>
               <IoMdClose
                 size={50}
                 className={styles["menu-icon"]}
                 onClick={toggleMenu}
               />
-            </div>
+            </button>
           ) : (
-            <div ref={nodeRefBurger}>
+            <button ref={nodeRefBurger}>
+              <span className={styles["sr-menu"]}>Menu</span>
               <IoIosMenu
                 size={50}
                 className={styles["menu-icon"]}
                 onClick={toggleMenu}
               />
-            </div>
+            </button>
           )}
         </CSSTransition>
       </div>
