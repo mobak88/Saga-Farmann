@@ -22,6 +22,7 @@ const API_ENDPOINTS = {
   singleCategory: (categoryId: number) => {
     return `${BASE_URL}/categories/${categoryId}`;
   },
+  sponsors: `${BASE_URL}/sponsors`,
 };
 
 export default API_ENDPOINTS;

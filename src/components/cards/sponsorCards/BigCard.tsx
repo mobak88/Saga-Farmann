@@ -23,11 +23,14 @@ const BigCard = ({
     <div className={styles["big-card-wrapper"]}>
       <div className={styles["image-wrapper"]}>
         <Image
-          src="/../public/assets/destination.jpg"
-          alt="{sponsor_name}"
+          src={sponsor_image}
+          alt={sponsor_name}
           className={styles.image}
           width={400}
           height={400}
+          decoding="async"
+          data-nimg="1"
+          loading="lazy"
         />
       </div>
       <div className={styles["card-text-wrapper"]}>
@@ -35,7 +38,7 @@ const BigCard = ({
         <ParagraphsSmall>{sponsor_description}</ParagraphsSmall>
         <Link className={styles["sponsor-link"]} href="/">
           <>
-            {"sponsor_link"}
+            {sponsor_link}
             <BsFillArrowRightCircleFill
               className={styles["arrow-icon"]}
               size={30}
