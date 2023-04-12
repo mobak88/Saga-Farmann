@@ -48,7 +48,7 @@ const HamburgerTransition = () => {
           }}
         >
           {click ? (
-            <button ref={nodeRefBurger}>
+            <button ref={nodeRefBurger} className={styles["menu-button"]}>
               <span className={styles["sr-menu"]}>Menu</span>
               <IoMdClose
                 size={50}
@@ -57,7 +57,7 @@ const HamburgerTransition = () => {
               />
             </button>
           ) : (
-            <button ref={nodeRefBurger}>
+            <button ref={nodeRefBurger} className={styles["menu-button"]}>
               <span className={styles["sr-menu"]}>Menu</span>
               <IoIosMenu
                 size={50}
@@ -81,7 +81,7 @@ const HamburgerTransition = () => {
         }}
         unmountOnExit
       >
-        <div ref={nodeRefMenu} className={styles.menu}>
+        <nav ref={nodeRefMenu} className={styles.menu}>
           {links.map(({ href, label }) => (
             <div key={href}>
               <Link
@@ -93,7 +93,7 @@ const HamburgerTransition = () => {
               </Link>
             </div>
           ))}
-        </div>
+        </nav>
       </CSSTransition>
     </>
   );
