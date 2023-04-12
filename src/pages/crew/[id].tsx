@@ -8,6 +8,7 @@ import Card from "../../components/cards/crewCard/CrewCard";
 import HeadingTwo from "@/components/typography/headings/HeadingTwo";
 import SwitchIdButton from "@/components/buttons/SwitchIdButton";
 import DarkContainer from "@/components/containers/darkContainer/DarkContainer";
+import CrewSkeleton from "@/components/skeletons/crew/CrewSkeleton";
 
 type Member = {
   member_image: string;
@@ -39,10 +40,13 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
   const [currentId, setCurrentId] = useState<number>(
     ids && ids.length > 0 ? ids[0] : -1
   );
-  const router = useRouter();
-  if (router.isFallback) {
-    return <div>Loading...</div>;
-  }
+
+  if (!ids)
+    return (
+      <div className={styles["crew-id-skeleton-wrapper"]}>
+        <CrewSkeleton />
+      </div>
+    );
 
   const isCurrentCrew = crewMember.acf.current_crew;
   const crewDateToApi = crewMember.acf.crew_dates.crew_date_to.toString();
@@ -126,6 +130,15 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
     `https://dev.sagafarmann.com/wp/wp-json/wp/v2/crew_members/${id}`
   );
   const crewMember: CrewMember = await crewRes.json();
+
+  if (!crewMember.id) {
+    return {
+      redirect: {
+        destination: "/crew",
+        permanent: false,
+      },
+    };
+  }
 
   const allCrewsRes = await fetch(
     `https://dev.sagafarmann.com/wp/wp-json/wp/v2/crew_members`
