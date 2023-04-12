@@ -1,5 +1,4 @@
 export interface GridSections {
-  id: number;
   first_block: {
     first_block_heading: string;
     first_block_text: string;

@@ -8,7 +8,7 @@ const API_ENDPOINTS = {
   },
   pages: `${BASE_URL}/pages`,
   page: (pageId: number) => {
-    return `${BASE_URL}/pages/${pageId}`;
+    return `${BASE_URL}/pages/${pageId}?acf_format=standard`;
   },
   crewMembers: `${BASE_URL}/crew_members`,
   singleCrew: (crewId: number) => {
