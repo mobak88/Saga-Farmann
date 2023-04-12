@@ -35,39 +35,37 @@ const HamburgerTransition = () => {
 
   return (
     <>
-      <div className={styles["hamburger-icons"]}>
-        <CSSTransition
-          nodeRef={nodeRefBurger}
-          in={isOpen}
-          timeout={300}
-          classNames={{
-            enter: styles["icons-enter"],
-            enterActive: styles["icons-enter-active"],
-            exit: styles["icons-exit"],
-            exitActive: styles["icons-exit-active"],
-          }}
-        >
-          {click ? (
-            <button ref={nodeRefBurger} className={styles["menu-button"]}>
-              <span className={styles["sr-menu"]}>Menu</span>
-              <IoMdClose
-                size={50}
-                className={styles["menu-icon"]}
-                onClick={toggleMenu}
-              />
-            </button>
-          ) : (
-            <button ref={nodeRefBurger} className={styles["menu-button"]}>
-              <span className={styles["sr-menu"]}>Menu</span>
-              <IoIosMenu
-                size={50}
-                className={styles["menu-icon"]}
-                onClick={toggleMenu}
-              />
-            </button>
-          )}
-        </CSSTransition>
-      </div>
+      <CSSTransition
+        nodeRef={nodeRefBurger}
+        in={isOpen}
+        timeout={300}
+        classNames={{
+          enter: styles["icons-enter"],
+          enterActive: styles["icons-enter-active"],
+          exit: styles["icons-exit"],
+          exitActive: styles["icons-exit-active"],
+        }}
+      >
+        {click ? (
+          <button ref={nodeRefBurger} className={styles["menu-button"]}>
+            <span className={styles["sr-menu"]}>Menu</span>
+            <IoMdClose
+              size={50}
+              className={styles["menu-icon"]}
+              onClick={toggleMenu}
+            />
+          </button>
+        ) : (
+          <button ref={nodeRefBurger} className={styles["menu-button"]}>
+            <span className={styles["sr-menu"]}>Menu</span>
+            <IoIosMenu
+              size={50}
+              className={styles["menu-icon"]}
+              onClick={toggleMenu}
+            />
+          </button>
+        )}
+      </CSSTransition>
 
       <CSSTransition
         nodeRef={nodeRefMenu}
