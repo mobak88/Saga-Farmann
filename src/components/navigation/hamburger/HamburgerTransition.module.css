@@ -22,6 +22,7 @@
 
 .menu-icon {
   color: var(--light-text-color);
+  cursor: pointer;
 }
 /*--Menu--*/
 .menu-enter {
@@ -54,12 +55,21 @@
   width: 400px;
   background-color: var(--very-dark-blue);
   padding: 10px;
-  z-index: 10;
+  z-index: 10000;
   display: flex;
   flex-direction: column;
   gap: 2rem;
   padding: 4rem 0;
   box-shadow: var(--box-shadow);
+}
+
+.menu-button {
+  background-color: transparent;
+  border: none;
+}
+
+.sr-menu {
+  visibility: hidden;
 }
 
 .page-link {

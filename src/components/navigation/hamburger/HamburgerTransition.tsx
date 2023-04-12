@@ -1,4 +1,4 @@
-import React, { useState, useRef, RefObject, createRef } from "react";
+import React, { useState, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import styles from "./HamburgerTransition.module.css";
 import Link from "next/link";
@@ -7,12 +7,12 @@ import { IoIosMenu, IoMdClose } from "react-icons/io";
 const HamburgerTransition = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [click, setClick] = useState(false);
-  const nodeRef1 = React.useRef<HTMLDivElement>(null);
-  const nodeRef2 = React.useRef<HTMLDivElement>(null);
+  const nodeRefBurger = useRef<HTMLButtonElement>(null);
+  const nodeRefMenu = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
-    setClick(!click);
+    setIsOpen((prevState) => !prevState);
+    setClick((prevState) => !prevState);
   };
 
   const links = [
@@ -29,38 +29,46 @@ const HamburgerTransition = () => {
   ];
 
   const handleLinkClick = () => {
-    setIsOpen(!isOpen);
-    setClick(!click);
+    setIsOpen((prevState) => !prevState);
+    setClick((prevState) => !prevState);
   };
 
   return (
     <>
-      <div className={styles["hamburger-icons"]} onClick={toggleMenu}>
-        <CSSTransition
-          nodeRef={nodeRef1}
-          in={isOpen}
-          timeout={300}
-          classNames={{
-            enter: styles["icons-enter"],
-            enterActive: styles["icons-enter-active"],
-            exit: styles["icons-exit"],
-            exitActive: styles["icons-exit-active"],
-          }}
-        >
-          {click ? (
-            <div ref={nodeRef1}>
-              <IoMdClose size={50} className={styles["menu-icon"]} />
-            </div>
-          ) : (
-            <div ref={nodeRef1}>
-              <IoIosMenu size={50} className={styles["menu-icon"]} />
-            </div>
-          )}
-        </CSSTransition>
-      </div>
+      <CSSTransition
+        nodeRef={nodeRefBurger}
+        in={isOpen}
+        timeout={300}
+        classNames={{
+          enter: styles["icons-enter"],
+          enterActive: styles["icons-enter-active"],
+          exit: styles["icons-exit"],
+          exitActive: styles["icons-exit-active"],
+        }}
+      >
+        {click ? (
+          <button ref={nodeRefBurger} className={styles["menu-button"]}>
+            <span className={styles["sr-menu"]}>Menu</span>
+            <IoMdClose
+              size={50}
+              className={styles["menu-icon"]}
+              onClick={toggleMenu}
+            />
+          </button>
+        ) : (
+          <button ref={nodeRefBurger} className={styles["menu-button"]}>
+            <span className={styles["sr-menu"]}>Menu</span>
+            <IoIosMenu
+              size={50}
+              className={styles["menu-icon"]}
+              onClick={toggleMenu}
+            />
+          </button>
+        )}
+      </CSSTransition>
 
       <CSSTransition
-        nodeRef={nodeRef2}
+        nodeRef={nodeRefMenu}
         in={isOpen}
         timeout={300}
         classNames={{
@@ -71,7 +79,7 @@ const HamburgerTransition = () => {
         }}
         unmountOnExit
       >
-        <div ref={nodeRef2} className={styles.menu}>
+        <nav ref={nodeRefMenu} className={styles.menu}>
           {links.map(({ href, label }) => (
             <div key={href}>
               <Link
@@ -83,7 +91,7 @@ const HamburgerTransition = () => {
               </Link>
             </div>
           ))}
-        </div>
+        </nav>
       </CSSTransition>
     </>
   );
