@@ -167,7 +167,9 @@ html {
 
 body {
   font-size: 1.6rem;
+  overflow-x: hidden;
 }
+
 @font-face {
   font-family: "Comfortaa";
   src: url("../../src/fonts/comfortaa/Comfortaa-Regular.eot");

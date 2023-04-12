@@ -8,6 +8,10 @@
   position: absolute;
   right: 2rem;
   top: 2rem;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .hero-background {

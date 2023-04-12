@@ -49,10 +49,11 @@
 }
 
 .menu {
+  width: 100%;
+  max-width: 400px;
   position: absolute;
   top: 8rem;
   right: 0;
-  width: 400px;
   background-color: var(--very-dark-blue);
   padding: 10px;
   z-index: 10000;
@@ -60,6 +61,7 @@
   flex-direction: column;
   gap: 2rem;
   padding: 4rem 0;
+  z-index: 10;
   box-shadow: var(--box-shadow);
 }
 
