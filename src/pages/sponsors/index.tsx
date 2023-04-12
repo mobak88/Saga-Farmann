@@ -6,6 +6,7 @@ import { GetStaticProps } from "next";
 import SponsorUsSection from "@/components/sponsorUsSection/SponsorUsSection";
 import { SponsorUsSectionInterface } from "@/components/sponsorUsSection/interfaces";
 import API_ENDPOINTS from "@/endpoints/endpoints";
+import styles from "./sponsorPage.module.css";
 
 interface Sponsor {
   title: { rendered: string };
@@ -34,30 +35,32 @@ const SponsorPage = ({ sponsors, sponsorUsSection }: Props) => {
     <>
       <Header header="Sponsors" />
       <DarkContainer>
-        {sponsors.map((sponsor, index) => {
-          const acf = sponsor.acf ?? {};
-          const sponsorImage = acf.sponsor?.[0]?.sponsor_image ?? "";
-          const sponsorName = acf.sponsor?.[0]?.sponsor_name ?? "";
-          const sponsorDescription =
-            acf.sponsor?.[0]?.sponsor_description ?? "";
+        <div className={styles["card-wrapper"]}>
+          {sponsors.map((sponsor, index) => {
+            const acf = sponsor.acf ?? {};
+            const sponsorImage = acf.sponsor?.[0]?.sponsor_image ?? "";
+            const sponsorName = acf.sponsor?.[0]?.sponsor_name ?? "";
+            const sponsorDescription =
+              acf.sponsor?.[0]?.sponsor_description ?? "";
 
-          // console.log(`Sponsor Name: ${sponsorName}`);
-          // console.log(`Sponsor Description: ${sponsorDescription}`);
-          // console.log(`Sponsor image: ${sponsorImage}`);
-          console.log(sponsor);
+            // console.log(`Sponsor Name: ${sponsorName}`);
+            // console.log(`Sponsor Description: ${sponsorDescription}`);
+            // console.log(`Sponsor image: ${sponsorImage}`);
+            console.log(sponsor);
 
-          return (
-            <BigCard
-              key={index}
-              sponsor_image={sponsorImage}
-              sponsor_name={sponsorName}
-              sponsor_description={sponsorDescription}
-              sponsor_link="Sponsor Link"
-            />
-          );
-        })}
+            return (
+              <BigCard
+                key={index}
+                sponsor_image={sponsorImage}
+                sponsor_name={sponsorName}
+                sponsor_description={sponsorDescription}
+                sponsor_link="Sponsor Link"
+              />
+            );
+          })}
+        </div>
       </DarkContainer>
-      <SponsorUsSection data={sponsorUsSection} />
+      {/* <SponsorUsSection data={sponsorUsSection} /> */}
     </>
   );
 };
