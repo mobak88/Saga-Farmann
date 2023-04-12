@@ -112,14 +112,38 @@ export async function getStaticProps() {
   const { grid_section, hero_section } = homeData.acf;
   const sponsorUsSection = sponsorUs.acf;
 
+  const heroSection = {
+    hero_background_image: hero_section.hero_background_image.url,
+    hero_text: hero_section.hero_text,
+  };
+
+  const gridSection = {
+    first_block: grid_section.first_block,
+    second_block: grid_section.second_block.url,
+    third_block: grid_section.third_block,
+    fourth_block: grid_section.fourth_block,
+    fifth_block: grid_section.fifth_block.url,
+    sixth_block: grid_section.sixth_block.url,
+    seventh_block: grid_section.seventh_block,
+    eighth_block: grid_section.eighth_block,
+  };
+
+  const sponsorUsData = {
+    sponsor_us_heading: sponsorUsSection.sponsor_us_heading,
+    sponsor_us_first_image: sponsorUsSection.sponsor_us_first_image.url,
+    sponsor_us_first_text: sponsorUsSection.sponsor_us_first_text,
+    sponsor_us_second_image: sponsorUsSection.sponsor_us_second_image.url,
+    sponsor_us_card: sponsorUsSection.sponsor_us_card,
+  };
+
   return {
     props: {
       stages: newStages,
       homeData,
-      heroSection: hero_section,
-      gridSection: grid_section,
+      heroSection,
+      gridSection,
       destinations: newDestinations,
-      sponsorUsSection,
+      sponsorUsSection: sponsorUsData,
     },
     revalidate: 1,
   };
