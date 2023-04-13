@@ -67,10 +67,18 @@ const LatestNewsSlider = ({ posts }: PostsProps) => {
             <SwiperSlide key={post.id} className={styles["news-swiper-slide"]}>
               <div className={styles["slider-card-container"]}>
                 <SliderCard
-                  imageSrc={post.imageSrc}
-                  heading={post.heading}
-                  text={post.text}
-                  alt={post.alt}
+                  imageSrc={
+                    post.acf.post_first_section.post_images[0].post_image.url
+                  }
+                  heading={post.acf.post_first_section.post_first_heading}
+                  text={post.acf.post_description}
+                  alt={
+                    post.acf.post_first_section.post_images[0].post_image.alt
+                      .length > 0
+                      ? post.acf.post_first_section.post_images[0].post_image
+                          .alt
+                      : `Image ${post.acf.post_first_section.post_first_heading}`
+                  }
                 />
               </div>
             </SwiperSlide>
