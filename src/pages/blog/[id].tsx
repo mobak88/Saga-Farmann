@@ -10,6 +10,7 @@ import { Props, Post } from "../../components/blog/interfaces";
 import BlogSkeleton from "@/components/skeletons/blog/BlogSkeleton";
 
 const BlogDetails = ({ post, images }: Props) => {
+  console.log(images);
   if (!post)
     return (
       <div className={styles["blog-id-skeleton-wrapper"]}>
@@ -82,7 +83,6 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const res = await fetch(API_ENDPOINTS.post(id));
   const post: Post = await res.json();
 
-  //Not working???
   if (!post.id) {
     return {
       redirect: {
@@ -93,7 +93,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   }
   const { post_images } = post.acf?.post_first_section;
   const images = post_images.map((image) => {
-    return { image: image.post_image };
+    return { image: image.post_image.url };
   });
 
   return {

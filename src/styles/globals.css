@@ -168,6 +168,11 @@ html {
 body {
   font-size: 1.6rem;
 }
+
+p {
+  line-height: 1.2;
+}
+
 @font-face {
   font-family: "Comfortaa";
   src: url("../../src/fonts/comfortaa/Comfortaa-Regular.eot");
