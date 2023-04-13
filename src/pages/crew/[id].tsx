@@ -116,9 +116,7 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch(
-    `https://dev.sagafarmann.com/wp/wp-json/wp/v2/crew_members`
-  );
+  const res = await fetch(API_ENDPOINTS.crewMembers);
 
   const crewMembers: CrewMember[] = await res.json();
   const paths = crewMembers.map((crewMember) => ({
