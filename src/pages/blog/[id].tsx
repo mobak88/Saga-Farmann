@@ -10,7 +10,6 @@ import { Props, Post } from "../../components/blog/interfaces";
 import BlogSkeleton from "@/components/skeletons/blog/BlogSkeleton";
 
 const BlogDetails = ({ post, images }: Props) => {
-  console.log(images);
   if (!post)
     return (
       <div className={styles["blog-id-skeleton-wrapper"]}>
