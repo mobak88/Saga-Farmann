@@ -4,11 +4,11 @@ import Link from "next/link";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 type Props = {
-  currentId: number;
-  totalIds: number;
-  setCurrentId: (id: number) => void;
-  baseUrl: string;
   ids: number[];
+  currentId: number;
+  setCurrentId: (id: number) => void;
+  totalIds: number;
+  baseUrl: string;
 };
 
 const SwitchIdButton = ({

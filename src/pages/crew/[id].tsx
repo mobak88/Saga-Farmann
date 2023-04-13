@@ -45,7 +45,9 @@ interface Params extends ParsedUrlQuery {
 }
 
 const CrewMemberPage = ({ crewMember, ids }: Props) => {
-  const [currentId, setCurrentId] = useState(ids[0]);
+  const [currentId, setCurrentId] = useState<number>(
+    ids && ids.length > 0 ? ids[0] : -1
+  );
   const router = useRouter();
   if (router.isFallback) {
     return <div>Loading...</div>;
