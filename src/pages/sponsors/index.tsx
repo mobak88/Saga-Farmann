@@ -7,11 +7,13 @@ import SponsorUsSection from "@/components/sponsorUsSection/SponsorUsSection";
 import { SponsorUsSectionInterface } from "@/components/sponsorUsSection/interfaces";
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import styles from "./sponsorPage.module.css";
+import SmallCard from "@/components/cards/sponsorCards/SmallCard";
 
 interface Sponsor {
   title: { rendered: string };
   acf: {
     sponsor: Array<{
+      prioritized: boolean;
       sponsor_image: string;
       sponsor_name: string;
       sponsor_description: string;
@@ -24,28 +26,28 @@ interface Props {
   sponsorUsSection: SponsorUsSectionInterface;
 }
 const SponsorPage = ({ sponsors, sponsorUsSection }: Props) => {
-  // sponsors.forEach((post) => {
-  //   const sponsorName = post.acf.sponsor[0].sponsor_name;
-  //   const sponsorDescription = post.acf.sponsor[0].sponsor_description;
+  const prioritizedSponsors = sponsors.filter((sponsor) => {
+    const acf = sponsor.acf ?? {};
+    return acf.sponsor?.[0]?.prioritized === true;
+  });
 
-  //   console.log(`Sponsor Name: ${sponsorName}`);
-  //   console.log(`Sponsor Description: ${sponsorDescription}`);
-  // });
+  const nonPrioritizedSponsors = sponsors.filter((sponsor) => {
+    const acf = sponsor.acf ?? {};
+    return acf.sponsor?.[0]?.prioritized !== true;
+  });
+
   return (
     <>
       <Header header="Sponsors" />
       <DarkContainer>
         <div className={styles["card-wrapper"]}>
-          {sponsors.map((sponsor, index) => {
+          {prioritizedSponsors.map((sponsor, index) => {
             const acf = sponsor.acf ?? {};
             const sponsorImage = acf.sponsor?.[0]?.sponsor_image ?? "";
             const sponsorName = acf.sponsor?.[0]?.sponsor_name ?? "";
             const sponsorDescription =
               acf.sponsor?.[0]?.sponsor_description ?? "";
 
-            // console.log(`Sponsor Name: ${sponsorName}`);
-            // console.log(`Sponsor Description: ${sponsorDescription}`);
-            // console.log(`Sponsor image: ${sponsorImage}`);
             console.log(sponsor);
 
             return (
@@ -58,9 +60,27 @@ const SponsorPage = ({ sponsors, sponsorUsSection }: Props) => {
               />
             );
           })}
+
+          {nonPrioritizedSponsors.map((sponsor, index) => {
+            const acf = sponsor.acf ?? {};
+            const sponsorImage = acf.sponsor?.[0]?.sponsor_image ?? "";
+            const sponsorName = acf.sponsor?.[0]?.sponsor_name ?? "";
+            const sponsorDescription =
+              acf.sponsor?.[0]?.sponsor_description ?? "";
+
+            return (
+              <SmallCard
+                key={index}
+                sponsor_image={sponsorImage}
+                sponsor_name={sponsorName}
+                sponsor_description={sponsorDescription}
+                sponsor_link="Sponsor Link"
+              />
+            );
+          })}
         </div>
       </DarkContainer>
-      {/* <SponsorUsSection data={sponsorUsSection} /> */}
+      <SponsorUsSection data={sponsorUsSection} />
     </>
   );
 };
