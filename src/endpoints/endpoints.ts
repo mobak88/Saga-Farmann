@@ -12,7 +12,7 @@ const API_ENDPOINTS = {
   },
   crewMembers: `${BASE_URL}/crew_members`,
   singleCrew: (crewId: number) => {
-    return `${BASE_URL}/crew_members/${crewId}`;
+    return `${BASE_URL}/crew_members/${crewId}/?acf_format=standard`;
   },
   blogPosts: `${BASE_URL}/posts`,
   post: (postId: number) => {
