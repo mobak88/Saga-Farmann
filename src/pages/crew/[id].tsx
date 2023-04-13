@@ -8,7 +8,7 @@ import Card from "../../components/cards/crewCard/CrewCard";
 import HeadingTwo from "@/components/typography/headings/HeadingTwo";
 import SwitchIdButton from "@/components/buttons/SwitchIdButton";
 import DarkContainer from "@/components/containers/darkContainer/DarkContainer";
-import CrewSkeleton from "@/components/skeletons/crew/CrewSkeleton";
+import CrewSkeleton from "@/components/skeletons/card/CardSkeleton";
 
 type Member = {
   member_image: string;
@@ -41,7 +41,7 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
     ids && ids.length > 0 ? ids[0] : -1
   );
 
-  if (!ids)
+  if (ids)
     return (
       <div className={styles["crew-id-skeleton-wrapper"]}>
         <CrewSkeleton />
