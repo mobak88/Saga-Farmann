@@ -11,7 +11,7 @@ const ReadMoreBtn = ({ url }: ReadmoreProps) => {
   return (
     <Link href={url} className={styles["read-more-link"]}>
       Read more
-      <BsFillArrowRightCircleFill className={styles["arrow-icon"]} size={25} />
+      <BsFillArrowRightCircleFill className={styles["arrow-icon"]} size={20} />
     </Link>
   );
 };

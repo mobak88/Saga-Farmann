@@ -6,6 +6,7 @@
   color: var(--bg-pink-brown);
   font-family: "Comfortaa";
   text-decoration: none;
+  font-size: var(--p--step-1);
 }
 .arrow-icon {
   color: var(--bg-pink-brown);
