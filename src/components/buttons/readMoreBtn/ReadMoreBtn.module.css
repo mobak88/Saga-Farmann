@@ -1,0 +1,12 @@
+.read-more-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--bg-pink-brown);
+  font-family: "Comfortaa";
+  text-decoration: none;
+}
+.arrow-icon {
+  color: var(--bg-pink-brown);
+}
