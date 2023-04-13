@@ -1,11 +1,11 @@
 import React from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import styles from "./CrewCard.module.css";
 import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
 import ParagraphsSmall from "@/components/typography/paragraphs/ParagraphsSmall";
 
 interface MemberProps {
-  member_image: string;
+  member_image: string | StaticImageData;
   member_name: string;
   member_role: string;
   member_description: string;

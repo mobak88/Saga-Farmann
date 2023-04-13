@@ -15,7 +15,7 @@ import { StaticImageData } from "next/image";
 type Member = {
   member_image:
     | {
-        sizes?: {
+        sizes: {
           medium: string;
         };
       }
@@ -97,8 +97,10 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
                 <Card
                   key={index}
                   member_image={
+                    typeof member.member_image === "object" &&
+                    "sizes" in member.member_image &&
                     member.member_image.sizes?.medium
-                      ? member.member_image.sizes?.medium
+                      ? member.member_image.sizes.medium
                       : avatarImg
                   }
                   member_name={member.member_name}
