@@ -12,9 +12,9 @@ import LatestNewsSlider from "./latestNewsSlider/LatestNewsSlider";
 
 interface SinglePostProps {
   id: number;
+  title: { rendered: string };
   acf: {
     post_first_section: {
-      post_first_heading: string;
       post_images: [{ post_image: { url: string; alt: string } }];
     };
     post_description: string;

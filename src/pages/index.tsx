@@ -35,7 +35,6 @@ const Home = ({
   heroSection,
   latestNews,
 }: HomeProps) => {
-  console.log(latestNews);
   return (
     <>
       <Head>

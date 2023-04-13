@@ -70,15 +70,16 @@ const LatestNewsSlider = ({ posts }: PostsProps) => {
                   imageSrc={
                     post.acf.post_first_section.post_images[0].post_image.url
                   }
-                  heading={post.acf.post_first_section.post_first_heading}
+                  heading={post.title.rendered}
                   text={post.acf.post_description}
                   alt={
                     post.acf.post_first_section.post_images[0].post_image.alt
                       .length > 0
                       ? post.acf.post_first_section.post_images[0].post_image
                           .alt
-                      : `Image ${post.acf.post_first_section.post_first_heading}`
+                      : `Image of ${post.title.rendered}`
                   }
+                  blogId={post.id.toString()}
                 />
               </div>
             </SwiperSlide>
