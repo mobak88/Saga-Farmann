@@ -132,9 +132,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<Props, Params> = async ({
   params,
 }) => {
-  const { id } = params ?? {};
+  const id = Number(params?.id);
 
-  const crewRes = await fetch(API_ENDPOINTS.singleCrew(parseInt(id as string)));
+  const crewRes = await fetch(API_ENDPOINTS.singleCrew(id));
 
   const crewMember: CrewMember = await crewRes.json();
 
