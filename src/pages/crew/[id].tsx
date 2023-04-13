@@ -8,9 +8,18 @@ import Card from "../../components/cards/crewCard/CrewCard";
 import HeadingTwo from "@/components/typography/headings/HeadingTwo";
 import SwitchIdButton from "@/components/buttons/SwitchIdButton";
 import DarkContainer from "@/components/containers/darkContainer/DarkContainer";
+import API_ENDPOINTS from "@/endpoints/endpoints";
+import avatarImg from "../../../public/assets/blank-profile-picture-973460_1280.png";
+import { StaticImageData } from "next/image";
 
 type Member = {
-  member_image: string;
+  member_image:
+    | {
+        sizes: {
+          medium: string;
+        };
+      }
+    | StaticImageData;
   member_name: string;
   member_role: string;
   member_description: string;
@@ -89,7 +98,13 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
               crewMember.acf.member.map((member, index) => (
                 <Card
                   key={index}
-                  member_image={member.member_image}
+                  member_image={
+                    typeof member.member_image === "object" &&
+                    "sizes" in member.member_image &&
+                    member.member_image.sizes?.medium
+                      ? member.member_image.sizes.medium
+                      : avatarImg
+                  }
                   member_name={member.member_name}
                   member_role={member.member_role}
                   member_description={member.member_description}
@@ -103,9 +118,7 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch(
-    `https://dev.sagafarmann.com/wp/wp-json/wp/v2/crew_members`
-  );
+  const res = await fetch(API_ENDPOINTS.crewMembers);
 
   const crewMembers: CrewMember[] = await res.json();
   const paths = crewMembers.map((crewMember) => ({
@@ -114,28 +127,29 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 };
 
 export const getStaticProps: GetStaticProps<Props, Params> = async ({
   params,
 }) => {
-  const { id } = params ?? {};
-  const crewRes = await fetch(
-    `https://dev.sagafarmann.com/wp/wp-json/wp/v2/crew_members/${id}`
-  );
+  const id = Number(params?.id);
+
+  const crewRes = await fetch(API_ENDPOINTS.singleCrew(id));
+
   const crewMember: CrewMember = await crewRes.json();
 
-  const allCrewsRes = await fetch(
-    `https://dev.sagafarmann.com/wp/wp-json/wp/v2/crew_members`
-  );
+  const allCrewsRes = await fetch(API_ENDPOINTS.crewMembers);
+
   const allCrews: CrewMember[] = await allCrewsRes.json();
+
   allCrews.sort((a, b) => {
     const aDateFrom = a.acf.crew_dates.crew_date_from;
     const bDateFrom = b.acf.crew_dates.crew_date_from;
     return aDateFrom - bDateFrom;
   });
+
   const ids = allCrews.map((crewMember) => crewMember.id);
 
   return {
