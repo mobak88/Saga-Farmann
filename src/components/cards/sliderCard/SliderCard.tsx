@@ -3,7 +3,7 @@ import styles from "./SliderCard.module.css";
 import Image from "next/image";
 import HeadingThree from "@/components/typography/headings/HeadingThree";
 import ParagraphsSmall from "@/components/typography/paragraphs/ParagraphsSmall";
-import ReadMoreBtn from "@/components/buttons/readMoreBtn/ReadMoreBtn";
+import { LinkToSmall } from "@/components/links/LinkTo";
 
 export interface SliderCardProps {
   imageSrc: string;
@@ -35,7 +35,9 @@ const SliderCard = ({
         <HeadingThree>{heading}</HeadingThree>
         <ParagraphsSmall>{text}</ParagraphsSmall>
       </div>
-      <ReadMoreBtn url={`blog/${blogId}`} />
+      <div className={styles["link-container"]}>
+        <LinkToSmall url={`blog/${blogId}`}>Read more</LinkToSmall>
+      </div>
     </div>
   );
 };
