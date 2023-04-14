@@ -26,58 +26,45 @@ interface Props {
   sponsorUsSection: SponsorUsSectionInterface;
 }
 const SponsorPage = ({ sponsors, sponsorUsSection }: Props) => {
-  const prioritizedSponsors = sponsors.filter((sponsor) => {
-    const acf = sponsor.acf ?? {};
-    return acf.sponsor?.[0]?.prioritized === true;
-  });
-
-  const nonPrioritizedSponsors = sponsors.filter((sponsor) => {
-    const acf = sponsor.acf ?? {};
-    return acf.sponsor?.[0]?.prioritized !== true;
-  });
-
   return (
     <>
       <Header header="Sponsors" />
       <DarkContainer>
-        <div className={styles["card-wrapper"]}>
-          {prioritizedSponsors.map((sponsor, index) => {
-            const acf = sponsor.acf ?? {};
-            const sponsorImage = acf.sponsor?.[0]?.sponsor_image ?? "";
-            const sponsorName = acf.sponsor?.[0]?.sponsor_name ?? "";
-            const sponsorDescription =
-              acf.sponsor?.[0]?.sponsor_description ?? "";
-
-            console.log(sponsor);
-
-            return (
-              <BigCard
-                key={index}
-                sponsor_image={sponsorImage}
-                sponsor_name={sponsorName}
-                sponsor_description={sponsorDescription}
-                sponsor_link="Sponsor Link"
-              />
-            );
-          })}
-
-          {nonPrioritizedSponsors.map((sponsor, index) => {
-            const acf = sponsor.acf ?? {};
-            const sponsorImage = acf.sponsor?.[0]?.sponsor_image ?? "";
-            const sponsorName = acf.sponsor?.[0]?.sponsor_name ?? "";
-            const sponsorDescription =
-              acf.sponsor?.[0]?.sponsor_description ?? "";
-
-            return (
-              <SmallCard
-                key={index}
-                sponsor_image={sponsorImage}
-                sponsor_name={sponsorName}
-                sponsor_description={sponsorDescription}
-                sponsor_link="Sponsor Link"
-              />
-            );
-          })}
+        <div className={styles["cards-container"]}>
+          <div className={styles["big-cards-wrapper"]}>
+            {sponsors
+              .filter((sponsor) => sponsor?.acf?.sponsor?.[0]?.prioritized)
+              .map((sponsor, index) => (
+                <BigCard
+                  key={index}
+                  sponsor_image={
+                    sponsor?.acf?.sponsor?.[0]?.sponsor_image ?? ""
+                  }
+                  sponsor_name={sponsor?.acf?.sponsor?.[0]?.sponsor_name ?? ""}
+                  sponsor_description={
+                    sponsor?.acf?.sponsor?.[0]?.sponsor_description ?? ""
+                  }
+                  sponsor_link="Sponsor Link"
+                />
+              ))}
+          </div>
+          <div className={styles["small-cards-wrapper"]}>
+            {sponsors
+              .filter((sponsor) => !sponsor?.acf?.sponsor?.[0]?.prioritized)
+              .map((sponsor, index) => (
+                <SmallCard
+                  key={index}
+                  sponsor_image={
+                    sponsor?.acf?.sponsor?.[0]?.sponsor_image ?? ""
+                  }
+                  sponsor_name={sponsor?.acf?.sponsor?.[0]?.sponsor_name ?? ""}
+                  sponsor_description={
+                    sponsor?.acf?.sponsor?.[0]?.sponsor_description ?? ""
+                  }
+                  sponsor_link="Sponsor Link"
+                />
+              ))}
+          </div>
         </div>
       </DarkContainer>
       <SponsorUsSection data={sponsorUsSection} />

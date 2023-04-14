@@ -1,10 +1,9 @@
 import React from "react";
 import styles from "./SponsorCards.module.css";
 import Image from "next/image";
-import Link from "next/link";
 import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
 import ParagraphsSmall from "@/components/typography/paragraphs/ParagraphsSmall";
-import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { LinkToSmall } from "@/components/links/LinkTo";
 
 interface SponsorProps {
   sponsor_image: string;
@@ -36,15 +35,7 @@ const SmallCard = ({
       <div className={styles["card-text-wrapper"]}>
         <ParagraphsBig>{sponsor_name}</ParagraphsBig>
         <ParagraphsSmall>{sponsor_description}</ParagraphsSmall>
-        <Link className={styles["sponsor-link"]} href="/">
-          <>
-            {sponsor_link}
-            <BsFillArrowRightCircleFill
-              className={styles["arrow-icon"]}
-              size={30}
-            />
-          </>
-        </Link>
+        <LinkToSmall url={sponsor_link}>Read more</LinkToSmall>
       </div>
     </div>
   );

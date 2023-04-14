@@ -1,9 +1,18 @@
-.big-card-wrapper {
+.big-card-wrapper,
+.small-card-wrapper {
   background-color: var(--very-dark-blue);
-  max-width: 50rem;
   display: flex;
   align-items: center;
   flex-direction: column;
+  box-shadow: var(--box-shadow-xd);
+}
+
+.big-card-wrapper {
+  max-width: 50rem;
+}
+
+.small-card-wrapper {
+  max-width: 23rem;
 }
 
 .image-wrapper {
@@ -25,4 +34,12 @@
   height: 100%;
   max-width: 40rem;
   max-height: 40rem;
+}
+
+.sponsor-link {
+  color: var(--bg-pink-brown);
+  font-family: "Comfortaa";
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
