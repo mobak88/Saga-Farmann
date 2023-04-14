@@ -19,7 +19,9 @@ const BlogPage = ({ posts }: Posts) => {
             <BlogCard
               id={post.id}
               key={post.id}
-              post_image={post.acf.post_first_section.post_images[0].post_image}
+              post_image={
+                post.acf.post_first_section.post_images[0].post_image.url
+              }
               modified={post.modified}
               title={post.title.rendered}
               post_description={post.acf.post_description}
@@ -34,7 +36,9 @@ const BlogPage = ({ posts }: Posts) => {
 
 export const getStaticProps: GetStaticProps<Posts> = async () => {
   const res = await fetch(API_ENDPOINTS.blogPosts);
+
   const posts: Post[] = await res.json();
+
   return {
     props: {
       posts,

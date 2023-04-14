@@ -82,7 +82,6 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const res = await fetch(API_ENDPOINTS.post(id));
   const post: Post = await res.json();
 
-  //Not working???
   if (!post.id) {
     return {
       redirect: {
@@ -93,7 +92,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   }
   const { post_images } = post.acf?.post_first_section;
   const images = post_images.map((image) => {
-    return { image: image.post_image };
+    return { image: image.post_image.url };
   });
 
   return {

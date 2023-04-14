@@ -1,7 +1,6 @@
 import type { ReactElement } from "react";
 import Head from "next/head";
 import LatestNews from "@/components/latestNews/LatestNews";
-import sliderData from "@/components/latestNews/latestNewsSlider/sliderData";
 import Hero from "@/components/hero/Hero";
 import GridImagesAndText from "@/components/gridImagesAndText/GridImagesAndText";
 import styles from "./home.module.css";
@@ -25,6 +24,7 @@ export interface HomeProps {
   heroSection: HeroSection;
   sponsorUsSection: SponsorUsSectionInterface;
   destinations: SingleStageProps[];
+  latestNews: any;
 }
 
 const Home = ({
@@ -33,6 +33,7 @@ const Home = ({
   gridSection,
   sponsorUsSection,
   heroSection,
+  latestNews,
 }: HomeProps) => {
   return (
     <>
@@ -53,9 +54,9 @@ const Home = ({
         <LivestreamVideo />
       </div>
       <LatestNews
-        postHeading="Latest News and  posts"
-        postText="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut."
-        posts={sliderData}
+        postHeading={latestNews.latestNewsText.latest_news_heading}
+        postText={latestNews.latestNewsText.latest_news_short_description}
+        posts={latestNews.posts}
       />
       <SponsorUsSection data={sponsorUsSection} />
     </>
@@ -63,20 +64,23 @@ const Home = ({
 };
 
 export async function getStaticProps() {
-  const [resStages, resHomeData, resDestinations, resSponsorUs] =
+  const [resStages, resHomeData, resDestinations, resSponsorUs, resBlogPosts] =
     await Promise.all([
       fetch(API_ENDPOINTS.stages),
       fetch(API_ENDPOINTS.page(128)),
       fetch(API_ENDPOINTS.destinations),
       fetch(API_ENDPOINTS.page(222)),
+      fetch(API_ENDPOINTS.blogPosts),
     ]);
 
-  const [stages, homeData, destinations, sponsorUs] = await Promise.all([
-    resStages.json(),
-    resHomeData.json(),
-    resDestinations.json(),
-    resSponsorUs.json(),
-  ]);
+  const [stages, homeData, destinations, sponsorUs, blogPosts] =
+    await Promise.all([
+      resStages.json(),
+      resHomeData.json(),
+      resDestinations.json(),
+      resSponsorUs.json(),
+      resBlogPosts.json(),
+    ]);
 
   const newStages = stages.map((stage: SingleStageApiProps) => {
     return {
@@ -109,7 +113,7 @@ export async function getStaticProps() {
     }
   );
 
-  const { grid_section, hero_section } = homeData.acf;
+  const { grid_section, hero_section, latest_news } = homeData.acf;
   const sponsorUsSection = sponsorUs.acf;
 
   const heroSection = {
@@ -136,6 +140,11 @@ export async function getStaticProps() {
     sponsor_us_card: sponsorUsSection.sponsor_us_card,
   };
 
+  const latestNews = {
+    latestNewsText: latest_news,
+    posts: blogPosts,
+  };
+
   return {
     props: {
       stages: newStages,
@@ -144,6 +153,7 @@ export async function getStaticProps() {
       gridSection,
       destinations: newDestinations,
       sponsorUsSection: sponsorUsData,
+      latestNews,
     },
     revalidate: 1,
   };

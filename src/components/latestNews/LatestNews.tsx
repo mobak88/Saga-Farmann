@@ -1,5 +1,4 @@
 import React from "react";
-import { SliderCardProps } from "../cards/sliderCard/SliderCard";
 import HeadingTwo from "../typography/headings/HeadingTwo";
 import ParagraphsSmall from "../typography/paragraphs/ParagraphsSmall";
 import WaveDarkHome, {
@@ -11,8 +10,15 @@ import WaveDarkHomeSmall, {
 import styles from "./LatestNews.module.css";
 import LatestNewsSlider from "./latestNewsSlider/LatestNewsSlider";
 
-interface SinglePostProps extends SliderCardProps {
+interface SinglePostProps {
   id: number;
+  title: { rendered: string };
+  acf: {
+    post_first_section: {
+      post_images: [{ post_image: { url: string; alt: string } }];
+    };
+    post_description: string;
+  };
 }
 
 export interface PostsProps {

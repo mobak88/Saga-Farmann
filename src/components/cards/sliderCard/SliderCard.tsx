@@ -3,15 +3,23 @@ import styles from "./SliderCard.module.css";
 import Image from "next/image";
 import HeadingThree from "@/components/typography/headings/HeadingThree";
 import ParagraphsSmall from "@/components/typography/paragraphs/ParagraphsSmall";
+import ReadMoreBtn from "@/components/buttons/readMoreBtn/ReadMoreBtn";
 
 export interface SliderCardProps {
   imageSrc: string;
   heading: string;
   text: string;
   alt: string;
+  blogId: string;
 }
 
-const SliderCard = ({ imageSrc, heading, text, alt }: SliderCardProps) => {
+const SliderCard = ({
+  imageSrc,
+  heading,
+  text,
+  alt,
+  blogId,
+}: SliderCardProps) => {
   return (
     <div className={styles.card}>
       <div>
@@ -27,6 +35,7 @@ const SliderCard = ({ imageSrc, heading, text, alt }: SliderCardProps) => {
         <HeadingThree>{heading}</HeadingThree>
         <ParagraphsSmall>{text}</ParagraphsSmall>
       </div>
+      <ReadMoreBtn url={`blog/${blogId}`} />
     </div>
   );
 };

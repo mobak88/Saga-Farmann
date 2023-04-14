@@ -14,9 +14,9 @@ const API_ENDPOINTS = {
   singleCrew: (crewId: number) => {
     return `${BASE_URL}/crew_members/${crewId}?acf_format=standard`;
   },
-  blogPosts: `${BASE_URL}/posts`,
+  blogPosts: `${BASE_URL}/posts?acf_format=standard`,
   post: (postId: number) => {
-    return `${BASE_URL}/posts/${postId}`;
+    return `${BASE_URL}/posts/${postId}?acf_format=standard`;
   },
   categories: `${BASE_URL}/categories`,
   singleCategory: (categoryId: number) => {

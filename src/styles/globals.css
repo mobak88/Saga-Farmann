@@ -171,6 +171,10 @@ body {
   overflow-x: hidden;
 }
 
+p {
+  line-height: 1.2;
+}
+
 @font-face {
   font-family: "Comfortaa";
   src: url("../../src/fonts/comfortaa/Comfortaa-Regular.eot");
