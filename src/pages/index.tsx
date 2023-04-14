@@ -17,6 +17,8 @@ import {
 import { HeroSection } from "@/components/hero/interfaces";
 import SponsorUsSection from "@/components/sponsorUsSection/SponsorUsSection";
 import { SponsorUsSectionInterface } from "@/components/sponsorUsSection/interfaces";
+import { sponsorUsDataStructure } from "@/helpers/sponsorUsDataStructure";
+import { LatestNewsHomeProps } from "@/components/latestNews/latestNewsInterfaces";
 
 export interface HomeProps {
   stages: SingleStageProps[];
@@ -24,7 +26,7 @@ export interface HomeProps {
   heroSection: HeroSection;
   sponsorUsSection: SponsorUsSectionInterface;
   destinations: SingleStageProps[];
-  latestNews: any;
+  latestNews: LatestNewsHomeProps;
 }
 
 const Home = ({
@@ -132,18 +134,12 @@ export async function getStaticProps() {
     eighth_block: grid_section.eighth_block,
   };
 
-  const sponsorUsData = {
-    sponsor_us_heading: sponsorUsSection.sponsor_us_heading,
-    sponsor_us_first_image: sponsorUsSection.sponsor_us_first_image.url,
-    sponsor_us_first_text: sponsorUsSection.sponsor_us_first_text,
-    sponsor_us_second_image: sponsorUsSection.sponsor_us_second_image.url,
-    sponsor_us_card: sponsorUsSection.sponsor_us_card,
-  };
-
   const latestNews = {
     latestNewsText: latest_news,
     posts: blogPosts,
   };
+
+  const sponsorUsData = sponsorUsDataStructure(sponsorUsSection);
 
   return {
     props: {

@@ -9,26 +9,7 @@ import WaveDarkHomeSmall, {
 } from "../waves/wavesSmallScreen/WaveDarkHomeSmall";
 import styles from "./LatestNews.module.css";
 import LatestNewsSlider from "./latestNewsSlider/LatestNewsSlider";
-
-interface SinglePostProps {
-  id: number;
-  title: { rendered: string };
-  acf: {
-    post_first_section: {
-      post_images: [{ post_image: { url: string; alt: string } }];
-    };
-    post_description: string;
-  };
-}
-
-export interface PostsProps {
-  posts: SinglePostProps[];
-}
-
-interface LatestNewsProps extends PostsProps {
-  postHeading: string;
-  postText: string;
-}
+import { LatestNewsProps } from "./latestNewsInterfaces";
 
 const LatestNews = ({ posts, postHeading, postText }: LatestNewsProps) => {
   return (
