@@ -19,6 +19,7 @@ import SponsorUsSection from "@/components/sponsorUsSection/SponsorUsSection";
 import { SponsorUsSectionInterface } from "@/components/sponsorUsSection/interfaces";
 import { sponsorUsDataStructure } from "@/helpers/sponsorUsDataStructure";
 import { LatestNewsHomeProps } from "@/components/latestNews/latestNewsInterfaces";
+import { gridSectionDataStructure } from "@/helpers/gridSectionDataStructure";
 
 export interface HomeProps {
   stages: SingleStageProps[];
@@ -27,6 +28,7 @@ export interface HomeProps {
   sponsorUsSection: SponsorUsSectionInterface;
   destinations: SingleStageProps[];
   latestNews: LatestNewsHomeProps;
+  grid: any;
 }
 
 const Home = ({
@@ -36,7 +38,9 @@ const Home = ({
   sponsorUsSection,
   heroSection,
   latestNews,
+  grid,
 }: HomeProps) => {
+  console.log(grid);
   return (
     <>
       <Head>
@@ -123,16 +127,7 @@ export async function getStaticProps() {
     hero_text: hero_section.hero_text,
   };
 
-  const gridSection = {
-    first_block: grid_section.first_block,
-    second_block: grid_section.second_block.url,
-    third_block: grid_section.third_block,
-    fourth_block: grid_section.fourth_block,
-    fifth_block: grid_section.fifth_block.url,
-    sixth_block: grid_section.sixth_block.url,
-    seventh_block: grid_section.seventh_block,
-    eighth_block: grid_section.eighth_block,
-  };
+  const gridSection = gridSectionDataStructure(grid_section);
 
   const latestNews = {
     latestNewsText: latest_news,
