@@ -40,7 +40,6 @@ const Home = ({
   heroSection,
   latestNews,
 }: HomeProps) => {
-  console.log(stages);
   return (
     <>
       <Head>
