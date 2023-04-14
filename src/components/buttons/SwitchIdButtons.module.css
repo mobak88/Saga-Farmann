@@ -1,24 +1,93 @@
+.wrapper {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  background-color: orange;
+}
+
 .change-id-btn-left,
 .change-id-btn-right {
   background-color: transparent;
   border: 2px solid var(--light-text-color);
   color: var(--light-text-color);
+  font-size: var(--p--step--1);
   width: 10rem;
   padding: 1.5rem 2rem;
   text-decoration: none;
   font-family: "Comfortaa";
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 1rem;
-  align-items: flex-end;
 }
 
 .btn-wrapper {
   display: flex;
-  gap: 30rem;
+  align-items: center;
+  justify-content: space-between;
+  width: 40em;
 }
-@media only screen and (max-width: 600px) {
+
+@media screen and (max-width: 750px) {
   .btn-wrapper {
-    gap: 5rem;
+    width: 35em;
+  }
+  .change-id-btn-left,
+  .change-id-btn-right {
+    width: 8rem;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .btn-wrapper {
+    width: 30em;
+  }
+  .change-id-btn-left,
+  .change-id-btn-right {
+    width: 8rem;
+    border: 1px solid var(--light-text-color);
+    padding: 1rem 1.5rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .btn-wrapper {
+    width: 25em;
+  }
+  .change-id-btn-left,
+  .change-id-btn-right {
+    width: 6rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .btn-wrapper {
+    width: 22em;
+  }
+  .change-id-btn-left,
+  .change-id-btn-right {
+    width: 6rem;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .btn-wrapper {
+    width: 10em;
+    display: grid;
+    column-gap: 1em;
+    row-gap: 0.5em;
+    align-items: center;
+    justify-content: center;
+    grid-template-rows: 2em;
+  }
+  .change-id-btn-left,
+  .change-id-btn-right {
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  .child {
+    text-align: center;
+    grid-row: 1 / 2;
+    grid-column: 1 / 3;
   }
 }

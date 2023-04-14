@@ -82,16 +82,17 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
               setCurrentId={setCurrentId}
               baseUrl="/crew"
               ids={ids}
-            />
-            <div className={styles["heading-wrapper"]}>
-              <HeadingTwo>
-                {isCurrentCrew
-                  ? "Current Crew"
-                  : isFormerCrew()
-                  ? "Upcoming Crew"
-                  : "Former Crew"}
-              </HeadingTwo>
-            </div>
+            >
+              <div className={styles["heading-wrapper"]}>
+                <HeadingTwo>
+                  {isCurrentCrew
+                    ? "Current Crew"
+                    : isFormerCrew()
+                    ? "Upcoming Crew"
+                    : "Former Crew"}
+                </HeadingTwo>
+              </div>
+            </SwitchIdButton>
           </div>
           <div className={styles["card-container"]}>
             {crewMember &&
