@@ -9,7 +9,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.header-text {
   font-size: var(--h--step-3);
+  position: absolute;
+}
+
+.button-heading-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 5rem;
   position: relative;
 }
 
