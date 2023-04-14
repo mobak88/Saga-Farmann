@@ -12,7 +12,6 @@ import { GridSections } from "@/components/gridImagesAndText/interfaces";
 import {
   SingleStageApiProps,
   SingleStageProps,
-  SingleDestinationApiProps,
 } from "@/components/mapbox/interfaces";
 import { HeroSection } from "@/components/hero/interfaces";
 import SponsorUsSection from "@/components/sponsorUsSection/SponsorUsSection";
@@ -20,6 +19,8 @@ import { SponsorUsSectionInterface } from "@/components/sponsorUsSection/interfa
 import { sponsorUsDataStructure } from "@/helpers/sponsorUsDataStructure";
 import { LatestNewsHomeProps } from "@/components/latestNews/latestNewsInterfaces";
 import { gridSectionDataStructure } from "@/helpers/gridSectionDataStructure";
+import { destinationsDataStructure } from "@/helpers/destinationsDataStructure";
+import { stagesDataStructure } from "@/helpers/stagesDataStructure";
 
 export interface HomeProps {
   stages: SingleStageProps[];
@@ -28,7 +29,7 @@ export interface HomeProps {
   sponsorUsSection: SponsorUsSectionInterface;
   destinations: SingleStageProps[];
   latestNews: LatestNewsHomeProps;
-  grid: any;
+  testSTage: any;
 }
 
 const Home = ({
@@ -38,9 +39,8 @@ const Home = ({
   sponsorUsSection,
   heroSection,
   latestNews,
-  grid,
 }: HomeProps) => {
-  console.log(grid);
+  console.log(stages);
   return (
     <>
       <Head>
@@ -88,36 +88,9 @@ export async function getStaticProps() {
       resBlogPosts.json(),
     ]);
 
-  const newStages = stages.map((stage: SingleStageApiProps) => {
-    return {
-      id: stage.id,
-      title: stage.title.rendered,
-      coordinates: {
-        long: stage.acf.coordinates.long,
-        lat: stage.acf.coordinates.lat,
-      },
-      number: stage.acf.stage_number,
-      text_area: stage.acf.stage[0].stage_text_area[0].stage_text,
-      current: stage.acf.current_destination,
-      next_year: stage.acf.next_year,
-    };
-  });
+  const newStages = stagesDataStructure(stages);
 
-  const newDestinations = destinations.map(
-    (destination: SingleDestinationApiProps) => {
-      return {
-        id: destination.id,
-        title: destination.title.rendered,
-        coordinates: {
-          long: destination.acf.destination_coordinates.destination_long,
-          lat: destination.acf.destination_coordinates.destination_lat,
-        },
-        number: destination.acf.destination_number,
-        text_area: destination.acf.destination_text_fields[0].destination_text,
-        next_year: destination.acf.next_year_destination,
-      };
-    }
-  );
+  const newDestinations = destinationsDataStructure(destinations);
 
   const { grid_section, hero_section, latest_news } = homeData.acf;
   const sponsorUsSection = sponsorUs.acf;
