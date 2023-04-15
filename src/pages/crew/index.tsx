@@ -12,6 +12,9 @@ import API_ENDPOINTS from "@/endpoints/endpoints";
 interface CrewMember {
   id: number;
   title: { rendered: string };
+  acf: {
+    crew_dates: { crew_date_from: number; crew_date_to: number };
+  };
 }
 
 interface Props {
@@ -20,6 +23,8 @@ interface Props {
 }
 
 const CrewMemberPage = ({ crewMembers, sponsorUsSection }: Props) => {
+  console.log("sorted crew members:", crewMembers);
+
   return (
     <>
       <Header header="Crews 2023" />
@@ -43,6 +48,8 @@ const CrewMemberPage = ({ crewMembers, sponsorUsSection }: Props) => {
   );
 };
 
+export default CrewMemberPage;
+
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const [resCrewMembers, resSponsorUs] = await Promise.all([
     fetch(API_ENDPOINTS.crewMembers),
@@ -54,23 +61,25 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     resSponsorUs.json(),
   ]);
 
-  const swapElements = (arr: any[], i1: number, i2: number) => {
-    let temp = arr[i1];
-    arr[i1] = arr[i2];
-    arr[i2] = temp;
-  };
+  const filteredCrewMembers = crewMembers.filter(
+    (member: CrewMember) => member.acf?.crew_dates?.crew_date_from
+  );
 
-  swapElements(crewMembers, 6, 7);
+  filteredCrewMembers
+    .sort((a: CrewMember, b: CrewMember) => {
+      const aDateFrom = Number(a.acf.crew_dates.crew_date_from);
+      const bDateFrom = Number(b.acf.crew_dates.crew_date_from);
+      return aDateFrom - bDateFrom;
+    })
+    .reverse();
 
   const sponsorUsSection = sponsorUs.acf;
 
   return {
     props: {
-      crewMembers,
+      crewMembers: filteredCrewMembers,
       sponsorUsSection,
     },
     revalidate: 1,
   };
 };
-
-export default CrewMemberPage;
