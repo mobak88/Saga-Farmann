@@ -44,7 +44,7 @@ interface Params extends ParsedUrlQuery {
   id: string;
 }
 
-const CrewMemberPage = ({ crewMember, ids }: Props) => {
+const CrewMemberPage = ({ crewMember, ids }: Props & { ids: number[] }) => {
   const [currentId, setCurrentId] = useState<number>(
     ids && ids.length > 0 ? ids[0] : -1
   );
@@ -140,6 +140,8 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
   const crewRes = await fetch(API_ENDPOINTS.singleCrew(id));
 
   const crewMember: CrewMember = await crewRes.json();
+
+  console.log(crewMember.acf.current_crew);
 
   const allCrewsRes = await fetch(API_ENDPOINTS.crewMembers);
 

@@ -28,7 +28,7 @@ interface Params extends ParsedUrlQuery {
 const DestinationPage = ({ destination, ids }: Props) => {
   const [startIndex, setStartIndex] = useState<number>(0);
 
-  const images = destination.acf.destination_images.map((image) => {
+  const images = destination.acf?.destination_images?.map((image) => {
     return { image: image.destination_image.url };
   });
 
