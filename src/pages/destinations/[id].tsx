@@ -32,7 +32,7 @@ const DestinationPage = ({ destination, ids }: Props) => {
     return { image: image.destination_image.url };
   });
 
-  const visibleImages = images.slice(startIndex, startIndex + 3);
+  const visibleImages = images?.slice(startIndex, startIndex + 3);
 
   const router = useRouter();
   if (router.isFallback) {
@@ -49,7 +49,8 @@ const DestinationPage = ({ destination, ids }: Props) => {
 
   return (
     <>
-      <HeaderWithBtns header={destination.title.rendered} ids={ids} />
+      <HeaderWithBtns header={destination.title?.rendered ?? ""} ids={ids} />
+
       <div className={styles.wrapper}>
         <div className={styles["imageSlider-wrapper"]}>
           <ImageSlider
@@ -59,11 +60,15 @@ const DestinationPage = ({ destination, ids }: Props) => {
           />
         </div>
         <div className={styles["text-container"]}>
-          <HeadingTwo>{destination.acf.destination_heading}</HeadingTwo>
+          <HeadingTwo>{destination.acf?.destination_heading}</HeadingTwo>
           <div className={styles.paragraphs}>
-            {destination.acf.destination_text_fields.map((text, index) => (
-              <ParagraphsBig key={index}>{text.destination_text}</ParagraphsBig>
-            ))}
+            {(destination.acf.destination_text_fields ?? []).map(
+              (text, index) => (
+                <ParagraphsBig key={index}>
+                  {text.destination_text}
+                </ParagraphsBig>
+              )
+            )}
           </div>
         </div>
       </div>
