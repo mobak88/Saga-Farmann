@@ -14,7 +14,9 @@ interface Sponsor {
   acf: {
     sponsor: Array<{
       prioritized: boolean;
-      sponsor_image: string;
+      sponsor_image: {
+        url: string;
+      };
       sponsor_name: string;
       sponsor_description: string;
     }>;
@@ -26,6 +28,8 @@ interface Props {
   sponsorUsSection: SponsorUsSectionInterface;
 }
 const SponsorPage = ({ sponsors, sponsorUsSection }: Props) => {
+  console.log(sponsors);
+
   return (
     <>
       <Header header="Sponsors" />
@@ -38,7 +42,7 @@ const SponsorPage = ({ sponsors, sponsorUsSection }: Props) => {
                 <BigCard
                   key={index}
                   sponsor_image={
-                    sponsor?.acf?.sponsor?.[0]?.sponsor_image ?? ""
+                    sponsor?.acf.sponsor?.[0].sponsor_image.url ?? ""
                   }
                   sponsor_name={sponsor?.acf?.sponsor?.[0]?.sponsor_name ?? ""}
                   sponsor_description={
@@ -55,7 +59,7 @@ const SponsorPage = ({ sponsors, sponsorUsSection }: Props) => {
                 <SmallCard
                   key={index}
                   sponsor_image={
-                    sponsor?.acf?.sponsor?.[0]?.sponsor_image ?? ""
+                    sponsor?.acf.sponsor?.[0].sponsor_image.url ?? ""
                   }
                   sponsor_name={sponsor?.acf?.sponsor?.[0]?.sponsor_name ?? ""}
                   sponsor_description={
@@ -84,11 +88,18 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   ]);
 
   const sponsorUsSection = sponsorUs.acf;
+  const sponsorUsData = {
+    sponsor_us_heading: sponsorUsSection.sponsor_us_heading,
+    sponsor_us_first_image: sponsorUsSection.sponsor_us_first_image.url,
+    sponsor_us_first_text: sponsorUsSection.sponsor_us_first_text,
+    sponsor_us_second_image: sponsorUsSection.sponsor_us_second_image.url,
+    sponsor_us_card: sponsorUsSection.sponsor_us_card,
+  };
 
   return {
     props: {
       sponsors,
-      sponsorUsSection,
+      sponsorUsSection: sponsorUsData,
     },
   };
 };
