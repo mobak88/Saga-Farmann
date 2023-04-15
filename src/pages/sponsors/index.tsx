@@ -1,13 +1,13 @@
-import BigCard from "@/components/cards/sponsorCards/BigCard";
-import DarkContainer from "@/components/containers/darkContainer/DarkContainer";
-import Header from "@/components/header/Header";
 import React from "react";
 import { GetStaticProps } from "next";
-import SponsorUsSection from "@/components/sponsorUsSection/SponsorUsSection";
-import { SponsorUsSectionInterface } from "@/components/sponsorUsSection/interfaces";
-import API_ENDPOINTS from "@/endpoints/endpoints";
 import styles from "./sponsorPage.module.css";
+import Header from "@/components/header/Header";
+import BigCard from "@/components/cards/sponsorCards/BigCard";
 import SmallCard from "@/components/cards/sponsorCards/SmallCard";
+import DarkContainer from "@/components/containers/darkContainer/DarkContainer";
+import { SponsorUsSectionInterface } from "@/components/sponsorUsSection/interfaces";
+import SponsorUsSection from "@/components/sponsorUsSection/SponsorUsSection";
+import API_ENDPOINTS from "@/endpoints/endpoints";
 
 interface Sponsor {
   title: { rendered: string };
@@ -28,8 +28,6 @@ interface Props {
   sponsorUsSection: SponsorUsSectionInterface;
 }
 const SponsorPage = ({ sponsors, sponsorUsSection }: Props) => {
-  console.log(sponsors);
-
   return (
     <>
       <Header header="Sponsors" />

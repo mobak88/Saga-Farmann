@@ -13,10 +13,25 @@
   justify-content: center;
 }
 
-@media screen and (max-width: 600px) {
-  .card-wrapper {
-    width: 90%;
-    display: flex;
-    flex-direction: column;
+@media only screen and (max-width: 1040px) {
+  .small-cards-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .cards-container {
+    max-width: 600px;
+    gap: 2rem;
+  }
+  .small-cards-wrapper {
+    gap: 2rem;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .cards-container {
+    max-width: 425px;
   }
 }
