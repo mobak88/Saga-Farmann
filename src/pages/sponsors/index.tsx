@@ -99,6 +99,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       sponsors,
       sponsorUsSection: sponsorUsData,
     },
+    revalidate: 1,
   };
 };
 export default SponsorPage;
