@@ -9,8 +9,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: var(--h--step-3);
   position: relative;
+}
+
+.button-heading-wrapper h1 {
+  font-size: var(--h--step-3);
 }
 
 .wave-container {

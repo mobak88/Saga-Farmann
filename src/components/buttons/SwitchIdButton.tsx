@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import styles from "./SwitchIdButtons.module.css";
 import Link from "next/link";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
@@ -9,6 +9,7 @@ type Props = {
   setCurrentId: (id: number) => void;
   totalIds: number;
   baseUrl: string;
+  children?: ReactNode;
 };
 
 const SwitchIdButton = ({
@@ -17,6 +18,7 @@ const SwitchIdButton = ({
   setCurrentId,
   baseUrl,
   ids,
+  children,
 }: Props) => {
   const handleNext = () => {
     const nextId = (currentId + 1) % totalIds;
@@ -45,7 +47,7 @@ const SwitchIdButton = ({
         <FaChevronLeft className={styles["arrow-icon"]} size={15} />
         Previous
       </Link>
-
+      <div className={styles.child}>{children}</div>
       <Link
         href={`${baseUrl}/[id]`}
         as={asNext}

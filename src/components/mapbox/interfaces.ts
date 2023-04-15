@@ -10,6 +10,7 @@ export interface SingleStageApiProps {
     stage: [
       {
         stage_text_area: [{ stage_text: string }];
+        stage_images: [{ stage_image: false | { url: string } }];
       }
     ];
     current_destination: boolean;
@@ -31,6 +32,7 @@ export interface SingleDestinationApiProps {
       }
     ];
     next_year_destination: boolean;
+    destination_images: [{ destination_image: false | { url: string } }];
   };
 }
 
@@ -45,4 +47,5 @@ export interface SingleStageProps {
   text_area: string;
   current: boolean;
   next_year: boolean;
+  image: false | string;
 }
