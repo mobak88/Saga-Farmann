@@ -23,8 +23,6 @@ interface Props {
 }
 
 const CrewMemberPage = ({ crewMembers, sponsorUsSection }: Props) => {
-  console.log("sorted crew members:", crewMembers);
-
   return (
     <>
       <Header header="Crews 2023" />

@@ -32,8 +32,6 @@ const DestinationPage = ({ destination, ids }: Props) => {
     return { image: image.destination_image.url };
   });
 
-  console.log(destination);
-
   const visibleImages = images.slice(startIndex, startIndex + 3);
 
   const router = useRouter();
