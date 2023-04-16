@@ -42,7 +42,7 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
     ids && ids.length > 0 ? ids[0] : -1
   );
 
-  if (ids)
+  if (!ids)
     return (
       <div className={styles["crew-id-skeleton-wrapper"]}>
         <CardSkeleton />
