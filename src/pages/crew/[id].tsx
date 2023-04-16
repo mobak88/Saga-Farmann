@@ -9,6 +9,7 @@ import HeadingTwo from "@/components/typography/headings/HeadingTwo";
 import SwitchIdButton from "@/components/buttons/SwitchIdButton";
 import DarkContainer from "@/components/containers/darkContainer/DarkContainer";
 import CrewSkeleton from "@/components/skeletons/card/CardSkeleton";
+import CardSkeleton from "@/components/skeletons/card/CardSkeleton";
 
 type Member = {
   member_image: string;
@@ -44,7 +45,7 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
   if (ids)
     return (
       <div className={styles["crew-id-skeleton-wrapper"]}>
-        <CrewSkeleton />
+        <CardSkeleton />
       </div>
     );
 
