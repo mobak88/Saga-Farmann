@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { ParsedUrlQuery } from "querystring";
 import styles from "./crew.module.css";
 import Header from "@/components/header/Header";
-import { useRouter } from "next/router";
 import Card from "../../components/cards/crewCard/CrewCard";
 import HeadingTwo from "@/components/typography/headings/HeadingTwo";
 import SwitchIdButton from "@/components/buttons/SwitchIdButton";
@@ -11,6 +10,7 @@ import DarkContainer from "@/components/containers/darkContainer/DarkContainer";
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import avatarImg from "../../../public/assets/blank-profile-picture-973460_1280.png";
 import { StaticImageData } from "next/image";
+import CardSkeleton from "@/components/skeletons/card/CardSkeleton";
 
 type Member = {
   member_image:
@@ -48,10 +48,13 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
   const [currentId, setCurrentId] = useState<number>(
     ids && ids.length > 0 ? ids[0] : -1
   );
-  const router = useRouter();
-  if (router.isFallback) {
-    return <div>Loading...</div>;
-  }
+
+  if (!ids)
+    return (
+      <div className={styles["crew-id-skeleton-wrapper"]}>
+        <CardSkeleton />
+      </div>
+    );
 
   const isCurrentCrew = crewMember.acf.current_crew;
   const crewDateToApi = crewMember.acf.crew_dates.crew_date_to.toString();
@@ -142,6 +145,15 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
   const crewMember: CrewMember = await crewRes.json();
 
   const allCrewsRes = await fetch(API_ENDPOINTS.crewMembers);
+
+  if (!crewMember.id) {
+    return {
+      redirect: {
+        destination: "/crew",
+        permanent: false,
+      },
+    };
+  }
 
   const allCrews: CrewMember[] = await allCrewsRes.json();
 
