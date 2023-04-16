@@ -118,32 +118,34 @@ const ImageSlider = ({ images, alt }: SliderProps) => {
             ))}
           </>
         )}
-        <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          className={styles.modal}
-          overlayClassName={styles.overlay}
-          ariaHideApp={false}
-          style={{
-            overlay: {
-              zIndex: 10,
-              background: "rgba(0, 0, 0, 0.7)",
-              backdropFilter: "blur(5px)",
-            },
-            content: { zIndex: 11 },
-          }}
-        >
-          <Image
-            src={images[activeImageIndex].image}
-            alt={alt}
-            className={styles["modal-image"]}
-            height={600}
-            width={1000}
-          />
-          <button onClick={closeModal} className={styles["close-button"]}>
-            &times;
-          </button>
-        </Modal>
+        {images.length > 0 && (
+          <Modal
+            isOpen={modalIsOpen}
+            onRequestClose={closeModal}
+            className={styles.modal}
+            overlayClassName={styles.overlay}
+            ariaHideApp={false}
+            style={{
+              overlay: {
+                zIndex: 10,
+                background: "rgba(0, 0, 0, 0.7)",
+                backdropFilter: "blur(5px)",
+              },
+              content: { zIndex: 11 },
+            }}
+          >
+            <Image
+              src={images[activeImageIndex].image}
+              alt={alt}
+              className={styles["modal-image"]}
+              height={600}
+              width={1000}
+            />
+            <button onClick={closeModal} className={styles["close-button"]}>
+              &times;
+            </button>
+          </Modal>
+        )}
       </div>
     </div>
   );

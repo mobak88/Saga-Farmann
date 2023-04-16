@@ -1,18 +1,12 @@
+import { useState, useEffect } from "react";
 import { Destinations } from "@/components/cards/destinationCard/interfaces";
-import DarkContainer from "@/components/containers/darkContainer/DarkContainer";
 import styles from "./destinations.module.css";
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 import { useRouter } from "next/router";
-import Image from "next/image";
 import HeadingTwo from "@/components/typography/headings/HeadingTwo";
 import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
-import { useState } from "react";
-import {
-  BsFillArrowLeftCircleFill,
-  BsFillArrowRightCircleFill,
-} from "react-icons/bs";
 import HeaderWithBtns from "@/components/headerWithBtns/HeaderWithBtns";
 import ImageSlider from "@/components/thumbSlider/ThumbSlider";
 
@@ -26,37 +20,35 @@ interface Params extends ParsedUrlQuery {
 }
 
 const DestinationPage = ({ destination, ids }: Props) => {
-  const [startIndex, setStartIndex] = useState<number>(0);
+  const [images, setImages] = useState<{ image: string }[] | []>([]);
 
-  const images = destination.acf.destination_images.map((image) => {
-    return { image: image.destination_image.url };
-  });
-
-  const visibleImages = images.slice(startIndex, startIndex + 3);
+  useEffect(() => {
+    if (destination && destination.acf.destination_images) {
+      setImages(
+        destination?.acf?.destination_images.map((image) => {
+          return { image: image.destination_image.url };
+        })
+      );
+    }
+  }, [destination]);
 
   const router = useRouter();
   if (router.isFallback) {
     return <div>Loading...</div>;
   }
 
-  const handleNextClick = () => {
-    setStartIndex((prevIndex) => prevIndex + 3);
-  };
-
-  const handlePrevClick = () => {
-    setStartIndex((startIndex) => startIndex - 3);
-  };
-
   return (
     <>
       <HeaderWithBtns header={destination.title.rendered} ids={ids} />
       <div className={styles.wrapper}>
         <div className={styles["imageSlider-wrapper"]}>
-          <ImageSlider
-            images={images}
-            alt={"Blog Image"}
-            id={destination.id + Math.random()}
-          />
+          {images && (
+            <ImageSlider
+              images={images}
+              alt={"Blog Image"}
+              id={destination.id + Math.random()}
+            />
+          )}
         </div>
         <div className={styles["text-container"]}>
           <HeadingTwo>{destination.acf.destination_heading}</HeadingTwo>
@@ -92,12 +84,10 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
   const { id } = params ?? {};
 
   const destinationRes = await fetch(
-    `https://dev.sagafarmann.com/wp/wp-json/wp/v2/destinations/${id}/?per_page=100&acf_format=standard`
+    API_ENDPOINTS.singelDestination(id as string)
   );
 
-  const destinationsRes = await fetch(
-    "https://dev.sagafarmann.com/wp/wp-json/wp/v2/destinations?per_page=100&acf_format=standard"
-  );
+  const destinationsRes = await fetch(API_ENDPOINTS.destinations);
 
   const destinations: Destinations[] = await destinationsRes.json();
 
