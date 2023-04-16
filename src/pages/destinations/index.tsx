@@ -28,9 +28,7 @@ const Destinations = ({ destinations }: Props) => {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const [resDestinations] = await Promise.all([
-    fetch(
-      "https://dev.sagafarmann.com/wp/wp-json/wp/v2/destinations?per_page=100&acf_format=standard"
-    ),
+    fetch(API_ENDPOINTS.destinations),
   ]);
 
   const [destinationsData] = await Promise.all([resDestinations.json()]);
@@ -38,8 +36,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     (destination: Destinations) =>
       destination.acf.next_year_destination === false
   );
-
-  console.log(filteredDestinations);
 
   return {
     props: {
