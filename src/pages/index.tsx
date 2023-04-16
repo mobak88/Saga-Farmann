@@ -92,7 +92,6 @@ export async function getStaticProps() {
   const newDestinations = destinationsDataStructure(destinations);
 
   const { grid_section, hero_section, latest_news } = homeData.acf;
-  const sponsorUsSection = sponsorUs.acf;
 
   const heroSection = {
     hero_background_image: hero_section.hero_background_image.url,
@@ -106,7 +105,7 @@ export async function getStaticProps() {
     posts: blogPosts,
   };
 
-  const sponsorUsData = sponsorUsDataStructure(sponsorUsSection);
+  const sponsorUsSection = sponsorUsDataStructure(sponsorUs.acf);
 
   return {
     props: {
@@ -115,7 +114,7 @@ export async function getStaticProps() {
       heroSection,
       gridSection,
       destinations: newDestinations,
-      sponsorUsSection: sponsorUsData,
+      sponsorUsSection,
       latestNews,
     },
     revalidate: 1,
