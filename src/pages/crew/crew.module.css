@@ -70,5 +70,6 @@
 @media only screen and (max-width: 425px) {
   .card-container {
     max-width: 425px;
+    padding: 0;
   }
 }
