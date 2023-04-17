@@ -38,25 +38,29 @@ const SwitchIdButton = ({
 
   return (
     <div className={styles["btn-wrapper"]}>
-      <Link
-        href={`${baseUrl}/[id]`}
-        as={asPrev}
-        onClick={handlePrev}
-        className={styles["change-id-btn-left"]}
-      >
-        <FaChevronLeft className={styles["arrow-icon"]} size={15} />
-        Previous
-      </Link>
+      {currentId > 0 && (
+        <Link
+          href={`${baseUrl}/[id]`}
+          as={asPrev}
+          onClick={handlePrev}
+          className={styles["change-id-btn-left"]}
+        >
+          <FaChevronLeft className={styles["arrow-icon"]} size={15} />
+          Previous
+        </Link>
+      )}
       <div className={styles.child}>{children}</div>
-      <Link
-        href={`${baseUrl}/[id]`}
-        as={asNext}
-        onClick={handleNext}
-        className={styles["change-id-btn-right"]}
-      >
-        Next
-        <FaChevronRight className={styles["arrow-icon"]} size={15} />
-      </Link>
+      {currentId < ids.length - 1 && (
+        <Link
+          href={`${baseUrl}/[id]`}
+          as={asNext}
+          onClick={handleNext}
+          className={styles["change-id-btn-right"]}
+        >
+          Next
+          <FaChevronRight className={styles["arrow-icon"]} size={15} />
+        </Link>
+      )}
     </div>
   );
 };
