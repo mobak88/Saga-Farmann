@@ -8,6 +8,7 @@ import BlogSecondHeading from "@/components/blog/blogSecondHeading/BlogSecondHea
 import styles from "./blog.module.css";
 import { Props, Post } from "../../components/blog/interfaces";
 import BlogSkeleton from "@/components/skeletons/blog/BlogSkeleton";
+import Head from "next/head";
 
 const BlogDetails = ({ post, images }: Props) => {
   if (!post)
@@ -19,6 +20,15 @@ const BlogDetails = ({ post, images }: Props) => {
 
   return (
     <>
+      <Head>
+        <title>Saga Farmann post {post.title.rendered}</title>
+        <meta
+          name="description"
+          content={`Saga Farmann post ${post.title.rendered}`}
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Header header={"Blog"} />
       <div className={styles["blog-id-wrapper"]}>
         <div className={styles["blog-id-container"]}>

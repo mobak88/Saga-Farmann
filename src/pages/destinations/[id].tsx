@@ -9,6 +9,7 @@ import HeadingTwo from "@/components/typography/headings/HeadingTwo";
 import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
 import HeaderWithBtns from "@/components/headerWithBtns/HeaderWithBtns";
 import ImageSlider from "@/components/thumbSlider/ThumbSlider";
+import Head from "next/head";
 
 interface Props {
   destination: Destinations;
@@ -39,6 +40,15 @@ const DestinationPage = ({ destination, ids }: Props) => {
 
   return (
     <>
+      <Head>
+        <title>Saga Farmann destination {destination.title.rendered}</title>
+        <meta
+          name="description"
+          content={`Saga Farmann destination ${destination.title.rendered}`}
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <HeaderWithBtns header={destination.title.rendered} ids={ids} />
       <div className={styles.wrapper}>
         <div className={styles["imageSlider-wrapper"]}>

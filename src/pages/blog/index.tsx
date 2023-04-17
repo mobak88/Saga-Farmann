@@ -4,6 +4,7 @@ import BlogCard from "../../components/cards/blogCard/BlogCard";
 import Header from "@/components/header/Header";
 import styles from "./blog.module.css";
 import { Post } from "../../components/blog/interfaces";
+import Head from "next/head";
 
 interface Posts {
   posts: Post[];
@@ -12,6 +13,12 @@ interface Posts {
 const BlogPage = ({ posts }: Posts) => {
   return (
     <>
+      <Head>
+        <title>Saga Farmann blog</title>
+        <meta name="description" content="Saga Farman blog" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Header header={"Blog"} />
       <div className={styles["blog-page-wrapper"]}>
         <div className={styles["blog-page-container"]}>

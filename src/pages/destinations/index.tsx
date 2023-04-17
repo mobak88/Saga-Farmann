@@ -6,6 +6,7 @@ import DarkContainer from "@/components/containers/darkContainer/DarkContainer";
 import { GetStaticProps } from "next";
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import { Destinations } from "@/components/cards/destinationCard/interfaces";
+import Head from "next/head";
 
 interface Props {
   destinations: Destinations[];
@@ -14,6 +15,12 @@ interface Props {
 const Destinations = ({ destinations }: Props) => {
   return (
     <>
+      <Head>
+        <title>Saga Farmann destinations</title>
+        <meta name="description" content="Saga Farman destinations" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Header header={"Destinations"} />
       <DarkContainer>
         <div className={styles["card-container"]}>

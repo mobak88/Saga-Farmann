@@ -10,6 +10,7 @@ import { SponsorUsSectionInterface } from "@/components/sponsorUsSection/interfa
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import { sponsorUsDataStructure } from "@/helpers/sponsorUsDataStructure";
 import { constructDate } from "@/helpers/constructDate";
+import Head from "next/head";
 
 interface CrewMember {
   id: number;
@@ -28,6 +29,12 @@ const CrewMemberPage = ({ crewMembers, sponsorUsSection }: Props) => {
   console.log(crewMembers);
   return (
     <>
+      <Head>
+        <title>Saga Farmann crews</title>
+        <meta name="description" content="Saga Farman crews" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Header header="Crews 2023" />
       <DarkContainer>
         <div className={styles["card-container"]}>

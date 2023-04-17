@@ -8,6 +8,7 @@ import DarkContainer from "@/components/containers/darkContainer/DarkContainer";
 import { SponsorUsSectionInterface } from "@/components/sponsorUsSection/interfaces";
 import SponsorUsSection from "@/components/sponsorUsSection/SponsorUsSection";
 import API_ENDPOINTS from "@/endpoints/endpoints";
+import Head from "next/head";
 
 interface Sponsor {
   title: { rendered: string };
@@ -30,6 +31,12 @@ interface Props {
 const SponsorPage = ({ sponsors, sponsorUsSection }: Props) => {
   return (
     <>
+      <Head>
+        <title>Saga Farmann sponsors</title>
+        <meta name="description" content="Saga Farman sponsors" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Header header="Sponsors" />
       <DarkContainer>
         <div className={styles["cards-container"]}>

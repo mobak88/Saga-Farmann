@@ -11,6 +11,7 @@ import API_ENDPOINTS from "@/endpoints/endpoints";
 import avatarImg from "../../../public/assets/blank-profile-picture-973460_1280.png";
 import { StaticImageData } from "next/image";
 import CardSkeleton from "@/components/skeletons/card/CardSkeleton";
+import Head from "next/head";
 
 type Member = {
   member_image:
@@ -73,6 +74,15 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
 
   return (
     <>
+      <Head>
+        <title>Saga Farmann crew {crewMember.title.rendered}</title>
+        <meta
+          name="description"
+          content={`Saga Farmann crew ${crewMember.title.rendered}`}
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Header header={crewMember && crewMember.title.rendered} />
       <DarkContainer>
         <div className={styles["main-wrapper"]}>
