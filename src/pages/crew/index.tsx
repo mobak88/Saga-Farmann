@@ -9,6 +9,7 @@ import SponsorUsSection from "@/components/sponsorUsSection/SponsorUsSection";
 import { SponsorUsSectionInterface } from "@/components/sponsorUsSection/interfaces";
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import { sponsorUsDataStructure } from "@/helpers/sponsorUsDataStructure";
+import { constructDate } from "@/helpers/constructDate";
 
 interface CrewMember {
   id: number;
@@ -24,9 +25,7 @@ interface Props {
 }
 
 const CrewMemberPage = ({ crewMembers, sponsorUsSection }: Props) => {
-  // console.log(crewMembers);
-
-  console.log();
+  console.log(crewMembers);
   return (
     <>
       <Header header="Crews 2023" />
@@ -68,9 +67,12 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   );
 
   filteredCrewMembers.sort((a: CrewMember, b: CrewMember) => {
-    const aDateFrom = Number(a.acf.crew_dates.crew_date_from);
-    const bDateFrom = Number(b.acf.crew_dates.crew_date_from);
-    return aDateFrom - bDateFrom;
+    const [aDateFrom, bDateFrom] = constructDate(
+      a.acf.crew_dates.crew_date_from,
+      b.acf.crew_dates.crew_date_from
+    );
+
+    return bDateFrom - aDateFrom;
   });
 
   const sponsorUsSection = sponsorUsDataStructure(sponsorUs.acf);
