@@ -8,6 +8,7 @@ import DarkContainer from "@/components/containers/darkContainer/DarkContainer";
 import SponsorUsSection from "@/components/sponsorUsSection/SponsorUsSection";
 import { SponsorUsSectionInterface } from "@/components/sponsorUsSection/interfaces";
 import API_ENDPOINTS from "@/endpoints/endpoints";
+import { sponsorUsDataStructure } from "@/helpers/sponsorUsDataStructure";
 
 interface CrewMember {
   id: number;
@@ -72,7 +73,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     return aDateFrom - bDateFrom;
   });
 
-  const sponsorUsSection = sponsorUs.acf;
+  const sponsorUsSection = sponsorUsDataStructure(sponsorUs.acf);
 
   return {
     props: {
