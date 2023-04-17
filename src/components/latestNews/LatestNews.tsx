@@ -1,5 +1,4 @@
 import React from "react";
-import { SliderCardProps } from "../cards/sliderCard/SliderCard";
 import HeadingTwo from "../typography/headings/HeadingTwo";
 import ParagraphsSmall from "../typography/paragraphs/ParagraphsSmall";
 import WaveDarkHome, {
@@ -10,19 +9,7 @@ import WaveDarkHomeSmall, {
 } from "../waves/wavesSmallScreen/WaveDarkHomeSmall";
 import styles from "./LatestNews.module.css";
 import LatestNewsSlider from "./latestNewsSlider/LatestNewsSlider";
-
-interface SinglePostProps extends SliderCardProps {
-  id: number;
-}
-
-export interface PostsProps {
-  posts: SinglePostProps[];
-}
-
-interface LatestNewsProps extends PostsProps {
-  postHeading: string;
-  postText: string;
-}
+import { LatestNewsProps } from "./latestNewsInterfaces";
 
 const LatestNews = ({ posts, postHeading, postText }: LatestNewsProps) => {
   return (

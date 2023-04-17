@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import SliderCard from "@/components/cards/sliderCard/SliderCard";
-import { PostsProps } from "../LatestNews";
+import { PostsProps } from "../latestNewsInterfaces";
 
 import SwiperCore from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -67,10 +67,19 @@ const LatestNewsSlider = ({ posts }: PostsProps) => {
             <SwiperSlide key={post.id} className={styles["news-swiper-slide"]}>
               <div className={styles["slider-card-container"]}>
                 <SliderCard
-                  imageSrc={post.imageSrc}
-                  heading={post.heading}
-                  text={post.text}
-                  alt={post.alt}
+                  imageSrc={
+                    post.acf.post_first_section.post_images[0].post_image.url
+                  }
+                  heading={post.title.rendered}
+                  text={post.acf.post_description}
+                  alt={
+                    post.acf.post_first_section.post_images[0].post_image.alt
+                      .length > 0
+                      ? post.acf.post_first_section.post_images[0].post_image
+                          .alt
+                      : `Image of ${post.title.rendered}`
+                  }
+                  blogId={post.id.toString()}
                 />
               </div>
             </SwiperSlide>

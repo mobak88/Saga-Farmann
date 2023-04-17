@@ -2,43 +2,47 @@ import React from "react";
 import Image, { StaticImageData } from "next/image";
 import styles from "./DestinationCard.module.css";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { Destinations } from "./interfaces";
+import Link from "next/link";
+import HeadingTwo from "@/components/typography/headings/HeadingTwo";
+import ParagraphsSmall from "@/components/typography/paragraphs/ParagraphsSmall";
+import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
 
-interface DestinationsInterface {
-  image: StaticImageData;
-  header: string;
-  text: string;
-  link: string;
+interface Props {
+  destinations: Destinations;
 }
 
-const DestinationCard = ({
-  image,
-  header,
-  text,
-  link,
-}: DestinationsInterface) => {
+const DestinationCard = ({ destinations }: Props) => {
   return (
-    <div className={styles.card}>
-      <div className={styles["image-container"]}>
-        <Image
-          className={styles.image}
-          src={image}
-          alt="Destination"
-          width={0}
-          height={0}
-        />
-      </div>
-      <div className={styles["text-container"]}>
-        <h2>{header}</h2>
-        <article>{text}</article>
-        <a className={styles["read-more-link"]} href="#">
-          {link}
-          <BsFillArrowRightCircleFill
-            className={styles["arrow-icon"]}
-            size={30}
+    <>
+      <div className={styles.card}>
+        <div className={styles["image-container"]}>
+          <Image
+            className={styles.image}
+            src={destinations.acf.destination_images[0].destination_image.url}
+            alt={destinations.acf.destination_images[0].destination_image.alt}
+            width={640}
+            height={290}
           />
-        </a>
+        </div>
+        <div className={styles["text-container"]}>
+          <HeadingTwo>{destinations.title.rendered}</HeadingTwo>
+          <ParagraphsSmall>
+            {destinations.acf.destination_description}
+          </ParagraphsSmall>
+          <Link
+            href={`/destinations/${destinations.id}`}
+            className={styles["read-more-link"]}
+          >
+            Read more
+            <BsFillArrowRightCircleFill
+              className={styles["arrow-icon"]}
+              size={30}
+            />
+          </Link>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

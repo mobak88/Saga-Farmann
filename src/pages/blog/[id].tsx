@@ -8,6 +8,7 @@ import BlogSecondHeading from "@/components/blog/blogSecondHeading/BlogSecondHea
 import styles from "./blog.module.css";
 import { Props, Post } from "../../components/blog/interfaces";
 import BlogSkeleton from "@/components/skeletons/blog/BlogSkeleton";
+import Head from "next/head";
 
 const BlogDetails = ({ post, images }: Props) => {
   if (!post)
@@ -17,8 +18,19 @@ const BlogDetails = ({ post, images }: Props) => {
       </div>
     );
 
+  const headText = `Saga Farmann post ${post.title.rendered}`;
+
   return (
     <>
+      <Head>
+        <title>{headText}</title>
+        <meta
+          name="description"
+          content={`Saga Farmann post ${post.title.rendered}`}
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Header header={"Blog"} />
       <div className={styles["blog-id-wrapper"]}>
         <div className={styles["blog-id-container"]}>
@@ -82,7 +94,6 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const res = await fetch(API_ENDPOINTS.post(id));
   const post: Post = await res.json();
 
-  //Not working???
   if (!post.id) {
     return {
       redirect: {
@@ -93,7 +104,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   }
   const { post_images } = post.acf?.post_first_section;
   const images = post_images.map((image) => {
-    return { image: image.post_image };
+    return { image: image.post_image.url };
   });
 
   return {

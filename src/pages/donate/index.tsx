@@ -8,6 +8,7 @@ import ParagraphsSmall from "@/components/typography/paragraphs/ParagraphsSmall"
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import { GetStaticProps } from "next";
 import DarkContainer from "@/components/containers/darkContainer/DarkContainer";
+import Head from "next/head";
 
 interface DonateData {
   title: { rendered: string };
@@ -28,6 +29,12 @@ interface Props {
 const DonationPage = ({ donateData }: Props) => {
   return (
     <>
+      <Head>
+        <title>Saga Farmann donate</title>
+        <meta name="description" content="Saga Farman donate" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Header header={donateData.title.rendered} />
       <DarkContainer>
         <div className={styles.wrapper}>

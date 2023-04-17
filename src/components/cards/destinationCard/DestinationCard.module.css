@@ -1,9 +1,8 @@
 .card {
-  width: 100%;
-  max-width: 500px;
+  width: 30em;
   height: 450px;
   background-color: var(--very-dark-blue);
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: var(--box-shadow);
 }
 
 .image-container {
@@ -24,7 +23,8 @@
 
 .text-container {
   color: var(--light-text-color);
-  /* height: 50%; */
+  font-size: var(--p--step-1);
+  height: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,13 +33,11 @@
 }
 
 .text-container h2 {
-  margin: 8px 0px 28px 0px;
-  font-family: Norse;
-  font-size: 36px;
+  margin-bottom: 12px;
 }
 
-.text-container article {
-  font-size: 18px;
+.text-container p {
+  font-size: var(--p--step-1);
   margin-bottom: 16px;
 }
 
@@ -52,8 +50,40 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
+  font-size: var(--p--step-1);
+}
+
+.read-more-link:hover {
+  text-decoration: underline;
 }
 
 .arrow-icon {
   color: var(--bg-pink-brown);
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 25em;
+    height: 25em;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .card {
+    width: 20em;
+    height: 23em;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .card {
+    width: 15em;
+    height: 20em;
+  }
+
+  .text-container p {
+    margin-bottom: 4px;
+  }
 }
