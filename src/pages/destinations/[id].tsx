@@ -38,10 +38,12 @@ const DestinationPage = ({ destination, ids }: Props) => {
     return <div>Loading...</div>;
   }
 
+  const headText = `Saga Farmann destination ${destination.title.rendered}`;
+
   return (
     <>
       <Head>
-        <title>Saga Farmann destination {destination.title.rendered}</title>
+        <title>{headText}</title>
         <meta
           name="description"
           content={`Saga Farmann destination ${destination.title.rendered}`}

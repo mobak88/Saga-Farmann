@@ -72,10 +72,12 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
     return crewDateToObj < now;
   }
 
+  const headText = `Saga Farmann crew ${crewMember.title.rendered}`;
+
   return (
     <>
       <Head>
-        <title>Saga Farmann crew {crewMember.title.rendered}</title>
+        <title>{headText}</title>
         <meta
           name="description"
           content={`Saga Farmann crew ${crewMember.title.rendered}`}

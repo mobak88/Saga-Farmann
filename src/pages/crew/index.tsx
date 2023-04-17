@@ -26,7 +26,6 @@ interface Props {
 }
 
 const CrewMemberPage = ({ crewMembers, sponsorUsSection }: Props) => {
-  console.log(crewMembers);
   return (
     <>
       <Head>

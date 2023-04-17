@@ -18,10 +18,12 @@ const BlogDetails = ({ post, images }: Props) => {
       </div>
     );
 
+  const headText = `Saga Farmann post ${post.title.rendered}`;
+
   return (
     <>
       <Head>
-        <title>Saga Farmann post {post.title.rendered}</title>
+        <title>{headText}</title>
         <meta
           name="description"
           content={`Saga Farmann post ${post.title.rendered}`}
