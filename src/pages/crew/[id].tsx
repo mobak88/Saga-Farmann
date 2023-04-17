@@ -49,6 +49,7 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
   const [currentId, setCurrentId] = useState<number>(
     ids.indexOf(crewMember.id)
   );
+
   if (!ids)
     return (
       <div className={styles["crew-id-skeleton-wrapper"]}>
