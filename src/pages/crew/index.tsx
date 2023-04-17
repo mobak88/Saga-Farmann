@@ -23,6 +23,9 @@ interface Props {
 }
 
 const CrewMemberPage = ({ crewMembers, sponsorUsSection }: Props) => {
+  // console.log(crewMembers);
+
+  console.log();
   return (
     <>
       <Header header="Crews 2023" />
@@ -63,13 +66,11 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     (member: CrewMember) => member.acf?.crew_dates?.crew_date_from
   );
 
-  filteredCrewMembers
-    .sort((a: CrewMember, b: CrewMember) => {
-      const aDateFrom = Number(a.acf.crew_dates.crew_date_from);
-      const bDateFrom = Number(b.acf.crew_dates.crew_date_from);
-      return aDateFrom - bDateFrom;
-    })
-    .reverse();
+  filteredCrewMembers.sort((a: CrewMember, b: CrewMember) => {
+    const aDateFrom = Number(a.acf.crew_dates.crew_date_from);
+    const bDateFrom = Number(b.acf.crew_dates.crew_date_from);
+    return aDateFrom - bDateFrom;
+  });
 
   const sponsorUsSection = sponsorUs.acf;
 

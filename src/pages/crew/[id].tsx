@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ParsedUrlQuery } from "querystring";
 import styles from "./crew.module.css";
 import Header from "@/components/header/Header";
@@ -31,7 +31,8 @@ interface CrewMember {
   acf: {
     member: Member[];
     current_crew: boolean;
-    crew_dates: { crew_date_from: number; crew_date_to: number };
+    crew_dates: { crew_date_from: string; crew_date_to: string };
+    destination: number;
   };
 }
 
@@ -57,21 +58,18 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
     );
 
   const isCurrentCrew = crewMember.acf.current_crew;
-  const crewDateToApi = crewMember.acf.crew_dates.crew_date_to.toString();
-  const crewDateTo = parseInt(crewDateToApi);
 
-  let date = new Date();
-  let year = date.getFullYear();
-  let month = (date.getMonth() + 1).toString().padStart(2, "0");
-  let day = date.getDate().toString().padStart(2, "0");
-  let currentDate = parseInt(`${year}${month}${day}`);
-
-  const isFormerCrew = (): boolean => {
-    if (crewDateTo > currentDate) {
-      return true;
-    }
-    return false;
-  };
+  function isFormerCrew(crewMember: CrewMember): boolean {
+    const crewDateTo = crewMember.acf.crew_dates.crew_date_to;
+    const now = new Date();
+    const [day, month, year] = crewDateTo.split("/");
+    const crewDateToObj = new Date(
+      parseInt(year),
+      parseInt(month) - 1,
+      parseInt(day)
+    );
+    return crewDateToObj < now;
+  }
 
   return (
     <>
@@ -90,9 +88,9 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
                 <HeadingTwo>
                   {isCurrentCrew
                     ? "Current Crew"
-                    : isFormerCrew()
-                    ? "Upcoming Crew"
-                    : "Former Crew"}
+                    : isFormerCrew(crewMember)
+                    ? "Former Crew"
+                    : "Upcoming Crew"}
                 </HeadingTwo>
               </div>
             </SwitchIdButton>
@@ -140,11 +138,18 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
 }) => {
   const id = Number(params?.id);
 
-  const crewRes = await fetch(API_ENDPOINTS.singleCrew(id));
+  const singleCrewRespond = await fetch(API_ENDPOINTS.singleCrew(id));
+  const crewMember: CrewMember = await singleCrewRespond.json();
 
-  const crewMember: CrewMember = await crewRes.json();
+  const allCrewsRespond = await fetch(API_ENDPOINTS.crewMembers);
+  const allCrews: CrewMember[] = await allCrewsRespond.json();
 
-  const allCrewsRes = await fetch(API_ENDPOINTS.crewMembers);
+  const sortedCrews = allCrews.sort(
+    (a, b) => a.acf.destination - b.acf.destination
+  );
+
+  const ids = sortedCrews.map((item) => item.id);
+  console.log(ids);
 
   if (!crewMember.id) {
     return {
@@ -154,16 +159,6 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
       },
     };
   }
-
-  const allCrews: CrewMember[] = await allCrewsRes.json();
-
-  allCrews.sort((a, b) => {
-    const aDateFrom = a.acf.crew_dates.crew_date_from;
-    const bDateFrom = b.acf.crew_dates.crew_date_from;
-    return aDateFrom - bDateFrom;
-  });
-
-  const ids = allCrews.map((crewMember) => crewMember.id);
 
   return {
     props: {
