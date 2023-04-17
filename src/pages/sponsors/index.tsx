@@ -8,6 +8,7 @@ import DarkContainer from "@/components/containers/darkContainer/DarkContainer";
 import { SponsorUsSectionInterface } from "@/components/sponsorUsSection/interfaces";
 import SponsorUsSection from "@/components/sponsorUsSection/SponsorUsSection";
 import API_ENDPOINTS from "@/endpoints/endpoints";
+import CardSkeleton from "@/components/skeletons/card/CardSkeleton";
 
 interface Sponsor {
   title: { rendered: string };
@@ -28,6 +29,16 @@ interface Props {
   sponsorUsSection: SponsorUsSectionInterface;
 }
 const SponsorPage = ({ sponsors, sponsorUsSection }: Props) => {
+  if (!sponsors)
+    return (
+      <>
+        <Header header={"Sponsors"} />
+        <div className={styles["sponsor-skeleton-wrapper"]}>
+          <CardSkeleton />
+        </div>
+      </>
+    );
+
   return (
     <>
       <Header header="Sponsors" />

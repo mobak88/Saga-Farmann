@@ -8,6 +8,7 @@ import ParagraphsSmall from "@/components/typography/paragraphs/ParagraphsSmall"
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import { GetStaticProps } from "next";
 import DarkContainer from "@/components/containers/darkContainer/DarkContainer";
+import DonateSkeleton from "@/components/skeletons/donate/DonateSkeleton";
 
 interface DonateData {
   title: { rendered: string };
@@ -26,6 +27,16 @@ interface Props {
 }
 
 const DonationPage = ({ donateData }: Props) => {
+  if (!donateData)
+    return (
+      <>
+        <Header header={"Donate"} />
+        <div className={styles["donate-skeleton-wrapper"]}>
+          <DonateSkeleton />
+        </div>
+      </>
+    );
+
   return (
     <>
       <Header header={donateData.title.rendered} />

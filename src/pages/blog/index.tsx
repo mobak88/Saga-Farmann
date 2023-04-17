@@ -4,12 +4,22 @@ import BlogCard from "../../components/cards/blogCard/BlogCard";
 import Header from "@/components/header/Header";
 import styles from "./blog.module.css";
 import { Post } from "../../components/blog/interfaces";
+import CardSkeleton from "@/components/skeletons/card/CardSkeleton";
 
 interface Posts {
   posts: Post[];
 }
 
 const BlogPage = ({ posts }: Posts) => {
+  if (!posts)
+    return (
+      <>
+        <Header header={"Blog"} />
+        <div className={styles["blog-skeleton-wrapper"]}>
+          <CardSkeleton />
+        </div>
+      </>
+    );
   return (
     <>
       <Header header={"Blog"} />

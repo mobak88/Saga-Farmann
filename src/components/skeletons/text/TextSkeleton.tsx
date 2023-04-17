@@ -1,5 +1,5 @@
-import styles from "./BlogSkeleton.module.css";
-const BlogSkeleton = () => {
+import styles from "./TextSkeleton.module.css";
+const TextSkeleton = () => {
   return (
     <div className={styles["skeleton"]}>
       <div className={styles["s-banner"]}></div>
@@ -14,4 +14,4 @@ const BlogSkeleton = () => {
     </div>
   );
 };
-export default BlogSkeleton;
+export default TextSkeleton;

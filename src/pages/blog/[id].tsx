@@ -7,13 +7,13 @@ import BlogSecondText from "@/components/blog/blogSecondText/BlogSecondText";
 import BlogSecondHeading from "@/components/blog/blogSecondHeading/BlogSecondHeading";
 import styles from "./blog.module.css";
 import { Props, Post } from "../../components/blog/interfaces";
-import BlogSkeleton from "@/components/skeletons/blog/BlogSkeleton";
+import TextSkeleton from "@/components/skeletons/text/TextSkeleton";
 
 const BlogDetails = ({ post, images }: Props) => {
   if (!post)
     return (
       <div className={styles["blog-id-skeleton-wrapper"]}>
-        <BlogSkeleton />
+        <TextSkeleton />
       </div>
     );
 

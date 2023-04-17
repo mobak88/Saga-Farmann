@@ -4,11 +4,12 @@ import styles from "./destinations.module.css";
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
-import { useRouter } from "next/router";
 import HeadingTwo from "@/components/typography/headings/HeadingTwo";
 import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
 import HeaderWithBtns from "@/components/headerWithBtns/HeaderWithBtns";
 import ImageSlider from "@/components/thumbSlider/ThumbSlider";
+import TextSkeleton from "@/components/skeletons/text/TextSkeleton";
+import Header from "@/components/header/Header";
 
 interface Props {
   destination: Destinations;
@@ -22,6 +23,16 @@ interface Params extends ParsedUrlQuery {
 const DestinationPage = ({ destination, ids }: Props) => {
   const [images, setImages] = useState<{ image: string }[] | []>([]);
 
+  if (!ids)
+    return (
+      <>
+        <Header header={"Destination"} />
+        <div className={styles["destinations-id-skeleton-wrapper"]}>
+          <TextSkeleton />
+        </div>
+      </>
+    );
+
   useEffect(() => {
     if (destination && destination.acf.destination_images) {
       setImages(
@@ -31,11 +42,6 @@ const DestinationPage = ({ destination, ids }: Props) => {
       );
     }
   }, [destination]);
-
-  const router = useRouter();
-  if (router.isFallback) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <>
@@ -101,6 +107,15 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
   });
 
   const destination: Destinations = await destinationRes.json();
+
+  if (!destination.id) {
+    return {
+      redirect: {
+        destination: "/destinations",
+        permanent: false,
+      },
+    };
+  }
 
   return {
     props: {
