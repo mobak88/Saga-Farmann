@@ -2,40 +2,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 50px;
   flex-direction: column;
-}
+  width: 100%;
+  height: 100%;
+  gap: 50px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 
-.parallax-text1 {
   font-size: 30px;
   color: white;
-  width: 100%;
-  height: 600px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-image: url("https://dev.sagafarmann.com/wp/wp-content/uploads/website-core-images/DJI_0858-300x200.jpg");
-}
-.parallax-text2 {
-  font-size: 30px;
-  color: white;
-  width: 100%;
-  height: 600px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-image: url("https://dev.sagafarmann.com/wp/wp-content/uploads/website-core-images/exp-2021-122.jpg");
-}
-.parallax-text3 {
-  font-size: 30px;
-  color: white;
-  width: 100%;
-  height: 600px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-image: url("https://dev.sagafarmann.com/wp/wp-content/uploads/website-core-images/exp-2021-129.jpg");
 }
