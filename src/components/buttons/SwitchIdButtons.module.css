@@ -1,10 +1,3 @@
-.wrapper {
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  background-color: orange;
-}
-
 .change-id-btn-left,
 .change-id-btn-right {
   background-color: transparent;
@@ -24,9 +17,17 @@
 .btn-wrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 2rem;
+  justify-content: space-between;
   width: 40em;
+}
+
+.change-id-btn-left-hidden,
+.change-id-btn-right-hidden {
+  visibility: hidden;
+  border: 2px solid var(--light-text-color);
+  width: 10rem;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
 }
 
 @media screen and (max-width: 750px) {

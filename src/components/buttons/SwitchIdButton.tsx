@@ -38,29 +38,33 @@ const SwitchIdButton = ({
 
   return (
     <div className={styles["btn-wrapper"]}>
-      {currentId > 0 && (
-        <Link
-          href={`${baseUrl}/[id]`}
-          as={asPrev}
-          onClick={handlePrev}
-          className={styles["change-id-btn-left"]}
-        >
-          <FaChevronLeft className={styles["arrow-icon"]} size={15} />
-          Previous
-        </Link>
-      )}
+      <Link
+        href={`${baseUrl}/[id]`}
+        as={asPrev}
+        onClick={handlePrev}
+        className={
+          currentId > 0
+            ? styles["change-id-btn-left"]
+            : styles["change-id-btn-left-hidden"]
+        }
+      >
+        <FaChevronLeft className={styles["arrow-icon"]} size={15} />
+        Previous
+      </Link>
       <div className={styles.child}>{children}</div>
-      {currentId < ids.length - 1 && (
-        <Link
-          href={`${baseUrl}/[id]`}
-          as={asNext}
-          onClick={handleNext}
-          className={styles["change-id-btn-right"]}
-        >
-          Next
-          <FaChevronRight className={styles["arrow-icon"]} size={15} />
-        </Link>
-      )}
+      <Link
+        href={`${baseUrl}/[id]`}
+        as={asNext}
+        onClick={handleNext}
+        className={
+          currentId < ids.length - 1
+            ? styles["change-id-btn-right"]
+            : styles["change-id-btn-right-hidden"]
+        }
+      >
+        Next
+        <FaChevronRight className={styles["arrow-icon"]} size={15} />
+      </Link>
     </div>
   );
 };
