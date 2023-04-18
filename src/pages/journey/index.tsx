@@ -2,14 +2,21 @@ import React from "react";
 import Header from "@/components/header/Header";
 import ParallaxMap from "@/components/parallax/map/ParallaxMap";
 import ParallaxText from "@/components/parallax/text/parallaxText";
+import styles from "./journeyPage.module.css";
 
 const TheJourney = () => {
+  //   return (
+  //       <Header header={"The Journey"} />
+  //       <ParallaxText />
+  //       <ParallaxMap />
+  //
+  //   );
+
+  //
   return (
-    <>
-      <Header header={"The Journey"} />
-      <ParallaxMap />
+    <div className={styles["parallax-text-container"]}>
       <ParallaxText />
-    </>
+    </div>
   );
 };
 
