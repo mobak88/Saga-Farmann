@@ -13,6 +13,7 @@ const Hamburger = ({ light }: HamburgerProps) => {
     { href: "/", label: "Home" },
     { href: "/crew/", label: "Crew" },
     { href: "/blog", label: "Blog" },
+    { href: "/journey", label: "The Journey" },
     { href: "/destinations", label: "Destinations" },
     { href: "/livestream", label: "Livestream" },
     { href: "/sponsors", label: "Sponsors" },
