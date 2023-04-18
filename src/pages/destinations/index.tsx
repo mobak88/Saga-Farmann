@@ -48,7 +48,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     props: {
       destinations: filteredDestinations,
     },
-    revalidate: 1,
   };
 };
 

@@ -117,7 +117,6 @@ export async function getStaticProps() {
       sponsorUsSection,
       latestNews,
     },
-    revalidate: 1,
   };
 }
 
