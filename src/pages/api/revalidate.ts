@@ -8,7 +8,7 @@ export default async function handler(
   let path = "";
 
   if (req.query.type === "post") {
-    path = "/blog" + slug;
+    path = "/blog/" + slug;
   } else if (req.query.type === "page") {
     path = "/" + slug;
   }
