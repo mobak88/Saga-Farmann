@@ -27,10 +27,9 @@ const HeaderWithBtns = ({ header, ids }: HeaderInterface) => {
           setCurrentId={setCurrentId}
           baseUrl="/destinations"
           ids={ids}
-        />
-        <div className={styles["header-text"]}>
-          <HeadingOne>{replacedHeader}</HeadingOne>
-        </div>
+        >
+          <HeadingOne>{decodedHeader}</HeadingOne>
+        </SwitchIdButton>
       </div>
       <div className={styles["wave-container"]}>
         <WaveDarkHeader />

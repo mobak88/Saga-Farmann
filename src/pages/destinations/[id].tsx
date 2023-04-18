@@ -1,20 +1,15 @@
+import { useState, useEffect } from "react";
 import { Destinations } from "@/components/cards/destinationCard/interfaces";
-import DarkContainer from "@/components/containers/darkContainer/DarkContainer";
 import styles from "./destinations.module.css";
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 import { useRouter } from "next/router";
-import Image from "next/image";
 import HeadingTwo from "@/components/typography/headings/HeadingTwo";
 import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
-import { useState } from "react";
-import {
-  BsFillArrowLeftCircleFill,
-  BsFillArrowRightCircleFill,
-} from "react-icons/bs";
 import HeaderWithBtns from "@/components/headerWithBtns/HeaderWithBtns";
 import ImageSlider from "@/components/thumbSlider/ThumbSlider";
+import Head from "next/head";
 
 interface Props {
   destination: Destinations;
@@ -26,69 +21,56 @@ interface Params extends ParsedUrlQuery {
 }
 
 const DestinationPage = ({ destination, ids }: Props) => {
-  const [startIndex, setStartIndex] = useState<number>(0);
+  const [images, setImages] = useState<{ image: string }[] | []>([]);
 
-  const images = destination.acf.destination_images.filter((image) => {
-    return image.destination_image.link;
-  });
-
-  console.log(images);
-
-  const visibleImages = images.slice(startIndex, startIndex + 3);
+  useEffect(() => {
+    if (destination && destination.acf.destination_images) {
+      setImages(
+        destination?.acf?.destination_images.map((image) => {
+          return { image: image.destination_image.url };
+        })
+      );
+    }
+  }, [destination]);
 
   const router = useRouter();
   if (router.isFallback) {
     return <div>Loading...</div>;
   }
 
-  const handleNextClick = () => {
-    setStartIndex((prevIndex) => prevIndex + 3);
-  };
-
-  const handlePrevClick = () => {
-    setStartIndex((startIndex) => startIndex - 3);
-  };
+  const headText = `Saga Farmann destination ${destination.title.rendered}`;
 
   return (
     <>
+      <Head>
+        <title>{headText}</title>
+        <meta
+          name="description"
+          content={`Saga Farmann destination ${destination.title.rendered}`}
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <HeaderWithBtns header={destination.title.rendered} ids={ids} />
-      <DarkContainer>
-        <div className={styles["destination-container"]}>
-          <div className={styles["image-grid-container"]}>
-            <div className={styles.largeImage}>
-              <Image
-                priority
-                src={visibleImages[0].destination_image.url}
-                alt={visibleImages[0].destination_image.id.toString()}
-                width={500}
-                height={415}
-              />
-            </div>
-            <div className={styles.smallImages}>
-              {visibleImages.slice(1).map((image, index) => (
-                <Image
-                  priority
-                  key={index}
-                  src={image.destination_image.url}
-                  alt="Small Image"
-                  width={200}
-                  height={200}
-                />
-              ))}
-            </div>
-          </div>
+      <div className={styles.wrapper}>
+        <div className={styles["imageSlider-wrapper"]}>
+          {images && (
+            <ImageSlider
+              images={images}
+              alt={"Blog Image"}
+              id={destination.id + Math.random()}
+            />
+          )}
         </div>
         <div className={styles["text-container"]}>
-          <div className={styles["header-container"]}>
-            <HeadingTwo>{destination.acf.destination_heading}</HeadingTwo>
-          </div>
-          <div className={styles["paragraph-container"]}>
+          <HeadingTwo>{destination.acf.destination_heading}</HeadingTwo>
+          <div className={styles.paragraphs}>
             {destination.acf.destination_text_fields.map((text, index) => (
               <ParagraphsBig key={index}>{text.destination_text}</ParagraphsBig>
             ))}
           </div>
         </div>
-      </DarkContainer>
+      </div>
     </>
   );
 };
@@ -114,16 +96,19 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
   const { id } = params ?? {};
 
   const destinationRes = await fetch(
-    `https://dev.sagafarmann.com/wp/wp-json/wp/v2/destinations/${id}/?per_page=100&acf_format=standard`
+    API_ENDPOINTS.singelDestination(id as string)
   );
 
-  const destinationsRes = await fetch(
-    "https://dev.sagafarmann.com/wp/wp-json/wp/v2/destinations?per_page=100&acf_format=standard"
-  );
+  const destinationsRes = await fetch(API_ENDPOINTS.destinations);
 
   const destinations: Destinations[] = await destinationsRes.json();
 
-  const ids = destinations.map((destination: Destinations) => {
+  const filteredDestinations = destinations.filter(
+    (destination: Destinations) =>
+      destination.acf.next_year_destination === false
+  );
+
+  const ids = filteredDestinations.map((destination: Destinations) => {
     return destination.id;
   });
 
@@ -139,20 +124,3 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
 };
 
 export default DestinationPage;
-
-/*{startIndex > 0 && (
-    <BsFillArrowLeftCircleFill
-      onClick={handlePrevClick}
-      className={styles["arrow-icon"]}
-      size={30}
-    />
-  )}   
-
-      {images.length > 3 && startIndex + 3 < images.length && (
-              <BsFillArrowRightCircleFill
-                onClick={handleNextClick}
-                className={styles["arrow-icon"]}
-                size={30}
-              />
-            )}
-  */

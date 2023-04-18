@@ -23,7 +23,7 @@ interface DestinationImage {
   image: string;
 }
 
-interface Image {
+export interface Image {
   id: number;
   alt: string;
   link: string;

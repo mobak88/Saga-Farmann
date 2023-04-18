@@ -9,10 +9,11 @@ interface ModalProps {
   onCloseClick: () => void;
   title: string | undefined;
   text: string | undefined;
+  image?: string | false;
 }
 
 const Modal = forwardRef<HTMLDivElement, ModalProps>(
-  ({ onCloseClick, title, text }, ref) => {
+  ({ onCloseClick, title, text, image }, ref) => {
     return (
       <div className={styles.modal} key="modal-wrapper" ref={ref}>
         <div className={styles["text-container"]}>
@@ -27,7 +28,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
         </div>
         <div className={styles["image-container"]}>
           <Image
-            src="/assets/destination.jpg"
+            src={image ? image : "/assets/destination.jpg"}
             alt="test"
             width={1000}
             height={400}

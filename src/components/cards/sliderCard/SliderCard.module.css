@@ -20,3 +20,9 @@
   align-items: center;
   text-align: center;
 }
+
+.link-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -19,6 +19,7 @@ interface ShowModalProps {
 }
 
 const StagesMap = ({ destinations, stages }: MapProps) => {
+  /*  console.log(destinations); */
   const [showModal, setShowModal] = useState<ShowModalProps>({
     modalOpen: false,
     id: null,
@@ -48,6 +49,8 @@ const StagesMap = ({ destinations, stages }: MapProps) => {
     if (destination) {
       setModal(destination);
     }
+
+    console.log(destination);
 
     if (!destination) {
       const stage = stages.find((stage) => stage.id === showModal.id);
@@ -95,6 +98,7 @@ const StagesMap = ({ destinations, stages }: MapProps) => {
           key="modal"
           title={modal?.title}
           text={modal?.text_area}
+          image={modal?.image}
           onCloseClick={handleCloseModal}
         />
       </CSSTransition>

@@ -8,10 +8,16 @@ import DarkContainer from "@/components/containers/darkContainer/DarkContainer";
 import SponsorUsSection from "@/components/sponsorUsSection/SponsorUsSection";
 import { SponsorUsSectionInterface } from "@/components/sponsorUsSection/interfaces";
 import API_ENDPOINTS from "@/endpoints/endpoints";
+import { sponsorUsDataStructure } from "@/helpers/sponsorUsDataStructure";
+import { constructDate } from "@/helpers/constructDate";
+import Head from "next/head";
 
 interface CrewMember {
   id: number;
   title: { rendered: string };
+  acf: {
+    crew_dates: { crew_date_from: number; crew_date_to: number };
+  };
 }
 
 interface Props {
@@ -22,6 +28,12 @@ interface Props {
 const CrewMemberPage = ({ crewMembers, sponsorUsSection }: Props) => {
   return (
     <>
+      <Head>
+        <title>Saga Farmann crews</title>
+        <meta name="description" content="Saga Farman crews" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Header header="Crews 2023" />
       <DarkContainer>
         <div className={styles["card-container"]}>
@@ -43,6 +55,8 @@ const CrewMemberPage = ({ crewMembers, sponsorUsSection }: Props) => {
   );
 };
 
+export default CrewMemberPage;
+
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const [resCrewMembers, resSponsorUs] = await Promise.all([
     fetch(API_ENDPOINTS.crewMembers),
@@ -54,23 +68,26 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     resSponsorUs.json(),
   ]);
 
-  const swapElements = (arr: any[], i1: number, i2: number) => {
-    let temp = arr[i1];
-    arr[i1] = arr[i2];
-    arr[i2] = temp;
-  };
+  const filteredCrewMembers = crewMembers.filter(
+    (member: CrewMember) => member.acf?.crew_dates?.crew_date_from
+  );
 
-  swapElements(crewMembers, 6, 7);
+  filteredCrewMembers.sort((a: CrewMember, b: CrewMember) => {
+    const [aDateFrom, bDateFrom] = constructDate(
+      a.acf.crew_dates.crew_date_from,
+      b.acf.crew_dates.crew_date_from
+    );
 
-  const sponsorUsSection = sponsorUs.acf;
+    return bDateFrom - aDateFrom;
+  });
+
+  const sponsorUsSection = sponsorUsDataStructure(sponsorUs.acf);
 
   return {
     props: {
-      crewMembers,
+      crewMembers: filteredCrewMembers,
       sponsorUsSection,
     },
     revalidate: 1,
   };
 };
-
-export default CrewMemberPage;
