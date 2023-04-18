@@ -26,7 +26,7 @@ type Member = {
   member_description: string;
 };
 
-interface CrewMember {
+export interface CrewMember {
   id: number;
   title: { rendered: string };
   acf: {
