@@ -32,8 +32,6 @@ const ParallaxText = ({ heading, text, url, i }: TextProps) => {
         className={`${styles.parallax}`}
         style={{
           backgroundImage: `url(${url})`,
-          backgroundColor: isActive ? "salmon" : "",
-          color: isActive ? "green" : "",
           transform: `translateY(${transform / 2}px)`,
         }}
         key={i + Math.random()}
