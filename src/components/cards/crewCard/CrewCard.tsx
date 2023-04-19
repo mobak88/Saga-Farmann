@@ -31,7 +31,9 @@ const CrewCard = ({
         <div className={styles["card-text-wrapper"]}>
           <h2 className={styles.name}>{member_name}</h2>
           <h3 className={styles.role}>{member_role}</h3>
-          <ParagraphsSmall>{member_description}</ParagraphsSmall>
+          <div className={styles.description}>
+            <ParagraphsSmall>{member_description}</ParagraphsSmall>
+          </div>
         </div>
       </div>
     </>
