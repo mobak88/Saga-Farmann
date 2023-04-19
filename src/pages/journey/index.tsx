@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "@/components/header/Header";
-import ParallaxText from "@/components/parallax/text/parallaxText";
+import ParallaxText from "@/components/parallax/text/ParallaxText";
 import styles from "./journeyPage.module.css";
 
 interface ParallaxProps {
