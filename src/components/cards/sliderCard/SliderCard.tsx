@@ -36,7 +36,7 @@ const SliderCard = ({
         <ParagraphsSmall>{text}</ParagraphsSmall>
       </div>
       <div className={styles["link-container"]}>
-        <LinkToSmall url={`blog/${blogId}`}>Read more</LinkToSmall>
+        <LinkToSmall url={`posts/${blogId}`}>Read more</LinkToSmall>
       </div>
     </div>
   );
