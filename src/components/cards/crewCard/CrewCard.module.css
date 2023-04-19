@@ -1,26 +1,20 @@
 .card {
   width: 100%;
   box-shadow: var(--box-shadow);
+  background-color: var(--very-dark-blue);
   display: grid;
-  grid-template-columns: 25% 1fr;
+  grid-template-columns: 250px 1fr;
   grid-template-rows: 1fr;
 }
 
 .image-wrapper {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 250px;
 }
 
 .image {
-  max-width: 100%;
-  height: 100%;
+  width: 100%;
   object-fit: cover;
   object-position: top;
-  width: auto;
-  height: auto;
 }
 
 .card-text-wrapper {
@@ -28,7 +22,7 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding: 2rem;
+  padding: 4rem 2rem 2rem 2rem;
 }
 
 .name {
@@ -43,8 +37,45 @@
   color: var(--light-text-color);
 }
 
+.read {
+  font-weight: bold;
+}
+
+.card :hover {
+  cursor: pointer;
+}
+
+.card :hover .read {
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 250px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 250px 1fr;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  .card {
+    width: 80%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 250px 1fr;
+  }
+  .image-wrapper {
+    width: 100%;
+  }
+}
+
 @media only screen and (max-width: 425px) {
   .card {
-    width: 95%;
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 326px) {
+  .card {
+    width: 300px;
   }
 }
