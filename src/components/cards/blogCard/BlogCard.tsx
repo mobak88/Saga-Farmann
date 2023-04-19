@@ -24,7 +24,7 @@ const BlogCard = ({
 }: BlogProps) => {
   return (
     <div className={styles["blog-page-card"]}>
-      <Link style={{ textDecoration: "none" }} key={id} href={`/blog/${id}`}>
+      <Link style={{ textDecoration: "none" }} key={id} href={`/posts/${id}`}>
         <div className={styles["blog-card-image-wrapper"]}>
           <Image
             src={post_image}

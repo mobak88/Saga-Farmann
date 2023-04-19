@@ -41,7 +41,7 @@ const CrewMemberPage = ({ crewMembers, sponsorUsSection }: Props) => {
             {crewMembers.map((crewMember) => (
               <Link
                 key={crewMember.id}
-                href={`/crew/${crewMember.id}`}
+                href={`/crew_members/${crewMember.id}`}
                 className={styles["crews-links"]}
               >
                 <ReactMarkdown>{crewMember.title.rendered}</ReactMarkdown>
