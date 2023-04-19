@@ -37,7 +37,7 @@ const DestinationCard = ({ destinations }: Props) => {
             Read more
             <BsFillArrowRightCircleFill
               className={styles["arrow-icon"]}
-              size={30}
+              size={25}
             />
           </Link>
         </div>

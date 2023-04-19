@@ -5,6 +5,7 @@ import ParagraphsSmall from "../typography/paragraphs/ParagraphsSmall";
 import styles from "./SponsorUsSection.module.css";
 import { SponsorUsSectionInterface } from "./interfaces";
 import HeadingThree from "../typography/headings/HeadingThree";
+import ParagraphsBig from "../typography/paragraphs/ParagraphsBig";
 
 interface Props {
   data: SponsorUsSectionInterface;
@@ -37,9 +38,9 @@ const SponsorUsSection = ({ data }: Props) => {
             <HeadingThree dark>
               {data.sponsor_us_card.sponsor_us_card_heading}
             </HeadingThree>
-            <ParagraphsSmall dark>
+            <ParagraphsBig dark>
               {data.sponsor_us_card.sponsor_us_card_text}
-            </ParagraphsSmall>
+            </ParagraphsBig>
             <button className={styles["sponsor-us-button"]}>Donate</button>
           </div>
         </div>
