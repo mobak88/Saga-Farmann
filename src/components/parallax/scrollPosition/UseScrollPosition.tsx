@@ -19,38 +19,39 @@ const useScrollPosition = (
   }) => void,
   { throttleDelay = 16 }: UseScrollPositionProps = {}
 ): void => {
-  const [prevPos, setPrevPos] = useState({
-    x: window.pageXOffset,
-    y: window.pageYOffset,
-  });
+  if (typeof window !== "undefined") {
+    const [prevPos, setPrevPos] = useState({
+      x: window.pageXOffset,
+      y: window.pageYOffset,
+    });
+    // browser code
+    useEffect(() => {
+      const handleScroll = () => {
+        const currPos = { x: window.pageXOffset, y: window.pageYOffset };
+        callback({ currPos, prevPos });
+        setPrevPos(currPos);
+      };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currPos = { x: window.pageXOffset, y: window.pageYOffset };
-      callback({ currPos, prevPos });
-      setPrevPos(currPos);
+      const throttledHandleScroll = throttle(handleScroll, throttleDelay);
+
+      window.addEventListener("scroll", throttledHandleScroll);
+
+      return () => {
+        window.removeEventListener("scroll", throttledHandleScroll);
+      };
+    }, [callback, prevPos, throttleDelay]);
+  }
+  const throttle = (fn: (...args: any[]) => void, delay: number) => {
+    let lastCallTime = 0;
+
+    return function throttledFunction(...args: any[]) {
+      const now = new Date().getTime();
+
+      if (now - lastCallTime >= delay) {
+        fn(...args);
+        lastCallTime = now;
+      }
     };
-
-    const throttledHandleScroll = throttle(handleScroll, throttleDelay);
-
-    window.addEventListener("scroll", throttledHandleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", throttledHandleScroll);
-    };
-  }, [callback, prevPos, throttleDelay]);
-};
-
-const throttle = (fn: (...args: any[]) => void, delay: number) => {
-  let lastCallTime = 0;
-
-  return function throttledFunction(...args: any[]) {
-    const now = new Date().getTime();
-
-    if (now - lastCallTime >= delay) {
-      fn(...args);
-      lastCallTime = now;
-    }
   };
 };
 

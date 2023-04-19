@@ -36,11 +36,12 @@ const TheJourney = ({}: ParallaxProps) => {
     <>
       <Header header={"The Journey"} />
       <div className={styles["parallax-text-container"]}>
-        {parallaxData.map((data: ParallaxDataProps) => (
+        {parallaxData.map((data: ParallaxDataProps, i: number) => (
           <ParallaxText
             heading={data.heading}
             text={data.text}
             url={data.url}
+            i={i}
           />
         ))}
       </div>

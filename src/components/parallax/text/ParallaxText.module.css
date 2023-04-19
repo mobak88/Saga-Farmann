@@ -1,12 +1,10 @@
-.parallax-text {
+.parallax {
   /* Box style */
   display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
   flex-direction: column;
   width: 50%;
-  height: 100%;
-  gap: 50px;
+  height: 700px;
 
   /* Parallax */
   background-position: center;
@@ -18,50 +16,21 @@
   color: white;
 }
 
-/* Button */
-
-.parallax-button {
-  z-index: 10;
+.heading {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  z-index: 1000;
 }
 
-.button-enter {
-  opacity: 0;
+.left-element-0 {
+  left: 100px;
 }
 
-.button-enter-active {
-  opacity: 1;
-  transition: opacity 1000ms ease-in-out;
+.left-element-1 {
+  left: 200px;
 }
 
-.button-exit {
-  opacity: 0;
-}
-
-.button-exit-active {
-  opacity: 1;
-  transition: opacity 1000ms ease-in-out;
-}
-/* Parallax */
-
-.parallax-enter {
-  opacity: 0;
-  transform: translateX(-100%);
-}
-
-.parallax-enter-active,
-.parallax-exit-active {
-  opacity: 1;
-  transform: translateX(0%);
-  transition: transform 1000ms ease-in-out, opacity 1000ms ease-in-out;
-}
-
-.parallax-exit {
-  opacity: 1;
-  transform: translateX(0%);
-}
-
-.parallax-exit-active {
-  opacity: 0;
-  transform: translateX(-100%);
-  transition: transform 1000ms ease-in-out, opacity 1000ms ease-in-out;
+.left-element-2 {
+  left: 300px;
 }

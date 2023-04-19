@@ -1,16 +1,19 @@
 import React, { useState, useRef } from "react";
 import styles from "./ParallaxText.module.css";
 import { CSSTransition } from "react-transition-group";
+import useScrollPosition from "../scrollPosition/UseScrollPosition";
 
 interface TextProps {
   heading: string;
   text: string;
   url: string;
+  i: number;
 }
 
-const ParallaxText = ({ heading, text, url }: TextProps) => {
+const ParallaxText = ({ heading, text, url, i }: TextProps) => {
   const [isActive, setIsActive] = useState<boolean>(false);
   const [click, setClick] = useState(false);
+  const [transform, setTransform] = useState(0);
 
   const nodeRefParallax = useRef<HTMLButtonElement>(null);
 
@@ -19,55 +22,41 @@ const ParallaxText = ({ heading, text, url }: TextProps) => {
     setClick((prevState) => !prevState);
   };
 
+  useScrollPosition(({ currPos }) => {
+    setTransform(currPos.y);
+  });
+
   return (
     <>
-      <CSSTransition
-        nodeRef={nodeRefParallax}
-        in={isActive}
-        timeout={1000}
-        classNames={{
-          enter: styles["parallax-enter"],
-          enterActive: styles["parallax-enter-active"],
-          exit: styles["parallax-exit"],
-          exitActive: styles["parallax-exit-active"],
+      <div
+        className={`${styles.parallax}`}
+        style={{
+          backgroundImage: `url(${url})`,
+          backgroundColor: isActive ? "salmon" : "",
+          color: isActive ? "green" : "",
+          transform: `translateY(${transform / 2}px)`,
         }}
-        unmountOnExit
+        key={i + Math.random()}
       >
         <div
-          ref={nodeRefParallax}
-          className={styles["parallax-text"]}
+          className={`${styles["heading"]}
+          ${styles["left-element-" + i.toString()]}
+		  `}
           style={{
-            backgroundImage: `url(${url})`,
-            backgroundColor: isActive ? "salmon" : "",
-            color: isActive ? "green" : "",
+            transform: `translateX(${-transform / 3}px)`,
           }}
         >
-          <div>{heading}</div>
-          <div>{text}</div>
+          {heading}
         </div>
-      </CSSTransition>
-      <CSSTransition
-        nodeRef={nodeRefParallax}
-        in={isActive}
-        timeout={1000}
-        classNames={{
-          enter: styles["button-enter"],
-          enterActive: styles["button-enter-active"],
-          exit: styles["button-exit"],
-          exitActive: styles["button-exit-active"],
-        }}
-      >
-        <button
-          className={styles["parallax-button"]}
-          onClick={toggleMenu}
+        <div
+          className={styles["text"]}
           style={{
-            backgroundColor: isActive ? "salmon" : "",
-            color: isActive ? "green" : "",
+            transform: `translateX(${-transform * 0.7}px)`,
           }}
         >
-          Next
-        </button>
-      </CSSTransition>
+          {text}
+        </div>
+      </div>
     </>
   );
 };
