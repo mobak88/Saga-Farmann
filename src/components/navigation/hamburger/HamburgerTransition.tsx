@@ -17,8 +17,8 @@ const HamburgerTransition = () => {
 
   const links = [
     { href: "/", label: "Home" },
-    { href: "/crew/", label: "Crew" },
-    { href: "/blog", label: "Blog" },
+    { href: "/crew_members/", label: "Crew" },
+    { href: "/posts", label: "Blog" },
     { href: "/destinations", label: "Destinations" },
     { href: "/livestream", label: "Livestream" },
     { href: "/sponsors", label: "Sponsors" },
