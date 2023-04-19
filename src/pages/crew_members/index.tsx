@@ -88,6 +88,5 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       crewMembers: filteredCrewMembers,
       sponsorUsSection,
     },
-    revalidate: 1,
   };
 };

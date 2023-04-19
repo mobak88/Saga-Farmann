@@ -7,14 +7,11 @@ export default async function handler(
   const { path, token } = req.query;
 
   if (token?.toString() !== process.env.REVALIDATION_TOKEN) {
-    console.log(req.query);
     return res.status(401).json({ message: "Invalid token" });
   } else if ((path as string).length === 0) {
-    console.log(req.query);
     return res.status(401).json({ message: "Path is required" });
   }
 
-  console.log(req);
   try {
     await res.revalidate(path as string);
   } catch (err) {
