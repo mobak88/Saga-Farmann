@@ -80,7 +80,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const destinations: Destinations[] = await res.json();
 
-  const paths = destinations.map((destination: Destinations) => ({
+  const filteredDestinations = destinations.filter(
+    (destination: Destinations) =>
+      destination.acf.next_year_destination === false
+  );
+
+  const paths = filteredDestinations.map((destination: Destinations) => ({
     params: { id: destination.id.toString() },
   }));
 
