@@ -17,7 +17,7 @@ type Member = {
   member_image:
     | {
         sizes: {
-          medium: string;
+          large: string;
         };
       }
     | StaticImageData;
@@ -115,8 +115,8 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
                   member_image={
                     typeof member.member_image === "object" &&
                     "sizes" in member.member_image &&
-                    member.member_image.sizes?.medium
-                      ? member.member_image.sizes.medium
+                    member.member_image.sizes?.large
+                      ? member.member_image.sizes.large
                       : avatarImg
                   }
                   member_name={member.member_name}
