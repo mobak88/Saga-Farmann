@@ -4,6 +4,11 @@
   max-width: 80%;
 }
 
+.links-container-stage {
+  justify-content: start;
+  gap: 4rem;
+}
+
 @media screen and (max-width: 80rem) {
   .links-container {
     flex-direction: column;
