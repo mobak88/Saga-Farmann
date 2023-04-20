@@ -20,6 +20,7 @@ const BlogDetails = ({ post, images }: Props) => {
 
   const headText = `Saga Farmann post ${post.title.rendered}`;
 
+  console.log(post);
   return (
     <>
       <Head>
@@ -48,27 +49,45 @@ const BlogDetails = ({ post, images }: Props) => {
               title={post.title.rendered}
               post_description={post.acf.post_description}
             />
+            {post.acf.post_first_section.post_first_heading && (
+              <BlogSecondHeading
+                post_second_section_heading={
+                  post.acf.post_first_section.post_first_heading
+                }
+              />
+            )}
+            {post.acf.post_first_section.post_first_text && (
+              <BlogSecondText
+                post_second_section_text={
+                  post.acf.post_first_section.post_first_text
+                }
+              />
+            )}
           </div>
           <div className={styles["blog-id-second-section"]}>
-            {post.acf.post_second_section.map((secondSection) => (
-              <div
-                key={secondSection.post_second_section_heading + Math.random()}
-              >
-                <BlogSecondHeading
-                  post_second_section_heading={
-                    secondSection.post_second_section_heading
+            {post.acf.post_second_section &&
+              post.acf.post_second_section.map((secondSection) => (
+                <div
+                  key={
+                    secondSection.post_second_section_heading + Math.random()
                   }
-                />
-                {secondSection.post_second_section_texts.map((text) => (
-                  <BlogSecondText
-                    key={
-                      text.post_second_section_text.slice(0, 20) + Math.random()
+                >
+                  <BlogSecondHeading
+                    post_second_section_heading={
+                      secondSection.post_second_section_heading
                     }
-                    post_second_section_text={text.post_second_section_text}
                   />
-                ))}
-              </div>
-            ))}
+                  {secondSection.post_second_section_texts.map((text) => (
+                    <BlogSecondText
+                      key={
+                        text.post_second_section_text.slice(0, 20) +
+                        Math.random()
+                      }
+                      post_second_section_text={text.post_second_section_text}
+                    />
+                  ))}
+                </div>
+              ))}
           </div>
         </div>
       </div>
