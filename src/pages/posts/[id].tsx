@@ -77,15 +77,17 @@ const BlogDetails = ({ post, images }: Props) => {
                       secondSection.post_second_section_heading
                     }
                   />
-                  {secondSection.post_second_section_texts.map((text) => (
-                    <BlogSecondText
-                      key={
-                        text.post_second_section_text.slice(0, 20) +
-                        Math.random()
-                      }
-                      post_second_section_text={text.post_second_section_text}
-                    />
-                  ))}
+                  <div className={styles["second-section-text-container"]}>
+                    {secondSection.post_second_section_texts.map((text) => (
+                      <BlogSecondText
+                        key={
+                          text.post_second_section_text.slice(0, 20) +
+                          Math.random()
+                        }
+                        post_second_section_text={text.post_second_section_text}
+                      />
+                    ))}
+                  </div>
                 </div>
               ))}
           </div>
