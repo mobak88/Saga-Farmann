@@ -20,7 +20,6 @@ const BlogDetails = ({ post, images }: Props) => {
 
   const headText = `Saga Farmann post ${post.title.rendered}`;
 
-  console.log(post);
   return (
     <>
       <Head>
