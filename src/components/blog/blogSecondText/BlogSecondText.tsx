@@ -8,9 +8,7 @@ interface BlogProps {
 const BlogSecondText = ({ post_second_section_text }: BlogProps) => {
   return (
     <div className={styles[""]}>
-      <ParagraphsSmall>
-        Second section text: {post_second_section_text}
-      </ParagraphsSmall>
+      <ParagraphsSmall>{post_second_section_text}</ParagraphsSmall>
     </div>
   );
 };
