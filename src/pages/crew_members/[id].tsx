@@ -93,7 +93,7 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
               currentId={currentId}
               totalIds={ids.length}
               setCurrentId={setCurrentId}
-              baseUrl="/crew"
+              baseUrl="/crew_members"
               ids={ids}
             >
               <div className={styles["heading-wrapper"]}>

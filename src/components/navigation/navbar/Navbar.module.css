@@ -3,7 +3,7 @@
   padding: 2rem;
   justify-content: space-between;
   align-items: center;
-  background-color: #172327;
+  background-color: var(--very-dark-blue);
   max-height: 4rem;
 }
 
