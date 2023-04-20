@@ -1,7 +1,7 @@
 .parallax-text-container {
   margin: 0;
   background-color: var(--bg-dark-blue);
-  height: 8000px;
+  height: 100%;
   width: 100%;
   flex-direction: column;
   overflow: hidden;

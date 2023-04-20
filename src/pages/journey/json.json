@@ -1,0 +1,113 @@
+{
+  "data": {
+    "what_to_expect_heading": "",
+    "what_to_expect_paragraph": [
+      {
+        "text": ""
+      },
+      {
+        "text": ""
+      }
+    ],
+    "what_to_expect_image": "",
+    /* Samme som stage*/
+    "stage_heading": "",
+    "stage_text": [
+      {
+        "text": ""
+      },
+      {
+        "text": ""
+      }
+    ],
+    "stage_map": ""
+  }
+}
+
+
+
+
+const parallaxData: ParallaxDataProps[] = [
+    {
+      imageHeading: "Heading",
+      imageText: [
+        {
+          text: "1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi consectetur esse accusamus fugit deserunt in autem recusandae eaque ad. Dolores delectus aliquid autem voluptate soluta officiis nam repellendus laboriosam nesciunt.",
+        },
+        {
+          text: "2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi consectetur esse accusamus fugit deserunt in autem recusandae eaque ad. Dolores delectus aliquid autem voluptate soluta officiis nam repellendus laboriosam nesciunt.",
+        },
+      ],
+      imageUrl:
+        "https://dev.sagafarmann.com/wp/wp-content/uploads/website-core-images/DJI_0858-300x200.jpg",
+      mapHeading: "Heading",
+      mapText: [
+        {
+          text: "1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi consectetur esse accusamus fugit deserunt in autem recusandae eaque ad. Dolores delectus aliquid autem voluptate soluta officiis nam repellendus laboriosam nesciunt.",
+        },
+        {
+          text: "2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi consectetur esse accusamus fugit deserunt in autem recusandae eaque ad. Dolores delectus aliquid autem voluptate soluta officiis nam repellendus laboriosam nesciunt.",
+        },
+      ],
+      mapUrl:
+        "https://dev.sagafarmann.com/wp/wp-content/uploads/Crew-Images/eu-c-04.png",
+    },
+    {
+      imageHeading: "Heading",
+      imageText: [
+        {
+          text: "1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi consectetur esse accusamus fugit deserunt in autem recusandae eaque ad. Dolores delectus aliquid autem voluptate soluta officiis nam repellendus laboriosam nesciunt.",
+        },
+        {
+          text: "2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi consectetur esse accusamus fugit deserunt in autem recusandae eaque ad. Dolores delectus aliquid autem voluptate soluta officiis nam repellendus laboriosam nesciunt.",
+        },
+      ],
+      imageUrl:
+        "https://dev.sagafarmann.com/wp/wp-content/uploads/website-core-images/DJI_0858-300x200.jpg",
+      mapHeading: "Heading",
+      mapText: [
+        {
+          text: "1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi consectetur esse accusamus fugit deserunt in autem recusandae eaque ad. Dolores delectus aliquid autem voluptate soluta officiis nam repellendus laboriosam nesciunt.",
+        },
+        {
+          text: "2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi consectetur esse accusamus fugit deserunt in autem recusandae eaque ad. Dolores delectus aliquid autem voluptate soluta officiis nam repellendus laboriosam nesciunt.",
+        },
+      ],
+      mapUrl:
+        "https://dev.sagafarmann.com/wp/wp-content/uploads/Crew-Images/eu-c-04.png",
+    },
+    {
+      imageHeading: "Heading",
+      imageText: [
+        {
+          text: "1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi consectetur esse accusamus fugit deserunt in autem recusandae eaque ad. Dolores delectus aliquid autem voluptate soluta officiis nam repellendus laboriosam nesciunt.",
+        },
+        {
+          text: "2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi consectetur esse accusamus fugit deserunt in autem recusandae eaque ad. Dolores delectus aliquid autem voluptate soluta officiis nam repellendus laboriosam nesciunt.",
+        },
+      ],
+      imageUrl:
+        "https://dev.sagafarmann.com/wp/wp-content/uploads/website-core-images/DJI_0858-300x200.jpg",
+      mapHeading: "Heading",
+      mapText: [
+        {
+          text: "1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi consectetur esse accusamus fugit deserunt in autem recusandae eaque ad. Dolores delectus aliquid autem voluptate soluta officiis nam repellendus laboriosam nesciunt.",
+        },
+        {
+          text: "2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi consectetur esse accusamus fugit deserunt in autem recusandae eaque ad. Dolores delectus aliquid autem voluptate soluta officiis nam repellendus laboriosam nesciunt.",
+        },
+      ],
+      mapUrl:
+        "https://dev.sagafarmann.com/wp/wp-content/uploads/Crew-Images/eu-c-04.png",
+    },
+  ];
+
+
+
+    imageHeading: string;
+  imageText: { text: string }[];
+  imageUrl: string;
+  mapHeading: string;
+  mapText: { text: string }[];
+  mapUrl: string;
+}

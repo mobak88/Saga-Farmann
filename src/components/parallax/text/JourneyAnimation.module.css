@@ -1,10 +1,9 @@
 .journey-slide-wrapper {
   position: relative;
   overflow: hidden;
-  width: 100%;
-  max-height: 80%;
-  object-fit: cover;
-  gap: 20px;
+  min-width: 100%;
+  height: 80vh;
+  max-height: 80vh;
 
   /*Temp*/
   font-size: 30px;
@@ -12,35 +11,36 @@
 }
 
 .image-container {
+  width: 100%;
   margin: 0;
   padding: 0;
   display: flex;
-  align-items: center;
   justify-content: center;
+  object-fit: cover;
   transform: translateX(-100%);
-  width: 100%;
-  height: 100%;
   opacity: 0;
   transition: 700ms;
 }
 
-.image-container.show {
-  transform: translateX(0);
-  opacity: 1;
-  filter: brightness(50%);
-}
-
 .journey-text-container {
   position: absolute;
-  top: 20%;
-  right: 10%;
-  width: 30%;
+  top: 0;
+  right: 5%;
+  width: 45%;
   height: 100%;
   display: flex;
   flex-direction: column;
   color: #fff;
   box-sizing: border-box;
   gap: 30px;
+}
+
+/* Animations */
+
+.image-container.show {
+  transform: translateX(0);
+  opacity: 1;
+  filter: brightness(50%);
 }
 
 .hidden {

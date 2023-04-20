@@ -1,24 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
 import styles from "./JourneyAnimation.module.css";
 import Image from "next/image";
-import ParagraphsSmall from "@/components/typography/paragraphs/ParagraphsSmall";
 import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
 import HeadingTwo from "@/components/typography/headings/HeadingTwo";
+import { JourneyComponentProps } from "../interfaces";
 
-interface TextProps {
-  imageHeading: string;
-  imageText: { text: string }[];
-  imageUrl: string;
-  i: number;
-}
-
-const JourneyAnimation = ({
-  imageHeading,
-  imageText,
-  imageUrl,
-  i,
-}: TextProps) => {
+const JourneyAnimation = ({ data, i }: JourneyComponentProps) => {
   const [imageIsVisible, setImageIsVisible] = useState<boolean>(false);
+  const [animationTriggered, setAnimationTriggered] = useState(false);
   const imageAnimationRef = useRef<HTMLDivElement>(null);
 
   console.log(imageIsVisible);
@@ -28,6 +17,9 @@ const JourneyAnimation = ({
       (entries) => {
         const entry = entries[0];
         setImageIsVisible(entry.isIntersecting);
+        if (entry.isIntersecting === true) {
+          setAnimationTriggered(true);
+        }
       },
       {
         threshold: 0.6,
@@ -43,37 +35,47 @@ const JourneyAnimation = ({
     >
       <div
         className={`${styles["image-container"]}  ${
-          imageIsVisible ? styles["show"] : styles[""]
+          imageIsVisible || animationTriggered ? styles["show"] : styles[""]
         }`}
       >
         <Image
-          width={3000}
-          height={1200}
-          src={imageUrl}
+          className={styles["image"]}
+          width={960}
+          height={640}
+          src={
+            "https://dev.sagafarmann.com/wp/wp-content/uploads/website-core-images/DJI_0858.jpg"
+          }
           alt="Journey image"
         ></Image>
       </div>
       <div
         className={`${styles["journey-text-container"]} ${
-          imageIsVisible ? styles["show"] : styles[""]
+          imageIsVisible || animationTriggered ? styles["show"] : styles[""]
         }`}
       >
-        <div
-          className={`${styles["heading"]}  ${
-            imageIsVisible ? styles["show"] : styles[""]
-          }`}
-        >
-          <HeadingTwo>{imageHeading}</HeadingTwo>
-        </div>
-
-        {imageText.map((text: { text: string }) => (
-          <div
-            className={`${styles["text"]}  ${
-              imageIsVisible ? styles["show"] : styles[""]
-            }`}
-          >
-            <ParagraphsBig>{text.text}</ParagraphsBig>
-          </div>
+        {data.acf.stage.map((stage) => (
+          <>
+            <div
+              className={`${styles["heading"]}  ${
+                imageIsVisible || animationTriggered
+                  ? styles["show"]
+                  : styles[""]
+              }`}
+            >
+              <HeadingTwo>{stage.stage_heading}</HeadingTwo>
+            </div>
+            {stage.stage_text_area.map((text) => (
+              <div
+                className={`${styles["text"]}  ${
+                  imageIsVisible || animationTriggered
+                    ? styles["show"]
+                    : styles[""]
+                }`}
+              >
+                <ParagraphsBig>{text.stage_text}</ParagraphsBig>
+              </div>
+            ))}
+          </>
         ))}
       </div>
     </div>

@@ -1,0 +1,50 @@
+{
+  "id": 336,
+
+  "title": {
+    "rendered": "Lubeck – Mainz"
+  },
+
+  "acf": {
+    "dates": {
+      "date_from": "13/05/2023",
+      "date_to": "28/05/2023"
+    },
+
+    "stage_number": "2",
+    "stage": [
+      {
+        "stage_images": [
+          {
+            "stage_image": {
+              "url": "https://dev.sagafarmann.com/wp/wp-content/uploads/website-core-images/DJI_0858.jpg",
+              "link": "https://dev.sagafarmann.com/wp/?attachment_id=271",
+
+              "width": 960,
+              "height": 640,
+              "sizes": {
+                "large": "https://dev.sagafarmann.com/wp/wp-content/uploads/website-core-images/DJI_0858.jpg",
+                "large-width": 960,
+                "large-height": 640
+              }
+            }
+          }
+        ],
+        "stage_heading": "Header",
+        "stage_text_area": [
+          {
+            "stage_text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.  Maxime mollitia,molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga  praesentium."
+          },
+          {
+            "stage_text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.  Maxime mollitia,molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga  praesentium."
+          },
+          {
+            "stage_text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.  Maxime mollitia,molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga  praesentium."
+          }
+        ]
+      }
+    ],
+
+    "next_year": false
+  }
+}
