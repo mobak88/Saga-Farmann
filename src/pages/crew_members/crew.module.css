@@ -43,7 +43,6 @@
 }
 
 .crews-links:hover {
-  /* color: var(--bg-pink-brown); */
   text-shadow: 2px 2px 2px var(--bg-pink-brown);
 }
 
@@ -58,12 +57,9 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .main-wrapper {
-    gap: 2rem;
-    padding-top: 5rem;
-  }
   .card-container {
     max-width: 600px;
+    padding: 0;
   }
 }
 

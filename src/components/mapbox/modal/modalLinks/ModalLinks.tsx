@@ -2,12 +2,32 @@ import LinkTo from "@/components/links/LinkTo";
 import React from "react";
 import styles from "./ModalLinks.module.css";
 
-const ModalLinks = () => {
+interface ModalLinksProps {
+  blogId: string;
+  destinationId: string | undefined;
+  crewId: string | undefined;
+  isDestination: boolean;
+}
+
+const ModalLinks = ({
+  blogId,
+  destinationId,
+  crewId,
+  isDestination,
+}: ModalLinksProps) => {
   return (
-    <div className={styles["links-container"]}>
-      <LinkTo url="/">Blog</LinkTo>
-      <LinkTo url="/">Crew</LinkTo>
-      <LinkTo url="/">Destination</LinkTo>
+    <div
+      className={
+        isDestination
+          ? styles["links-container"]
+          : `${styles["links-container"]} ${styles["links-container-stage"]}`
+      }
+    >
+      <LinkTo url={`/posts/${blogId}`}>Blog</LinkTo>
+      <LinkTo url={`crew_members/${crewId}`}>Crew</LinkTo>
+      {isDestination && (
+        <LinkTo url={`/destinations/${destinationId}`}>Destination</LinkTo>
+      )}
     </div>
   );
 };

@@ -10,10 +10,26 @@ interface ModalProps {
   title: string | undefined;
   text: string | undefined;
   image?: string | false;
+  destinationId?: string | undefined;
+  isDestination: boolean;
+  crewId: string | undefined;
+  blogId: string;
 }
 
 const Modal = forwardRef<HTMLDivElement, ModalProps>(
-  ({ onCloseClick, title, text, image }, ref) => {
+  (
+    {
+      onCloseClick,
+      title,
+      text,
+      image,
+      destinationId,
+      isDestination,
+      crewId,
+      blogId,
+    },
+    ref
+  ) => {
     return (
       <div className={styles.modal} key="modal-wrapper" ref={ref}>
         <div className={styles["text-container"]}>
@@ -24,7 +40,12 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
           <div className={styles["paragraph-container"]}>
             <ParagraphsSmallTruncated>{text}</ParagraphsSmallTruncated>
           </div>
-          <ModalLinks />
+          <ModalLinks
+            isDestination={isDestination}
+            destinationId={destinationId}
+            crewId={crewId}
+            blogId={blogId}
+          />
         </div>
         <div className={styles["image-container"]}>
           <Image

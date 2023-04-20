@@ -4,14 +4,9 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import MapMarker from "./MapMarker";
 import Modal from "./modal/Modal";
 import { CSSTransition } from "react-transition-group";
-import { SingleStageProps } from "./interfaces";
+import { MapProps, SingleStageProps } from "./interfaces";
 import styles from "./StagesMap.module.css";
 import MapMarkers from "./mapMarkers/MapMarkers";
-
-interface MapProps {
-  destinations: SingleStageProps[];
-  stages: SingleStageProps[];
-}
 
 interface ShowModalProps {
   id: null | number;
@@ -19,15 +14,15 @@ interface ShowModalProps {
 }
 
 const StagesMap = ({ destinations, stages }: MapProps) => {
-  /*  console.log(destinations); */
+  const [isDestination, setIsdestination] = useState(false);
   const [showModal, setShowModal] = useState<ShowModalProps>({
     modalOpen: false,
     id: null,
   });
 
-  const currentStage = stages.find((stage) => stage.current === true);
-
   const [modal, setModal] = useState<SingleStageProps | null>(null);
+
+  const currentStage = stages.find((stage) => stage.current === true);
 
   const nodeRef = useRef<HTMLInputElement>(null);
 
@@ -48,9 +43,8 @@ const StagesMap = ({ destinations, stages }: MapProps) => {
 
     if (destination) {
       setModal(destination);
+      setIsdestination(true);
     }
-
-    console.log(destination);
 
     if (!destination) {
       const stage = stages.find((stage) => stage.id === showModal.id);
@@ -59,6 +53,7 @@ const StagesMap = ({ destinations, stages }: MapProps) => {
       }
 
       setModal(stage);
+      setIsdestination(false);
     }
   }, [showModal.id, destinations, stages]);
 
@@ -93,14 +88,22 @@ const StagesMap = ({ destinations, stages }: MapProps) => {
           exitActive: styles["modal-exit-active"],
         }}
       >
-        <Modal
-          ref={nodeRef}
-          key="modal"
-          title={modal?.title}
-          text={modal?.text_area}
-          image={modal?.image}
-          onCloseClick={handleCloseModal}
-        />
+        <>
+          {modal && (
+            <Modal
+              ref={nodeRef}
+              key="modal"
+              title={modal?.title}
+              text={modal?.text_area}
+              image={modal?.image}
+              destinationId={modal?.id.toString()}
+              isDestination={isDestination}
+              onCloseClick={handleCloseModal}
+              crewId={modal?.crew.toString()}
+              blogId={modal?.blogs[0].blog.toString()}
+            />
+          )}
+        </>
       </CSSTransition>
       <MapMarkers arr={stages} isNextYear={false} showModal={handleShowModal} />
       <MapMarkers
