@@ -60,13 +60,17 @@ const Technical = ({ pageData }: any) => {
                     key={i + Math.random()}
                   >
                     <ParagraphsBig>{text.second_section_text}</ParagraphsBig>
-                    <Image
-                      className={styles["second-section-motor-image"]}
-                      src={pageData.acf.second_section_image_three}
-                      alt={"alt"}
-                      height={900}
-                      width={600}
-                    />
+                    <div
+                      className={styles["second-section-motor-image-wrapper"]}
+                    >
+                      <Image
+                        className={styles["second-section-motor-image"]}
+                        src={pageData.acf.second_section_image_three}
+                        alt={"alt"}
+                        height={900}
+                        width={600}
+                      />
+                    </div>
                   </div>
                 );
               })}
