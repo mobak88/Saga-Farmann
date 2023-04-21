@@ -3,7 +3,9 @@
   padding: 2rem;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--very-dark-blue);
+
+  background-color: var(--bg-dark-blue);
+
   max-height: 4rem;
 }
 

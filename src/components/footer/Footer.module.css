@@ -1,11 +1,232 @@
-.wrapper {
-  width: 100%;
+.wrapper-wood-image {
   height: 10em;
   background-image: url("../../../public/assets/footer.png");
   background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  position: relative;
+}
+
+.wave-overlay {
+  position: absolute;
+  width: 100%;
+  bottom: 0%;
+  height: 40%;
+  z-index: 20;
+}
+
+.container {
+  background-color: var(--bg-dark-blue);
+  width: 100%;
+  display: grid;
+  padding-top: 10rem;
+  grid-template-columns: 20rem 1fr 1fr 1fr 20rem;
+  grid-template-rows: 200px 20px 100px;
+  grid-template-areas:
+    " . contact links sosial ."
+    ". line line line ."
+    ". . copyright . .";
+  gap: 5rem;
+  justify-items: center;
+}
+
+.grey-line {
+  grid-area: line;
+  width: 100%;
+  border-top: 0.5px solid var(--very-dark-blue);
+}
+
+.copyright {
+  grid-area: copyright;
   display: flex;
-  justify-content: center;
   align-items: center;
+}
+
+.container-contact {
+  grid-area: contact;
+}
+
+.container-contact > *:first-child {
+  margin-bottom: 2rem;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contact-info > a {
+  text-decoration: none;
+}
+
+.contact-info > a :hover {
+  cursor: pointer;
+  color: var(--bg-pink-brown);
+}
+
+.contact-icon {
+  color: var(--light-text-color);
+}
+
+.container-links {
+  grid-area: links;
+  display: flex;
+  gap: 5rem;
+}
+
+.container-sosial-media {
+  grid-area: sosial;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.wrapper-links {
+  display: flex;
+  flex-direction: column;
+  line-height: 2;
+}
+
+.footer-links {
+  font-family: var(--main-font);
+  font-size: var(--p--step-1);
+  color: var(--light-text-color);
+  text-decoration: none;
+}
+
+.wrapper-links :hover {
+  color: var(--bg-pink-brown);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.wrapper-sosial-icon {
+  display: flex;
+  justify-content: space-between;
+  max-width: 100px;
+}
+
+.social-icon {
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: var(--bg-pink-brown);
+  color: var(--light-text-color);
+  margin-right: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.social-icon:hover {
+  background-color: #a44744;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+  transform: translateY(2px);
+}
+
+@media screen and (min-width: 2000px) {
+  .container {
+    grid-template-columns: 30rem 1fr 1fr 1fr 30rem;
+  }
+}
+
+@media screen and (max-width: 1700px) {
+  .container {
+    grid-template-columns: 12rem 1fr 1fr 1fr 12rem;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .container {
+    grid-template-columns: 8rem 1fr 1fr 1fr 8rem;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .container {
+    grid-template-columns: 3rem 1fr 1fr 1fr 3rem;
+  }
+  .container-contact address:first-of-type {
+    align-items: flex-start;
+  }
+  .container-contact address:first-of-type .contact-icon {
+    margin-top: 5px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    grid-template-columns: 14rem 1fr 1fr 14rem;
+    grid-template-rows: 200px 150px 20px 100px;
+    grid-template-areas:
+      " . contact links  ."
+      " . sosial . ."
+      ". line  line ."
+      ".  copyright copyright .";
+    justify-items: stretch;
+  }
+
+  .container-links {
+    gap: 5rem;
+    justify-content: flex-end;
+  }
+  .copyright {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 1120px) {
+  .container {
+    grid-template-columns: 11rem 1fr 1fr 11rem;
+  }
+}
+
+@media screen and (max-width: 1060px) {
+  .container {
+    grid-template-columns: 6rem 1fr 1fr 6rem;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .container {
+    grid-template-columns: 2rem 1fr 1fr 2rem;
+  }
+  .wrapper-wood-image {
+    height: 10em;
+  }
+  .wave-overlay {
+    height: 30%;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .container {
+    grid-template-columns: 20% 1fr 20%;
+    grid-template-rows: 150px 200px 120px 20px 100px;
+    grid-template-areas:
+      ". contact ."
+      ". links . "
+      ". sosial ."
+      ". line . "
+      ". copyright .";
+  }
+  .container-links {
+    gap: 5rem;
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 573px) {
+  .wave-overlay {
+    height: 10%;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .container {
+    grid-template-columns: 5rem 1fr 5rem;
+  }
+}
+
+@media screen and (max-width: 395px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
 }
