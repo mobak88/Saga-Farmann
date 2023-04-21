@@ -9,6 +9,7 @@ import Image from "next/image";
 import { GetStaticProps } from "next";
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import { WaveDarkHomeBottomPink } from "@/components/waves/wavesLargeScreen/WaveDarkHome";
+import { WaveDarkHomeSmallBottomPink } from "@/components/waves/wavesSmallScreen/WaveDarkHomeSmall";
 
 interface TechnicalInterface {
   title: { rendered: string };
@@ -71,6 +72,7 @@ const Technical = ({ pageData }: PageData) => {
         </div>
       </DarkContainer>
       <WaveDarkHomeBottomPink />
+      <WaveDarkHomeSmallBottomPink />
       <div className={styles["second-section-wrapper"]}>
         <div
           className={`${styles["section-container"]} ${styles["second-section-container"]}`}
@@ -125,6 +127,7 @@ const Technical = ({ pageData }: PageData) => {
       </div>
       <div className={styles["wave-bottom-wrapper"]}>
         <WaveDarkHomeBottomPink />
+        <WaveDarkHomeSmallBottomPink />
       </div>
       <DarkContainer>
         <div className={styles["multiple-sections-container"]}>
