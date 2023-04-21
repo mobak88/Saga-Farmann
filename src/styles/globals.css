@@ -20,7 +20,7 @@
   --animation-timing: 200ms ease-in-out;
 
   /* FONT SIZES HEADINGS */
-  --h--step-0: clamp(1.13rem, calc(-0.01rem + 5.65vw), 3.6rem);
+  --h--step-0: clamp(1.3rem, calc(-0.07rem + 6.65vw), 4rem);
   --h--step-1: clamp(1.35rem, calc(-0.08rem + 7.16vw), 5.47rem);
   --h--step-2: clamp(1.62rem, calc(-0.19rem + 9.07vw), 6.84rem);
   --h--step-3: clamp(1.94rem, calc(-0.35rem + 11.48vw), 8.55rem);

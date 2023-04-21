@@ -1,10 +1,10 @@
-import ParagraphsSmall from "@/components/typography/paragraphs/ParagraphsSmall";
+import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
 
 interface BlogProps {
   post_second_section_text: string;
 }
 
 const BlogSecondText = ({ post_second_section_text }: BlogProps) => {
-  return <ParagraphsSmall>{post_second_section_text}</ParagraphsSmall>;
+  return <ParagraphsBig>{post_second_section_text}</ParagraphsBig>;
 };
 export default BlogSecondText;
