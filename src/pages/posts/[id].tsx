@@ -48,30 +48,47 @@ const BlogDetails = ({ post, images }: Props) => {
               title={post.title.rendered}
               post_description={post.acf.post_description}
             />
+            {post.acf.post_first_section.post_first_heading && (
+              <BlogSecondHeading
+                post_second_section_heading={
+                  post.acf.post_first_section.post_first_heading
+                }
+              />
+            )}
+            {post.acf.post_first_section.post_first_text && (
+              <BlogSecondText
+                post_second_section_text={
+                  post.acf.post_first_section.post_first_text
+                }
+              />
+            )}
           </div>
           <div className={styles["blog-id-second-section"]}>
-            {post.acf.post_second_section.map((secondSection) => (
-              <div
-                key={secondSection.post_second_section_heading + Math.random()}
-              >
-                <BlogSecondHeading
-                  post_second_section_heading={
-                    secondSection.post_second_section_heading
+            {post.acf.post_second_section &&
+              post.acf.post_second_section.map((secondSection) => (
+                <div
+                  key={
+                    secondSection.post_second_section_heading + Math.random()
                   }
-                />
-                <div className={styles["second-section-text-container"]}>
-                  {secondSection.post_second_section_texts.map((text) => (
-                    <BlogSecondText
-                      key={
-                        text.post_second_section_text.slice(0, 20) +
-                        Math.random()
-                      }
-                      post_second_section_text={text.post_second_section_text}
-                    />
-                  ))}
+                >
+                  <BlogSecondHeading
+                    post_second_section_heading={
+                      secondSection.post_second_section_heading
+                    }
+                  />
+                  <div className={styles["second-section-text-container"]}>
+                    {secondSection.post_second_section_texts.map((text) => (
+                      <BlogSecondText
+                        key={
+                          text.post_second_section_text.slice(0, 20) +
+                          Math.random()
+                        }
+                        post_second_section_text={text.post_second_section_text}
+                      />
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
       </div>
@@ -80,6 +97,13 @@ const BlogDetails = ({ post, images }: Props) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  if (process.env.SKIP_BUILD_STATIC_GENERATION) {
+    return {
+      paths: [],
+      fallback: "blocking",
+    };
+  }
+
   const res = await fetch(API_ENDPOINTS.blogPosts);
   const posts: Post[] = await res.json();
   const paths = posts.map((post) => ({
@@ -88,7 +112,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: "blocking",
+    fallback: false,
   };
 };
 

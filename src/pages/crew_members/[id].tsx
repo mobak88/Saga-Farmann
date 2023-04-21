@@ -93,7 +93,7 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
               currentId={currentId}
               totalIds={ids.length}
               setCurrentId={setCurrentId}
-              baseUrl="/crew"
+              baseUrl="/crew_members"
               ids={ids}
             >
               <div className={styles["heading-wrapper"]}>
@@ -132,6 +132,13 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  if (process.env.SKIP_BUILD_STATIC_GENERATION) {
+    return {
+      paths: [],
+      fallback: "blocking",
+    };
+  }
+
   const res = await fetch(API_ENDPOINTS.crewMembers);
 
   const crewMembers: CrewMember[] = await res.json();
@@ -141,7 +148,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: "blocking",
+    fallback: false,
   };
 };
 
