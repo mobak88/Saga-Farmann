@@ -97,6 +97,13 @@ const BlogDetails = ({ post, images }: Props) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  if (process.env.SKIP_BUILD_STATIC_GENERATION) {
+    return {
+      paths: [],
+      fallback: "blocking",
+    };
+  }
+
   const res = await fetch(API_ENDPOINTS.blogPosts);
   const posts: Post[] = await res.json();
   const paths = posts.map((post) => ({
@@ -105,7 +112,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: "blocking",
+    fallback: false,
   };
 };
 
