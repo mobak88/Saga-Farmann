@@ -11,9 +11,7 @@ const Contact = () => {
       <ParagraphsBig>Contact information</ParagraphsBig>
       <address className={styles["contact-info"]}>
         <FaMapMarkerAlt className={styles["contact-icon"]} size={15} />
-        <ParagraphsSmall>
-          Vikingodden Ollebukta 3 3126 Tønsberg ...
-        </ParagraphsSmall>
+        <ParagraphsSmall>Vikingodden Ollebukta 3 3126 Tønsberg</ParagraphsSmall>
       </address>
       <address className={styles["contact-info"]}>
         <FaEnvelope className={styles["contact-icon"]} />
