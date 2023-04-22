@@ -1,12 +1,11 @@
 import React from "react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import styles from "./DestinationCard.module.css";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { Destinations } from "./interfaces";
 import Link from "next/link";
 import HeadingTwo from "@/components/typography/headings/HeadingTwo";
 import ParagraphsSmall from "@/components/typography/paragraphs/ParagraphsSmall";
-import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
 
 interface Props {
   destinations: Destinations;

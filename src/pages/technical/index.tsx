@@ -32,11 +32,11 @@ interface TechnicalInterface {
   };
 }
 
-interface PageData {
+interface Props {
   pageData: TechnicalInterface;
 }
 
-const Technical = ({ pageData }: PageData) => {
+const Technical = ({ pageData }: Props) => {
   return (
     <>
       <Head>
@@ -192,7 +192,7 @@ const Technical = ({ pageData }: PageData) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<PageData> = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const res = await fetch(API_ENDPOINTS.page(602));
 
   const pageData: TechnicalInterface = await res.json();
