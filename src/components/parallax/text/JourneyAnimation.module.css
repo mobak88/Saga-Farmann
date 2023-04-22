@@ -11,9 +11,11 @@
 }
 
 .image-container {
-  width: 100%;
+  width: auto;
+  height: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   object-fit: cover;
@@ -21,13 +23,17 @@
   opacity: 0;
   transition: 700ms;
 }
+.image {
+  width: 100%;
+  height: auto;
+}
 
 .journey-text-container {
   position: absolute;
-  top: 0;
+  top: 5%;
   right: 5%;
   width: 45%;
-  height: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   color: #fff;

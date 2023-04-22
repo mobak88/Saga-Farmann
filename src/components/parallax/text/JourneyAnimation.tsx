@@ -10,8 +10,6 @@ const JourneyAnimation = ({ data, i }: JourneyComponentProps) => {
   const [animationTriggered, setAnimationTriggered] = useState(false);
   const imageAnimationRef = useRef<HTMLDivElement>(null);
 
-  console.log(imageIsVisible);
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -40,44 +38,42 @@ const JourneyAnimation = ({ data, i }: JourneyComponentProps) => {
       >
         <Image
           className={styles["image"]}
-          width={960}
-          height={640}
-          src={
-            "https://dev.sagafarmann.com/wp/wp-content/uploads/website-core-images/DJI_0858.jpg"
+          width={
+            data.acf.stage[0].stage_images[0].stage_image.sizes["large-width"]
           }
+          height={
+            data.acf.stage[0].stage_images[0].stage_image.sizes["large-height"]
+          }
+          src={data.acf.stage[0].stage_images[0].stage_image.sizes.large}
           alt="Journey image"
         ></Image>
       </div>
-      <div
-        className={`${styles["journey-text-container"]} ${
-          imageIsVisible || animationTriggered ? styles["show"] : styles[""]
-        }`}
-      >
-        {data.acf.stage.map((stage) => (
-          <>
+      {data.acf.stage.map((stage) => (
+        <div
+          className={`${styles["journey-text-container"]} ${
+            imageIsVisible || animationTriggered ? styles["show"] : styles[""]
+          }`}
+        >
+          <div
+            className={`${styles["heading"]}  ${
+              imageIsVisible || animationTriggered ? styles["show"] : styles[""]
+            }`}
+          >
+            <HeadingTwo>{stage.stage_heading}</HeadingTwo>
+          </div>
+          {stage.stage_text_area.map((text) => (
             <div
-              className={`${styles["heading"]}  ${
+              className={`${styles["text"]}  ${
                 imageIsVisible || animationTriggered
                   ? styles["show"]
                   : styles[""]
               }`}
             >
-              <HeadingTwo>{stage.stage_heading}</HeadingTwo>
+              <ParagraphsBig>{text.stage_text}</ParagraphsBig>
             </div>
-            {stage.stage_text_area.map((text) => (
-              <div
-                className={`${styles["text"]}  ${
-                  imageIsVisible || animationTriggered
-                    ? styles["show"]
-                    : styles[""]
-                }`}
-              >
-                <ParagraphsBig>{text.stage_text}</ParagraphsBig>
-              </div>
-            ))}
-          </>
-        ))}
-      </div>
+          ))}
+        </div>
+      ))}
     </div>
   );
 };

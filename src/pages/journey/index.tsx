@@ -13,8 +13,14 @@ const TheJourney = ({ journey }: JourneyProps) => {
       <div className={styles["parallax-text-container"]}>
         {journey.map((journeyData, i) => (
           <>
-            <JourneyAnimation data={journeyData} i={i} />
-            <MapAnimation data={journeyData} i={i} />
+            {!journeyData.acf.next_year ? (
+              <>
+                <JourneyAnimation data={journeyData} i={i} />
+                <MapAnimation data={journeyData} i={i} />
+              </>
+            ) : (
+              ""
+            )}
           </>
         ))}
       </div>

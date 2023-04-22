@@ -10,8 +10,6 @@ const MapAnimation = ({ data, i }: JourneyComponentProps) => {
   const [animationTriggered, setAnimationTriggered] = useState(false);
   const mapAnimationRef = useRef<HTMLDivElement>(null);
 
-  console.log(mapIsVisible);
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -37,11 +35,17 @@ const MapAnimation = ({ data, i }: JourneyComponentProps) => {
       >
         <Image
           className={styles["map-image"]}
-          width={960}
-          height={640}
-          src={
-            "https://dev.sagafarmann.com/wp/wp-content/uploads/website-core-images/DJI_0858.jpg"
+          width={
+            data.acf.stage_journey_map.stages_journey_map_image.sizes[
+              "large-width"
+            ]
           }
+          height={
+            data.acf.stage_journey_map.stages_journey_map_image.sizes[
+              "large-height"
+            ]
+          }
+          src={data.acf.stage_journey_map.stages_journey_map_image.sizes.large}
           alt="Journey image"
         ></Image>
       </div>
