@@ -23,7 +23,7 @@ const HamburgerTransition = () => {
     { href: "/livestream", label: "Livestream" },
     { href: "/sponsors", label: "Sponsors" },
     { href: "/donate", label: "Donate" },
-    { href: "/aboutus", label: "About Us" },
+    { href: "/about-us", label: "About Us" },
     { href: "/technical", label: "Technical" },
     { href: "/pressarchive", label: "Press" },
   ];
