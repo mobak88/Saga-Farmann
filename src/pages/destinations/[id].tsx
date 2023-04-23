@@ -51,7 +51,11 @@ const DestinationPage = ({ destination, ids }: Props) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HeaderWithBtns header={destination.title.rendered} ids={ids} />
+      <HeaderWithBtns
+        header={destination.title.rendered}
+        ids={ids}
+        id={destination.id}
+      />
       <div className={styles.wrapper}>
         <div className={styles["imageSlider-wrapper"]}>
           {images && (
@@ -95,12 +99,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
 }) => {
   const { id } = params ?? {};
 
-  const destinationRes = await fetch(
-    API_ENDPOINTS.singelDestination(id as string)
-  );
-
   const destinationsRes = await fetch(API_ENDPOINTS.destinations);
-
   const destinations: Destinations[] = await destinationsRes.json();
 
   const filteredDestinations = destinations.filter(
@@ -108,10 +107,20 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
       destination.acf.next_year_destination === false
   );
 
+  filteredDestinations.sort(
+    (a: Destinations, b: Destinations) =>
+      parseInt(a.acf.destination_number) - parseInt(b.acf.destination_number)
+  );
+
   const ids = filteredDestinations.map((destination: Destinations) => {
     return destination.id;
   });
 
+  console.log(ids[1]);
+
+  const destinationRes = await fetch(
+    API_ENDPOINTS.singelDestination(id as string)
+  );
   const destination: Destinations = await destinationRes.json();
 
   return {

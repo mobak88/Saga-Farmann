@@ -44,6 +44,13 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       destination.acf.next_year_destination === false
   );
 
+  filteredDestinations.sort(
+    (a: Destinations, b: Destinations) =>
+      parseInt(a.acf.destination_number) - parseInt(b.acf.destination_number)
+  );
+
+  console.log(filteredDestinations[7]);
+
   return {
     props: {
       destinations: filteredDestinations,

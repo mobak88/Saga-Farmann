@@ -7,6 +7,7 @@ export interface Destinations {
     destination_description: string;
     destination_images: DestinationImage[];
     next_year_destination: boolean;
+    destination_number: string;
   };
 }
 
