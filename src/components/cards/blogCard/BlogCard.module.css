@@ -56,15 +56,9 @@
   .blog-card-image-wrapper {
     height: 40rem;
   }
-  .blog-page-card {
-    padding: 0 10% 15% 10%;
-  }
 }
 
 @media screen and (max-width: 500px) {
-  .blog-page-card {
-    padding: 0 0 15% 0;
-  }
   .blog-card-image-wrapper {
     height: 30rem;
   }
