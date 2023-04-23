@@ -5,6 +5,12 @@ interface BlogProps {
 }
 
 const BlogSecondText = ({ post_second_section_text }: BlogProps) => {
-  return <ParagraphsBig>{post_second_section_text}</ParagraphsBig>;
+  return (
+    <>
+      {post_second_section_text && (
+        <ParagraphsBig>{post_second_section_text}</ParagraphsBig>
+      )}
+    </>
+  );
 };
 export default BlogSecondText;

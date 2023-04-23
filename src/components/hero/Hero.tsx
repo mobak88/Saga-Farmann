@@ -15,15 +15,17 @@ interface Props {
 const Hero = ({ data }: Props) => {
   return (
     <div className={styles["hero-wrapper"]}>
-      <video className={styles["hero-background"]} loop autoPlay muted>
-        <source src={data.hero_background_image} type="video/mp4" />
-      </video>
+      {data?.hero_background_image && (
+        <video className={styles["hero-background"]} loop autoPlay muted>
+          <source src={data.hero_background_image} type="video/mp4" />
+        </video>
+      )}
       <div className={styles["hero-burger-wrapper"]}>
         <HamburgerTransition />
       </div>
       <div className={styles["hero-text-container"]}>
         <HeadingOneHome>Saga asia</HeadingOneHome>
-        <HeadingTwo>{data.hero_text}</HeadingTwo>
+        {data?.hero_text && <HeadingTwo>{data.hero_text}</HeadingTwo>}
       </div>
 
       <div className={styles["wave-container"]}>

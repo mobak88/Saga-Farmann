@@ -23,20 +23,22 @@ const SliderCard = ({
   return (
     <div className={styles.card}>
       <div>
-        <Image
-          src={imageSrc}
-          width={360}
-          height={250}
-          alt={alt}
-          className={styles["card-image"]}
-        />
+        {imageSrc && (
+          <Image
+            src={imageSrc}
+            width={360}
+            height={250}
+            alt={alt}
+            className={styles["card-image"]}
+          />
+        )}
       </div>
       <div className={styles["card-content-container"]}>
-        <HeadingThree>{heading}</HeadingThree>
-        <ParagraphsSmall>{text}</ParagraphsSmall>
+        {heading && <HeadingThree>{heading}</HeadingThree>}
+        {text && <ParagraphsSmall>{text}</ParagraphsSmall>}
       </div>
       <div className={styles["link-container"]}>
-        <LinkToSmall url={`posts/${blogId}`}>Read more</LinkToSmall>
+        {blogId && <LinkToSmall url={`posts/${blogId}`}>Read more</LinkToSmall>}
       </div>
     </div>
   );
