@@ -116,8 +116,6 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
     return destination.id;
   });
 
-  console.log(ids[1]);
-
   const destinationRes = await fetch(
     API_ENDPOINTS.singelDestination(id as string)
   );
