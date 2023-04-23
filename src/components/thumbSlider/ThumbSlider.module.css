@@ -1,7 +1,11 @@
+.swiper-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .swiper-container {
   position: relative;
   width: 100%;
-  height: 100%;
 }
 
 .main-swiper {
@@ -53,8 +57,8 @@
 
 .single-image {
   display: block;
-  height: 600px;
   width: 100%;
+  height: auto;
   margin-top: 10px;
   object-fit: cover;
 }
@@ -73,6 +77,8 @@
   max-height: 80vh; /* optional, adjust as needed */
   max-width: 80vw; /* optional, adjust as needed */
   z-index: 11;
+  width: 100%;
+  height: auto;
 }
 
 .close-button {
@@ -87,26 +93,23 @@
   border: none;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
   .swiper-wrapper {
-    display: flex;
-    justify-content: center;
+    align-items: center;
   }
 
   .swiper-container {
     width: 95%;
   }
 
-  .main-image {
-    width: 100%;
-  }
-
-  .preview-image {
-    width: 100%;
-    height: 100%;
-  }
-
   .preview-swiper {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .main-image {
+    width: 100%;
+    height: 40rem;
   }
 }
