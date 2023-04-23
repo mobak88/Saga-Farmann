@@ -9,14 +9,13 @@ import SwitchIdButton from "../buttons/SwitchIdButton";
 interface HeaderInterface {
   header: string;
   ids: number[];
+  id: number;
 }
 
-const HeaderWithBtns = ({ header, ids }: HeaderInterface) => {
+const HeaderWithBtns = ({ header, ids, id }: HeaderInterface) => {
   const decodedHeader = he.decode(header);
   const replacedHeader = decodedHeader.replace(/&#8221;/g, "-");
-  const [currentId, setCurrentId] = useState<number>(
-    ids && ids.length > 0 ? ids[0] : -1
-  );
+  const [currentId, setCurrentId] = useState<number>(ids.indexOf(id));
 
   return (
     <div className={styles.wrapper}>
