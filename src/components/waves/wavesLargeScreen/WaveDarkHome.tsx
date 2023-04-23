@@ -34,7 +34,7 @@ export const WaveDarkHomeBottomPink = () => {
       className={`${styles["wave-bottom"]} ${styles.wave} ${styles["wave-dark-bottom-pink"]}`}
       xmlns="http://www.w3.org/2000/svg"
       width="100%"
-      height="225"
+      height="230"
       viewBox="0 0 1920 222.655"
       preserveAspectRatio="none"
       aria-hidden="true"
