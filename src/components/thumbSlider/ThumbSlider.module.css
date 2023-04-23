@@ -118,11 +118,19 @@
     width: 100%;
     height: 40rem;
   }
+
+  .preview-image {
+    height: 80px;
+  }
 }
 
 @media screen and (max-width: 400px) {
   .main-image {
     width: 100%;
     height: 30rem;
+  }
+
+  .preview-image {
+    height: 50px;
   }
 }
