@@ -5,6 +5,8 @@ import JourneyAnimation from "@/components/parallax/text/JourneyAnimation";
 import MapAnimation from "@/components/parallax/map/MapAnimation";
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import { JourneyProps } from "./interfaces";
+import WaveRedBrownTop from "@/components/waves/wavesLargeScreen/WaveRedBrownTop";
+import WaveRedBrownSmall from "@/components/waves/wavesSmallScreen/WaveRedBrownSmall";
 
 const TheJourney = ({ journey }: JourneyProps) => {
   return (
@@ -16,6 +18,8 @@ const TheJourney = ({ journey }: JourneyProps) => {
             {!journeyData.acf.next_year ? (
               <>
                 <JourneyAnimation data={journeyData} i={i} />
+                <WaveRedBrownTop />
+                <WaveRedBrownSmall />
                 <MapAnimation data={journeyData} i={i} />
               </>
             ) : (

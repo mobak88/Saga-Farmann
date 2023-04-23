@@ -7,7 +7,9 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  gap: 50px;
+
+  /* Wave sizing */
+  padding: 30px 0 30px 0;
 }
 
 @media only screen and (max-width: 1200px) {

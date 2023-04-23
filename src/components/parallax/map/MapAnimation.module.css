@@ -6,6 +6,7 @@
   max-height: 80vh;
   align-items: center;
   overflow: hidden;
+  background-color: var(--bg-pink-brown);
 }
 
 .map-container {
