@@ -119,3 +119,10 @@
     height: 40rem;
   }
 }
+
+@media screen and (max-width: 400px) {
+  .main-image {
+    width: 100%;
+    height: 30rem;
+  }
+}
