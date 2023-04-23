@@ -12,9 +12,13 @@ interface BlogProps {
 const BlogInfo = ({ id, modified, title, post_description }: BlogProps) => {
   return (
     <div key={id} className={styles["blog-id-info-wrapper"]}>
-      <ParagraphsSmall>{modified.replace("T", " ")}</ParagraphsSmall>
-      <HeadingTwo>{title}</HeadingTwo>
-      <ParagraphsSmall>{post_description}</ParagraphsSmall>
+      {modified && (
+        <ParagraphsSmall>{modified.replace("T", " ")}</ParagraphsSmall>
+      )}
+      {title && <HeadingTwo>{title}</HeadingTwo>}
+      {post_description && (
+        <ParagraphsSmall>{post_description}</ParagraphsSmall>
+      )}
     </div>
   );
 };

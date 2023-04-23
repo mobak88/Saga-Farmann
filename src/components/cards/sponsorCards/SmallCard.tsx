@@ -21,21 +21,27 @@ const SmallCard = ({
   return (
     <div className={styles["small-card-wrapper"]}>
       <div className={styles["image-wrapper"]}>
-        <Image
-          src={sponsor_image}
-          alt={sponsor_name}
-          className={styles.image}
-          width={400}
-          height={400}
-          decoding="async"
-          data-nimg="1"
-          loading="lazy"
-        />
+        {sponsor_image && (
+          <Image
+            src={sponsor_image}
+            alt={sponsor_name}
+            className={styles.image}
+            width={400}
+            height={400}
+            decoding="async"
+            data-nimg="1"
+            loading="lazy"
+          />
+        )}
       </div>
       <div className={styles["card-text-wrapper"]}>
-        <ParagraphsBig>{sponsor_name}</ParagraphsBig>
-        <ParagraphsSmall>{sponsor_description}</ParagraphsSmall>
-        <LinkToSmall url={sponsor_link}>Read more</LinkToSmall>
+        {sponsor_name && <ParagraphsBig>{sponsor_name}</ParagraphsBig>}
+        {sponsor_description && (
+          <ParagraphsSmall>{sponsor_description}</ParagraphsSmall>
+        )}
+        {sponsor_link && (
+          <LinkToSmall url={sponsor_link}>Read more</LinkToSmall>
+        )}
       </div>
     </div>
   );
