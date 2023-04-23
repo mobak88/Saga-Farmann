@@ -10,7 +10,7 @@ const TheJourney = ({ journey }: JourneyProps) => {
   return (
     <>
       <Header header={"The Journey"} />
-      <div className={styles["parallax-text-container"]}>
+      <div className={styles["journey-content-container"]}>
         {journey.map((journeyData, i) => (
           <>
             {!journeyData.acf.next_year ? (

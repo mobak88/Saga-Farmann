@@ -88,32 +88,130 @@
 }
 
 .text:nth-child(2) {
-  transition-delay: calc(2 * (400ms));
+  transition-delay: calc(2 * (300ms));
 }
 
 .text:nth-child(3) {
-  transition-delay: calc(3 * (400ms));
+  transition-delay: calc(3 * (300ms));
 }
 
 .text:nth-child(4) {
-  transition-delay: calc(4 * (400ms));
+  transition-delay: calc(4 * (300ms));
 }
 
 .text:nth-child(5) {
-  transition-delay: calc(5 * (400ms));
+  transition-delay: calc(5 * (300ms));
 }
 
 .text:nth-child(6) {
-  transition-delay: calc(6 * (400ms));
+  transition-delay: calc(6 * (300ms));
 }
 
 .text:nth-child(7) {
-  transition-delay: calc(7 * (400ms));
+  transition-delay: calc(7 * (300ms));
 }
 
-@media screen and (max-width: 1600px) {
+@media only screen and (max-width: 1200px) {
+  .map-slide-wrapper {
+    min-width: unset;
+    height: unset;
+    max-height: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 80%;
+  }
+
   .map-container {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
     justify-content: center;
     align-items: center;
+    object-fit: cover;
+    transform: none;
+    opacity: 1;
+    filter: unset;
+    transition: none;
+  }
+
+  .map-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .map-text-container {
+    position: relative;
+    top: unset;
+    left: 0;
+    width: 100%;
+    max-width: unset;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+    gap: 30px;
+    text-align: left;
+  }
+
+  .text.show {
+    transform: unset;
+    opacity: 1;
+    filter: blur(0);
+    transition: none;
+  }
+
+  .heading.show {
+    transform: unset;
+    opacity: 1;
+    filter: blur(0);
+    transition: none;
+  }
+
+  .hidden {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }
+
+  .show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }
+}
+@media only screen and (max-width: 767px) {
+  .map-slide-wrapper {
+    width: 90%;
+  }
+
+  .map-container {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+    transform: none;
+    opacity: 1;
+    filter: unset;
+    transition: none;
+  }
+
+  .map-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .map-text-container {
+    position: static;
   }
 }

@@ -25,7 +25,7 @@ const MapAnimation = ({ data, i }: JourneyComponentProps) => {
     );
     observer.observe(mapAnimationRef.current!);
   }, []);
-  /*data.acf.stage[0].stage_images[0].stage_image.sizes["large-width"] */
+
   return (
     <div ref={mapAnimationRef} className={`${styles["map-slide-wrapper"]}`}>
       <div

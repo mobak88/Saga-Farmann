@@ -20,7 +20,7 @@ const JourneyAnimation = ({ data, i }: JourneyComponentProps) => {
         }
       },
       {
-        threshold: 0.6,
+        threshold: 0.4,
       }
     );
     observer.observe(imageAnimationRef.current!);
