@@ -6,6 +6,7 @@ import Contact from "./Contact";
 import FooterLinks from "./FooterLinks";
 import SosialMediaLinks from "./SosialMediaLinks";
 import Copyright from "./Copyright";
+import DarkContainer from "../containers/darkContainer/DarkContainer";
 
 const Footer = () => {
   return (
@@ -16,14 +17,15 @@ const Footer = () => {
           <WaveDarkHeader />
         </div>
       </div>
-
-      <div className={styles.container}>
-        <Contact />
-        <FooterLinks />
-        <SosialMediaLinks />
-        <div className={styles["grey-line"]}></div>
-        <Copyright />
-      </div>
+      <DarkContainer>
+        <div className={styles.container}>
+          <Contact />
+          <FooterLinks />
+          <SosialMediaLinks />
+          <div className={styles["grey-line"]}></div>
+          <Copyright />
+        </div>
+      </DarkContainer>
     </div>
   );
 };

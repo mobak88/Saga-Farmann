@@ -14,8 +14,8 @@
 }
 
 .container {
-  background-color: var(--bg-dark-blue);
   width: 100%;
+  max-width: 2000px;
   display: grid;
   padding-top: 10rem;
   grid-template-columns: 20rem 1fr 1fr 1fr 20rem;
@@ -119,24 +119,6 @@
   background-color: #a44744;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
   transform: translateY(2px);
-}
-
-@media screen and (min-width: 2000px) {
-  .container {
-    grid-template-columns: 30rem 1fr 1fr 1fr 30rem;
-  }
-}
-
-@media screen and (max-width: 1700px) {
-  .container {
-    grid-template-columns: 12rem 1fr 1fr 1fr 12rem;
-  }
-}
-
-@media screen and (max-width: 1500px) {
-  .container {
-    grid-template-columns: 8rem 1fr 1fr 1fr 8rem;
-  }
 }
 
 @media screen and (max-width: 1400px) {
