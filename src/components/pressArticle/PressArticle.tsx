@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "./pressArticle.module.css";
+import styles from "./PressArticle.module.css";
 import { PressArchive } from "./interfaces";
 import ParagraphsBig from "../typography/paragraphs/ParagraphsBig";
 import HeadingTwo from "../typography/headings/HeadingTwo";
@@ -21,7 +21,7 @@ const PressArticle = ({ pressData }: Props) => {
   }, [pressData]);
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.card}>
       <div className={styles["header-container"]}>
         <HeadingTwo dark>{pressData.press_heading}</HeadingTwo>
       </div>
@@ -31,22 +31,25 @@ const PressArticle = ({ pressData }: Props) => {
           <button>Download</button>
         </a>
       </div>
-      {pressData.press_images.map((image, index) => (
-        <div className={styles["image-container"]} key={index}>
-          <Image
-            className={styles.image}
-            src={image.press_image.url}
-            width={500}
-            height={500}
-            alt=""
-          />
+      <div className={styles["image-container"]}>
+        {pressData.press_images.map((image, index) => (
           <button>
-            <Link href={image.press_image.url} download>
+            <a href={image.press_image.url} download>
+              <Image
+                key={index}
+                className={styles.image}
+                src={
+                  "https://dev.sagafarmann.com/wp/wp-content/uploads/about-us/exp-2021-156-1.jpg"
+                }
+                width={200}
+                height={200}
+                alt=""
+              />
               Download
-            </Link>
+            </a>
           </button>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
