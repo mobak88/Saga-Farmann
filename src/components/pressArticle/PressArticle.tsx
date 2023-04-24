@@ -28,11 +28,11 @@ const PressArticle = ({ pressData }: Props) => {
       <div className={styles["paragraph-container"]}>
         <ParagraphsBig dark>{pressData.press_text_fields}</ParagraphsBig>
         <a href={fileUrl} download>
-          <button>Download Press Article</button>
+          <button>Download</button>
         </a>
       </div>
-      {pressData.press_images.map((image) => (
-        <div className={styles["image-container"]}>
+      {pressData.press_images.map((image, index) => (
+        <div className={styles["image-container"]} key={index}>
           <Image
             className={styles.image}
             src={image.press_image.url}
