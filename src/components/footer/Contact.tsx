@@ -16,13 +16,7 @@ const Contact = () => {
       <address className={styles["contact-info"]}>
         <FaEnvelope className={styles["contact-icon"]} />
         <a href="kontakt@sagafarmann.no">
-          <ParagraphsSmall>kontakt@sagafarmann.no</ParagraphsSmall>
-        </a>
-      </address>
-      <address className={styles["contact-info"]}>
-        <FaPhone className={styles["contact-icon"]} size={15} />
-        <a href="tel:+123 456 789">
-          <ParagraphsSmall>90 90 80 22</ParagraphsSmall>
+          <ParagraphsSmall>contact@sagafarmann.com</ParagraphsSmall>
         </a>
       </address>
     </div>

@@ -1,10 +1,13 @@
 import Link from "next/link";
 import styles from "./Footer.module.css";
+import { useCurrentCrewId } from "@/hooks/useCurrentCrewId";
 
 const FooterLinks = () => {
+  const crewId = useCurrentCrewId();
+
   const links = [
     { href: "/", label: "Home" },
-    { href: "/crew_members/", label: "Crew" },
+    { href: `/crew_members/${crewId}`, label: "Crew" },
     { href: "/posts", label: "Blog" },
     { href: "/destinations", label: "Destinations" },
     { href: "/livestream", label: "Livestream" },
