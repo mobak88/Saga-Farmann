@@ -1,8 +1,8 @@
 import React from "react";
 import Header from "@/components/header/Header";
 import styles from "./journeyPage.module.css";
-import JourneyAnimation from "@/components/parallax/text/JourneyAnimation";
-import MapAnimation from "@/components/parallax/map/MapAnimation";
+import JourneyAnimation from "@/components/journey/text/JourneyAnimation";
+import MapAnimation from "@/components/journey/map/MapAnimation";
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import { JourneyProps } from "./interfaces";
 import WaveRedBrownTop from "@/components/waves/wavesLargeScreen/WaveRedBrownTop";
