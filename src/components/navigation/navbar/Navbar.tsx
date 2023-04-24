@@ -20,7 +20,6 @@ const Navbar = ({ lightNavbar }: NavbarProps) => {
         <Title />
       </div>
       <div>
-        {/* <Hamburger /> */}
         <HamburgerTransition />
       </div>
     </nav>
