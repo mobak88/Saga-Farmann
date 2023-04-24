@@ -38,7 +38,7 @@ const PressArticle = ({ pressData }: Props) => {
   }, [pressData, pressData.press_images]);
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.card}>
       <div className={styles["header-container"]}>
         <HeadingTwo dark>{pressData.press_heading}</HeadingTwo>
       </div>
