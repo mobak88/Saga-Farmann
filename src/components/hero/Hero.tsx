@@ -1,5 +1,4 @@
 import React from "react";
-import Hamburger from "../navigation/hamburger/Hamburger";
 import { HeadingOneHome } from "../typography/headings/HeadingOne";
 import HeadingTwo from "../typography/headings/HeadingTwo";
 import styles from "./Hero.module.css";
