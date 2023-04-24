@@ -20,12 +20,6 @@ const LivestreamVideo = () => {
 
   return (
     <>
-      <iframe
-        width={"560px"}
-        height={"315px"}
-        className={styles["youtube-player"]}
-        src={`https://www.youtube.com/embed/live_stream?channel=UCaPUAvRBw0i5ET79TMh2_MQ&autoplay=1&mute=1`}
-      ></iframe>
       <div className={styles["content-container"]}>
         <div className={styles["youtube-holder"]}>
           {isOnline ? (

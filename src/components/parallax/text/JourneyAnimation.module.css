@@ -134,8 +134,12 @@
     object-fit: cover;
     transform: none;
     opacity: 1;
-    filter: brightness(50%);
+
     transition: none;
+  }
+
+  .image-container.show {
+    filter: brightness(100%);
   }
 
   .image {
@@ -148,7 +152,6 @@
     top: unset;
     right: unset;
     width: 100%;
-
     height: auto;
     display: flex;
     flex-direction: column;
