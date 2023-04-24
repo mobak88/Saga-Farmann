@@ -1,19 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./pressArticle.module.css";
 import { PressArchive } from "./interfaces";
 import ParagraphsBig from "../typography/paragraphs/ParagraphsBig";
 import HeadingTwo from "../typography/headings/HeadingTwo";
 import Image from "next/image";
 import Link from "next/link";
-import { text } from "stream/consumers";
 
 interface Props {
   pressData: PressArchive;
 }
 
 const PressArticle = ({ pressData }: Props) => {
-  const articleText = [pressData.press_heading, pressData.press_text_fields];
-  const file = new Blob([pressData.press_text_fields], { type: "text/plain" });
+  const [fileUrl, setFileUrl] = useState<string>("");
+
+  useEffect(() => {
+    const { press_heading, press_text_fields } = pressData;
+    const fileText = `${press_heading}\n\n${press_text_fields}`;
+    const file = new Blob([fileText], { type: "text/plain" });
+    setFileUrl(URL.createObjectURL(file));
+  }, [pressData]);
 
   return (
     <div className={styles.wrapper}>
@@ -22,11 +27,9 @@ const PressArticle = ({ pressData }: Props) => {
       </div>
       <div className={styles["paragraph-container"]}>
         <ParagraphsBig dark>{pressData.press_text_fields}</ParagraphsBig>
-        <button>
-          <Link href={URL.createObjectURL(file)} download>
-            Download
-          </Link>
-        </button>
+        <a href={fileUrl} download>
+          <button>Download Press Article</button>
+        </a>
       </div>
       {pressData.press_images.map((image) => (
         <div className={styles["image-container"]}>
