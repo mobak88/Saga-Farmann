@@ -18,9 +18,16 @@ const TheJourney = ({ journey }: JourneyProps) => {
             {!journeyData.acf.next_year ? (
               <>
                 <JourneyAnimation data={journeyData} i={i} />
+
                 <WaveRedBrownTop />
                 <WaveRedBrownSmall />
-                <MapAnimation data={journeyData} i={i} />
+                <div className={styles["journeymap-container"]}>
+                  <MapAnimation data={journeyData} i={i} />
+                </div>
+                <div className={styles["wave-bottom"]}>
+                  <WaveRedBrownTop />
+                  <WaveRedBrownSmall />
+                </div>
               </>
             ) : (
               ""
