@@ -3,7 +3,7 @@ import styles from "./JourneyAnimation.module.css";
 import Image from "next/image";
 import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
 import HeadingTwo from "@/components/typography/headings/HeadingTwo";
-import { JourneyComponentProps } from "../interfaces";
+import { JourneyComponentProps } from "../interfaces/componentInterfaces";
 
 const JourneyAnimation = ({ data, i }: JourneyComponentProps) => {
   const [imageIsVisible, setImageIsVisible] = useState<boolean>(false);
@@ -50,6 +50,7 @@ const JourneyAnimation = ({ data, i }: JourneyComponentProps) => {
       </div>
       {data.acf.stage.map((stage) => (
         <div
+          key={i * Math.random()}
           className={`${styles["journey-text-container"]} ${
             imageIsVisible || animationTriggered ? styles["show"] : styles[""]
           }`}
@@ -63,6 +64,7 @@ const JourneyAnimation = ({ data, i }: JourneyComponentProps) => {
           </div>
           {stage.stage_text_area.map((text) => (
             <div
+              key={i * Math.random()}
               className={`${styles["text"]}  ${
                 imageIsVisible || animationTriggered
                   ? styles["show"]

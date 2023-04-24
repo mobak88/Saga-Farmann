@@ -11,7 +11,7 @@ export default async function LivestreamStatus(
   res: NextApiResponse<LivestreamStatus>
 ) {
   const response = await fetch(
-    `https://www.youtube.com/embed/live_stream?channel=${process.env.NEXT_PUBLIC_CHANNEL_ID}`
+    `https://www.youtube.com/embed/live_stream?channel=${process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID}`
   );
   const data = await response.text();
 

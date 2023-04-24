@@ -4,7 +4,7 @@ import styles from "./journeyPage.module.css";
 import JourneyAnimation from "@/components/journey/text/JourneyAnimation";
 import MapAnimation from "@/components/journey/map/MapAnimation";
 import API_ENDPOINTS from "@/endpoints/endpoints";
-import { JourneyProps } from "./interfaces";
+import { JourneyProps } from "../../components/journey/interfaces/pageInterfaces";
 import WaveRedBrownTop from "@/components/waves/wavesLargeScreen/WaveRedBrownTop";
 import WaveRedBrownSmall from "@/components/waves/wavesSmallScreen/WaveRedBrownSmall";
 
