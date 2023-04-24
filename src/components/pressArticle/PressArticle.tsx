@@ -1,24 +1,41 @@
 import React, { useEffect, useState } from "react";
-import styles from "./pressArticle.module.css";
+import styles from "./PressArticle.module.css";
 import { PressArchive } from "./interfaces";
 import ParagraphsBig from "../typography/paragraphs/ParagraphsBig";
 import HeadingTwo from "../typography/headings/HeadingTwo";
 import Image from "next/image";
 import Link from "next/link";
+import useDownloader from "react-use-downloader";
 
 interface Props {
   pressData: PressArchive;
 }
 
 const PressArticle = ({ pressData }: Props) => {
+  const { size, elapsed, percentage, download, cancel, error, isInProgress } =
+    useDownloader();
+
   const [fileUrl, setFileUrl] = useState<string>("");
+  const [imageUrl, setImageUrl] = useState("");
 
   useEffect(() => {
     const { press_heading, press_text_fields } = pressData;
     const fileText = `${press_heading}\n\n${press_text_fields}`;
     const file = new Blob([fileText], { type: "text/plain" });
     setFileUrl(URL.createObjectURL(file));
-  }, [pressData]);
+
+    async function fetchData() {
+      const response = await fetch(
+        `/api/proxy?url=${encodeURIComponent(
+          pressData.press_images[0].press_image.url
+        )}`
+      );
+      const blob = await response.blob();
+      setImageUrl(URL.createObjectURL(blob));
+    }
+
+    fetchData();
+  }, [pressData, pressData.press_images]);
 
   return (
     <div className={styles.wrapper}>
@@ -33,6 +50,13 @@ const PressArticle = ({ pressData }: Props) => {
       </div>
       {pressData.press_images.map((image, index) => (
         <div className={styles["image-container"]} key={index}>
+          <button
+            onClick={() =>
+              download(image.press_image.url, image.press_image.url)
+            }
+          >
+            Download
+          </button>
           <Image
             className={styles.image}
             src={image.press_image.url}
@@ -40,11 +64,6 @@ const PressArticle = ({ pressData }: Props) => {
             height={500}
             alt=""
           />
-          <button>
-            <Link href={image.press_image.url} download>
-              Download
-            </Link>
-          </button>
         </div>
       ))}
     </div>
