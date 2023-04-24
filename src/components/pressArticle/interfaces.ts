@@ -5,7 +5,7 @@ export interface PressArchiveInterface {
 }
 
 export interface PressArchive {
-  press_heading: string[];
-  press_text_fields: string[];
-  press_images: [{ press_image: string }];
+  press_heading: string;
+  press_text_fields: string;
+  press_images: [{ press_image: { url: string } }];
 }
