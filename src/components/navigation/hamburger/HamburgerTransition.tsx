@@ -1,14 +1,37 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { CSSTransition } from "react-transition-group";
 import styles from "./HamburgerTransition.module.css";
 import Link from "next/link";
 import { IoIosMenu, IoMdClose } from "react-icons/io";
+import API_ENDPOINTS from "@/endpoints/endpoints";
+import { CrewMember } from "@/pages/crew_members/[id]";
 
 const HamburgerTransition = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [click, setClick] = useState(false);
   const nodeRefBurger = useRef<HTMLButtonElement>(null);
   const nodeRefMenu = useRef<HTMLDivElement>(null);
+  const [crewId, setCrewId] = useState();
+
+  useEffect(() => {
+    const getCurrentCrew = async () => {
+      const [resCrewMembers] = await Promise.all([
+        fetch(API_ENDPOINTS.crewMembers),
+      ]);
+      const [crewIds] = await Promise.all([resCrewMembers.json()]);
+
+      const currentCrewId = crewIds.filter(
+        (crew: CrewMember) => crew.acf?.current_crew === true
+      );
+
+      const currentCrew = currentCrewId.map((crew: CrewMember) =>
+        crew.id.toString()
+      );
+      console.log(currentCrew);
+      setCrewId(currentCrew);
+    };
+    getCurrentCrew();
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen((prevState) => !prevState);
@@ -17,8 +40,8 @@ const HamburgerTransition = () => {
 
   const links = [
     { href: "/", label: "Home" },
-    { href: "/crew_members/", label: "Crew" },
-    { href: "/posts", label: "Blog" },
+    { href: `/crew_members/${crewId}`, label: "Crew" },
+    { href: "/blog", label: "Blog" },
     { href: "/destinations", label: "Destinations" },
     { href: "/livestream", label: "Livestream" },
     { href: "/sponsors", label: "Sponsors" },

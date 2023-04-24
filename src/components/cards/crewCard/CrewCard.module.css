@@ -1,5 +1,6 @@
 .card {
   width: 100%;
+
   box-shadow: var(--box-shadow);
   background-color: var(--very-dark-blue);
   display: grid;

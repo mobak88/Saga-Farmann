@@ -2,15 +2,15 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import React, { useState } from "react";
 import { ParsedUrlQuery } from "querystring";
 import styles from "./crew.module.css";
-import Header from "@/components/header/Header";
+import Header from "../../components/header/Header";
 import Card from "../../components/cards/crewCard/CrewCard";
-import HeadingTwo from "@/components/typography/headings/HeadingTwo";
-import SwitchIdButton from "@/components/buttons/SwitchIdButton";
-import DarkContainer from "@/components/containers/darkContainer/DarkContainer";
-import API_ENDPOINTS from "@/endpoints/endpoints";
+import HeadingTwo from "../../components/typography/headings/HeadingTwo";
+import SwitchIdButton from "../../components/buttons/SwitchIdButton";
+import DarkContainer from "../../components/containers/darkContainer/DarkContainer";
+import API_ENDPOINTS from "../../endpoints/endpoints";
 import avatarImg from "../../../public/assets/blank-profile-picture-973460_1280.png";
 import { StaticImageData } from "next/image";
-import CardSkeleton from "@/components/skeletons/card/CardSkeleton";
+import CardSkeleton from "../../components/skeletons/card/CardSkeleton";
 import Head from "next/head";
 
 type Member = {
@@ -26,7 +26,7 @@ type Member = {
   member_description: string;
 };
 
-interface CrewMember {
+export interface CrewMember {
   id: number;
   title: { rendered: string };
   acf: {
