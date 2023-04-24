@@ -8,9 +8,9 @@ interface BlogProps {
 const BlogSecondHeading = ({ post_second_section_heading }: BlogProps) => {
   return (
     <div className={styles["blog-id-second-heading"]}>
-      <HeadingThree>
-        Second section heading: {post_second_section_heading}
-      </HeadingThree>
+      {post_second_section_heading && (
+        <HeadingThree>{post_second_section_heading}</HeadingThree>
+      )}
     </div>
   );
 };

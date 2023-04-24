@@ -24,28 +24,34 @@ const BlogCard = ({
 }: BlogProps) => {
   return (
     <div className={styles["blog-page-card"]}>
-      <Link style={{ textDecoration: "none" }} key={id} href={`/blog/${id}`}>
+      <Link style={{ textDecoration: "none" }} key={id} href={`/posts/${id}`}>
         <div className={styles["blog-card-image-wrapper"]}>
-          <Image
-            src={post_image}
-            alt={title}
-            className={styles["blog-card-image"]}
-            height={600}
-            width={1000}
-          />
+          {post_image && title && (
+            <Image
+              src={post_image}
+              alt={title}
+              className={styles["blog-card-image"]}
+              height={600}
+              width={1000}
+            />
+          )}
         </div>
         <div className={styles["blog-card-info"]}>
           <div className={styles["blog-card-place"]}>
-            <ParagraphsSmall>{blog_place}</ParagraphsSmall>
-            <ParagraphsSmall>
-              Posted: {modified.replace("T", " ")}
-            </ParagraphsSmall>
+            {blog_place && <ParagraphsSmall>{blog_place}</ParagraphsSmall>}
+            {modified && (
+              <ParagraphsSmall>
+                Posted: {modified.replace("T", " ")}
+              </ParagraphsSmall>
+            )}
           </div>
           <div className={styles["title-container"]}>
-            <ParagraphsBig>Title: {title}</ParagraphsBig>
+            {title && <ParagraphsBig>Title: {title}</ParagraphsBig>}
           </div>
           <div className={styles["description-container"]}>
-            <ParagraphsSmall>Description: {post_description}</ParagraphsSmall>
+            {post_description && (
+              <ParagraphsSmall>Description: {post_description}</ParagraphsSmall>
+            )}
           </div>
           <div className={styles["blog-card-read-more"]}>
             <ParagraphsSmall>

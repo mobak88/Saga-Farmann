@@ -80,7 +80,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     props: {
       donateData,
     },
-    revalidate: 1,
   };
 };
 

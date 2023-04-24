@@ -9,7 +9,7 @@ import LightLayout from "@/components/layout/LightLayout";
 import LivestreamVideo from "@/components/livestream/LivestreamVideo";
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import { GridSections } from "@/components/gridImagesAndText/interfaces";
-import { SingleStageProps } from "@/components/mapbox/interfaces";
+import { MapProps } from "@/components/mapbox/interfaces";
 import { HeroSection } from "@/components/hero/interfaces";
 import SponsorUsSection from "@/components/sponsorUsSection/SponsorUsSection";
 import { SponsorUsSectionInterface } from "@/components/sponsorUsSection/interfaces";
@@ -20,18 +20,15 @@ import { destinationsDataStructure } from "@/helpers/destinationsDataStructure";
 import { stagesDataStructure } from "@/helpers/stagesDataStructure";
 
 export interface HomeProps {
-  stages: SingleStageProps[];
+  stagesMapProps: MapProps;
   gridSection: GridSections;
   heroSection: HeroSection;
   sponsorUsSection: SponsorUsSectionInterface;
-  destinations: SingleStageProps[];
   latestNews: LatestNewsHomeProps;
-  testSTage: any;
 }
 
 const Home = ({
-  stages,
-  destinations,
+  stagesMapProps,
   gridSection,
   sponsorUsSection,
   heroSection,
@@ -53,7 +50,10 @@ const Home = ({
         <GridImagesAndText gridContent={gridSection} />
       </div>
       <div className={styles["map-container"]}>
-        <StagesMap destinations={destinations} stages={stages} />
+        <StagesMap
+          destinations={stagesMapProps.destinations}
+          stages={stagesMapProps.stages}
+        />
       </div>
       <div className={styles["livestream-wrapper"]}>
         <LivestreamVideo />
@@ -69,22 +69,30 @@ const Home = ({
 };
 
 export async function getStaticProps() {
-  const [resStages, resHomeData, resDestinations, resSponsorUs, resBlogPosts] =
-    await Promise.all([
-      fetch(API_ENDPOINTS.stages),
-      fetch(API_ENDPOINTS.page(128)),
-      fetch(API_ENDPOINTS.destinations),
-      fetch(API_ENDPOINTS.page(222)),
-      fetch(API_ENDPOINTS.blogPosts),
-    ]);
+  const [
+    resStages,
+    resHomeData,
+    resDestinations,
+    resSponsorUs,
+    resBlogPosts,
+    resCrews,
+  ] = await Promise.all([
+    fetch(API_ENDPOINTS.stages),
+    fetch(API_ENDPOINTS.page(128)),
+    fetch(API_ENDPOINTS.destinations),
+    fetch(API_ENDPOINTS.page(222)),
+    fetch(API_ENDPOINTS.blogPosts),
+    fetch(API_ENDPOINTS.crewMembers),
+  ]);
 
-  const [stages, homeData, destinations, sponsorUs, blogPosts] =
+  const [stages, homeData, destinations, sponsorUs, blogPosts, crews] =
     await Promise.all([
       resStages.json(),
       resHomeData.json(),
       resDestinations.json(),
       resSponsorUs.json(),
       resBlogPosts.json(),
+      resCrews.json(),
     ]);
 
   const newStages = stagesDataStructure(stages);
@@ -107,17 +115,20 @@ export async function getStaticProps() {
 
   const sponsorUsSection = sponsorUsDataStructure(sponsorUs.acf);
 
+  const stagesMapProps = {
+    stages: newStages,
+    destinations: newDestinations,
+  };
+
   return {
     props: {
-      stages: newStages,
-      homeData,
+      stagesMapProps,
       heroSection,
       gridSection,
       destinations: newDestinations,
       sponsorUsSection,
       latestNews,
     },
-    revalidate: 1,
   };
 }
 

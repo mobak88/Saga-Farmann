@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image, { StaticImageData } from "next/image";
 import styles from "./CrewCard.module.css";
 import ParagraphsSmall from "@/components/typography/paragraphs/ParagraphsSmall";
@@ -16,24 +16,63 @@ const CrewCard = ({
   member_role,
   member_description,
 }: MemberProps) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isImageStretched, setIsImageStretched] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 600);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const toggleExpand = () => {
+    setIsExpanded(!isExpanded);
+    setIsImageStretched(true);
+  };
+
   return (
     <>
-      <div className={styles.card}>
+      <div className={styles.card} onClick={toggleExpand}>
         <div className={styles["image-wrapper"]}>
-          <Image
-            src={member_image}
-            alt={member_name}
-            className={styles.image}
-            width={213}
-            height={250}
-          />
+          {member_image && (
+            <Image
+              src={member_image}
+              alt={member_name}
+              className={`${styles.image} ${
+                isImageStretched ? styles.stretched : styles.notStretched
+              }`}
+              width={250}
+              height={250}
+            />
+          )}
         </div>
         <div className={styles["card-text-wrapper"]}>
-          <h2 className={styles.name}>{member_name}</h2>
-          <h3 className={styles.role}>{member_role}</h3>
-          <div className={styles.description}>
+          {member_name && <h2 className={styles.name}>{member_name}</h2>}
+          {member_role && <h3 className={styles.role}>{member_role}</h3>}
+
+          {member_description && isExpanded ? (
             <ParagraphsSmall>{member_description}</ParagraphsSmall>
-          </div>
+          ) : (
+            <div>
+              <ParagraphsSmall>
+                {isMobile
+                  ? member_description.slice(0, 50) + "..."
+                  : member_description.slice(0, 150) + "..."}
+                <span className={styles.read}>
+                  {isExpanded ? "Read less" : "Read more"}
+                </span>
+              </ParagraphsSmall>
+            </div>
+          )}
         </div>
       </div>
     </>

@@ -4,7 +4,7 @@ import styles from "./HamburgerTransition.module.css";
 import Link from "next/link";
 import { IoIosMenu, IoMdClose } from "react-icons/io";
 import API_ENDPOINTS from "@/endpoints/endpoints";
-import { CrewMember } from "@/pages/crew/[id]";
+import { CrewMember } from "@/pages/crew_members/[id]";
 
 const HamburgerTransition = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,13 +40,13 @@ const HamburgerTransition = () => {
 
   const links = [
     { href: "/", label: "Home" },
-    { href: `/crew/${crewId}`, label: "Crew" },
+    { href: `/crew_members/${crewId}`, label: "Crew" },
     { href: "/blog", label: "Blog" },
     { href: "/destinations", label: "Destinations" },
     { href: "/livestream", label: "Livestream" },
     { href: "/sponsors", label: "Sponsors" },
     { href: "/donate", label: "Donate" },
-    { href: "/aboutus", label: "About Us" },
+    { href: "/about-us", label: "About Us" },
     { href: "/technical", label: "Technical" },
     { href: "/pressarchive", label: "Press" },
   ];

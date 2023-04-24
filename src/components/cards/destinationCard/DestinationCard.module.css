@@ -1,6 +1,6 @@
 .card {
   width: 30em;
-  height: 450px;
+  height: 30em;
   background-color: var(--very-dark-blue);
   box-shadow: var(--box-shadow);
 }
@@ -33,12 +33,13 @@
 }
 
 .text-container h2 {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .text-container p {
   font-size: var(--p--step-1);
-  margin-bottom: 16px;
+  margin-bottom: 8px;
+  line-height: 1.5em;
 }
 
 .text-container a {
@@ -51,11 +52,12 @@
   align-items: center;
   gap: 10px;
   cursor: pointer;
-  font-size: var(--p--step-1);
+  font-size: var(--p--step-0);
 }
 
 .read-more-link:hover {
-  text-decoration: underline;
+  text-decoration: underline var(--bg-pink-brown);
+  text-underline-offset: 4px;
 }
 
 .arrow-icon {
@@ -80,7 +82,6 @@
 @media only screen and (max-width: 360px) {
   .card {
     width: 15em;
-    height: 20em;
   }
 
   .text-container p {
