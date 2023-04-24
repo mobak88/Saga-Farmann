@@ -1,11 +1,10 @@
 .card {
-  width: 900px;
-  height: 280px;
+  width: 100%;
+
   box-shadow: var(--box-shadow);
   display: grid;
-  grid-template-columns: 30% 1fr;
+  grid-template-columns: 25% 1fr;
   grid-template-rows: 1fr;
-  overflow: hidden;
 }
 
 .image-wrapper {
@@ -30,15 +29,6 @@
   flex-direction: column;
   gap: 2rem;
   padding: 2rem;
-}
-
-.description {
-  height: 150px;
-  overflow-y: scroll;
-}
-
-.description p {
-  line-height: 2em;
 }
 
 .name {
