@@ -44,7 +44,7 @@ const BlogDetails = ({ post, images }: Props) => {
           <div className={styles["blog-id-first-section"]}>
             <BlogInfo
               id={post.id}
-              modified={post.modified}
+              date={post.date}
               title={post.title.rendered}
               post_description={post.acf.post_description}
             />
