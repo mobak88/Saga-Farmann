@@ -29,7 +29,8 @@ const BlogPage = ({ posts }: Posts) => {
               post_image={
                 post.acf.post_first_section.post_images[0].post_image.url
               }
-              modified={post.modified}
+              date={post.date}
+              time={post.date}
               title={post.title.rendered}
               post_description={post.acf.post_description}
               blog_place={post.acf.blog_place}

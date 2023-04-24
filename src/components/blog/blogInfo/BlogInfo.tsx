@@ -4,17 +4,15 @@ import styles from "./BlogInfo.module.css";
 
 interface BlogProps {
   id: number;
-  modified: string;
+  date: string;
   title: string;
   post_description: string;
 }
 
-const BlogInfo = ({ id, modified, title, post_description }: BlogProps) => {
+const BlogInfo = ({ id, date, title, post_description }: BlogProps) => {
   return (
     <div key={id} className={styles["blog-id-info-wrapper"]}>
-      {modified && (
-        <ParagraphsSmall>{modified.replace("T", " ")}</ParagraphsSmall>
-      )}
+      {date && <ParagraphsSmall>{date.replace("T", " ")}</ParagraphsSmall>}
       {title && <HeadingTwo>{title}</HeadingTwo>}
       {post_description && (
         <ParagraphsSmall>{post_description}</ParagraphsSmall>
