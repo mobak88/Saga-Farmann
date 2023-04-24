@@ -9,7 +9,7 @@ export interface ImageProps {
 
 export interface Post {
   id: number;
-  modified: string;
+  date: string;
   title: { rendered: string };
   acf: {
     post_first_section: PostFirstSection;
