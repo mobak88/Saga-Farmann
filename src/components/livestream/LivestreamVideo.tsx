@@ -13,13 +13,15 @@ const LivestreamVideo = () => {
       });
   }, []);
 
+  console.log(process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID);
+
   return (
     <>
       <iframe
         width={"560px"}
         height={"315px"}
         className={styles["youtube-player"]}
-        src={`https://www.youtube.com/embed/live_stream?channel=UC2rhxUIAPHCu5L5m83T_0xQ&autoplay=1&mute=1`}
+        src={`https://www.youtube.com/embed/live_stream?channel=${process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID}&autoplay=1&mute=1`}
       ></iframe>
       <div className={styles["content-container"]}>
         <div className={styles["youtube-holder"]}>
@@ -28,7 +30,7 @@ const LivestreamVideo = () => {
               width={"560px"}
               height={"315px"}
               className={styles["youtube-player"]}
-              src={`https://www.youtube.com/embed/live_stream?channel=UC2rhxUIAPHCu5L5m83T_0xQ&autoplay=1&mute=1`}
+              src={`https://www.youtube.com/embed/live_stream?channel=${process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID}&autoplay=1&mute=1`}
             ></iframe>
           ) : (
             <div className={styles["offline-text-container"]}>
