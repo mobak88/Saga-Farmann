@@ -24,7 +24,7 @@ const PressArticle = ({ pressData }: Props) => {
 
   useEffect(() => {
     const { press_heading, press_text_fields } = pressData;
-    const fileText = ${press_heading}\n\n${press_text_fields};
+    const fileText = `${press_heading}\n\n${press_text_fields}`;
     const file = new Blob([fileText], { type: "text/plain" });
     setFileUrl(URL.createObjectURL(file));
   }, [pressData]);
