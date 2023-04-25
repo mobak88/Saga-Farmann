@@ -93,10 +93,9 @@
   text-decoration: none;
 }
 
-.wrapper-links :hover {
-  color: var(--bg-pink-brown);
-  text-decoration: underline;
-  cursor: pointer;
+.footer-links:hover {
+  border-bottom: 1.5px solid var(--bg-pink-brown);
+  padding-bottom: 2px;
 }
 
 .wrapper-sosial-icon {
