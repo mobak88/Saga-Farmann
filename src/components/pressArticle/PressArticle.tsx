@@ -5,6 +5,9 @@ import ParagraphsBig from "../typography/paragraphs/ParagraphsBig";
 import HeadingTwo from "../typography/headings/HeadingTwo";
 import Image from "next/image";
 import Link from "next/link";
+import { FaFileDownload } from "react-icons/fa";
+import { text } from "stream/consumers";
+import LatestNewsSlider from "../latestNews/latestNewsSlider/LatestNewsSlider";
 
 interface Props {
   pressData: PressArchive;
@@ -24,7 +27,9 @@ const PressArticle = ({ pressData }: Props) => {
 
   useEffect(() => {
     const { press_heading, press_text_fields } = pressData;
-    const fileText = `${press_heading}\n\n${press_text_fields}`;
+    const fileText = `${press_heading}\n\n${press_text_fields.map(
+      (text) => text.press_text_field
+    )}`;
     const file = new Blob([fileText], { type: "text/plain" });
     setFileUrl(URL.createObjectURL(file));
   }, [pressData]);
@@ -34,23 +39,30 @@ const PressArticle = ({ pressData }: Props) => {
       <div className={styles["header-container"]}>
         <HeadingTwo>{pressData.press_heading}</HeadingTwo>
         <a href={fileUrl} download>
-          <button>Download</button>
+          <button className={styles.download}>
+            <FaFileDownload color="white" size={20} />
+          </button>
         </a>
       </div>
-      <div className={styles["paragraph-container"]}>
-        <ParagraphsBig>{pressData.press_text_fields}</ParagraphsBig>
-      </div>
+      {pressData?.press_text_fields?.map((text) => (
+        <div className={styles["paragraph-container"]}>
+          <ParagraphsBig>{text.press_text_field}</ParagraphsBig>
+        </div>
+      ))}
+
       <div className={styles["image-container"]}>
         {pressData.press_images.map((image, index) => (
-          <Image
-            key={index}
-            className={styles.image}
-            src={image.press_image.url}
-            width={200}
-            height={200}
-            alt=""
-            onClick={() => downloadImage(image.press_image.url)}
-          />
+          <div className={styles.images}>
+            <Image
+              key={index}
+              className={styles.image}
+              src={image.press_image.url}
+              width={500}
+              height={340}
+              alt=""
+              onClick={() => downloadImage(image.press_image.url)}
+            />
+          </div>
         ))}
       </div>
     </div>

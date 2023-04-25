@@ -11,6 +11,7 @@ import {
 
 import DarkContainer from "@/components/containers/darkContainer/DarkContainer";
 import PressArticle from "@/components/pressArticle/PressArticle";
+import Header from "@/components/header/Header";
 
 interface Props {
   pressArchive: PressArchive[];
@@ -25,6 +26,7 @@ const PressArchivePage = ({ pressArchive }: Props) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Header header={"Press archive"} />
       <DarkContainer>
         <div className={styles.wrapper}>
           {pressArchive.map((data: PressArchive, index: number) => (
