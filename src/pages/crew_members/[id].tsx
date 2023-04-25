@@ -12,6 +12,7 @@ import avatarImg from "../../../public/assets/blank-profile-picture-973460_1280.
 import { StaticImageData } from "next/image";
 import CardSkeleton from "../../components/skeletons/card/CardSkeleton";
 import Head from "next/head";
+import { constructDate } from "@/helpers/constructDate";
 
 type Member = {
   member_image:
@@ -32,7 +33,7 @@ export interface CrewMember {
   acf: {
     member: Member[];
     current_crew: boolean;
-    crew_dates: { crew_date_from: string; crew_date_to: string };
+    crew_dates: { crew_date_from: number; crew_date_to: string };
     destination: number;
   };
 }
@@ -163,10 +164,18 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
   const allCrewsRespond = await fetch(API_ENDPOINTS.crewMembers);
   const allCrews: CrewMember[] = await allCrewsRespond.json();
 
-  const sortedCrews = allCrews.sort(
-    (a, b) => a.acf.destination - b.acf.destination
+  const sortedCrews = allCrews.filter(
+    (member: CrewMember) => member.acf?.crew_dates?.crew_date_from
   );
 
+  sortedCrews.sort((a: CrewMember, b: CrewMember) => {
+    const [aDateFrom, bDateFrom] = constructDate(
+      a.acf.crew_dates.crew_date_from,
+      b.acf.crew_dates.crew_date_from
+    );
+
+    return aDateFrom - bDateFrom;
+  });
   const ids = sortedCrews.map((item) => item.id);
 
   if (!crewMember.id) {
