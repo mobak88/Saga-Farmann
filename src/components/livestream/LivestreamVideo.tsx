@@ -13,8 +13,6 @@ const LivestreamVideo = () => {
       });
   }, []);
 
-  console.log("env string fix", process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID);
-
   return (
     <>
       <iframe
