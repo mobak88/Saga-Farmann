@@ -4,6 +4,7 @@ import HeadingThree from "../typography/headings/HeadingThree";
 import { GridSections } from "./interfaces";
 import ParagraphsBig from "../typography/paragraphs/ParagraphsBig";
 import Image from "next/image";
+import ParagraphsMedium from "../typography/paragraphs/ParagraphsMedium";
 
 interface Props {
   gridContent: GridSections;
@@ -21,9 +22,9 @@ const GridImagesAndText = ({ gridContent }: Props) => {
           )}
 
           {gridContent?.first_block?.first_block_text && (
-            <ParagraphsBig>
+            <ParagraphsMedium>
               {gridContent.first_block.first_block_text}
-            </ParagraphsBig>
+            </ParagraphsMedium>
           )}
         </div>
       </div>
@@ -36,9 +37,9 @@ const GridImagesAndText = ({ gridContent }: Props) => {
             </HeadingThree>
           )}
           {gridContent?.third_block?.third_block_text && (
-            <ParagraphsBig>
+            <ParagraphsMedium>
               {gridContent.third_block.third_block_text}
-            </ParagraphsBig>
+            </ParagraphsMedium>
           )}
         </div>
         <div className={styles.pointer}></div>
@@ -74,9 +75,9 @@ const GridImagesAndText = ({ gridContent }: Props) => {
             </HeadingThree>
           )}
           {gridContent?.fourth_block?.fourth_block_text && (
-            <ParagraphsBig dark>
+            <ParagraphsMedium dark>
               {gridContent.fourth_block.fourth_block_text}
-            </ParagraphsBig>
+            </ParagraphsMedium>
           )}
         </div>
       </div>
@@ -88,9 +89,9 @@ const GridImagesAndText = ({ gridContent }: Props) => {
             </HeadingThree>
           )}
           {gridContent?.seventh_block?.seventh_block_text && (
-            <ParagraphsBig dark>
+            <ParagraphsMedium dark>
               {gridContent.seventh_block.seventh_block_text}
-            </ParagraphsBig>
+            </ParagraphsMedium>
           )}
         </div>
       </div>
@@ -111,9 +112,9 @@ const GridImagesAndText = ({ gridContent }: Props) => {
             </HeadingThree>
           )}
           {gridContent?.eighth_block?.eighth_block_text && (
-            <ParagraphsBig>
+            <ParagraphsMedium>
               {gridContent.eighth_block.eighth_block_text}
-            </ParagraphsBig>
+            </ParagraphsMedium>
           )}
         </div>
       </div>

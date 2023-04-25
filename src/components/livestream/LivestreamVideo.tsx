@@ -5,18 +5,13 @@ import styles from "./LivestreamVideo.module.css";
 const LivestreamVideo = () => {
   const [isOnline, setIsOnline] = useState<Boolean>(false);
 
-  const offlineDisplay: string =
-    "https://media.discordapp.net/attachments/1084295088739471451/1086015257715167362/Hernok_Vikings_on_a_voyage_through_europe_sleeping_on_the_ship._861ec5d8-5b26-4882-9b93-0b164f9dd4ca.png?width=1576&height=909";
-
   useEffect(() => {
-    getStatus();
+    fetch("/api/livestream/livestreamChecker")
+      .then((res) => res.json())
+      .then((data) => {
+        setIsOnline(data.isOnline);
+      });
   }, []);
-
-  async function getStatus() {
-    var resp = await fetch("/api/livestream/livestreamChecker");
-    const data = await resp.json();
-    setIsOnline(data.isOnline);
-  }
 
   return (
     <>
@@ -39,4 +34,5 @@ const LivestreamVideo = () => {
     </>
   );
 };
+
 export default LivestreamVideo;

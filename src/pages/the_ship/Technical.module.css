@@ -29,11 +29,6 @@
   height: auto;
 }
 
-.second-section-motor-image {
-  width: 100%;
-  height: auto;
-}
-
 .paragraph-with-img-container {
   display: flex;
   margin-bottom: 3rem;
@@ -44,15 +39,6 @@
 .third-section-image-horizontal {
   width: auto;
   height: auto;
-}
-
-.second-section-motor-image-wrapper {
-  background-color: var(--bg-dark-blue);
-  clip-path: polygon(0 11%, 100% 0, 100% 86%, 52% 100%, 0 91%);
-  max-width: 60rem;
-  width: 100%;
-  height: 100%;
-  padding-top: 6rem;
 }
 
 .wave-bottom-wrapper {
@@ -109,5 +95,11 @@
   .paragraph-with-img-container {
     flex-direction: column;
     gap: 2rem;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .second-section-third-image {
+    width: 100%;
+    height: auto;
   }
 }

@@ -16,19 +16,19 @@ interface TechnicalInterface {
   acf: {
     first_section_heading: string;
     first_section_texts: [{ first_section_text: string }];
-    first_section_image: string;
+    first_section_image: { url: string; alt: string };
     second_section_heading: string;
     second_section_texts: [{ second_section_text: string }];
-    second_section_image_one: string;
-    second_section_image_two: string;
-    second_section_image_three: string;
+    second_section_image_one: { url: string; alt: string };
+    second_section_image_two: { url: string; alt: string };
+    second_section_image_three: { url: string; alt: string };
     third_section_heading: string;
     third_section_texts: [{ third_section_text: string }];
-    third_section_image_one: string;
-    third_section_image_two: string;
+    third_section_image_one: { url: string; alt: string };
+    third_section_image_two: { url: string; alt: string };
     fourth_section_heading: string;
     fourth_section_texts: [{ fourth_section_text: string }];
-    fourth_section_image: string;
+    fourth_section_image: { url: string; alt: string };
   };
 }
 
@@ -51,9 +51,9 @@ const Technical = ({ pageData }: Props) => {
           <div className={styles["image-wrapper"]}>
             <Image
               className={styles.image}
-              src={pageData.acf.first_section_image}
-              alt="Technical image of Klastadskipet seilforslag"
-              height={600}
+              src={pageData.acf.first_section_image.url}
+              alt={pageData.acf.first_section_image.alt}
+              height={413.4}
               width={600}
             />
           </div>
@@ -92,17 +92,12 @@ const Technical = ({ pageData }: Props) => {
                       key={i + Math.random()}
                     >
                       <ParagraphsBig>{text.second_section_text}</ParagraphsBig>
-                      <div
-                        className={styles["second-section-motor-image-wrapper"]}
-                      >
-                        <Image
-                          className={styles["second-section-motor-image"]}
-                          src={pageData.acf.second_section_image_three}
-                          alt={"Technical image of boat motor"}
-                          height={900}
-                          width={600}
-                        />
-                      </div>
+                      <Image
+                        src={pageData.acf.second_section_image_three.url}
+                        alt={pageData.acf.second_section_image_three.alt}
+                        height={250}
+                        width={250}
+                      />
                     </div>
                   );
                 }
@@ -110,17 +105,17 @@ const Technical = ({ pageData }: Props) => {
             </div>
             <Image
               className={styles["second-section-horizontal-image"]}
-              src={pageData.acf.second_section_image_one}
-              alt={"Technical image of Klastad vre betelag"}
-              height={900}
-              width={600}
-            />
-            <Image
-              className={styles["second-section-horizontal-image"]}
-              src={pageData.acf.second_section_image_two}
-              alt={"Technical image of Klastad nedre betelag"}
+              src={pageData.acf.second_section_image_two.url}
+              alt={pageData.acf.second_section_image_two.alt}
               height={300}
               width={800}
+            />
+            <Image
+              className={styles["second-section-third-image"]}
+              src={pageData.acf.second_section_image_one.url}
+              alt={pageData.acf.second_section_image_one.alt}
+              height={714}
+              width={625}
             />
           </div>
         </div>
@@ -149,15 +144,15 @@ const Technical = ({ pageData }: Props) => {
             >
               <Image
                 className={styles["third-section-image-horizontal"]}
-                src={pageData.acf.third_section_image_one}
-                alt="Technical image of Klastadskipet seilforslag"
+                src={pageData.acf.third_section_image_one.url}
+                alt={pageData.acf.third_section_image_one.alt}
                 height={600}
                 width={600}
               />
               <Image
                 className={styles["third-section-image-horizontal"]}
-                src={pageData.acf.third_section_image_two}
-                alt="Technical image of Klastadskipet seilforslag"
+                src={pageData.acf.third_section_image_two.url}
+                alt={pageData.acf.third_section_image_two.alt}
                 height={600}
                 width={600}
               />
@@ -167,10 +162,10 @@ const Technical = ({ pageData }: Props) => {
             <div className={styles["image-wrapper"]}>
               <Image
                 className={styles.image}
-                src={pageData.acf.fourth_section_image}
-                alt="Technical image of Klastadskipet seilforslag"
-                height={600}
-                width={600}
+                src={pageData.acf.fourth_section_image.url}
+                alt={pageData.acf.fourth_section_image.alt}
+                height={766}
+                width={890}
               />
             </div>
             <div>

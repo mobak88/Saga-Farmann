@@ -18,6 +18,7 @@ import { LatestNewsHomeProps } from "@/components/latestNews/latestNewsInterface
 import { gridSectionDataStructure } from "@/helpers/gridSectionDataStructure";
 import { destinationsDataStructure } from "@/helpers/destinationsDataStructure";
 import { stagesDataStructure } from "@/helpers/stagesDataStructure";
+import WaveRedBrown from "@/components/waves/wavesLargeScreen/WaveRedBrown";
 
 export interface HomeProps {
   stagesMapProps: MapProps;
@@ -50,6 +51,9 @@ const Home = ({
         <GridImagesAndText gridContent={gridSection} />
       </div>
       <div className={styles["map-container"]}>
+        <div className={styles["map-wave-wrapper"]}>
+          <WaveRedBrown />
+        </div>
         <StagesMap
           destinations={stagesMapProps.destinations}
           stages={stagesMapProps.stages}
