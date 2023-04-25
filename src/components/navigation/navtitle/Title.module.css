@@ -1,7 +1,5 @@
 .nav_title {
-  text-decoration: none;
-}
-
-.nav_title :hover {
-  color: var(--bg-pink-brown);
+  color: #f2f2f2;
+  font-family: Norse;
+  font-size: 42px;
 }
