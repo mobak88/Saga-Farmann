@@ -15,7 +15,7 @@ const Contact = () => {
       </address>
       <address className={styles["contact-info"]}>
         <FaEnvelope className={styles["contact-icon"]} />
-        <a href="kontakt@sagafarmann.no">
+        <a href="mailto:contact@sagafarmann.com">
           <ParagraphsSmall>contact@sagafarmann.com</ParagraphsSmall>
         </a>
       </address>
