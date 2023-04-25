@@ -14,7 +14,7 @@ const FooterLinks = () => {
     { href: "/sponsors", label: "Sponsors" },
     { href: "/donate", label: "Donate" },
     { href: "/aboutus", label: "About Us" },
-    { href: "/technical", label: "Technical" },
+    { href: "/the_ship", label: "The Ship" },
     { href: "/pressarchive", label: "Press" },
   ];
 
