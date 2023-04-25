@@ -48,23 +48,25 @@ const JourneyAnimation = ({ data, i }: JourneyComponentProps) => {
           alt="Journey image"
         ></Image>
       </div>
-      {data.acf.stage.map((stage) => (
+      {data.acf.stage.map((stage, index) => (
         <div
-          key={i * Math.random()}
+          key={`stage-${index}`}
           className={`${styles["journey-text-container"]} ${
             imageIsVisible || animationTriggered ? styles["show"] : styles[""]
           }`}
         >
           <div
+            key={`stage-heading-${index}`}
             className={`${styles["heading"]}  ${
               imageIsVisible || animationTriggered ? styles["show"] : styles[""]
             }`}
           >
             <HeadingTwo>{stage.stage_heading}</HeadingTwo>
           </div>
-          {stage.stage_text_area.map((text) => (
+
+          {stage.stage_text_area.map((text, i) => (
             <div
-              key={i * Math.random()}
+              key={`stage-text-${index}-${i}`}
               className={`${styles["text"]}  ${
                 imageIsVisible || animationTriggered
                   ? styles["show"]

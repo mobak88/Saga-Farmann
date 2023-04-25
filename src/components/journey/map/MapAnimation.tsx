@@ -54,8 +54,8 @@ const MapAnimation = ({ data, i }: JourneyComponentProps) => {
           mapIsVisible || animationTriggered ? styles["show"] : styles[""]
         }`}
       >
-        {data.acf.stage.map((stage) => (
-          <>
+        {data.acf.stage.map((stage, index) => (
+          <div key={`stage-${index}`}>
             <div
               className={`${styles["heading"]}  ${
                 mapIsVisible || animationTriggered ? styles["show"] : styles[""]
@@ -65,7 +65,7 @@ const MapAnimation = ({ data, i }: JourneyComponentProps) => {
             </div>
             {stage.stage_text_area.map((text, i) => (
               <div
-                key={i * Math.random()}
+                key={`stage-text-${index}-${i}`}
                 className={`${styles["text"]}  ${
                   mapIsVisible || animationTriggered
                     ? styles["show"]
@@ -75,7 +75,7 @@ const MapAnimation = ({ data, i }: JourneyComponentProps) => {
                 <ParagraphsBig>{text.stage_text}</ParagraphsBig>
               </div>
             ))}
-          </>
+          </div>
         ))}
       </div>
     </div>
