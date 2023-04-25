@@ -4,12 +4,13 @@ import ImageSlider from "@/components/thumbSlider/ThumbSlider";
 import styles from "./press.module.css";
 import { GetStaticProps } from "next";
 import API_ENDPOINTS from "@/endpoints/endpoints";
-import PressArticle from "@/components/pressArticle/PressArticle";
 import {
   PressArchive,
   PressArchiveInterface,
 } from "@/components/pressArticle/interfaces";
+
 import DarkContainer from "@/components/containers/darkContainer/DarkContainer";
+import PressArticle from "@/components/pressArticle/PressArticle";
 
 interface Props {
   pressArchive: PressArchive[];
@@ -24,11 +25,13 @@ const PressArchivePage = ({ pressArchive }: Props) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <DarkContainer>
-        {pressArchive.map((data: PressArchive, index: number) => (
-          <PressArticle pressData={data} key={index} />
-        ))}
+        <div className={styles.wrapper}>
+          {pressArchive.map((data: PressArchive, index: number) => (
+            <PressArticle pressData={data} key={index} />
+          ))}
+        </div>
+        ;
       </DarkContainer>
     </>
   );

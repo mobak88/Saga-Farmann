@@ -5,67 +5,54 @@ import ParagraphsBig from "../typography/paragraphs/ParagraphsBig";
 import HeadingTwo from "../typography/headings/HeadingTwo";
 import Image from "next/image";
 import Link from "next/link";
-import useDownloader from "react-use-downloader";
 
 interface Props {
   pressData: PressArchive;
 }
 
-const PressArticle = ({ pressData }: Props) => {
-  const { size, elapsed, percentage, download, cancel, error, isInProgress } =
-    useDownloader();
+function downloadImage(url: any) {
+  const link = document.createElement("a");
+  link.href = url;
+  link.target = "_blank";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
 
+const PressArticle = ({ pressData }: Props) => {
   const [fileUrl, setFileUrl] = useState<string>("");
-  const [imageUrl, setImageUrl] = useState("");
 
   useEffect(() => {
     const { press_heading, press_text_fields } = pressData;
-    const fileText = `${press_heading}\n\n${press_text_fields}`;
+    const fileText = ${press_heading}\n\n${press_text_fields};
     const file = new Blob([fileText], { type: "text/plain" });
     setFileUrl(URL.createObjectURL(file));
-
-    async function fetchData() {
-      const response = await fetch(
-        `/api/proxy?url=${encodeURIComponent(
-          pressData.press_images[0].press_image.url
-        )}`
-      );
-      const blob = await response.blob();
-      setImageUrl(URL.createObjectURL(blob));
-    }
-
-    fetchData();
-  }, [pressData, pressData.press_images]);
+  }, [pressData]);
 
   return (
     <div className={styles.card}>
       <div className={styles["header-container"]}>
-        <HeadingTwo dark>{pressData.press_heading}</HeadingTwo>
-      </div>
-      <div className={styles["paragraph-container"]}>
-        <ParagraphsBig dark>{pressData.press_text_fields}</ParagraphsBig>
+        <HeadingTwo>{pressData.press_heading}</HeadingTwo>
         <a href={fileUrl} download>
           <button>Download</button>
         </a>
       </div>
-      {pressData.press_images.map((image, index) => (
-        <div className={styles["image-container"]} key={index}>
-          <button
-            onClick={() =>
-              download(image.press_image.url, image.press_image.url)
-            }
-          >
-            Download
-          </button>
+      <div className={styles["paragraph-container"]}>
+        <ParagraphsBig>{pressData.press_text_fields}</ParagraphsBig>
+      </div>
+      <div className={styles["image-container"]}>
+        {pressData.press_images.map((image, index) => (
           <Image
+            key={index}
             className={styles.image}
             src={image.press_image.url}
-            width={500}
-            height={500}
+            width={200}
+            height={200}
             alt=""
+            onClick={() => downloadImage(image.press_image.url)}
           />
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

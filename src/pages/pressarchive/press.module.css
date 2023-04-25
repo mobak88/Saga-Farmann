@@ -1,6 +1,6 @@
 .wrapper {
   display: flex;
-  width: 80em;
-  gap: 2em;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: 2em;
 }

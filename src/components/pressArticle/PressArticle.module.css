@@ -1,6 +1,18 @@
 .card {
-  max-width: 50em;
-  border: 1px solid black;
+  width: 50em;
+  height: fit-content;
+  background-color: var(--very-dark-blue);
+  padding: 2em 1em;
+}
+
+.header-container,
+.paragraph-container {
+  margin-bottom: 2em;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
 }
 
 .image-container {
