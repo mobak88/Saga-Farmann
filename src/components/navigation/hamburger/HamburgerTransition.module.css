@@ -16,9 +16,9 @@
   transition: opacity 300ms ease-in-out;
 }
 
-.hamburger-icons {
+/* .hamburger-icons {
   cursor: pointer;
-}
+} */
 
 .menu-icon {
   color: var(--light-text-color);
@@ -84,5 +84,6 @@
 }
 
 .page-link:hover {
-  text-shadow: 2px 2px 2px var(--bg-pink-brown);
+  border-bottom: 1.5px solid var(--bg-pink-brown);
+  padding-bottom: 2px;
 }

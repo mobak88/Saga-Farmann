@@ -2,4 +2,10 @@
   color: #f2f2f2;
   font-family: Norse;
   font-size: 42px;
+  text-decoration: none;
+}
+
+.nav_title > *:first-child:hover {
+  border-bottom: 1.5px solid var(--bg-pink-brown);
+  padding-bottom: 1px;
 }
