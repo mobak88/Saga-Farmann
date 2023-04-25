@@ -9,7 +9,7 @@ export default async function LivestreamStatus(
   res: NextApiResponse<LivestreamStatus>
 ) {
   const response = await fetch(
-    `https://www.youtube.com/embed/live_stream?channel=${process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID}`
+    `https://www.youtube.com/embed/live_stream?channel=UC2rhxUIAPHCu5L5m83T_0xQ`
   );
   const data = await response.text();
 
@@ -23,5 +23,3 @@ export default async function LivestreamStatus(
     });
   }
 }
-
-//   {\"title\":{\"runs\":[{\"text\":\"Purrple Cat 💜\"}]}
