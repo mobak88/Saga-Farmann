@@ -44,17 +44,16 @@ const PressArticle = ({ pressData }: Props) => {
           </button>
         </a>
       </div>
-      {pressData?.press_text_fields?.map((text) => (
-        <div className={styles["paragraph-container"]}>
+      {pressData?.press_text_fields?.map((text, index) => (
+        <div key={index} className={styles["paragraph-container"]}>
           <ParagraphsBig>{text.press_text_field}</ParagraphsBig>
         </div>
       ))}
 
       <div className={styles["image-container"]}>
         {pressData.press_images.map((image, index) => (
-          <div className={styles.images}>
+          <div key={index} className={styles.images}>
             <Image
-              key={index}
               className={styles.image}
               src={image.press_image.url}
               width={500}
