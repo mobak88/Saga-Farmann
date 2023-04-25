@@ -3,6 +3,7 @@ import styles from "./GridImagesAndText.module.css";
 import HeadingThree from "../typography/headings/HeadingThree";
 import { GridSections } from "./interfaces";
 import ParagraphsBig from "../typography/paragraphs/ParagraphsBig";
+import Image from "next/image";
 import ParagraphsMedium from "../typography/paragraphs/ParagraphsMedium";
 
 interface Props {
@@ -45,20 +46,26 @@ const GridImagesAndText = ({ gridContent }: Props) => {
       </div>
       <div className={styles["empty-box2"]}></div>
       {gridContent?.second_block && (
-        <div
-          className={styles["imageBox-one"]}
-          style={{
-            backgroundImage: `url(${gridContent.second_block})`,
-          }}
-        ></div>
+        <div className={styles["imageBox-one"]}>
+          <Image
+            className={styles["image-one"]}
+            src={gridContent.second_block}
+            alt=""
+            width={500}
+            height={300}
+          />
+        </div>
       )}
       {gridContent?.fifth_block && (
-        <div
-          className={styles["imageBox-two"]}
-          style={{
-            backgroundImage: `url(${gridContent.fifth_block})`,
-          }}
-        ></div>
+        <div className={styles["imageBox-two"]}>
+          <Image
+            className={styles["image-two"]}
+            src={gridContent.fifth_block}
+            alt=""
+            width={500}
+            height={300}
+          />
+        </div>
       )}
       <div className={styles["textBox-three"]}>
         <div className={styles.content}>
@@ -88,12 +95,15 @@ const GridImagesAndText = ({ gridContent }: Props) => {
           )}
         </div>
       </div>
-      <div
-        className={styles["imageBox-three"]}
-        style={{
-          backgroundImage: `url(${gridContent.sixth_block})`,
-        }}
-      ></div>
+      <div className={styles["imageBox-three"]}>
+        <Image
+          className={styles["image-three"]}
+          src={gridContent.sixth_block}
+          alt=""
+          width={500}
+          height={300}
+        />
+      </div>
       <div className={styles["textBox-five"]}>
         <div className={styles.content}>
           {gridContent?.eighth_block?.eighth_block_heading && (
