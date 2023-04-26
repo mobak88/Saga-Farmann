@@ -124,7 +124,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   if (!post.id) {
     return {
       redirect: {
-        destination: "/blog",
+        destination: "/posts",
         permanent: false,
       },
     };

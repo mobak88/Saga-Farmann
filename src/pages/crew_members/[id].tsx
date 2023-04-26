@@ -184,7 +184,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
   if (!crewMember.id) {
     return {
       redirect: {
-        destination: "/crew",
+        destination: "/crew_members",
         permanent: false,
       },
     };
