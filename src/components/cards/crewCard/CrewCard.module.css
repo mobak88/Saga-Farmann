@@ -1,6 +1,5 @@
 .card {
   width: 100%;
-
   box-shadow: var(--box-shadow);
   background-color: var(--very-dark-blue);
   display: grid;
@@ -9,7 +8,7 @@
 }
 
 .image-wrapper {
-  width: 250px;
+  width: 100%;
   position: relative;
 }
 
@@ -22,21 +21,12 @@
   transition: all 0.5s ease;
 }
 
-.stretched {
-  width: 100%;
-  height: 100%;
-}
-
-.notStretcehed {
-  height: auto;
-}
-
 .card-text-wrapper {
   background-color: var(--very-dark-blue);
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding: 4rem 2rem 2rem 2rem;
+  padding: 4.3rem 2rem 4.3rem 2rem;
 }
 
 .name {
@@ -67,29 +57,27 @@
   .card {
     width: 250px;
     grid-template-columns: 1fr;
-    grid-template-rows: 250px 1fr;
+    grid-template-rows: 320px 1fr;
+  }
+  .image-wrapper {
+    height: 100%;
   }
 }
 
 @media only screen and (max-width: 520px) {
   .card {
-    width: 80%;
-    grid-template-columns: 1fr;
-    grid-template-rows: 250px 1fr;
-  }
-  .image-wrapper {
     width: 100%;
+    max-width: 320px;
   }
+  /* .image-wrapper {
+    width: 100%;
+  } */
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 350px) {
   .card {
-    width: 90%;
-  }
-}
-
-@media only screen and (max-width: 326px) {
-  .card {
-    width: 300px;
+    /* width: 95%; */
+    grid-template-rows: 250px 1fr;
+    max-width: 250px;
   }
 }

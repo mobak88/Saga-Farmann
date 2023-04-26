@@ -18,7 +18,6 @@ const CrewCard = ({
 }: MemberProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [isImageStretched, setIsImageStretched] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -36,7 +35,6 @@ const CrewCard = ({
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
-    setIsImageStretched(true);
   };
 
   return (
@@ -47,11 +45,9 @@ const CrewCard = ({
             <Image
               src={member_image}
               alt={member_name}
-              className={`${styles.image} ${
-                isImageStretched ? styles.stretched : styles.notStretched
-              }`}
               width={250}
               height={250}
+              className={styles.image}
             />
           )}
         </div>
