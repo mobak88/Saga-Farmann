@@ -9,16 +9,13 @@
   z-index: 1;
   position: absolute;
   width: 100%;
-  height: 190px;
+  height: 100px;
 }
-
 .wave-top {
-  transform: rotate(180deg);
-  top: -90px;
 }
-
 .wave-bottom {
-  bottom: -90px;
+  transform: rotate(180deg);
+  bottom: 0;
 }
 
 .image-container {
@@ -43,12 +40,13 @@
 
 .journey-text-container {
   position: absolute;
-  top: 5%;
+  top: 15%;
   width: 45%;
   height: auto;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+
   gap: 30px;
   z-index: 2;
 }

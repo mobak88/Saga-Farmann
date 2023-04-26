@@ -19,7 +19,11 @@ const TheJourney = ({ journey }: JourneyProps) => {
           <Fragment key={i}>
             {!journeyData.acf.next_year && (
               <>
-                <JourneyAnimation data={journeyData} i={i} />
+                {i === 0 ? (
+                  <JourneyAnimation data={journeyData} i={i} first={true} />
+                ) : (
+                  <JourneyAnimation data={journeyData} i={i} />
+                )}
                 <WaveRedBrownSmall />
                 <div className={styles["journeymap-container"]}>
                   <MapAnimation data={journeyData} i={i} />

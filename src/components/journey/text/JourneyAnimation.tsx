@@ -4,10 +4,11 @@ import Image from "next/image";
 import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
 import HeadingTwo from "@/components/typography/headings/HeadingTwo";
 import { JourneyComponentProps } from "../interfaces/componentInterfaces";
-import WaveRedBrownTop from "@/components/waves/wavesLargeScreen/WaveRedBrownTop";
 import WaveRedBrownSmall from "@/components/waves/wavesSmallScreen/WaveRedBrownSmall";
+import WaveRedBrownJourney from "@/components/waves/wavesLargeScreen/WaveRedBrownJourney";
+import WaveRedBrownSmallJourney from "@/components/waves/wavesSmallScreen/WaveRedBrownSmallJourney";
 
-const JourneyAnimation = ({ data, i }: JourneyComponentProps) => {
+const JourneyAnimation = ({ data, i, first }: JourneyComponentProps) => {
   const [imageIsVisible, setImageIsVisible] = useState<boolean>(false);
   const [animationTriggered, setAnimationTriggered] = useState(false);
   const imageAnimationRef = useRef<HTMLDivElement>(null);
@@ -33,10 +34,11 @@ const JourneyAnimation = ({ data, i }: JourneyComponentProps) => {
       ref={imageAnimationRef}
       className={`${styles["journey-slide-wrapper"]}`}
     >
-      <div className={styles["wave-top"]}>
-        <WaveRedBrownTop />
-        <WaveRedBrownSmall />
-      </div>
+      {!first && (
+        <div className={styles["wave-top"]}>
+          <WaveRedBrownJourney />
+        </div>
+      )}
       <div
         className={`${styles["image-container"]}  ${
           imageIsVisible || animationTriggered ? styles["show"] : styles[""]
@@ -87,8 +89,7 @@ const JourneyAnimation = ({ data, i }: JourneyComponentProps) => {
         </div>
       ))}
       <div className={styles["wave-bottom"]}>
-        <WaveRedBrownTop />
-        <WaveRedBrownSmall />
+        <WaveRedBrownJourney />
       </div>
     </div>
   );
