@@ -2,22 +2,21 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   width: 70%;
-  gap: 30px;
   justify-content: center;
   align-items: center;
-  padding: 2% 0 2% 0;
 }
 
 .s-container {
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 200rem;
 }
 
 .s-center-container {
-  max-width: 400px;
-  width: 70%;
-  height: 320px;
+  max-width: 200rem;
+  width: 90%;
+  height: 420px;
   background-color: var(--very-dark-blue);
   box-shadow: var(--box-shadow);
   padding: 10px;
@@ -54,11 +53,13 @@
 @media only screen and (max-width: 1000px) {
   .skeleton-wrapper {
     grid-template-columns: repeat(1, 1fr);
+    gap: 40px;
   }
 }
 
 @media only screen and (max-width: 500px) {
   .skeleton-wrapper {
     width: 90%;
+    gap: 40px;
   }
 }

@@ -2,8 +2,6 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 type LivestreamStatus = {
   isOnline: Boolean;
-  livestreamTitle: string;
-  livestreamDescription: string;
 };
 
 export default async function LivestreamStatus(
@@ -11,21 +9,17 @@ export default async function LivestreamStatus(
   res: NextApiResponse<LivestreamStatus>
 ) {
   const response = await fetch(
-    `https://www.youtube.com/embed/live_stream?channel=${process.env.NEXT_PUBLIC_CHANNEL_ID}`
+    `https://www.youtube.com/embed/live_stream?channel=${process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID}`
   );
   const data = await response.text();
 
   if (!data.includes(`"ERROR`)) {
-    res
-      .status(200)
-      .json({ isOnline: true, livestreamTitle: "", livestreamDescription: "" });
+    res.status(200).json({
+      isOnline: true,
+    });
   } else {
     res.status(200).json({
       isOnline: false,
-      livestreamTitle: "",
-      livestreamDescription: "",
     });
   }
 }
-
-//   {\"title\":{\"runs\":[{\"text\":\"Purrple Cat 💜\"}]}

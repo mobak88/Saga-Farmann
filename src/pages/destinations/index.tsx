@@ -7,12 +7,23 @@ import { GetStaticProps } from "next";
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import { Destinations } from "@/components/cards/destinationCard/interfaces";
 import Head from "next/head";
+import DestinationCardSkeleton from "@/components/skeletons/destinationCardSkeleton/DestinationCardSkeleton";
 
 interface Props {
   destinations: Destinations[];
 }
 
 const Destinations = ({ destinations }: Props) => {
+  if (!destinations)
+    return (
+      <>
+        <Header header={"Destinations"} />
+        <div className={styles["destination-skeleton-wrapper"]}>
+          <DestinationCardSkeleton />
+        </div>
+      </>
+    );
+
   return (
     <>
       <Head>
@@ -44,11 +55,15 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       destination.acf.next_year_destination === false
   );
 
+  filteredDestinations.sort(
+    (a: Destinations, b: Destinations) =>
+      parseInt(a.acf.destination_number) - parseInt(b.acf.destination_number)
+  );
+
   return {
     props: {
       destinations: filteredDestinations,
     },
-    revalidate: 1,
   };
 };
 

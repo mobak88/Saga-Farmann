@@ -1,7 +1,9 @@
 // import Hamburger from "../hamburger/Hamburger";
+import Image from "next/image";
 import HamburgerTransition from "../hamburger/HamburgerTransition";
 import Title from "../navtitle/Title";
 import styles from "./Navbar.module.css";
+import Link from "next/link";
 
 interface NavbarProps {
   lightNavbar?: boolean;
@@ -16,11 +18,15 @@ const Navbar = ({ lightNavbar }: NavbarProps) => {
           : styles["navbar-container"]
       }
     >
+      <Link href="/">
+        <Image
+          width={145}
+          height={70}
+          src="/Saga Asia_neg-ai.png"
+          alt="Saga Farmann logo"
+        />
+      </Link>
       <div>
-        <Title />
-      </div>
-      <div>
-        {/* <Hamburger /> */}
         <HamburgerTransition />
       </div>
     </nav>

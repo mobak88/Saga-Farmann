@@ -1,0 +1,75 @@
+.card {
+  width: 70%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  padding: 2em 1em;
+}
+
+.header-container,
+.paragraph-container {
+  margin-bottom: 2em;
+  width: fit-content;
+  height: fit-content;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.image-container {
+  display: flex;
+  width: 100%;
+  gap: 2em;
+  flex-wrap: wrap;
+}
+
+.images {
+  width: 310px;
+  height: 330px;
+}
+
+.image {
+  cursor: pointer;
+  opacity: 0.7;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  object-fit: fill;
+  width: 100%;
+}
+
+.image:hover {
+  opacity: 1;
+}
+
+.download {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.download {
+  position: relative;
+}
+
+.download:hover::before {
+  content: "Download article";
+  display: block;
+  position: absolute;
+  left: -50%;
+  transform: translateY(-120%);
+  padding: 5px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.download:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 950px) {
+}

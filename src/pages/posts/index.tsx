@@ -5,12 +5,22 @@ import Header from "@/components/header/Header";
 import styles from "./blog.module.css";
 import { Post } from "../../components/blog/interfaces";
 import Head from "next/head";
+import CardSkeleton from "@/components/skeletons/card/CardSkeleton";
 
 interface Posts {
   posts: Post[];
 }
 
 const BlogPage = ({ posts }: Posts) => {
+  if (!posts)
+    return (
+      <>
+        <Header header={"Blog"} />
+        <div className={styles["blog-skeleton-wrapper"]}>
+          <CardSkeleton />
+        </div>
+      </>
+    );
   return (
     <>
       <Head>
@@ -29,7 +39,8 @@ const BlogPage = ({ posts }: Posts) => {
               post_image={
                 post.acf.post_first_section.post_images[0].post_image.url
               }
-              modified={post.modified}
+              date={post.date}
+              time={post.date}
               title={post.title.rendered}
               post_description={post.acf.post_description}
               blog_place={post.acf.blog_place}
@@ -50,7 +61,6 @@ export const getStaticProps: GetStaticProps<Posts> = async () => {
     props: {
       posts,
     },
-    revalidate: 1,
   };
 };
 

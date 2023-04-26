@@ -9,6 +9,7 @@ import { SponsorUsSectionInterface } from "@/components/sponsorUsSection/interfa
 import SponsorUsSection from "@/components/sponsorUsSection/SponsorUsSection";
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import Head from "next/head";
+import CardSkeleton from "@/components/skeletons/card/CardSkeleton";
 
 interface Sponsor {
   title: { rendered: string };
@@ -29,6 +30,16 @@ interface Props {
   sponsorUsSection: SponsorUsSectionInterface;
 }
 const SponsorPage = ({ sponsors, sponsorUsSection }: Props) => {
+  if (!sponsors)
+    return (
+      <>
+        <Header header={"Sponsors"} />
+        <div className={styles["sponsor-skeleton-wrapper"]}>
+          <CardSkeleton />
+        </div>
+      </>
+    );
+
   return (
     <>
       <Head>
@@ -106,7 +117,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       sponsors,
       sponsorUsSection: sponsorUsData,
     },
-    revalidate: 1,
   };
 };
 export default SponsorPage;

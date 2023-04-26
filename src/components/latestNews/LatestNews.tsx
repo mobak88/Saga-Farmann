@@ -19,9 +19,9 @@ const LatestNews = ({ posts, postHeading, postText }: LatestNewsProps) => {
       <div className={styles["section-wrapper"]}>
         <div className={styles["section-container"]}>
           <div className={styles["text-container"]}>
-            <HeadingTwo>{postHeading}</HeadingTwo>
+            {postHeading && <HeadingTwo>{postHeading}</HeadingTwo>}
             <div className={styles["paragraph-container"]}>
-              <ParagraphsSmall>{postText}</ParagraphsSmall>
+              {postText && <ParagraphsSmall>{postText}</ParagraphsSmall>}
             </div>
           </div>
           <LatestNewsSlider posts={posts} />

@@ -1,5 +1,4 @@
-import ParagraphsSmall from "@/components/typography/paragraphs/ParagraphsSmall";
-import styles from "./BlogSecondText.module.css";
+import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
 
 interface BlogProps {
   post_second_section_text: string;
@@ -7,11 +6,11 @@ interface BlogProps {
 
 const BlogSecondText = ({ post_second_section_text }: BlogProps) => {
   return (
-    <div className={styles[""]}>
-      <ParagraphsSmall>
-        Second section text: {post_second_section_text}
-      </ParagraphsSmall>
-    </div>
+    <>
+      {post_second_section_text && (
+        <ParagraphsBig>{post_second_section_text}</ParagraphsBig>
+      )}
+    </>
   );
 };
 export default BlogSecondText;

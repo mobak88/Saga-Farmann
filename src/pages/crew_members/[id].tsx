@@ -2,16 +2,17 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import React, { useState } from "react";
 import { ParsedUrlQuery } from "querystring";
 import styles from "./crew.module.css";
-import Header from "@/components/header/Header";
+import Header from "../../components/header/Header";
 import Card from "../../components/cards/crewCard/CrewCard";
-import HeadingTwo from "@/components/typography/headings/HeadingTwo";
-import SwitchIdButton from "@/components/buttons/SwitchIdButton";
-import DarkContainer from "@/components/containers/darkContainer/DarkContainer";
-import API_ENDPOINTS from "@/endpoints/endpoints";
+import HeadingTwo from "../../components/typography/headings/HeadingTwo";
+import SwitchIdButton from "../../components/buttons/SwitchIdButton";
+import DarkContainer from "../../components/containers/darkContainer/DarkContainer";
+import API_ENDPOINTS from "../../endpoints/endpoints";
 import avatarImg from "../../../public/assets/blank-profile-picture-973460_1280.png";
 import { StaticImageData } from "next/image";
-import CardSkeleton from "@/components/skeletons/card/CardSkeleton";
 import Head from "next/head";
+import { constructDate } from "@/helpers/constructDate";
+import CrewCardSkeleton from "@/components/skeletons/crewCardSkeleton/CrewCardSkeleton";
 
 type Member = {
   member_image:
@@ -26,13 +27,13 @@ type Member = {
   member_description: string;
 };
 
-interface CrewMember {
+export interface CrewMember {
   id: number;
   title: { rendered: string };
   acf: {
     member: Member[];
     current_crew: boolean;
-    crew_dates: { crew_date_from: string; crew_date_to: string };
+    crew_dates: { crew_date_from: number; crew_date_to: string };
     destination: number;
   };
 }
@@ -53,9 +54,12 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
 
   if (!ids)
     return (
-      <div className={styles["crew-id-skeleton-wrapper"]}>
-        <CardSkeleton />
-      </div>
+      <>
+        <Header header={"Crew"} />
+        <div className={styles["crew-id-skeleton-wrapper"]}>
+          <CrewCardSkeleton />
+        </div>
+      </>
     );
 
   const isCurrentCrew = crewMember.acf.current_crew;
@@ -93,7 +97,7 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
               currentId={currentId}
               totalIds={ids.length}
               setCurrentId={setCurrentId}
-              baseUrl="/crew"
+              baseUrl="/crew_members"
               ids={ids}
             >
               <div className={styles["heading-wrapper"]}>
@@ -132,6 +136,13 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  if (process.env.SKIP_BUILD_STATIC_GENERATION) {
+    return {
+      paths: [],
+      fallback: "blocking",
+    };
+  }
+
   const res = await fetch(API_ENDPOINTS.crewMembers);
 
   const crewMembers: CrewMember[] = await res.json();
@@ -141,7 +152,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 };
 
@@ -156,16 +167,24 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
   const allCrewsRespond = await fetch(API_ENDPOINTS.crewMembers);
   const allCrews: CrewMember[] = await allCrewsRespond.json();
 
-  const sortedCrews = allCrews.sort(
-    (a, b) => a.acf.destination - b.acf.destination
+  const sortedCrews = allCrews.filter(
+    (member: CrewMember) => member.acf?.crew_dates?.crew_date_from
   );
 
+  sortedCrews.sort((a: CrewMember, b: CrewMember) => {
+    const [aDateFrom, bDateFrom] = constructDate(
+      a.acf.crew_dates.crew_date_from,
+      b.acf.crew_dates.crew_date_from
+    );
+
+    return aDateFrom - bDateFrom;
+  });
   const ids = sortedCrews.map((item) => item.id);
 
   if (!crewMember.id) {
     return {
       redirect: {
-        destination: "/crew",
+        destination: "/crew_members",
         permanent: false,
       },
     };
@@ -176,7 +195,6 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
       crewMember,
       ids,
     },
-    revalidate: 1,
   };
 };
 

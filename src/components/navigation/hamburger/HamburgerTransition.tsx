@@ -3,30 +3,22 @@ import { CSSTransition } from "react-transition-group";
 import styles from "./HamburgerTransition.module.css";
 import Link from "next/link";
 import { IoIosMenu, IoMdClose } from "react-icons/io";
+import { useCurrentCrewId } from "@/hooks/useCurrentCrewId";
+import { links } from "./links";
 
 const HamburgerTransition = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [click, setClick] = useState(false);
   const nodeRefBurger = useRef<HTMLButtonElement>(null);
   const nodeRefMenu = useRef<HTMLDivElement>(null);
+  const crewId = useCurrentCrewId();
 
   const toggleMenu = () => {
     setIsOpen((prevState) => !prevState);
     setClick((prevState) => !prevState);
   };
 
-  const links = [
-    { href: "/", label: "Home" },
-    { href: "/crew/", label: "Crew" },
-    { href: "/blog", label: "Blog" },
-    { href: "/destinations", label: "Destinations" },
-    { href: "/livestream", label: "Livestream" },
-    { href: "/sponsors", label: "Sponsors" },
-    { href: "/donate", label: "Donate" },
-    { href: "/aboutus", label: "About Us" },
-    { href: "/technical", label: "Technical" },
-    { href: "/pressarchive", label: "Press" },
-  ];
+  const pageLinks = links(crewId as string);
 
   const handleLinkClick = () => {
     setIsOpen((prevState) => !prevState);
@@ -80,7 +72,7 @@ const HamburgerTransition = () => {
         unmountOnExit
       >
         <nav ref={nodeRefMenu} className={styles.menu}>
-          {links.map(({ href, label }) => (
+          {pageLinks.map(({ href, label }) => (
             <div key={href}>
               <Link
                 className={styles["page-link"]}

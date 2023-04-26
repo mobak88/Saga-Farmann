@@ -9,6 +9,7 @@ import API_ENDPOINTS from "@/endpoints/endpoints";
 import { GetStaticProps } from "next";
 import DarkContainer from "@/components/containers/darkContainer/DarkContainer";
 import Head from "next/head";
+import DonateSkeleton from "@/components/skeletons/donate/DonateSkeleton";
 
 interface DonateData {
   title: { rendered: string };
@@ -27,6 +28,16 @@ interface Props {
 }
 
 const DonationPage = ({ donateData }: Props) => {
+  if (!donateData)
+    return (
+      <>
+        <Header header={"Donate"} />
+        <div className={styles["donate-skeleton-wrapper"]}>
+          <DonateSkeleton />
+        </div>
+      </>
+    );
+
   return (
     <>
       <Head>
@@ -80,7 +91,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     props: {
       donateData,
     },
-    revalidate: 1,
   };
 };
 

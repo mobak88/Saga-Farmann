@@ -18,6 +18,7 @@ const CrewCard = ({
 }: MemberProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isImageStretched, setIsImageStretched] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -35,25 +36,30 @@ const CrewCard = ({
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
+    setIsImageStretched(true);
   };
 
   return (
     <>
       <div className={styles.card} onClick={toggleExpand}>
         <div className={styles["image-wrapper"]}>
-          <Image
-            src={member_image}
-            alt={member_name}
-            className={styles.image}
-            width={250}
-            height={250}
-          />
+          {member_image && (
+            <Image
+              src={member_image}
+              alt={member_name}
+              className={`${styles.image} ${
+                isImageStretched ? styles.stretched : styles.notStretched
+              }`}
+              width={250}
+              height={250}
+            />
+          )}
         </div>
         <div className={styles["card-text-wrapper"]}>
-          <h2 className={styles.name}>{member_name}</h2>
-          <h3 className={styles.role}>{member_role}</h3>
+          {member_name && <h2 className={styles.name}>{member_name}</h2>}
+          {member_role && <h3 className={styles.role}>{member_role}</h3>}
 
-          {isExpanded ? (
+          {member_description && isExpanded ? (
             <ParagraphsSmall>{member_description}</ParagraphsSmall>
           ) : (
             <div>

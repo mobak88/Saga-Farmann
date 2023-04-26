@@ -22,7 +22,7 @@
 
 .hero-text-container {
   position: absolute;
-  top: 10rem;
+  top: 2rem;
   left: 10rem;
   z-index: 2;
   display: flex;
@@ -34,4 +34,25 @@
   position: absolute;
   bottom: 0rem;
   width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+  .hero-text-container {
+    left: 2rem;
+  }
+
+  .hero-logo {
+    width: 225px;
+    height: 112.5px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .hero-text-container {
+    left: 2rem;
+  }
+
+  .hero-logo {
+    width: 200px;
+    height: 100px;
+  }
 }

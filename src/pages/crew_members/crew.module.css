@@ -1,10 +1,9 @@
 /* index and id files style */
 
 .crew-id-skeleton-wrapper {
-  height: 100%;
+  min-height: 100vh;
   background-color: var(--bg-dark-blue);
   justify-content: center;
-  align-items: center;
   display: flex;
 }
 
