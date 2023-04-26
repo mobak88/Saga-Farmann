@@ -15,7 +15,7 @@ const TheJourney = ({ journey }: JourneyProps) => {
       <div className={styles["journey-content-container"]}>
         {journey.map((journeyData, i) => (
           <Fragment key={i}>
-            {!journeyData.acf.next_year ? (
+            {!journeyData.acf.next_year && (
               <>
                 <JourneyAnimation data={journeyData} i={i} />
 
