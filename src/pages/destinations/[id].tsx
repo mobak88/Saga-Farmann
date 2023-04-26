@@ -4,12 +4,13 @@ import styles from "./destinations.module.css";
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
-import { useRouter } from "next/router";
 import HeadingTwo from "@/components/typography/headings/HeadingTwo";
 import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
 import HeaderWithBtns from "@/components/headerWithBtns/HeaderWithBtns";
 import ImageSlider from "@/components/thumbSlider/ThumbSlider";
 import Head from "next/head";
+import TextSkeleton from "@/components/skeletons/text/TextSkeleton";
+import Header from "@/components/header/Header";
 
 interface Props {
   destination: Destinations;
@@ -33,10 +34,15 @@ const DestinationPage = ({ destination, ids }: Props) => {
     }
   }, [destination]);
 
-  const router = useRouter();
-  if (router.isFallback) {
-    return <div>Loading...</div>;
-  }
+  if (!ids)
+    return (
+      <>
+        <Header header={"Destination"} />
+        <div className={styles["destinations-id-skeleton-wrapper"]}>
+          <TextSkeleton />
+        </div>
+      </>
+    );
 
   const headText = `Saga Farmann destination ${destination.title.rendered}`;
 
@@ -132,6 +138,15 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
     API_ENDPOINTS.singelDestination(id as string)
   );
   const destination: Destinations = await destinationRes.json();
+
+  if (!destination.id) {
+    return {
+      redirect: {
+        destination: "/destinations",
+        permanent: false,
+      },
+    };
+  }
 
   return {
     props: {

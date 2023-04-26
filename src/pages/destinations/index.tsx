@@ -7,12 +7,23 @@ import { GetStaticProps } from "next";
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import { Destinations } from "@/components/cards/destinationCard/interfaces";
 import Head from "next/head";
+import DestinationCardSkeleton from "@/components/skeletons/destinationCardSkeleton/DestinationCardSkeleton";
 
 interface Props {
   destinations: Destinations[];
 }
 
 const Destinations = ({ destinations }: Props) => {
+  if (!destinations)
+    return (
+      <>
+        <Header header={"Destinations"} />
+        <div className={styles["destination-skeleton-wrapper"]}>
+          <DestinationCardSkeleton />
+        </div>
+      </>
+    );
+
   return (
     <>
       <Head>

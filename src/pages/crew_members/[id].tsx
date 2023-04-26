@@ -10,9 +10,9 @@ import DarkContainer from "../../components/containers/darkContainer/DarkContain
 import API_ENDPOINTS from "../../endpoints/endpoints";
 import avatarImg from "../../../public/assets/blank-profile-picture-973460_1280.png";
 import { StaticImageData } from "next/image";
-import CardSkeleton from "../../components/skeletons/card/CardSkeleton";
 import Head from "next/head";
 import { constructDate } from "@/helpers/constructDate";
+import CrewCardSkeleton from "@/components/skeletons/crewCardSkeleton/CrewCardSkeleton";
 
 type Member = {
   member_image:
@@ -54,9 +54,12 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
 
   if (!ids)
     return (
-      <div className={styles["crew-id-skeleton-wrapper"]}>
-        <CardSkeleton />
-      </div>
+      <>
+        <Header header={"Crew"} />
+        <div className={styles["crew-id-skeleton-wrapper"]}>
+          <CrewCardSkeleton />
+        </div>
+      </>
     );
 
   const isCurrentCrew = crewMember.acf.current_crew;
@@ -149,7 +152,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 };
 
