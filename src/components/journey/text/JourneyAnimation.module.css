@@ -2,7 +2,6 @@
   position: relative;
   overflow: hidden;
   min-width: 100%;
-
   padding-bottom: 30px;
 }
 
@@ -93,27 +92,27 @@
 }
 
 .text:nth-child(2) {
-  transition-delay: calc(2 * (300ms));
+  transition-delay: calc(2 * (400ms));
 }
 
 .text:nth-child(3) {
-  transition-delay: calc(3 * (300ms));
+  transition-delay: calc(3 * (400ms));
 }
 
 .text:nth-child(4) {
-  transition-delay: calc(4 * (300ms));
+  transition-delay: calc(4 * (400ms));
 }
 
 .text:nth-child(5) {
-  transition-delay: calc(5 * (300ms));
+  transition-delay: calc(5 * (400ms));
 }
 
 .text:nth-child(6) {
-  transition-delay: calc(6 * (300ms));
+  transition-delay: calc(6 * (400ms));
 }
 
 .text:nth-child(7) {
-  transition-delay: calc(7 * (300ms));
+  transition-delay: calc(7 * (400ms));
 }
 
 /* Mobile responsive */

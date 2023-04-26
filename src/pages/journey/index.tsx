@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import Header from "@/components/header/Header";
 import styles from "./journeyPage.module.css";
 import JourneyAnimation from "@/components/journey/text/JourneyAnimation";
@@ -9,8 +9,9 @@ import WaveRedBrownTop from "@/components/waves/wavesLargeScreen/WaveRedBrownTop
 import WaveRedBrownSmall from "@/components/waves/wavesSmallScreen/WaveRedBrownSmall";
 
 const TheJourney = ({ journey }: JourneyProps) => {
-  journey.sort(stage_number);
-
+  journey.sort(
+    (a, b) => parseInt(a.acf.stage_number) - parseInt(b.acf.stage_number)
+  );
   return (
     <>
       <Header header={"The Journey"} />

@@ -26,8 +26,6 @@ const JourneyAnimation = ({ data, i }: JourneyComponentProps) => {
     observer.observe(imageAnimationRef.current!);
   }, []);
 
-  console.log(data.acf.journey_text_side);
-
   return (
     <div
       ref={imageAnimationRef}
