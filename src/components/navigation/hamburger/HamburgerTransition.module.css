@@ -60,8 +60,7 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding: 4rem 4rem;
-  z-index: 10;
+  padding: 4rem 0rem;
   box-shadow: var(--box-shadow);
 }
 
@@ -79,6 +78,8 @@
   color: var(--light-text-color);
   font-family: "Comfortaa";
   font-size: var(--p--step-2);
+  margin: 5rem;
+  padding: 2rem 0;
   position: relative;
   cursor: pointer;
 }
