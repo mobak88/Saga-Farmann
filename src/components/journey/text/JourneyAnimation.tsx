@@ -4,6 +4,8 @@ import Image from "next/image";
 import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
 import HeadingTwo from "@/components/typography/headings/HeadingTwo";
 import { JourneyComponentProps } from "../interfaces/componentInterfaces";
+import WaveRedBrownTop from "@/components/waves/wavesLargeScreen/WaveRedBrownTop";
+import WaveRedBrownSmall from "@/components/waves/wavesSmallScreen/WaveRedBrownSmall";
 
 const JourneyAnimation = ({ data, i }: JourneyComponentProps) => {
   const [imageIsVisible, setImageIsVisible] = useState<boolean>(false);
@@ -31,6 +33,10 @@ const JourneyAnimation = ({ data, i }: JourneyComponentProps) => {
       ref={imageAnimationRef}
       className={`${styles["journey-slide-wrapper"]}`}
     >
+      <div className={styles["wave-top"]}>
+        <WaveRedBrownTop />
+        <WaveRedBrownSmall />
+      </div>
       <div
         className={`${styles["image-container"]}  ${
           imageIsVisible || animationTriggered ? styles["show"] : styles[""]
@@ -80,6 +86,10 @@ const JourneyAnimation = ({ data, i }: JourneyComponentProps) => {
           ))}
         </div>
       ))}
+      <div className={styles["wave-bottom"]}>
+        <WaveRedBrownTop />
+        <WaveRedBrownSmall />
+      </div>
     </div>
   );
 };

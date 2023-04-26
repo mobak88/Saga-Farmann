@@ -5,7 +5,6 @@ import JourneyAnimation from "@/components/journey/text/JourneyAnimation";
 import MapAnimation from "@/components/journey/map/MapAnimation";
 import API_ENDPOINTS from "@/endpoints/endpoints";
 import { JourneyProps } from "../../components/journey/interfaces/pageInterfaces";
-import WaveRedBrownTop from "@/components/waves/wavesLargeScreen/WaveRedBrownTop";
 import WaveRedBrownSmall from "@/components/waves/wavesSmallScreen/WaveRedBrownSmall";
 
 const TheJourney = ({ journey }: JourneyProps) => {
@@ -14,21 +13,18 @@ const TheJourney = ({ journey }: JourneyProps) => {
   );
   return (
     <>
-      <Header header={"The Journey"} />
+      <Header journey={true} header={"The Journey"} />
       <div className={styles["journey-content-container"]}>
         {journey.map((journeyData, i) => (
           <Fragment key={i}>
             {!journeyData.acf.next_year && (
               <>
                 <JourneyAnimation data={journeyData} i={i} />
-
-                <WaveRedBrownTop />
                 <WaveRedBrownSmall />
                 <div className={styles["journeymap-container"]}>
                   <MapAnimation data={journeyData} i={i} />
                 </div>
                 <div className={styles["wave-bottom"]}>
-                  <WaveRedBrownTop />
                   <WaveRedBrownSmall />
                 </div>
               </>
