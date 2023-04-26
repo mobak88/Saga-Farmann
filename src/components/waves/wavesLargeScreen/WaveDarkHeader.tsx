@@ -1,7 +1,11 @@
 import React from "react";
 import styles from "../Waves.module.css";
 
-const WaveDarkHeader = () => {
+interface HeaderInterface {
+  journey?: boolean;
+}
+
+const WaveDarkHeader = ({ journey }: HeaderInterface) => {
   return (
     <svg
       className={styles["wave"]}
@@ -16,7 +20,7 @@ const WaveDarkHeader = () => {
         id="mistermoon_dark_backround_texture_e33e82ba-37ea-4940-bacc-e50977be18da"
         d="M-11.738,217.394H1915.445V29.149L1719.292,5.267,1507.98-4.606,1244.562,19.627,871.146,14.242,575.886-4.606,462.8-1.875,185.1,14.242H-11.738Z"
         transform="translate(11.737 4.606)"
-        fill="#142c34"
+        fill={journey ? "#bf625f" : "#142c34"}
       />
     </svg>
   );
