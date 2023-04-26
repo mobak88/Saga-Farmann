@@ -68,6 +68,7 @@ export interface JourneyComponentProps {
           stages_journey_map_text: string;
         }[];
       };
+      journey_text_side: string;
     };
   };
 }
