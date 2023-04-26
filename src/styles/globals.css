@@ -211,3 +211,7 @@ p {
 .previewSwiper .swiper-slide-thumb-active {
   opacity: 1;
 }
+
+.mapboxgl-ctrl-top-right {
+  margin-top: 23rem;
+}
