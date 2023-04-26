@@ -69,14 +69,10 @@
     width: 100%;
     max-width: 320px;
   }
-  /* .image-wrapper {
-    width: 100%;
-  } */
 }
 
 @media only screen and (max-width: 350px) {
   .card {
-    /* width: 95%; */
     grid-template-rows: 250px 1fr;
     max-width: 250px;
   }
