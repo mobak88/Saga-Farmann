@@ -26,6 +26,8 @@ const JourneyAnimation = ({ data, i }: JourneyComponentProps) => {
     observer.observe(imageAnimationRef.current!);
   }, []);
 
+  console.log(data.acf.journey_text_side);
+
   return (
     <div
       ref={imageAnimationRef}
@@ -52,8 +54,10 @@ const JourneyAnimation = ({ data, i }: JourneyComponentProps) => {
         <div
           key={`stage-${index}`}
           className={`${styles["journey-text-container"]} ${
-            imageIsVisible || animationTriggered ? styles["show"] : styles[""]
-          }`}
+            data.acf.journey_text_side === "right"
+              ? styles["journey-text-right"]
+              : styles["journey-text-left"]
+          } ${imageIsVisible || animationTriggered ? styles["show"] : ""}`}
         >
           <div
             key={`stage-heading-${index}`}

@@ -29,7 +29,6 @@
 .journey-text-container {
   position: absolute;
   top: 5%;
-  right: 5%;
   width: 45%;
   height: auto;
   display: flex;
@@ -38,6 +37,13 @@
   gap: 30px;
 }
 
+.journey-text-right {
+  right: 5%;
+}
+
+.journey-text-left {
+  left: 5%;
+}
 /* Animations */
 
 .image-container.show {
