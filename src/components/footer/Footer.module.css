@@ -91,12 +91,24 @@
   font-size: var(--p--step-1);
   color: var(--light-text-color);
   text-decoration: none;
+  position: relative;
 }
 
-.wrapper-links :hover {
-  color: var(--bg-pink-brown);
-  text-decoration: underline;
-  cursor: pointer;
+.footer-links::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--bg-pink-brown);
+  transform: scaleX(0);
+  transform-origin: bottom left;
+  transition: transform 0.2s ease-in-out;
+}
+
+.footer-links:hover::after {
+  transform: scaleX(1);
 }
 
 .wrapper-sosial-icon {
