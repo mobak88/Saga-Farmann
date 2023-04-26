@@ -1,0 +1,23 @@
+.wave {
+  display: block;
+}
+
+.wave-small {
+  display: none;
+
+  transform: rotate(180deg);
+}
+
+.wave-dark-bottom-pink {
+  background-color: var(--bg-pink-brown);
+}
+
+@media screen and (max-width: 1200px) {
+  .wave {
+    display: none;
+  }
+
+  .wave-small {
+    display: block;
+  }
+}

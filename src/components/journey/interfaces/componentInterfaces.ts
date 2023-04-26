@@ -1,4 +1,5 @@
 export interface JourneyComponentProps {
+  first?: boolean;
   i: number;
   data: {
     id: number;

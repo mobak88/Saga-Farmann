@@ -9,7 +9,6 @@ interface BlogProps {
   id: number;
   post_image: string;
   date: string;
-  time: string;
   title: string;
   post_description: string;
   blog_place: string;
@@ -19,7 +18,6 @@ const BlogCard = ({
   id,
   post_image,
   date,
-  time,
   title,
   post_description,
   blog_place,
@@ -48,7 +46,11 @@ const BlogCard = ({
             {blog_place && <ParagraphsSmall>{blog_place}</ParagraphsSmall>}
             <div className={styles["blog-card-date"]}>
               {date && <ParagraphsSmall>{date.split("T")[0]}</ParagraphsSmall>}
-              {time && <ParagraphsSmall>{time.split("T")[1]}</ParagraphsSmall>}
+              {date && (
+                <ParagraphsSmall>
+                  {date.split("T")[1].slice(0, -3)}
+                </ParagraphsSmall>
+              )}
             </div>
           </div>
           <div className={styles["title-container"]}>
