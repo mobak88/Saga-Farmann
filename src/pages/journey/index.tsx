@@ -9,6 +9,8 @@ import WaveRedBrownTop from "@/components/waves/wavesLargeScreen/WaveRedBrownTop
 import WaveRedBrownSmall from "@/components/waves/wavesSmallScreen/WaveRedBrownSmall";
 
 const TheJourney = ({ journey }: JourneyProps) => {
+  journey.sort(stage_number);
+
   return (
     <>
       <Header header={"The Journey"} />
