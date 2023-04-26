@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Header from "@/components/header/Header";
 import styles from "./journeyPage.module.css";
 import JourneyAnimation from "@/components/journey/text/JourneyAnimation";
@@ -14,7 +14,7 @@ const TheJourney = ({ journey }: JourneyProps) => {
       <Header header={"The Journey"} />
       <div className={styles["journey-content-container"]}>
         {journey.map((journeyData, i) => (
-          <>
+          <Fragment key={i}>
             {!journeyData.acf.next_year ? (
               <>
                 <JourneyAnimation data={journeyData} i={i} />
@@ -32,7 +32,7 @@ const TheJourney = ({ journey }: JourneyProps) => {
             ) : (
               ""
             )}
-          </>
+          </Fragment>
         ))}
       </div>
     </>
