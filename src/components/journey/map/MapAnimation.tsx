@@ -36,16 +36,18 @@ const MapAnimation = ({ data, i }: JourneyComponentProps) => {
         <Image
           className={styles["map-image"]}
           width={
-            data.acf.stage_journey_map.stages_journey_map_image.sizes[
+            data.acf.stage_journey_map[0].stages_journey_map_image.sizes[
               "large-width"
             ]
           }
           height={
-            data.acf.stage_journey_map.stages_journey_map_image.sizes[
+            data.acf.stage_journey_map[0].stages_journey_map_image.sizes[
               "large-height"
             ]
           }
-          src={data.acf.stage_journey_map.stages_journey_map_image.sizes.large}
+          src={
+            data.acf.stage_journey_map[0].stages_journey_map_image.sizes.large
+          }
           alt="Journey image"
         ></Image>
       </div>
@@ -54,16 +56,16 @@ const MapAnimation = ({ data, i }: JourneyComponentProps) => {
           mapIsVisible || animationTriggered ? styles["show"] : styles[""]
         }`}
       >
-        {data.acf.stage.map((stage, index) => (
+        {data.acf.stage_journey_map.map((stage, index) => (
           <div key={`stage-${index}`}>
             <div
               className={`${styles["heading"]}  ${
                 mapIsVisible || animationTriggered ? styles["show"] : styles[""]
               }`}
             >
-              <HeadingTwo>{stage.stage_heading}</HeadingTwo>
+              <HeadingTwo>{stage.stages_journey_map_heading}</HeadingTwo>
             </div>
-            {stage.stage_text_area.map((text, i) => (
+            {stage.stages_journey_map_texts.map((text, i) => (
               <div
                 key={`stage-text-${index}-${i}`}
                 className={`${styles["text"]}  ${
@@ -72,7 +74,7 @@ const MapAnimation = ({ data, i }: JourneyComponentProps) => {
                     : styles[""]
                 }`}
               >
-                <ParagraphsBig>{text.stage_text}</ParagraphsBig>
+                <ParagraphsBig>{text.stages_journey_map_text}</ParagraphsBig>
               </div>
             ))}
           </div>
@@ -83,3 +85,11 @@ const MapAnimation = ({ data, i }: JourneyComponentProps) => {
 };
 
 export default MapAnimation;
+/*
+
+
+
+Map Text Lorem ipsum dolor sit amet consectetur adipisicing elit.  Maxime mollitia,molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga  praesentium.
+
+
+*/
