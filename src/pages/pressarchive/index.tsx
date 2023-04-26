@@ -43,7 +43,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const resPressArchive = await fetch(API_ENDPOINTS.pressArchive);
 
   const pressArchiveData: PressArchiveInterface = await resPressArchive.json();
-  console.log(pressArchiveData);
 
   const pressArticle = pressArchiveData.acf.press_archive;
 
