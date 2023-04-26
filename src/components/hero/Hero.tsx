@@ -1,11 +1,10 @@
 import React from "react";
-import { HeadingOneHome } from "../typography/headings/HeadingOne";
-import HeadingTwo from "../typography/headings/HeadingTwo";
 import styles from "./Hero.module.css";
 import { HeroSection } from "./interfaces";
 import WaveRedBrownTop from "../waves/wavesLargeScreen/WaveRedBrownTop";
 import WaveRedBrownSmall from "../waves/wavesSmallScreen/WaveRedBrownSmall";
 import HamburgerTransition from "../navigation/hamburger/HamburgerTransition";
+import Image from "next/image";
 
 interface Props {
   data: HeroSection;
@@ -23,8 +22,13 @@ const Hero = ({ data }: Props) => {
         <HamburgerTransition />
       </div>
       <div className={styles["hero-text-container"]}>
-        <HeadingOneHome>Saga asia</HeadingOneHome>
-        {data?.hero_text && <HeadingTwo>{data.hero_text}</HeadingTwo>}
+        <Image
+          className={styles["hero-logo"]}
+          width={305}
+          height={151}
+          src={"/Saga Asia_org-ai.png"}
+          alt="Saga Farmann logo"
+        />
       </div>
 
       <div className={styles["wave-container"]}>
