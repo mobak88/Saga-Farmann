@@ -72,7 +72,7 @@
 
 .image-one {
   position: absolute;
-  top: -50px;
+  top: 10px;
   left: 0;
   object-fit: cover;
   object-position: center;
