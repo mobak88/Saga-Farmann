@@ -10,6 +10,7 @@ import { GetStaticProps } from "next";
 import DarkContainer from "@/components/containers/darkContainer/DarkContainer";
 import Head from "next/head";
 import DonateSkeleton from "@/components/skeletons/donate/DonateSkeleton";
+import Link from "next/link";
 
 interface DonateData {
   title: { rendered: string };
@@ -60,7 +61,9 @@ const DonationPage = ({ donateData }: Props) => {
                 </ParagraphsBig>
               </div>
               <div>
-                <button className={styles["donate-button"]}>Donate</button>
+                <Link href={`${process.env.NEXT_PUBLIC_PAYPAL_URL}`}>
+                  <button className={styles["donate-button"]}>Donate</button>
+                </Link>
               </div>
               <ParagraphsSmall>
                 {donateData.acf.donate_card.donate_text}
