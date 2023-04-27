@@ -5,6 +5,7 @@ import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
 // import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import Image from "next/image";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import HeadingTwo from "@/components/typography/headings/HeadingTwo";
 
 interface BlogProps {
   id: number;
@@ -55,7 +56,7 @@ const BlogCard = ({
             </div>
           </div>
           <div className={styles["title-container"]}>
-            {title && <ParagraphsBig>{title}</ParagraphsBig>}
+            {title && <HeadingTwo>{title}</HeadingTwo>}
           </div>
           <div className={styles["bottom-container"]}>
             {post_description && (
