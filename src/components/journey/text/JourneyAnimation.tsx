@@ -4,8 +4,11 @@ import Image from "next/image";
 import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
 import HeadingTwo from "@/components/typography/headings/HeadingTwo";
 import { JourneyComponentProps } from "../interfaces/componentInterfaces";
+import WaveRedBrownSmall from "@/components/waves/wavesSmallScreen/WaveRedBrownSmall";
+import WaveRedBrownJourney from "@/components/waves/wavesLargeScreen/WaveRedBrownJourney";
+import WaveRedBrownSmallJourney from "@/components/waves/wavesSmallScreen/WaveRedBrownSmallJourney";
 
-const JourneyAnimation = ({ data, i }: JourneyComponentProps) => {
+const JourneyAnimation = ({ data, i, first }: JourneyComponentProps) => {
   const [imageIsVisible, setImageIsVisible] = useState<boolean>(false);
   const [animationTriggered, setAnimationTriggered] = useState(false);
   const imageAnimationRef = useRef<HTMLDivElement>(null);
@@ -26,13 +29,16 @@ const JourneyAnimation = ({ data, i }: JourneyComponentProps) => {
     observer.observe(imageAnimationRef.current!);
   }, []);
 
-  console.log(data.acf.journey_text_side);
-
   return (
     <div
       ref={imageAnimationRef}
       className={`${styles["journey-slide-wrapper"]}`}
     >
+      {!first && (
+        <div className={styles["wave-top"]}>
+          <WaveRedBrownJourney />
+        </div>
+      )}
       <div
         className={`${styles["image-container"]}  ${
           imageIsVisible || animationTriggered ? styles["show"] : styles[""]
@@ -82,6 +88,9 @@ const JourneyAnimation = ({ data, i }: JourneyComponentProps) => {
           ))}
         </div>
       ))}
+      <div className={styles["wave-bottom"]}>
+        <WaveRedBrownJourney />
+      </div>
     </div>
   );
 };
