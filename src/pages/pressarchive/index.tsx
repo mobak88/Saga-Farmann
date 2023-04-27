@@ -29,8 +29,9 @@ const PressArchivePage = ({ pressArchive }: Props) => {
       <Header header={"Press archive"} />
       <DarkContainer>
         <div className={styles.wrapper}>
-          {pressArchive.map((article: PressArchiveInterface) => (
+          {pressArchive.map((article: PressArchiveInterface, index: number) => (
             <PressArticle
+              key={index}
               pressData={article.acf.press_archive}
               date={article}
             />
