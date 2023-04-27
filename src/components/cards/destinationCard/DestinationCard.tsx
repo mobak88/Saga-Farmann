@@ -14,39 +14,47 @@ interface Props {
 const DestinationCard = ({ destinations }: Props) => {
   return (
     <>
-      <div className={styles.card}>
-        <div className={styles["image-container"]}>
-          {destinations?.acf?.destination_images[0]?.destination_image?.url && (
-            <Image
-              className={styles.image}
-              src={destinations.acf.destination_images[0].destination_image.url}
-              alt={destinations.acf.destination_images[0].destination_image.alt}
-              width={640}
-              height={290}
-            />
-          )}
+      <Link
+        href={`/destinations/${destinations.id}`}
+        className={styles["read-more-link"]}
+      >
+        <div className={styles.card}>
+          <div className={styles["image-container"]}>
+            {destinations?.acf?.destination_images[0]?.destination_image
+              ?.url && (
+              <Image
+                className={styles.image}
+                src={
+                  destinations.acf.destination_images[0].destination_image.url
+                }
+                alt={
+                  destinations.acf.destination_images[0].destination_image.alt
+                }
+                width={640}
+                height={290}
+              />
+            )}
+          </div>
+          <div className={styles["text-container"]}>
+            {destinations?.title?.rendered && (
+              <HeadingTwo>{destinations.title.rendered}</HeadingTwo>
+            )}
+            {destinations?.acf?.destination_description && (
+              <ParagraphsSmall>
+                {destinations.acf.destination_description}
+              </ParagraphsSmall>
+            )}
+            <div className={styles["read-more-text"]}>
+              {" "}
+              Read more{" "}
+              <BsFillArrowRightCircleFill
+                className={styles["arrow-icon"]}
+                size={25}
+              />
+            </div>
+          </div>
         </div>
-        <div className={styles["text-container"]}>
-          {destinations?.title?.rendered && (
-            <HeadingTwo>{destinations.title.rendered}</HeadingTwo>
-          )}
-          {destinations?.acf?.destination_description && (
-            <ParagraphsSmall>
-              {destinations.acf.destination_description}
-            </ParagraphsSmall>
-          )}
-          <Link
-            href={`/destinations/${destinations.id}`}
-            className={styles["read-more-link"]}
-          >
-            Read more
-            <BsFillArrowRightCircleFill
-              className={styles["arrow-icon"]}
-              size={25}
-            />
-          </Link>
-        </div>
-      </div>
+      </Link>
     </>
   );
 };

@@ -16,10 +16,6 @@
   transition: opacity 300ms ease-in-out;
 }
 
-/* .hamburger-icons {
-  cursor: pointer;
-} */
-
 .menu-icon {
   color: var(--light-text-color);
   cursor: pointer;

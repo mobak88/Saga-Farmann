@@ -48,16 +48,19 @@
 }
 
 .read-more-link {
+  text-decoration: none;
+}
+
+.read-more-text {
+  margin-top: 10px;
   display: flex;
   align-items: center;
   gap: 10px;
-  cursor: pointer;
   font-size: var(--p--step-0);
 }
 
 .read-more-link:hover {
-  text-decoration: underline var(--bg-pink-brown);
-  text-underline-offset: 4px;
+  cursor: pointer;
 }
 
 .arrow-icon {
