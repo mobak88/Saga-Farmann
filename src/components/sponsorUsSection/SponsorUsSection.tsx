@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import HeadingTwo from "../typography/headings/HeadingTwo";
-import ParagraphsSmall from "../typography/paragraphs/ParagraphsSmall";
 import styles from "./SponsorUsSection.module.css";
 import { SponsorUsSectionInterface } from "./interfaces";
 import HeadingThree from "../typography/headings/HeadingThree";

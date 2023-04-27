@@ -4,9 +4,7 @@ import Image from "next/image";
 import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
 import HeadingTwo from "@/components/typography/headings/HeadingTwo";
 import { JourneyComponentProps } from "../interfaces/componentInterfaces";
-import WaveRedBrownSmall from "@/components/waves/wavesSmallScreen/WaveRedBrownSmall";
 import WaveRedBrownJourney from "@/components/waves/wavesLargeScreen/WaveRedBrownJourney";
-import WaveRedBrownSmallJourney from "@/components/waves/wavesSmallScreen/WaveRedBrownSmallJourney";
 
 const JourneyAnimation = ({ data, i, first }: JourneyComponentProps) => {
   const [imageIsVisible, setImageIsVisible] = useState<boolean>(false);
@@ -53,7 +51,7 @@ const JourneyAnimation = ({ data, i, first }: JourneyComponentProps) => {
             data.acf.stage[0].stage_images[0].stage_image.sizes["large-height"]
           }
           src={data.acf.stage[0].stage_images[0].stage_image.sizes.large}
-          alt="Journey image"
+          alt={data.acf.stage[0].stage_images[0].stage_image.alt}
         ></Image>
       </div>
       {data.acf.stage.map((stage, index) => (

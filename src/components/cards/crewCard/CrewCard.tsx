@@ -46,7 +46,7 @@ const CrewCard = ({
           {member_image && (
             <Image
               src={member_image}
-              alt={member_name}
+              alt={`An image of one of the crew, ${member_name}`}
               className={`${styles.image} ${
                 isImageStretched ? styles.stretched : styles.notStretched
               }`}
