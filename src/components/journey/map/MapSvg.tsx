@@ -9,8 +9,7 @@ const MapSvg = ({ mapIndex }: Props) => {
   const strokeColor = "#bf625f";
   const strokeWidth = ".8";
   const mapMarkerStroke = "#142c34";
-
-  console.log(mapIndex);
+  const LineStrokeWidth = "2";
 
   return (
     <svg
@@ -485,7 +484,7 @@ const MapSvg = ({ mapIndex }: Props) => {
             transform="translate(-11556 5011)"
             fill="none"
             stroke={mapMarkerStroke}
-            strokeWidth="1"
+            strokeWidth={LineStrokeWidth}
           />
           <line
             id="Line_70"
@@ -495,7 +494,7 @@ const MapSvg = ({ mapIndex }: Props) => {
             transform="translate(-11548 5026)"
             fill="none"
             stroke={mapMarkerStroke}
-            strokeWidth="1"
+            strokeWidth={LineStrokeWidth}
           />
           <line
             id="Line_71"
@@ -505,7 +504,7 @@ const MapSvg = ({ mapIndex }: Props) => {
             transform="translate(-11547 5045)"
             fill="none"
             stroke={mapMarkerStroke}
-            strokeWidth="1"
+            strokeWidth={LineStrokeWidth}
           />
           <line
             id="Line_72"
@@ -515,7 +514,7 @@ const MapSvg = ({ mapIndex }: Props) => {
             transform="translate(-11548 5064)"
             fill="none"
             stroke={mapMarkerStroke}
-            strokeWidth="1"
+            strokeWidth={LineStrokeWidth}
           />
           <g id="Group_120" data-name="Group 120" transform="translate(8 89)">
             <circle
@@ -550,7 +549,7 @@ const MapSvg = ({ mapIndex }: Props) => {
               transform="translate(-11559 5011)"
               fill="none"
               stroke={mapMarkerStroke}
-              strokeWidth="1"
+              strokeWidth={LineStrokeWidth}
             />
             <line
               id="Line_74"
@@ -560,7 +559,7 @@ const MapSvg = ({ mapIndex }: Props) => {
               transform="translate(-11568 5037)"
               fill="none"
               stroke={mapMarkerStroke}
-              strokeWidth="1"
+              strokeWidth={LineStrokeWidth}
             />
             <g id="Group_119" data-name="Group 119">
               <circle
@@ -618,7 +617,7 @@ const MapSvg = ({ mapIndex }: Props) => {
               transform="translate(-11554 5008)"
               fill="none"
               stroke={mapMarkerStroke}
-              strokeWidth="1"
+              strokeWidth={LineStrokeWidth}
             />
             <g id="Group_121" data-name="Group 121">
               <g id="Group_122" data-name="Group 122">
@@ -696,7 +695,7 @@ const MapSvg = ({ mapIndex }: Props) => {
               transform="translate(-11552 5008)"
               fill="none"
               stroke={mapMarkerStroke}
-              strokeWidth="1"
+              strokeWidth={LineStrokeWidth}
             />
             <line
               id="Line_77"
@@ -705,7 +704,7 @@ const MapSvg = ({ mapIndex }: Props) => {
               transform="translate(-11523 5019)"
               fill="none"
               stroke={mapMarkerStroke}
-              strokeWidth="1"
+              strokeWidth={LineStrokeWidth}
             />
             <g
               id="Group_127"
@@ -763,7 +762,7 @@ const MapSvg = ({ mapIndex }: Props) => {
               transform="translate(-11556 5009)"
               fill="none"
               stroke={mapMarkerStroke}
-              strokeWidth="1"
+              strokeWidth={LineStrokeWidth}
             />
             <g
               id="Group_129"
@@ -821,7 +820,7 @@ const MapSvg = ({ mapIndex }: Props) => {
               transform="translate(-11552 5007)"
               fill="none"
               stroke={mapMarkerStroke}
-              strokeWidth="1"
+              strokeWidth={LineStrokeWidth}
             />
             <line
               id="Line_80"
@@ -831,7 +830,7 @@ const MapSvg = ({ mapIndex }: Props) => {
               transform="translate(-11508 5008)"
               fill="none"
               stroke={mapMarkerStroke}
-              strokeWidth="1"
+              strokeWidth={LineStrokeWidth}
             />
             <g
               id="Group_131"
@@ -889,7 +888,7 @@ const MapSvg = ({ mapIndex }: Props) => {
               transform="translate(-11555 5010)"
               fill="none"
               stroke={mapMarkerStroke}
-              strokeWidth="1"
+              strokeWidth={LineStrokeWidth}
             />
             <g
               id="Group_133"
