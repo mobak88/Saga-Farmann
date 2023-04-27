@@ -1,10 +1,7 @@
-export interface JourneyComponentProps {
-  data: JourneyProps;
+export interface VoyageComponentProps {
+  first?: boolean;
   i: number;
-}
-
-export interface JourneyProps {
-  journey: {
+  data: {
     id: number;
     date: string;
     date_gmt: string;
@@ -58,6 +55,7 @@ export interface JourneyProps {
       next_year: boolean;
       stages_blogs: boolean;
       stage_crews: boolean;
+
       stage_journey_map: {
         stages_journey_map_image: {
           sizes: {
@@ -75,5 +73,5 @@ export interface JourneyProps {
       }[];
       journey_text_side: string;
     };
-  }[];
+  };
 }

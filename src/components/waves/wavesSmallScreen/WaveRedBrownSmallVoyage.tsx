@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "../WaveJourney.module.css";
+import styles from "../WaveVoyage.module.css";
 
-const WaveRedBrownSmallJourney = () => {
+const WaveRedBrownSmallVoyage = () => {
   return (
     <svg
       className={styles["wave-small"]}
@@ -23,4 +23,4 @@ const WaveRedBrownSmallJourney = () => {
   );
 };
 
-export default WaveRedBrownSmallJourney;
+export default WaveRedBrownSmallVoyage;
