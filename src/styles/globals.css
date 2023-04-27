@@ -215,3 +215,26 @@ p {
 .mapboxgl-ctrl-top-right {
   margin-top: 23rem;
 }
+
+/* ---------- SWIPER PRESS ARCHIVE ---------- */
+
+.image-swiper {
+  grid-area: swiper;
+  width: 100%;
+}
+
+.image-swiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 12px;
+  color: #ffffff;
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.image-swiper .swiper-pagination-bullet-active {
+  color: #ffffff;
+  background: #ffffff;
+}

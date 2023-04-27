@@ -80,12 +80,14 @@ const PressArticle = ({ pressData, date }: Props) => {
       ))}
 
       <div className={styles["image-container"]}>
-        <div className={styles["swiper-nav-prev"]} ref={swiperNavPrevRef}>
-          <BsFillArrowLeftCircleFill
-            className={styles["arrow-icon"]}
-            size={50}
-          />
-        </div>
+        {pressData.press_images.length > 3 && (
+          <div className={styles["swiper-nav-prev"]} ref={swiperNavPrevRef}>
+            <BsFillArrowLeftCircleFill
+              className={styles["arrow-icon"]}
+              size={50}
+            />
+          </div>
+        )}
 
         <Swiper
           navigation={{
@@ -93,11 +95,11 @@ const PressArticle = ({ pressData, date }: Props) => {
             nextEl: swiperNavNextRef.current,
           }}
           onBeforeInit={onBeforeInit}
-          className={styles["image-swiper"]}
+          className="image-swiper"
           modules={[Navigation, Pagination]}
           spaceBetween={10}
           pagination={{
-            dynamicBullets: true,
+            clickable: true,
           }}
           breakpoints={{
             640: {
@@ -126,12 +128,14 @@ const PressArticle = ({ pressData, date }: Props) => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className={styles["swiper-nav-next"]} ref={swiperNavNextRef}>
-          <BsFillArrowRightCircleFill
-            className={styles["arrow-icon"]}
-            size={50}
-          />
-        </div>
+        {pressData.press_images.length > 3 && (
+          <div className={styles["swiper-nav-next"]} ref={swiperNavNextRef}>
+            <BsFillArrowRightCircleFill
+              className={styles["arrow-icon"]}
+              size={50}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

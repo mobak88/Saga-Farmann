@@ -1,5 +1,5 @@
 .card {
-  width: 70%;
+  width: 80%;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -29,12 +29,14 @@
 .image-container {
   display: grid;
   align-items: center;
+  gap: clamp(1rem, 5rem, 10rem);
   grid-template-areas: "prev swiper next";
 }
 
-.image-swiper {
-  grid-area: swiper;
-  width: 100%;
+.swiper-nav-prev,
+.swiper-nav-next {
+  cursor: pointer;
+  display: flex;
 }
 
 .swiper-nav-prev {
@@ -46,8 +48,8 @@
 }
 
 .images {
-  width: 280px;
-  height: 330px;
+  justify-content: center;
+  align-items: center;
 }
 
 .image {
@@ -93,16 +95,9 @@
   color: var(--bg-pink-brown);
 }
 
-.swiper-pagination-bullet {
-  color: red;
-  opacity: 1;
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.swiper-pagination-bullet-active {
-  color: #fff;
-  background: var(--light-text-color);
-}
-
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 650px) {
+  .swiper-nav-prev,
+  .swiper-nav-next {
+    display: none;
+  }
 }
