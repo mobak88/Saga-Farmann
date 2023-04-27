@@ -48,7 +48,7 @@ const MapAnimation = ({ data, i }: JourneyComponentProps) => {
           src={
             data.acf.stage_journey_map[0].stages_journey_map_image.sizes.large
           }
-          alt="Journey image"
+          alt={data.acf.stage_journey_map[0].stages_journey_map_image.alt}
         ></Image>
       </div>
       <div

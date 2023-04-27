@@ -26,7 +26,7 @@ export interface PostFirstSection {
 }
 
 export interface PostImages {
-  post_image: { url: string };
+  post_image: { url: string; alt: string };
 }
 
 export interface PostSecondSection {

@@ -24,7 +24,7 @@ const BigCard = ({
         {sponsor_image && (
           <Image
             src={sponsor_image}
-            alt={sponsor_name}
+            alt={`An image of our sponsor, ${sponsor_name}'s logo`}
             className={styles.image}
             width={400}
             height={400}

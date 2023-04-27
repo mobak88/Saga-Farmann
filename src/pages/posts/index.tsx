@@ -39,6 +39,7 @@ const BlogPage = ({ posts }: Posts) => {
               post_image={
                 post.acf.post_first_section.post_images[0].post_image.url
               }
+              alt={post.acf.post_first_section.post_images[0].post_image.alt}
               date={post.date}
               title={post.title.rendered}
               post_description={post.acf.post_description}

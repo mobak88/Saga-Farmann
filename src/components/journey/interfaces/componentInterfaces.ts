@@ -63,6 +63,7 @@ export interface JourneyComponentProps {
             "large-width": number;
             "large-height": number;
           };
+          alt: string;
         };
 
         stages_journey_map_heading: string;

@@ -10,6 +10,7 @@ import HeadingTwo from "@/components/typography/headings/HeadingTwo";
 interface BlogProps {
   id: number;
   post_image: string;
+  alt: string;
   date: string;
   title: string;
   post_description: string;
@@ -19,6 +20,7 @@ interface BlogProps {
 const BlogCard = ({
   id,
   post_image,
+  alt,
   date,
   title,
   post_description,
@@ -36,7 +38,7 @@ const BlogCard = ({
           {post_image && title && (
             <Image
               src={post_image}
-              alt={title}
+              alt={alt}
               className={styles["blog-card-image"]}
               height={600}
               width={1000}
