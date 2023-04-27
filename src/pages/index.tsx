@@ -19,6 +19,8 @@ import { gridSectionDataStructure } from "@/helpers/gridSectionDataStructure";
 import { destinationsDataStructure } from "@/helpers/destinationsDataStructure";
 import { stagesDataStructure } from "@/helpers/stagesDataStructure";
 import WaveRedBrown from "@/components/waves/wavesLargeScreen/WaveRedBrown";
+import ParagraphsSmall from "@/components/typography/paragraphs/ParagraphsSmall";
+import ParagraphsMedium from "@/components/typography/paragraphs/ParagraphsMedium";
 
 export interface HomeProps {
   stagesMapProps: MapProps;
