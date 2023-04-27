@@ -9,7 +9,8 @@ const MapSvg = ({ mapIndex }: Props) => {
   const strokeColor = "#bf625f";
   const strokeWidth = ".8";
   const mapMarkerStroke = "#142c34";
-  const LineStrokeWidth = "2";
+  const LineStrokeWidth = "2.2";
+  const circleWidth = "13";
 
   return (
     <svg
@@ -443,7 +444,7 @@ const MapSvg = ({ mapIndex }: Props) => {
           stroke={strokeColor}
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeWidth={strokeWidth}
+          strokeWidth={circleWidth}
         />
         <circle
           id="_2"
@@ -453,7 +454,7 @@ const MapSvg = ({ mapIndex }: Props) => {
           stroke={strokeColor}
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeWidth={strokeWidth}
+          strokeWidth={circleWidth}
         />
         <g
           id="Group_111"
@@ -465,7 +466,7 @@ const MapSvg = ({ mapIndex }: Props) => {
             data-name="Ellipse 56"
             cx="10"
             cy="10"
-            r="10"
+            r={circleWidth}
             transform="translate(-11571 4993)"
             fill={mapMarkerStroke}
           />
@@ -522,7 +523,7 @@ const MapSvg = ({ mapIndex }: Props) => {
               data-name="Ellipse 56"
               cx="10"
               cy="10"
-              r="10"
+              r={circleWidth}
               transform="translate(-11567 4995)"
               fill={mapMarkerStroke}
             />
@@ -567,7 +568,7 @@ const MapSvg = ({ mapIndex }: Props) => {
                 data-name="Ellipse 56"
                 cx="10"
                 cy="10"
-                r="10"
+                r={circleWidth}
                 transform="translate(-11567 4995)"
                 fill={mapMarkerStroke}
               />
@@ -589,7 +590,7 @@ const MapSvg = ({ mapIndex }: Props) => {
                 data-name="Ellipse 56"
                 cx="10"
                 cy="10"
-                r="10"
+                r={circleWidth}
                 transform="translate(-11567 4996)"
                 fill={mapMarkerStroke}
               />
@@ -626,7 +627,7 @@ const MapSvg = ({ mapIndex }: Props) => {
                   data-name="Ellipse 56"
                   cx="10"
                   cy="10"
-                  r="10"
+                  r={circleWidth}
                   transform="translate(-11567 4996)"
                   fill={mapMarkerStroke}
                 />
@@ -649,7 +650,7 @@ const MapSvg = ({ mapIndex }: Props) => {
                 data-name="Ellipse 56"
                 cx="10"
                 cy="10"
-                r="10"
+                r={circleWidth}
                 transform="translate(-11569 4998)"
                 fill={mapMarkerStroke}
               />
@@ -675,7 +676,7 @@ const MapSvg = ({ mapIndex }: Props) => {
                 data-name="Ellipse 56"
                 cx="10"
                 cy="10"
-                r="10"
+                r={circleWidth}
                 transform="translate(-11569 4998)"
                 fill={mapMarkerStroke}
               />
@@ -716,7 +717,7 @@ const MapSvg = ({ mapIndex }: Props) => {
                 data-name="Ellipse 56"
                 cx="10"
                 cy="10"
-                r="10"
+                r={circleWidth}
                 transform="translate(-11567 4999)"
                 fill={mapMarkerStroke}
               />
@@ -742,7 +743,7 @@ const MapSvg = ({ mapIndex }: Props) => {
                 data-name="Ellipse 56"
                 cx="10"
                 cy="10"
-                r="10"
+                r={circleWidth}
                 transform="translate(-11567 4999)"
                 fill={mapMarkerStroke}
               />
@@ -758,8 +759,8 @@ const MapSvg = ({ mapIndex }: Props) => {
               id="Line_78"
               data-name="Line 78"
               x1="17"
-              y1="29"
-              transform="translate(-11556 5009)"
+              y1="28"
+              transform="translate(-11556 5000)"
               fill="none"
               stroke={mapMarkerStroke}
               strokeWidth={LineStrokeWidth}
@@ -774,7 +775,7 @@ const MapSvg = ({ mapIndex }: Props) => {
                 data-name="Ellipse 56"
                 cx="10"
                 cy="10"
-                r="10"
+                r={circleWidth}
                 transform="translate(-11565 4996)"
                 fill={mapMarkerStroke}
               />
@@ -800,7 +801,7 @@ const MapSvg = ({ mapIndex }: Props) => {
                 data-name="Ellipse 56"
                 cx="10"
                 cy="10"
-                r="10"
+                r={circleWidth}
                 transform="translate(-11565 4996)"
                 fill={mapMarkerStroke}
               />
@@ -842,7 +843,7 @@ const MapSvg = ({ mapIndex }: Props) => {
                 data-name="Ellipse 56"
                 cx="10"
                 cy="10"
-                r="10"
+                r={circleWidth}
                 transform="translate(-11567 4999)"
                 fill={mapMarkerStroke}
               />
@@ -868,7 +869,7 @@ const MapSvg = ({ mapIndex }: Props) => {
                 data-name="Ellipse 56"
                 cx="10"
                 cy="10"
-                r="10"
+                r={circleWidth}
                 transform="translate(-11567 4999)"
                 fill={mapMarkerStroke}
               />
@@ -883,9 +884,9 @@ const MapSvg = ({ mapIndex }: Props) => {
             <line
               id="Line_81"
               data-name="Line 81"
-              x1="14"
-              y1="44"
-              transform="translate(-11555 5010)"
+              x1="10"
+              y1="38"
+              transform="translate(-11555 5015)"
               fill="none"
               stroke={mapMarkerStroke}
               strokeWidth={LineStrokeWidth}
@@ -927,8 +928,8 @@ const MapSvg = ({ mapIndex }: Props) => {
                 data-name="Ellipse 56"
                 cx="9.5"
                 cy="10"
-                rx="9.5"
-                ry="10"
+                rx={circleWidth}
+                ry={circleWidth}
                 transform="translate(-11562 5001)"
                 fill={mapMarkerStroke}
               />
