@@ -1,5 +1,6 @@
 .card {
   width: 80%;
+  max-width: 140rem;
   height: fit-content;
   display: flex;
   flex-direction: column;
