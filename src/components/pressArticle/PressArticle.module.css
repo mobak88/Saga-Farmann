@@ -3,7 +3,7 @@
   height: fit-content;
   display: flex;
   flex-direction: column;
-  padding: 6em 1em;
+  padding: 2em 1em;
 }
 
 .date-container {
@@ -27,17 +27,26 @@
 }
 
 .image-container {
-  display: flex;
-  width: 100%;
-  gap: 2em;
-  flex-wrap: wrap;
+  display: grid;
+  align-items: center;
+  grid-template-areas: "prev swiper next";
 }
 
 .image-swiper {
+  grid-area: swiper;
+  width: 100%;
+}
+
+.swiper-nav-prev {
+  grid-area: prev;
+}
+
+.swiper-nav-next {
+  grid-area: next;
 }
 
 .images {
-  width: 310px;
+  width: 280px;
   height: 330px;
 }
 
@@ -82,6 +91,17 @@
 
 .arrow-icon {
   color: var(--bg-pink-brown);
+}
+
+.swiper-pagination-bullet {
+  color: red;
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.swiper-pagination-bullet-active {
+  color: #fff;
+  background: var(--light-text-color);
 }
 
 @media screen and (max-width: 950px) {

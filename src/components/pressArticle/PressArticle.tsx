@@ -11,6 +11,7 @@ import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
@@ -85,12 +86,7 @@ const PressArticle = ({ pressData, date }: Props) => {
             size={50}
           />
         </div>
-        <div className={styles["swiper-nav-next"]} ref={swiperNavNextRef}>
-          <BsFillArrowRightCircleFill
-            className={styles["arrow-icon"]}
-            size={50}
-          />
-        </div>
+
         <Swiper
           navigation={{
             prevEl: swiperNavPrevRef.current,
@@ -121,7 +117,7 @@ const PressArticle = ({ pressData, date }: Props) => {
                 <Image
                   className={styles.image}
                   src={image.press_image.url}
-                  width={500}
+                  width={450}
                   height={340}
                   alt=""
                   onClick={() => downloadImage(image.press_image.url)}
@@ -130,6 +126,12 @@ const PressArticle = ({ pressData, date }: Props) => {
             </SwiperSlide>
           ))}
         </Swiper>
+        <div className={styles["swiper-nav-next"]} ref={swiperNavNextRef}>
+          <BsFillArrowRightCircleFill
+            className={styles["arrow-icon"]}
+            size={50}
+          />
+        </div>
       </div>
     </div>
   );
