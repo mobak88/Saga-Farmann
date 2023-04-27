@@ -10,8 +10,6 @@ const MapSvg = ({ mapIndex }: Props) => {
   const strokeWidth = ".8";
   const mapMarkerStroke = "#142c34";
 
-  console.log(mapIndex);
-
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
