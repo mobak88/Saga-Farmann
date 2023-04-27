@@ -65,7 +65,7 @@ const PressArticle = ({ pressData, date }: Props) => {
               src={image.press_image.url}
               width={500}
               height={340}
-              alt=""
+              alt={image.press_image.alt}
               onClick={() => downloadImage(image.press_image.url)}
             />
           </div>

@@ -50,12 +50,10 @@
 .title-container {
   padding-bottom: 2rem;
 }
-.description-container {
+.bottom-container {
   padding-bottom: 3rem;
-}
-
-.blog-card-read-more {
-  text-align: right;
+  display: flex;
+  justify-content: space-between;
 }
 
 .arrow-icon {

@@ -53,7 +53,7 @@ const JourneyAnimation = ({ data, i, first }: JourneyComponentProps) => {
             data.acf.stage[0].stage_images[0].stage_image.sizes["large-height"]
           }
           src={data.acf.stage[0].stage_images[0].stage_image.sizes.large}
-          alt="Journey image"
+          alt={data.acf.stage[0].stage_images[0].stage_image.alt}
         ></Image>
       </div>
       {data.acf.stage.map((stage, index) => (

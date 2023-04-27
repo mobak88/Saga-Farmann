@@ -8,7 +8,7 @@ export interface PressArchiveInterface {
 export interface PressArchive {
   press_heading: string;
   press_text_fields: PressTextFields[];
-  press_images: PressImage[];
+  press_images: [{ press_image: { url: string; alt: string } }];
 }
 
 export interface PressTextFields {
