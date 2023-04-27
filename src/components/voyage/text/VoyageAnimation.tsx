@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
-import styles from "./JourneyAnimation.module.css";
+import styles from "./VoyageAnimation.module.css";
 import Image from "next/image";
 import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
 import HeadingTwo from "@/components/typography/headings/HeadingTwo";
-import { JourneyComponentProps } from "../interfaces/componentInterfaces";
-import WaveRedBrownJourney from "@/components/waves/wavesLargeScreen/WaveRedBrownJourney";
+import { VoyageComponentProps } from "../interfaces/componentInterfaces";
+import WaveRedBrownVoyage from "@/components/waves/wavesLargeScreen/WaveRedBrownVoyage";
 
-const JourneyAnimation = ({ data, i, first }: JourneyComponentProps) => {
+const VoyageAnimation = ({ data, i, first }: VoyageComponentProps) => {
   const [imageIsVisible, setImageIsVisible] = useState<boolean>(false);
   const [animationTriggered, setAnimationTriggered] = useState(false);
   const imageAnimationRef = useRef<HTMLDivElement>(null);
@@ -30,11 +30,11 @@ const JourneyAnimation = ({ data, i, first }: JourneyComponentProps) => {
   return (
     <div
       ref={imageAnimationRef}
-      className={`${styles["journey-slide-wrapper"]}`}
+      className={`${styles["voyage-slide-wrapper"]}`}
     >
       {!first && (
         <div className={styles["wave-top"]}>
-          <WaveRedBrownJourney />
+          <WaveRedBrownVoyage />
         </div>
       )}
       <div
@@ -57,10 +57,10 @@ const JourneyAnimation = ({ data, i, first }: JourneyComponentProps) => {
       {data.acf.stage.map((stage, index) => (
         <div
           key={`stage-${index}`}
-          className={`${styles["journey-text-container"]} ${
+          className={`${styles["voyage-text-container"]} ${
             data.acf.journey_text_side === "right"
-              ? styles["journey-text-right"]
-              : styles["journey-text-left"]
+              ? styles["voyage-text-right"]
+              : styles["voyage-text-left"]
           } ${imageIsVisible || animationTriggered ? styles["show"] : ""}`}
         >
           <div
@@ -87,10 +87,10 @@ const JourneyAnimation = ({ data, i, first }: JourneyComponentProps) => {
         </div>
       ))}
       <div className={styles["wave-bottom"]}>
-        <WaveRedBrownJourney />
+        <WaveRedBrownVoyage />
       </div>
     </div>
   );
 };
 
-export default JourneyAnimation;
+export default VoyageAnimation;

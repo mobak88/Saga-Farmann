@@ -2,10 +2,10 @@ import React, { useState, useRef, useEffect } from "react";
 import styles from "./MapAnimation.module.css";
 import HeadingTwo from "@/components/typography/headings/HeadingTwo";
 import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
-import { JourneyComponentProps } from "../interfaces/componentInterfaces";
+import { VoyageComponentProps } from "../interfaces/componentInterfaces";
 import MapSvg from "./MapSvg";
 
-const MapAnimation = ({ data, i }: JourneyComponentProps) => {
+const MapAnimation = ({ data, i }: VoyageComponentProps) => {
   const [mapIsVisible, setMapIsVisible] = useState<boolean>(false);
   const [animationTriggered, setAnimationTriggered] = useState(false);
   const mapAnimationRef = useRef<HTMLDivElement>(null);

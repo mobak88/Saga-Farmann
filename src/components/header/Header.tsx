@@ -7,19 +7,19 @@ import WaveDarkHeaderSmall from "../waves/wavesSmallScreen/WaveDarkHeaderSmall";
 
 interface HeaderInterface {
   header: string;
-  journey?: boolean;
+  voyage?: boolean;
 }
 
-const Header = ({ header, journey }: HeaderInterface) => {
+const Header = ({ header, voyage }: HeaderInterface) => {
   const decodedHeader = he.decode(header);
   const replacedHeader = decodedHeader.replace(/&#8221;/g, "-");
 
   return (
     <div className={styles.wrapper}>
       <HeadingOne>{replacedHeader}</HeadingOne>
-      {!journey && (
+      {!voyage && (
         <div className={styles["wave-container"]}>
-          <WaveDarkHeader journey={journey} />
+          <WaveDarkHeader voyage={voyage} />
           <WaveDarkHeaderSmall />
         </div>
       )}

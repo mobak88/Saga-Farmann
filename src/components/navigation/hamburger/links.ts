@@ -1,7 +1,7 @@
 export const links = (crewId: string) => {
   return [
     { href: "/", label: "Home" },
-    { href: "/journey", label: "The voyage" },
+    { href: "/voyage", label: "The voyage" },
     { href: `/crew_members/${crewId}`, label: "Crew" },
     { href: "/posts", label: "Blog" },
     { href: "/destinations", label: "Destinations" },

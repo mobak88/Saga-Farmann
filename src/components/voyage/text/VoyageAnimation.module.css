@@ -1,4 +1,4 @@
-.journey-slide-wrapper {
+.voyage-slide-wrapper {
   position: relative;
   overflow: hidden;
   min-width: 100%;
@@ -38,7 +38,7 @@
   height: auto;
 }
 
-.journey-text-container {
+.voyage-text-container {
   position: absolute;
   top: 15%;
   width: 45%;
@@ -51,11 +51,11 @@
   z-index: 2;
 }
 
-.journey-text-right {
+.voyage-text-right {
   right: 5%;
 }
 
-.journey-text-left {
+.voyage-text-left {
   left: 5%;
 }
 /* Animations */
@@ -133,7 +133,7 @@
 /* Mobile responsive */
 
 @media only screen and (max-width: 1200px) {
-  .journey-slide-wrapper {
+  .voyage-slide-wrapper {
     min-width: unset;
     max-height: unset;
     width: 80%;
@@ -186,7 +186,7 @@
     height: auto;
   }
 
-  .journey-text-container {
+  .voyage-text-container {
     position: relative;
     top: unset;
     right: unset;
@@ -228,7 +228,7 @@
 }
 
 @media only screen and (max-width: 767px) {
-  .journey-slide-wrapper {
+  .voyage-slide-wrapper {
     width: 90%;
   }
 
@@ -253,7 +253,7 @@
     height: auto;
   }
 
-  .journey-text-container {
+  .voyage-text-container {
     position: static;
   }
 }

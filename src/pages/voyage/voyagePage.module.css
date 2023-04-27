@@ -1,4 +1,4 @@
-.journey-content-container {
+.voyage-content-container {
   margin: 0;
   background-color: var(--bg-pink-brown);
   height: 100%;
@@ -15,7 +15,7 @@
   transform: rotate(180deg);
 }
 
-.journeymap-container {
+.voyagemap-container {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -23,7 +23,7 @@
 }
 
 @media only screen and (max-width: 1200px) {
-  .journey-content-container {
+  .voyage-content-container {
     background-color: var(--bg-dark-blue);
     padding: 100px 0 100px 0;
   }
