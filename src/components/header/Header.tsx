@@ -4,11 +4,13 @@ import styles from "./Header.module.css";
 import he from "he";
 import WaveDarkHeader from "../waves/wavesLargeScreen/WaveDarkHeader";
 import WaveDarkHeaderSmall from "../waves/wavesSmallScreen/WaveDarkHeaderSmall";
+
 interface HeaderInterface {
   header: string;
+  journey?: boolean;
 }
 
-const Header = ({ header }: HeaderInterface) => {
+const Header = ({ header, journey }: HeaderInterface) => {
   const decodedHeader = he.decode(header);
   const replacedHeader = decodedHeader.replace(/&#8221;/g, "-");
 
@@ -16,7 +18,7 @@ const Header = ({ header }: HeaderInterface) => {
     <div className={styles.wrapper}>
       <HeadingOne>{replacedHeader}</HeadingOne>
       <div className={styles["wave-container"]}>
-        <WaveDarkHeader />
+        <WaveDarkHeader journey={journey} />
         <WaveDarkHeaderSmall />
       </div>
     </div>

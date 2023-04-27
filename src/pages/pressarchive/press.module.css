@@ -3,4 +3,6 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 2em;
+  padding-bottom: 8em;
+  background-color: var(--bg-dark-blue);
 }

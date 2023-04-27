@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: row-reverse;
   min-width: 100%;
-
   align-items: center;
   overflow: hidden;
 }
@@ -15,23 +14,20 @@
   opacity: 0;
   transition: 700ms;
   display: flex;
-  justify-content: right;
+  justify-content: center;
 
   /* Image scaling */
   overflow: hidden;
-  object-fit: contain;
-}
-
-.map-image {
-  right: 0;
 }
 
 .map-text-container {
+  padding: 10px;
   left: 5%;
   width: 45%;
   height: auto;
   display: flex;
   flex-direction: column;
+  z-index: 2;
 }
 
 /* Animations */
@@ -39,6 +35,7 @@
 .map-container.show {
   transform: translateX(0);
   opacity: 1;
+
   /*
  filter: brightness(50%); 
   */
