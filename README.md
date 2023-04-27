@@ -161,7 +161,7 @@ this is also part of technical debt. This requires someone competent with the te
 
 ## Further development
 
-They want a live boat but we did not have time to make the feature because the AIS data is difficult to get and the only solution we found is a solution that requires websockets which means we need another backend for the websocket because the next API does not support websockets. We contacted other suppleirs of AIS APIs but they have not responded because their target customers are large shipping and comercial companies.
+They want a live boat but we did not have time to make the feature because the AIS data is difficult to get and the only solution we found is a solution that requires websockets which means we need another backend for the websocket because the next API does not support websockets. We contacted other suppliers of AIS APIs but they have not responded because their target customers are large shipping and comercial companies.
 
 ## Code style
 
