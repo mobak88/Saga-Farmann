@@ -17,10 +17,12 @@ const Header = ({ header, journey }: HeaderInterface) => {
   return (
     <div className={styles.wrapper}>
       <HeadingOne>{replacedHeader}</HeadingOne>
-      <div className={styles["wave-container"]}>
-        <WaveDarkHeader journey={journey} />
-        <WaveDarkHeaderSmall />
-      </div>
+      {!journey && (
+        <div className={styles["wave-container"]}>
+          <WaveDarkHeader journey={journey} />
+          <WaveDarkHeaderSmall />
+        </div>
+      )}
     </div>
   );
 };

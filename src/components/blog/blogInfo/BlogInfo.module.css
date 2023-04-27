@@ -1,3 +1,7 @@
 .blog-id-info-wrapper {
   margin: 5rem 0 5rem 0;
 }
+.blog-card-date {
+  display: flex;
+  gap: 2rem;
+}

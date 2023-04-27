@@ -12,6 +12,7 @@ interface Props {
 }
 
 const SponsorUsSection = ({ data }: Props) => {
+  console.log("data sponsor", data);
   return (
     <div className={styles.wrapper}>
       <div className={styles["header-wrapper"]}>

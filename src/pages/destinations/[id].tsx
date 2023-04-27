@@ -67,7 +67,7 @@ const DestinationPage = ({ destination, ids }: Props) => {
           {images && (
             <ImageSlider
               images={images}
-              alt={"Blog Image"}
+              alt={"Image swiper"}
               id={destination.id + Math.random()}
             />
           )}
