@@ -14,7 +14,7 @@ import PressArticle from "@/components/pressArticle/PressArticle";
 import Header from "@/components/header/Header";
 
 interface Props {
-  pressArchive: PressArchive[];
+  pressArchive: PressArchiveInterface[];
 }
 
 const PressArchivePage = ({ pressArchive }: Props) => {
@@ -29,8 +29,12 @@ const PressArchivePage = ({ pressArchive }: Props) => {
       <Header header={"Press archive"} />
       <DarkContainer>
         <div className={styles.wrapper}>
-          {pressArchive.map((data: PressArchive, index: number) => (
-            <PressArticle pressData={data} key={index} />
+          {pressArchive.map((article: PressArchiveInterface, index: number) => (
+            <PressArticle
+              key={index}
+              pressData={article.acf.press_archive}
+              date={article}
+            />
           ))}
         </div>
         ;
@@ -42,15 +46,12 @@ const PressArchivePage = ({ pressArchive }: Props) => {
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const resPressArchive = await fetch(API_ENDPOINTS.pressArchive);
 
-  const pressArchiveData: PressArchiveInterface = await resPressArchive.json();
-
-  const pressArticle = pressArchiveData.acf.press_archive;
+  const pressArchive: PressArchiveInterface[] = await resPressArchive.json();
 
   return {
     props: {
-      pressArchive: pressArticle,
+      pressArchive,
     },
-    revalidate: 1,
   };
 };
 

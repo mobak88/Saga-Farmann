@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
 import styles from "./PressArticle.module.css";
-import { PressArchive } from "./interfaces";
+import { PressArchive, PressArchiveInterface } from "./interfaces";
 import ParagraphsBig from "../typography/paragraphs/ParagraphsBig";
 import HeadingTwo from "../typography/headings/HeadingTwo";
 import Image from "next/image";
-import Link from "next/link";
 import { FaFileDownload } from "react-icons/fa";
-import { text } from "stream/consumers";
-import LatestNewsSlider from "../latestNews/latestNewsSlider/LatestNewsSlider";
+import ParagraphsSmall from "../typography/paragraphs/ParagraphsSmall";
 
 interface Props {
+  date: PressArchiveInterface;
   pressData: PressArchive;
 }
 
@@ -22,7 +21,7 @@ function downloadImage(url: any) {
   document.body.removeChild(link);
 }
 
-const PressArticle = ({ pressData }: Props) => {
+const PressArticle = ({ pressData, date }: Props) => {
   const [fileUrl, setFileUrl] = useState<string>("");
 
   useEffect(() => {
@@ -36,6 +35,14 @@ const PressArticle = ({ pressData }: Props) => {
 
   return (
     <div className={styles.card}>
+      <div className={styles["date-container"]}>
+        {date && <ParagraphsSmall>{date.date.split("T")[0]}</ParagraphsSmall>}
+        {date && (
+          <ParagraphsSmall>
+            {date.date.split("T")[1].slice(0, -3)}
+          </ParagraphsSmall>
+        )}
+      </div>
       <div className={styles["header-container"]}>
         <HeadingTwo>{pressData.press_heading}</HeadingTwo>
         <a href={fileUrl} download>

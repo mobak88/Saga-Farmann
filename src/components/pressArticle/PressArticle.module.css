@@ -6,6 +6,12 @@
   padding: 2em 1em;
 }
 
+.date-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1em;
+}
+
 .header-container,
 .paragraph-container {
   margin-bottom: 2em;

@@ -1,6 +1,7 @@
 export interface PressArchiveInterface {
+  date: string;
   acf: {
-    press_archive: PressArchive[];
+    press_archive: PressArchive;
   };
 }
 
@@ -12,4 +13,8 @@ export interface PressArchive {
 
 export interface PressTextFields {
   press_text_field: string;
+}
+
+export interface PressImage {
+  press_image: { url: string };
 }

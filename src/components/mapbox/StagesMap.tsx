@@ -70,7 +70,7 @@ const StagesMap = ({ destinations, stages }: MapProps) => {
       mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_API_KEY}
       initialViewState={viewport}
       style={{ width: "100%", minHeight: "100dvh", height: "100rem" }}
-      mapStyle="mapbox://styles/mustafabaker/clffw0qpm001a01o0i6m1oisp"
+      mapStyle={process.env.NEXT_PUBLIC_MAP_STYLE_URL}
       cooperativeGestures
     >
       <FullscreenControl />
