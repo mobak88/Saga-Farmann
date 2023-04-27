@@ -15,8 +15,8 @@ const MapSvg = ({ mapIndex }: Props) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="853.399"
-      height="651.1"
+      width="100%"
+      height="100%"
       viewBox="0 0 853.399 651.1"
     >
       <g id="europe" transform="translate(-145.65 -0.95)">
