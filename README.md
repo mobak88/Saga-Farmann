@@ -24,7 +24,6 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
   - [Backend maintenance](#backend-maintenance)
   - [Frontend maintenance](#frontend-maintenance)
 - [Further development](#my-process)
-  - [Backend](#backend)
 - [Code style](#code-style)
 - [Fetching data](#fetching-data)
   - [Static Generation](#static-generation)
@@ -162,9 +161,7 @@ this is also part of technical debt. This requires someone competent with the te
 
 ## Further development
 
-### Frontend
-
-Write more about further development
+They want a live boat but we did not have time to make the feature because the AIS data is difficult to get and the only solution we found is a solution that requires websockets which means we need another backend for the websocket because the next API does not support websockets. We contacted other suppleirs of AIS APIs but they have not responded because their target customers are large shipping and comercial companies.
 
 ## Code style
 
@@ -192,4 +189,4 @@ Incremental Static Regeneration ensures static pages get updated automatically b
 As mentioned in maintenance this solution requires someone competent to do further development and updates both for the backend and for the frontend.
 We have also opted to use the older style of using NextJS because Next warns about the new type as being experimental, which we think should not
 be used for a production application because of that. If the new experimental way becomes the standard it could mean it could get more difficult
-to find people that know the current way.
+to find people that know the current way. Also since this is the largest project many of us has worked on the architecture is not ideal, we found a way to do on-demand ISR but we are dependent on a plugin and should the plugin become not compatible with our version of wordpress it could break the on-demand ISR.
