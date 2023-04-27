@@ -49,7 +49,6 @@ export const getStaticProps = async () => {
     props: {
       journey,
     },
-    revalidate: 1,
   };
 };
 

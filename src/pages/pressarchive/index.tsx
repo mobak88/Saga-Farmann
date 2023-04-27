@@ -50,7 +50,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     props: {
       pressArchive: pressArticle,
     },
-    revalidate: 1,
   };
 };
 
