@@ -4,6 +4,7 @@ import Link from "next/link";
 import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
 // import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import Image from "next/image";
+import { BsFillArrowRightCircleFill } from "react-icons/bs";
 
 interface BlogProps {
   id: number;
@@ -56,20 +57,20 @@ const BlogCard = ({
           <div className={styles["title-container"]}>
             {title && <ParagraphsBig>{title}</ParagraphsBig>}
           </div>
-          <div className={styles["description-container"]}>
+          <div className={styles["bottom-container"]}>
             {post_description && (
               <ParagraphsSmall>{post_description}</ParagraphsSmall>
             )}
+            <div className={styles["blog-card-read-more"]}>
+              <ParagraphsSmall>
+                Read more
+                <BsFillArrowRightCircleFill
+                  className={styles["arrow-icon"]}
+                  size={30}
+                />
+              </ParagraphsSmall>
+            </div>
           </div>
-          {/* <div className={styles["blog-card-read-more"]}>
-            <ParagraphsSmall>
-              Read more
-              <BsFillArrowRightCircleFill
-                className={styles["arrow-icon"]}
-                size={30}
-              />
-            </ParagraphsSmall>
-          </div> */}
         </div>
       </Link>
     </div>
