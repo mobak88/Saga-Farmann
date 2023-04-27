@@ -3,7 +3,7 @@
   height: fit-content;
   display: flex;
   flex-direction: column;
-  padding: 2em 1em;
+  padding: 6em 1em;
 }
 
 .date-container {
@@ -31,6 +31,9 @@
   width: 100%;
   gap: 2em;
   flex-wrap: wrap;
+}
+
+.image-swiper {
 }
 
 .images {
@@ -75,6 +78,10 @@
 
 .download:hover {
   cursor: pointer;
+}
+
+.arrow-icon {
+  color: var(--bg-pink-brown);
 }
 
 @media screen and (max-width: 950px) {

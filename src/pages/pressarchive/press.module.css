@@ -3,4 +3,5 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 2em;
+  background-color: var(--bg-dark-blue);
 }

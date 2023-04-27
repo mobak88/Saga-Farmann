@@ -27,18 +27,15 @@ const PressArchivePage = ({ pressArchive }: Props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header header={"Press archive"} />
-      <DarkContainer>
-        <div className={styles.wrapper}>
-          {pressArchive.map((article: PressArchiveInterface, index: number) => (
-            <PressArticle
-              key={index}
-              pressData={article.acf.press_archive}
-              date={article}
-            />
-          ))}
-        </div>
-        ;
-      </DarkContainer>
+      <div className={styles.wrapper}>
+        {pressArchive.map((article: PressArchiveInterface, index: number) => (
+          <PressArticle
+            key={index}
+            pressData={article.acf.press_archive}
+            date={article}
+          />
+        ))}
+      </div>
     </>
   );
 };

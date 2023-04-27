@@ -7,7 +7,7 @@ import Image from "next/image";
 import { FaFileDownload } from "react-icons/fa";
 import ParagraphsSmall from "../typography/paragraphs/ParagraphsSmall";
 import SwiperCore from "swiper";
-import { Navigation } from "swiper";
+import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -97,9 +97,12 @@ const PressArticle = ({ pressData, date }: Props) => {
             nextEl: swiperNavNextRef.current,
           }}
           onBeforeInit={onBeforeInit}
-          className={styles["news-swiper"]}
-          modules={[Navigation]}
-          spaceBetween={20}
+          className={styles["image-swiper"]}
+          modules={[Navigation, Pagination]}
+          spaceBetween={10}
+          pagination={{
+            dynamicBullets: true,
+          }}
           breakpoints={{
             640: {
               slidesPerView: 1,
@@ -107,11 +110,10 @@ const PressArticle = ({ pressData, date }: Props) => {
             768: {
               slidesPerView: 2,
             },
-            1000: {
+            1300: {
               slidesPerView: 3,
             },
           }}
-          loop={true}
         >
           {pressData.press_images.map((image, index) => (
             <SwiperSlide key={index}>
