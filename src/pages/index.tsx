@@ -59,6 +59,7 @@ const Home = ({
           stages={stagesMapProps.stages}
         />
       </div>
+
       <div className={styles["livestream-wrapper"]}>
         <LivestreamVideo />
       </div>
