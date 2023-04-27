@@ -16,5 +16,5 @@ export interface PressTextFields {
 }
 
 export interface PressImage {
-  press_image: { url: string };
+  press_image: { url: string; id: number };
 }
