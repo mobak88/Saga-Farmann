@@ -19,6 +19,18 @@
 .menu-icon {
   color: var(--light-text-color);
   cursor: pointer;
+  margin: 1rem;
+  padding: 0.1rem;
+}
+
+.scrolled-menu-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.7);
+}
+
+.menu-button {
+  background-color: transparent;
+  border: none;
 }
 /*--Menu--*/
 .menu-enter {
@@ -44,10 +56,17 @@
   transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
 }
 
+.menu-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+}
+
 .menu {
   width: 100%;
   max-width: 350px;
-  position: absolute;
+  position: fixed;
   top: 8rem;
   right: 0;
   background-color: var(--very-dark-blue);
@@ -58,11 +77,6 @@
   gap: 2rem;
   padding: 4rem 0rem;
   box-shadow: var(--box-shadow);
-}
-
-.menu-button {
-  background-color: transparent;
-  border: none;
 }
 
 .sr-menu {
