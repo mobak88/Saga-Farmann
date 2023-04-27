@@ -4,9 +4,7 @@ import Image from "next/image";
 import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
 import HeadingTwo from "@/components/typography/headings/HeadingTwo";
 import { JourneyComponentProps } from "../interfaces/componentInterfaces";
-import WaveRedBrownSmall from "@/components/waves/wavesSmallScreen/WaveRedBrownSmall";
 import WaveRedBrownJourney from "@/components/waves/wavesLargeScreen/WaveRedBrownJourney";
-import WaveRedBrownSmallJourney from "@/components/waves/wavesSmallScreen/WaveRedBrownSmallJourney";
 
 const JourneyAnimation = ({ data, i, first }: JourneyComponentProps) => {
   const [imageIsVisible, setImageIsVisible] = useState<boolean>(false);

@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import styles from "./MapAnimation.module.css";
-import Image from "next/image";
 import HeadingTwo from "@/components/typography/headings/HeadingTwo";
 import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
 import { JourneyComponentProps } from "../interfaces/componentInterfaces";
+import MapSvg from "./MapSvg";
 
 const MapAnimation = ({ data, i }: JourneyComponentProps) => {
   const [mapIsVisible, setMapIsVisible] = useState<boolean>(false);
@@ -33,23 +33,7 @@ const MapAnimation = ({ data, i }: JourneyComponentProps) => {
           mapIsVisible || animationTriggered ? styles["show"] : styles[""]
         }`}
       >
-        <Image
-          className={styles["map-image"]}
-          width={
-            data.acf.stage_journey_map[0].stages_journey_map_image.sizes[
-              "large-width"
-            ]
-          }
-          height={
-            data.acf.stage_journey_map[0].stages_journey_map_image.sizes[
-              "large-height"
-            ]
-          }
-          src={
-            data.acf.stage_journey_map[0].stages_journey_map_image.sizes.large
-          }
-          alt={data.acf.stage_journey_map[0].stages_journey_map_image.alt}
-        ></Image>
+        <MapSvg mapIndex={i} />
       </div>
       <div
         className={`${styles["map-text-container"]} ${
