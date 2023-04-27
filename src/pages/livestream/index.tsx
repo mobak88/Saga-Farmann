@@ -19,10 +19,10 @@ const Livestream = () => {
 
       <DarkContainer>
         <LivestreamVideo />
+        <div className={styles["youtubelink-wrapper"]}>
+          <YoutubeLink dark={false} />
+        </div>
       </DarkContainer>
-      <div className={styles["youtubelink-wrapper"]}>
-        <YoutubeLink />
-      </div>
     </>
   );
 };

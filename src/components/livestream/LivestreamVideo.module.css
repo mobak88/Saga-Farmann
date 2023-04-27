@@ -56,3 +56,15 @@
   background-color: rgba(0, 0, 0, 0.6);
   padding: 1rem;
 }
+
+.light {
+  color: var(--light-text-color);
+}
+
+.dark {
+  color: var(--dark-text-color);
+}
+
+.youtube-link:hover {
+  cursor: pointer;
+}

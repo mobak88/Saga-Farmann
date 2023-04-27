@@ -19,6 +19,7 @@ import { gridSectionDataStructure } from "@/helpers/gridSectionDataStructure";
 import { destinationsDataStructure } from "@/helpers/destinationsDataStructure";
 import { stagesDataStructure } from "@/helpers/stagesDataStructure";
 import WaveRedBrown from "@/components/waves/wavesLargeScreen/WaveRedBrown";
+import YoutubeLink from "@/components/livestream/youtubeLink/YoutubeLink";
 
 export interface HomeProps {
   stagesMapProps: MapProps;
@@ -61,6 +62,9 @@ const Home = ({
       </div>
 
       <div className={styles["livestream-wrapper"]}>
+        <div className={styles["youtubeLink-wrapper"]}>
+          <YoutubeLink dark />
+        </div>
         <LivestreamVideo />
       </div>
       <LatestNews
