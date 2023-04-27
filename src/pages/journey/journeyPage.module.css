@@ -12,8 +12,6 @@
 }
 
 .wave-bottom {
-  width: 100%;
-  height: 190px;
   transform: rotate(180deg);
 }
 

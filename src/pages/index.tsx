@@ -19,7 +19,7 @@ import { gridSectionDataStructure } from "@/helpers/gridSectionDataStructure";
 import { destinationsDataStructure } from "@/helpers/destinationsDataStructure";
 import { stagesDataStructure } from "@/helpers/stagesDataStructure";
 import WaveRedBrown from "@/components/waves/wavesLargeScreen/WaveRedBrown";
-import YoutubeLink from "@/components/livestream/youtubeLink/YoutubeLink";
+import ParagraphsMedium from "@/components/typography/paragraphs/ParagraphsMedium";
 
 export interface HomeProps {
   stagesMapProps: MapProps;

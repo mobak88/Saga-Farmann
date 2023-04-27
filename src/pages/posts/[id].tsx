@@ -37,7 +37,7 @@ const BlogDetails = ({ post, images }: Props) => {
           <div className={styles["grid-wrap"]}>
             <BlogImageSlider
               images={images}
-              alt={"Blog Image"}
+              alt={"Image swiper"}
               id={post.id + Math.random()}
             />
           </div>

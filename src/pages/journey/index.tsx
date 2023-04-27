@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment } from "react";
 import Header from "@/components/header/Header";
 import styles from "./journeyPage.module.css";
 import JourneyAnimation from "@/components/journey/text/JourneyAnimation";
@@ -19,7 +19,11 @@ const TheJourney = ({ journey }: JourneyProps) => {
           <Fragment key={i}>
             {!journeyData.acf.next_year && (
               <>
-                <JourneyAnimation data={journeyData} i={i} />
+                {i === 0 ? (
+                  <JourneyAnimation data={journeyData} i={i} first={true} />
+                ) : (
+                  <JourneyAnimation data={journeyData} i={i} />
+                )}
                 <WaveRedBrownSmall />
                 <div className={styles["journeymap-container"]}>
                   <MapAnimation data={journeyData} i={i} />
@@ -45,7 +49,6 @@ export const getStaticProps = async () => {
     props: {
       journey,
     },
-    revalidate: 1,
   };
 };
 
