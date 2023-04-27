@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import HeadingTwo from "../typography/headings/HeadingTwo";
-import ParagraphsSmall from "../typography/paragraphs/ParagraphsSmall";
 import styles from "./SponsorUsSection.module.css";
 import { SponsorUsSectionInterface } from "./interfaces";
 import HeadingThree from "../typography/headings/HeadingThree";
@@ -12,7 +11,6 @@ interface Props {
 }
 
 const SponsorUsSection = ({ data }: Props) => {
-  console.log("data sponsor", data);
   return (
     <div className={styles.wrapper}>
       <div className={styles["header-wrapper"]}>
