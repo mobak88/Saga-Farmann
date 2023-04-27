@@ -12,8 +12,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   gap: 2rem;
+  flex-direction: column;
+}
+
+.youtubeLink-wrapper {
+  width: 90%;
+  max-width: 1080px;
 }
 
 .map-container {
