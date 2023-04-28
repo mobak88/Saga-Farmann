@@ -64,7 +64,7 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
 
   const isCurrentCrew = crewMember.acf.current_crew;
 
-  function isFormerCrew(crewMember: CrewMember): boolean {
+  const isFormerCrew = (crewMember: CrewMember): boolean => {
     const crewDateTo = crewMember.acf.crew_dates.crew_date_to;
     const now = new Date();
     const [day, month, year] = crewDateTo.split("/");
@@ -74,7 +74,7 @@ const CrewMemberPage = ({ crewMember, ids }: Props) => {
       parseInt(day)
     );
     return crewDateToObj < now;
-  }
+  };
 
   const headText = `Saga Farmann crew ${crewMember.title.rendered}`;
 
