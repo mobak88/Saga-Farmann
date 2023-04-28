@@ -23,6 +23,16 @@ const HamburgerTransition = () => {
     }
   };
 
+  const toggleMenu = () => {
+    setIsOpen((prevState) => !prevState);
+    setClick((prevState) => !prevState);
+  };
+
+  const handleLinkClick = () => {
+    setIsOpen((prevState) => !prevState);
+    setClick((prevState) => !prevState);
+  };
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -30,18 +40,28 @@ const HamburgerTransition = () => {
     };
   }, []);
 
-  const toggleMenu = () => {
-    setIsOpen((prevState) => !prevState);
-    setClick((prevState) => !prevState);
-  };
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const isOutsideMenu =
+        nodeRefMenu.current &&
+        !nodeRefMenu.current.contains(event.target as Node);
+      const isOutsideBurger =
+        nodeRefBurger.current &&
+        !nodeRefBurger.current.contains(event.target as Node);
+      if (isOpen && isOutsideMenu && isOutsideBurger) {
+        setIsOpen(false);
+        setClick(false);
+        console.log("Outside");
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen, nodeRefMenu, nodeRefBurger]);
 
   const pageLinks = links(crewId as string);
-
-  const handleLinkClick = () => {
-    setIsOpen((prevState) => !prevState);
-    setClick((prevState) => !prevState);
-  };
-
   return (
     <>
       <div className={styles["menu-container"]}>
