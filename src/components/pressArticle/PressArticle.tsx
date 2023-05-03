@@ -135,7 +135,7 @@ const PressArticle = ({ pressData, date }: Props) => {
                 <SwiperSlide key={index}>
                   <div key={index} className={styles.images}>
                     <Image
-                      className={styles.image}
+                      className={styles["slider-image"]}
                       src={image.press_image.url}
                       width={450}
                       height={340}
