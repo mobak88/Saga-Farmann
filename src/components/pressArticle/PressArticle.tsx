@@ -80,61 +80,80 @@ const PressArticle = ({ pressData, date }: Props) => {
       ))}
 
       <div className={styles["image-container"]}>
-        {pressData.press_images.length > 3 && (
-          <div className={styles["swiper-nav-prev"]} ref={swiperNavPrevRef}>
-            <BsFillArrowLeftCircleFill
-              className={styles["arrow-icon"]}
-              size={50}
-            />
-          </div>
-        )}
+        {pressData.press_images.length < 4 &&
+          pressData.press_images.map(
+            (image, index) =>
+              image && (
+                <div key={index} className={styles.images}>
+                  <Image
+                    className={styles.image}
+                    src={image.press_image.url}
+                    width={450}
+                    height={340}
+                    alt=""
+                    onClick={() => downloadImage(image.press_image.url)}
+                  />
+                </div>
+              )
+          )}
 
-        <Swiper
-          navigation={{
-            prevEl: swiperNavPrevRef.current,
-            nextEl: swiperNavNextRef.current,
-          }}
-          onBeforeInit={onBeforeInit}
-          className="image-swiper"
-          modules={[Navigation, Pagination]}
-          spaceBetween={10}
-          pagination={{
-            clickable: true,
-          }}
-          breakpoints={{
-            640: {
-              slidesPerView: 1,
-            },
-            768: {
-              slidesPerView: 2,
-            },
-            1300: {
-              slidesPerView: 3,
-            },
-          }}
-        >
-          {pressData.press_images.map((image, index) => (
-            <SwiperSlide key={index}>
-              <div key={index} className={styles.images}>
-                <Image
-                  className={styles.image}
-                  src={image.press_image.url}
-                  width={450}
-                  height={340}
-                  alt=""
-                  onClick={() => downloadImage(image.press_image.url)}
-                />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
         {pressData.press_images.length > 3 && (
-          <div className={styles["swiper-nav-next"]} ref={swiperNavNextRef}>
-            <BsFillArrowRightCircleFill
-              className={styles["arrow-icon"]}
-              size={50}
-            />
-          </div>
+          <>
+            <div className={styles["swiper-nav-prev"]} ref={swiperNavPrevRef}>
+              <BsFillArrowLeftCircleFill
+                className={styles["arrow-icon"]}
+                size={50}
+              />
+            </div>
+
+            <Swiper
+              navigation={{
+                prevEl: swiperNavPrevRef.current,
+                nextEl: swiperNavNextRef.current,
+              }}
+              onBeforeInit={onBeforeInit}
+              className="image-swiper"
+              modules={[Navigation, Pagination]}
+              loop={true}
+              spaceBetween={10}
+              pagination={{
+                clickable: true,
+              }}
+              breakpoints={{
+                640: {
+                  slidesPerView: 1,
+                },
+                768: {
+                  slidesPerView: 2,
+                },
+                1300: {
+                  slidesPerView: 3,
+                },
+              }}
+            >
+              {pressData.press_images.map((image, index) => (
+                <SwiperSlide key={index}>
+                  <div key={index} className={styles.images}>
+                    <Image
+                      className={styles["slider-image"]}
+                      src={image.press_image.url}
+                      width={450}
+                      height={340}
+                      alt=""
+                      onClick={() => downloadImage(image.press_image.url)}
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            <div className={styles["swiper-nav-next"]} ref={swiperNavNextRef}>
+              <BsFillArrowRightCircleFill
+                className={styles["arrow-icon"]}
+                size={50}
+              />
+            </div>
+          </>
         )}
       </div>
     </div>

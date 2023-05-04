@@ -1,15 +1,10 @@
 import Head from "next/head";
-import React, { useEffect, useState } from "react";
-import ImageSlider from "@/components/thumbSlider/ThumbSlider";
+import React from "react";
 import styles from "./press.module.css";
 import { GetStaticProps } from "next";
 import API_ENDPOINTS from "@/endpoints/endpoints";
-import {
-  PressArchive,
-  PressArchiveInterface,
-} from "@/components/pressArticle/interfaces";
+import { PressArchiveInterface } from "@/components/pressArticle/interfaces";
 
-import DarkContainer from "@/components/containers/darkContainer/DarkContainer";
 import PressArticle from "@/components/pressArticle/PressArticle";
 import Header from "@/components/header/Header";
 
