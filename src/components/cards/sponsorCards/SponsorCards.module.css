@@ -21,6 +21,16 @@
   height: 300px;
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.image-wrapper-small {
+  background-color: white;
+  width: 230px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .image {
