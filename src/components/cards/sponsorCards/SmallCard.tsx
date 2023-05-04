@@ -20,7 +20,7 @@ const SmallCard = ({
 }: SponsorProps) => {
   return (
     <div className={styles["small-card-wrapper"]}>
-      <div className={styles["image-wrapper"]}>
+      <div className={styles["image-wrapper-small"]}>
         {sponsor_image && (
           <Image
             src={sponsor_image}
