@@ -50,7 +50,7 @@ const HamburgerTransition = () => {
         !nodeRefBurger.current.contains(event.target as Node);
       if (isOpen && isOutsideMenu && isOutsideBurger) {
         setIsOpen(false);
-        setClick(false);
+        +setClick(false);
         console.log("Outside");
       }
     };
