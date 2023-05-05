@@ -10,15 +10,13 @@ interface Props {
   data: HeroSection;
 }
 
-const Hero = ({ data }: Props) => {
+const Hero = () => {
   return (
     <div className={styles["hero-wrapper"]}>
-      {data?.hero_background_image && (
-        <iframe
-          className={styles["hero-background"]}
-          src="//play.vidyard.com/79REgXia3dWEHr8k291aWp/type/background?quality=720p"
-        ></iframe>
-      )}
+      <iframe
+        className={styles["hero-background"]}
+        src="//play.vidyard.com/79REgXia3dWEHr8k291aWp/type/background?quality=720p"
+      ></iframe>
       <div className={styles["hero-burger-wrapper"]}>
         <HamburgerTransition />
       </div>
