@@ -10,7 +10,7 @@ interface Props {
   data: HeroSection;
 }
 
-const Hero = ({ data }: Props) => {
+const Hero = () => {
   return (
     <div className={styles["hero-wrapper"]}>
       <iframe

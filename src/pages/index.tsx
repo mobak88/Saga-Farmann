@@ -33,7 +33,6 @@ const Home = ({
   stagesMapProps,
   gridSection,
   sponsorUsSection,
-  heroSection,
   latestNews,
 }: HomeProps) => {
   return (
@@ -47,7 +46,7 @@ const Home = ({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Hero data={heroSection} />
+      <Hero />
       <div className={styles["grid-wrapper"]}>
         <GridImagesAndText gridContent={gridSection} />
       </div>
@@ -94,7 +93,7 @@ export async function getStaticProps() {
     fetch(API_ENDPOINTS.crewMembers),
   ]);
 
-  const [stages, homeData, destinations, sponsorUs, blogPosts, crews] =
+  const [stages, homeData, destinations, sponsorUs, blogPosts] =
     await Promise.all([
       resStages.json(),
       resHomeData.json(),
@@ -108,12 +107,7 @@ export async function getStaticProps() {
 
   const newDestinations = destinationsDataStructure(destinations);
 
-  const { grid_section, hero_section, latest_news } = homeData.acf;
-
-  const heroSection = {
-    hero_background_image: hero_section.hero_background_image.url,
-    hero_text: hero_section.hero_text,
-  };
+  const { grid_section, latest_news } = homeData.acf;
 
   const gridSection = gridSectionDataStructure(grid_section);
 
@@ -132,7 +126,6 @@ export async function getStaticProps() {
   return {
     props: {
       stagesMapProps,
-      heroSection,
       gridSection,
       destinations: newDestinations,
       sponsorUsSection,
