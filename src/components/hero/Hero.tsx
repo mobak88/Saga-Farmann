@@ -16,7 +16,7 @@ const Hero = ({ data }: Props) => {
       {data?.hero_background_image && (
         <iframe
           className={styles["hero-background"]}
-          src="//play.vidyard.com/79REgXia3dWEHr8k291aWp/type/background"
+          src="//play.vidyard.com/79REgXia3dWEHr8k291aWp/type/background?quality=720p"
         ></iframe>
       )}
       <div className={styles["hero-burger-wrapper"]}>
