@@ -5,7 +5,7 @@ const Copyright = () => {
   return (
     <div className={styles.copyright}>
       <ParagraphsSmall>
-        © 2023 Saga-Farmann | Made by Gokstadakademiet
+        © 2023 Saga Farmann | Made by Gokstadakademiet Students
       </ParagraphsSmall>
     </div>
   );
