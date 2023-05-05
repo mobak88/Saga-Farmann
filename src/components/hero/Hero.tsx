@@ -15,7 +15,7 @@ const Hero = ({ data }: Props) => {
     <div className={styles["hero-wrapper"]}>
       {data?.hero_background_image && (
         <video className={styles["hero-background"]} loop autoPlay muted>
-          <source src={data.hero_background_image} type="video/mp4" />
+          <source src="https://streamable.com/etu62s" type="video/mp4" />
         </video>
       )}
       <div className={styles["hero-burger-wrapper"]}>
