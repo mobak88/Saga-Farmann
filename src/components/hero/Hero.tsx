@@ -14,9 +14,10 @@ const Hero = ({ data }: Props) => {
   return (
     <div className={styles["hero-wrapper"]}>
       {data?.hero_background_image && (
-        <video className={styles["hero-background"]} loop autoPlay muted>
-          <source src="https://streamable.com/etu62s" type="video/mp4" />
-        </video>
+        <iframe
+          className={styles["hero-background"]}
+          src="//play.vidyard.com/79REgXia3dWEHr8k291aWp/type/background"
+        ></iframe>
       )}
       <div className={styles["hero-burger-wrapper"]}>
         <HamburgerTransition />
