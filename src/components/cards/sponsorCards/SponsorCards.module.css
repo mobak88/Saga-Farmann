@@ -53,6 +53,12 @@
   .small-card-wrapper {
     max-width: 190px;
   }
+  .image-wrapper {
+    max-width: 400px;
+  }
+  .image-wrapper-small {
+    max-width: 190px;
+  }
 }
 
 @media only screen and (max-width: 425px) {
@@ -61,5 +67,11 @@
   }
   .small-card-wrapper {
     max-width: 165px;
+  }
+  .image-wrapper-small {
+    max-width: 165px;
+  }
+  .image-wrapper {
+    max-width: 350px;
   }
 }
