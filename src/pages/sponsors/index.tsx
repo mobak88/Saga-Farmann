@@ -41,8 +41,6 @@ const SponsorPage = ({ sponsors, sponsorUsSection }: Props) => {
       </>
     );
 
-  console.log(sponsors);
-
   return (
     <>
       <Head>
