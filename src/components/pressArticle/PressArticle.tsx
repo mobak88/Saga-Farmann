@@ -108,6 +108,13 @@ const PressArticle = ({ pressData, date }: Props) => {
               />
             </div>
 
+            <div className={styles["swiper-nav-next"]} ref={swiperNavNextRef}>
+              <BsFillArrowRightCircleFill
+                className={styles["arrow-icon"]}
+                size={50}
+              />
+            </div>
+
             <Swiper
               navigation={{
                 prevEl: swiperNavPrevRef.current,
@@ -148,13 +155,6 @@ const PressArticle = ({ pressData, date }: Props) => {
                 </SwiperSlide>
               ))}
             </Swiper>
-
-            <div className={styles["swiper-nav-next"]} ref={swiperNavNextRef}>
-              <BsFillArrowRightCircleFill
-                className={styles["arrow-icon"]}
-                size={50}
-              />
-            </div>
           </>
         )}
       </div>
