@@ -1,6 +1,5 @@
 import type { ReactElement } from "react";
 import Head from "next/head";
-import LatestNews from "@/components/latestNews/LatestNews";
 import Hero from "@/components/hero/Hero";
 import GridImagesAndText from "@/components/gridImagesAndText/GridImagesAndText";
 import styles from "./home.module.css";
@@ -20,6 +19,7 @@ import { destinationsDataStructure } from "@/helpers/destinationsDataStructure";
 import { stagesDataStructure } from "@/helpers/stagesDataStructure";
 import WaveRedBrown from "@/components/waves/wavesLargeScreen/WaveRedBrown";
 import YoutubeLink from "@/components/livestream/youtubeLink/YoutubeLink";
+import MySwiper from "@/components/latestNews/latestNewsSlider/MySwiper";
 
 export interface HomeProps {
   stagesMapProps: MapProps;
@@ -66,11 +66,7 @@ const Home = ({
         </div>
         <LivestreamVideo />
       </div>
-      <LatestNews
-        postHeading={latestNews.latestNewsText.latest_news_heading}
-        postText={latestNews.latestNewsText.latest_news_short_description}
-        posts={latestNews.posts}
-      />
+      <MySwiper />
       <SponsorUsSection data={sponsorUsSection} />
     </>
   );
