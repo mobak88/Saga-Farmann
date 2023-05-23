@@ -50,6 +50,11 @@ const Home = ({
       <div className={styles["grid-wrapper"]}>
         <GridImagesAndText gridContent={gridSection} />
       </div>
+      <LatestNews
+        postHeading={latestNews.latestNewsText.latest_news_heading}
+        postText={latestNews.latestNewsText.latest_news_short_description}
+        posts={latestNews.posts}
+      />
       <div className={styles["map-container"]}>
         <div className={styles["map-wave-wrapper"]}>
           <WaveRedBrown />
@@ -66,11 +71,6 @@ const Home = ({
         </div>
         <LivestreamVideo />
       </div>
-      <LatestNews
-        postHeading={latestNews.latestNewsText.latest_news_heading}
-        postText={latestNews.latestNewsText.latest_news_short_description}
-        posts={latestNews.posts}
-      />
       <SponsorUsSection data={sponsorUsSection} />
     </>
   );

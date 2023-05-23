@@ -26,8 +26,6 @@ const LatestNews = ({ posts, postHeading, postText }: LatestNewsProps) => {
           </div>
           <LatestNewsSlider posts={posts} />
         </div>
-        <WaveDarkHomeBottomPink />
-        <WaveDarkHomeSmallBottomPink />
       </div>
     </>
   );
