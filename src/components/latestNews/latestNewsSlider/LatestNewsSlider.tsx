@@ -25,6 +25,7 @@ const LatestNewsSlider = ({ posts }: PostsProps) => {
       if (navigation !== undefined) {
         navigation.prevEl = swiperNavPrevRef.current;
         navigation.nextEl = swiperNavNextRef.current;
+        Swiper.navigation.init();
         Swiper.navigation.update();
       }
     }
