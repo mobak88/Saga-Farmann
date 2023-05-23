@@ -16,8 +16,8 @@ import {
 import styles from "./LatestNewsSlider.module.css";
 
 const LatestNewsSlider = ({ posts }: PostsProps) => {
-  const swiperNavPrevRef = useRef<HTMLDivElement>(null);
-  const swiperNavNextRef = useRef<HTMLDivElement>(null);
+  const swiperNavPrevRef = useRef<HTMLDivElement | null>(null);
+  const swiperNavNextRef = useRef<HTMLDivElement | null>(null);
 
   const onBeforeInit = (Swiper: SwiperCore): void => {
     if (typeof Swiper.params.navigation !== "boolean") {
