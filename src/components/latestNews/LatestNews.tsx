@@ -1,12 +1,8 @@
 import React from "react";
 import HeadingTwo from "../typography/headings/HeadingTwo";
 import ParagraphsSmall from "../typography/paragraphs/ParagraphsSmall";
-import WaveDarkHome, {
-  WaveDarkHomeBottomPink,
-} from "../waves/wavesLargeScreen/WaveDarkHome";
-import WaveDarkHomeSmall, {
-  WaveDarkHomeSmallBottomPink,
-} from "../waves/wavesSmallScreen/WaveDarkHomeSmall";
+import WaveDarkHome from "../waves/wavesLargeScreen/WaveDarkHome";
+import WaveDarkHomeSmall from "../waves/wavesSmallScreen/WaveDarkHomeSmall";
 import styles from "./LatestNews.module.css";
 import LatestNewsSlider from "./latestNewsSlider/LatestNewsSlider";
 import { LatestNewsProps } from "./latestNewsInterfaces";
