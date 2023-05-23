@@ -46,11 +46,11 @@
   justify-content: center;
 }
 
-@media screen and (max-width: 1400px) {
+/* @media screen and (max-width: 1400px) {
   .swiper-container {
     display: grid;
     grid-template-areas:
       "swiper swiper"
       "prev next";
   }
-}
+} */
