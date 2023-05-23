@@ -32,8 +32,8 @@ function downloadImage(url: any) {
 }
 
 const PressArticle = ({ pressData, date }: Props) => {
-  const swiperNavPrevRef = useRef<HTMLDivElement>(null);
-  const swiperNavNextRef = useRef<HTMLDivElement>(null);
+  const swiperNavPrevRef = useRef<HTMLDivElement | null>(null);
+  const swiperNavNextRef = useRef<HTMLDivElement | null>(null);
 
   const onBeforeInit = (Swiper: SwiperCore): void => {
     if (typeof Swiper.params.navigation !== "boolean") {
@@ -41,6 +41,8 @@ const PressArticle = ({ pressData, date }: Props) => {
       if (navigation !== undefined) {
         navigation.prevEl = swiperNavPrevRef.current;
         navigation.nextEl = swiperNavNextRef.current;
+        Swiper.navigation.init();
+        Swiper.navigation.update();
       }
     }
   };
