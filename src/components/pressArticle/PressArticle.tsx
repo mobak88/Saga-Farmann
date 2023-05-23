@@ -32,8 +32,8 @@ function downloadImage(url: any) {
 }
 
 const PressArticle = ({ pressData, date }: Props) => {
-  const swiperNavPrevRef = useRef<HTMLDivElement>(null);
-  const swiperNavNextRef = useRef<HTMLDivElement>(null);
+  const swiperNavPrevRef = useRef<HTMLDivElement | null>(null);
+  const swiperNavNextRef = useRef<HTMLDivElement | null>(null);
 
   const onBeforeInit = (Swiper: SwiperCore): void => {
     if (typeof Swiper.params.navigation !== "boolean") {
@@ -41,6 +41,8 @@ const PressArticle = ({ pressData, date }: Props) => {
       if (navigation !== undefined) {
         navigation.prevEl = swiperNavPrevRef.current;
         navigation.nextEl = swiperNavNextRef.current;
+        Swiper.navigation.init();
+        Swiper.navigation.update();
       }
     }
   };
@@ -106,6 +108,13 @@ const PressArticle = ({ pressData, date }: Props) => {
               />
             </div>
 
+            <div className={styles["swiper-nav-next"]} ref={swiperNavNextRef}>
+              <BsFillArrowRightCircleFill
+                className={styles["arrow-icon"]}
+                size={50}
+              />
+            </div>
+
             <Swiper
               navigation={{
                 prevEl: swiperNavPrevRef.current,
@@ -146,13 +155,6 @@ const PressArticle = ({ pressData, date }: Props) => {
                 </SwiperSlide>
               ))}
             </Swiper>
-
-            <div className={styles["swiper-nav-next"]} ref={swiperNavNextRef}>
-              <BsFillArrowRightCircleFill
-                className={styles["arrow-icon"]}
-                size={50}
-              />
-            </div>
           </>
         )}
       </div>
