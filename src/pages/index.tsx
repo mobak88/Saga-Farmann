@@ -20,7 +20,6 @@ import { destinationsDataStructure } from "@/helpers/destinationsDataStructure";
 import { stagesDataStructure } from "@/helpers/stagesDataStructure";
 import WaveRedBrown from "@/components/waves/wavesLargeScreen/WaveRedBrown";
 import YoutubeLink from "@/components/livestream/youtubeLink/YoutubeLink";
-import MySwiper from "@/components/latestNews/latestNewsSlider/MySwiper";
 
 export interface HomeProps {
   stagesMapProps: MapProps;
@@ -72,7 +71,6 @@ const Home = ({
         postText={latestNews.latestNewsText.latest_news_short_description}
         posts={latestNews.posts}
       />
-      <MySwiper />
       <SponsorUsSection data={sponsorUsSection} />
     </>
   );
