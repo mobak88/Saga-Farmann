@@ -2,8 +2,9 @@ import React, { useRef } from "react";
 import SliderCard from "@/components/cards/sliderCard/SliderCard";
 import { PostsProps } from "../latestNewsInterfaces";
 
-import SwiperCore, { Navigation } from "swiper";
+import SwiperCore from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -17,6 +18,17 @@ import styles from "./LatestNewsSlider.module.css";
 const LatestNewsSlider = ({ posts }: PostsProps) => {
   const swiperNavPrevRef = useRef<HTMLDivElement>(null);
   const swiperNavNextRef = useRef<HTMLDivElement>(null);
+
+  const onBeforeInit = (Swiper: SwiperCore): void => {
+    if (typeof Swiper.params.navigation !== "boolean") {
+      const navigation = Swiper.params.navigation;
+      if (navigation !== undefined) {
+        navigation.prevEl = swiperNavPrevRef.current;
+        navigation.nextEl = swiperNavNextRef.current;
+        Swiper.navigation.update();
+      }
+    }
+  };
 
   return (
     <div className={styles["swiper-container"]}>
@@ -34,7 +46,7 @@ const LatestNewsSlider = ({ posts }: PostsProps) => {
           prevEl: swiperNavPrevRef.current,
           nextEl: swiperNavNextRef.current,
         }}
-        simulateTouch={false}
+        onBeforeInit={onBeforeInit}
         className={styles["news-swiper"]}
         modules={[Navigation]}
         spaceBetween={20}
