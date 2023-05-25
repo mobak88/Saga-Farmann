@@ -1,7 +1,9 @@
 .blog-page-wrapper {
   background-color: var(--bg-dark-blue);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
   width: 100%;
   padding: 12rem 0;
 }
@@ -59,6 +61,22 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+.show-more-btn {
+  padding: 2rem;
+  background-color: var(--bg-pink-brown);
+  color: var(--light-text-color);
+  font-size: var(--p--step-1);
+  border-radius: 2.2rem;
+  cursor: pointer;
+  border: none;
+  text-transform: uppercase;
+}
+
+.show-more-btn:hover {
+  background-color: var(--very-dark-blue);
+  transition: 0.5s;
 }
 
 @media screen and (max-width: 1650px) {
