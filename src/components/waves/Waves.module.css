@@ -14,6 +14,10 @@
   background-color: var(--bg-pink-brown);
 }
 
+.wave-top-latest-news {
+  background-color: var(--bg-pink-brown);
+}
+
 @media screen and (max-width: 1200px) {
   .wave {
     display: none;
