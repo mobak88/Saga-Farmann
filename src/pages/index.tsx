@@ -113,7 +113,7 @@ export async function getStaticProps() {
 
   const latestNews = {
     latestNewsText: latest_news,
-    posts: blogPosts,
+    posts: blogPosts.slice(0, 12),
   };
 
   const sponsorUsSection = sponsorUsDataStructure(sponsorUs.acf);
