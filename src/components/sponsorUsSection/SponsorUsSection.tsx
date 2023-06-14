@@ -53,9 +53,9 @@ const SponsorUsSection = ({ data }: Props) => {
             )}
             <Link
               href={`${process.env.NEXT_PUBLIC_PAYPAL_URL}`}
-              style={{ textDecoration: "none" }}
+              className={styles["sponsor-us-button"]}
             >
-              <button className={styles["sponsor-us-button"]}>Donate</button>
+              Donate
             </Link>
           </div>
         </div>
