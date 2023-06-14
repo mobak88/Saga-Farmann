@@ -56,7 +56,13 @@ export interface SingleStageProps {
   image: false | string;
 }
 
+export interface BoatCoordsProps {
+  boat_long: string;
+  boat_lat: string;
+}
+
 export interface MapProps {
   stages: SingleStageProps[];
   destinations: SingleStageProps[];
+  boatCoords: BoatCoordsProps;
 }

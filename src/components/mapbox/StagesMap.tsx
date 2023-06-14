@@ -7,13 +7,15 @@ import { CSSTransition } from "react-transition-group";
 import { MapProps, SingleStageProps } from "./interfaces";
 import styles from "./StagesMap.module.css";
 import MapMarkers from "./mapMarkers/MapMarkers";
+import { Marker } from "react-map-gl";
+import BoatSvg from "./mapMarkers/BoatSvg";
 
 interface ShowModalProps {
   id: null | number;
   modalOpen: boolean;
 }
 
-const StagesMap = ({ destinations, stages }: MapProps) => {
+const StagesMap = ({ destinations, stages, boatCoords }: MapProps) => {
   const [isDestination, setIsdestination] = useState(false);
   const [showModal, setShowModal] = useState<ShowModalProps>({
     modalOpen: false,
@@ -116,6 +118,12 @@ const StagesMap = ({ destinations, stages }: MapProps) => {
       <MapMarkers arr={destinations} isNextYear={true}>
         <MapMarker nextYear={true} />
       </MapMarkers>
+      <Marker
+        longitude={parseFloat(boatCoords.boat_long)}
+        latitude={parseFloat(boatCoords.boat_lat)}
+      >
+        <BoatSvg />
+      </Marker>
     </Map>
   );
 };

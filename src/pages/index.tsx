@@ -62,6 +62,7 @@ const Home = ({
         <StagesMap
           destinations={stagesMapProps.destinations}
           stages={stagesMapProps.stages}
+          boatCoords={stagesMapProps.boatCoords}
         />
       </div>
 
@@ -107,7 +108,7 @@ export async function getStaticProps() {
 
   const newDestinations = destinationsDataStructure(destinations);
 
-  const { grid_section, latest_news } = homeData.acf;
+  const { grid_section, latest_news, boat_coordinates } = homeData.acf;
 
   const gridSection = gridSectionDataStructure(grid_section);
 
@@ -121,6 +122,7 @@ export async function getStaticProps() {
   const stagesMapProps = {
     stages: newStages,
     destinations: newDestinations,
+    boatCoords: boat_coordinates,
   };
 
   return {
