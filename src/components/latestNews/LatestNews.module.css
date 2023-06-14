@@ -39,8 +39,14 @@
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .section-container {
+    padding-bottom: 8rem;
+  }
+}
+
 @media screen and (max-width: 750px) {
   .section-container {
-    padding: 0 2rem;
+    padding: 0 2rem 6rem 2rem;
   }
 }

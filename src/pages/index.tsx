@@ -19,6 +19,7 @@ import { gridSectionDataStructure } from "@/helpers/gridSectionDataStructure";
 import { destinationsDataStructure } from "@/helpers/destinationsDataStructure";
 import { stagesDataStructure } from "@/helpers/stagesDataStructure";
 import WaveRedBrown from "@/components/waves/wavesLargeScreen/WaveRedBrown";
+import YoutubeLink from "@/components/livestream/youtubeLink/YoutubeLink";
 
 export interface HomeProps {
   stagesMapProps: MapProps;
@@ -32,7 +33,6 @@ const Home = ({
   stagesMapProps,
   gridSection,
   sponsorUsSection,
-  heroSection,
   latestNews,
 }: HomeProps) => {
   return (
@@ -46,10 +46,15 @@ const Home = ({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Hero data={heroSection} />
+      <Hero />
       <div className={styles["grid-wrapper"]}>
         <GridImagesAndText gridContent={gridSection} />
       </div>
+      <LatestNews
+        postHeading={latestNews.latestNewsText.latest_news_heading}
+        postText={latestNews.latestNewsText.latest_news_short_description}
+        posts={latestNews.posts}
+      />
       <div className={styles["map-container"]}>
         <div className={styles["map-wave-wrapper"]}>
           <WaveRedBrown />
@@ -59,14 +64,13 @@ const Home = ({
           stages={stagesMapProps.stages}
         />
       </div>
+
       <div className={styles["livestream-wrapper"]}>
+        <div className={styles["youtubeLink-wrapper"]}>
+          <YoutubeLink dark />
+        </div>
         <LivestreamVideo />
       </div>
-      <LatestNews
-        postHeading={latestNews.latestNewsText.latest_news_heading}
-        postText={latestNews.latestNewsText.latest_news_short_description}
-        posts={latestNews.posts}
-      />
       <SponsorUsSection data={sponsorUsSection} />
     </>
   );
@@ -89,7 +93,7 @@ export async function getStaticProps() {
     fetch(API_ENDPOINTS.crewMembers),
   ]);
 
-  const [stages, homeData, destinations, sponsorUs, blogPosts, crews] =
+  const [stages, homeData, destinations, sponsorUs, blogPosts] =
     await Promise.all([
       resStages.json(),
       resHomeData.json(),
@@ -103,18 +107,13 @@ export async function getStaticProps() {
 
   const newDestinations = destinationsDataStructure(destinations);
 
-  const { grid_section, hero_section, latest_news } = homeData.acf;
-
-  const heroSection = {
-    hero_background_image: hero_section.hero_background_image.url,
-    hero_text: hero_section.hero_text,
-  };
+  const { grid_section, latest_news } = homeData.acf;
 
   const gridSection = gridSectionDataStructure(grid_section);
 
   const latestNews = {
     latestNewsText: latest_news,
-    posts: blogPosts,
+    posts: blogPosts.slice(0, 12),
   };
 
   const sponsorUsSection = sponsorUsDataStructure(sponsorUs.acf);
@@ -127,7 +126,6 @@ export async function getStaticProps() {
   return {
     props: {
       stagesMapProps,
-      heroSection,
       gridSection,
       destinations: newDestinations,
       sponsorUsSection,

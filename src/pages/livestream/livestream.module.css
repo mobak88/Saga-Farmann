@@ -1,0 +1,8 @@
+.youtubelink-wrapper {
+  background-color: var(--bg-dark-blue);
+  gap: 3rem;
+  max-width: 1080px;
+  max-height: 607.5px;
+  width: 90%;
+  margin-top: 2rem;
+}

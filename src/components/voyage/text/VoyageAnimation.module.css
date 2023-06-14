@@ -1,9 +1,21 @@
-.journey-slide-wrapper {
+.voyage-slide-wrapper {
   position: relative;
   overflow: hidden;
   min-width: 100%;
+}
 
-  padding-bottom: 30px;
+.wave-top,
+.wave-bottom {
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100px;
+}
+.wave-top {
+}
+.wave-bottom {
+  transform: rotate(180deg);
+  bottom: 0;
 }
 
 .image-container {
@@ -26,22 +38,24 @@
   height: auto;
 }
 
-.journey-text-container {
+.voyage-text-container {
   position: absolute;
-  top: 5%;
+  top: 15%;
   width: 45%;
   height: auto;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+
   gap: 30px;
+  z-index: 2;
 }
 
-.journey-text-right {
+.voyage-text-right {
   right: 5%;
 }
 
-.journey-text-left {
+.voyage-text-left {
   left: 5%;
 }
 /* Animations */
@@ -93,33 +107,33 @@
 }
 
 .text:nth-child(2) {
-  transition-delay: calc(2 * (300ms));
+  transition-delay: calc(2 * (400ms));
 }
 
 .text:nth-child(3) {
-  transition-delay: calc(3 * (300ms));
+  transition-delay: calc(3 * (400ms));
 }
 
 .text:nth-child(4) {
-  transition-delay: calc(4 * (300ms));
+  transition-delay: calc(4 * (400ms));
 }
 
 .text:nth-child(5) {
-  transition-delay: calc(5 * (300ms));
+  transition-delay: calc(5 * (400ms));
 }
 
 .text:nth-child(6) {
-  transition-delay: calc(6 * (300ms));
+  transition-delay: calc(6 * (400ms));
 }
 
 .text:nth-child(7) {
-  transition-delay: calc(7 * (300ms));
+  transition-delay: calc(7 * (400ms));
 }
 
 /* Mobile responsive */
 
 @media only screen and (max-width: 1200px) {
-  .journey-slide-wrapper {
+  .voyage-slide-wrapper {
     min-width: unset;
     max-height: unset;
     width: 80%;
@@ -127,6 +141,24 @@
     flex-direction: column;
     align-items: center;
     gap: 30px;
+  }
+
+  .wave-top,
+  .wave-bottom {
+    z-index: unset;
+    position: unset;
+    width: unset;
+    height: unset;
+    opacity: 0;
+  }
+
+  .wave-top {
+    transform: rotate(unset);
+    top: unset;
+  }
+
+  .wave-bottom {
+    bottom: unset;
   }
 
   .image-container {
@@ -154,7 +186,7 @@
     height: auto;
   }
 
-  .journey-text-container {
+  .voyage-text-container {
     position: relative;
     top: unset;
     right: unset;
@@ -196,7 +228,7 @@
 }
 
 @media only screen and (max-width: 767px) {
-  .journey-slide-wrapper {
+  .voyage-slide-wrapper {
     width: 90%;
   }
 
@@ -221,7 +253,7 @@
     height: auto;
   }
 
-  .journey-text-container {
+  .voyage-text-container {
     position: static;
   }
 }

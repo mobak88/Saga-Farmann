@@ -1,11 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
-import styles from "./JourneyAnimation.module.css";
+import styles from "./VoyageAnimation.module.css";
 import Image from "next/image";
 import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
 import HeadingTwo from "@/components/typography/headings/HeadingTwo";
-import { JourneyComponentProps } from "../interfaces/componentInterfaces";
+import { VoyageComponentProps } from "../interfaces/componentInterfaces";
+import WaveRedBrownVoyage from "@/components/waves/wavesLargeScreen/WaveRedBrownVoyage";
 
-const JourneyAnimation = ({ data, i }: JourneyComponentProps) => {
+const VoyageAnimation = ({ data, i, first }: VoyageComponentProps) => {
   const [imageIsVisible, setImageIsVisible] = useState<boolean>(false);
   const [animationTriggered, setAnimationTriggered] = useState(false);
   const imageAnimationRef = useRef<HTMLDivElement>(null);
@@ -26,13 +27,16 @@ const JourneyAnimation = ({ data, i }: JourneyComponentProps) => {
     observer.observe(imageAnimationRef.current!);
   }, []);
 
-  console.log(data.acf.journey_text_side);
-
   return (
     <div
       ref={imageAnimationRef}
-      className={`${styles["journey-slide-wrapper"]}`}
+      className={`${styles["voyage-slide-wrapper"]}`}
     >
+      {!first && (
+        <div className={styles["wave-top"]}>
+          <WaveRedBrownVoyage />
+        </div>
+      )}
       <div
         className={`${styles["image-container"]}  ${
           imageIsVisible || animationTriggered ? styles["show"] : styles[""]
@@ -47,16 +51,16 @@ const JourneyAnimation = ({ data, i }: JourneyComponentProps) => {
             data.acf.stage[0].stage_images[0].stage_image.sizes["large-height"]
           }
           src={data.acf.stage[0].stage_images[0].stage_image.sizes.large}
-          alt="Journey image"
+          alt={data.acf.stage[0].stage_images[0].stage_image.alt}
         ></Image>
       </div>
       {data.acf.stage.map((stage, index) => (
         <div
           key={`stage-${index}`}
-          className={`${styles["journey-text-container"]} ${
+          className={`${styles["voyage-text-container"]} ${
             data.acf.journey_text_side === "right"
-              ? styles["journey-text-right"]
-              : styles["journey-text-left"]
+              ? styles["voyage-text-right"]
+              : styles["voyage-text-left"]
           } ${imageIsVisible || animationTriggered ? styles["show"] : ""}`}
         >
           <div
@@ -82,8 +86,11 @@ const JourneyAnimation = ({ data, i }: JourneyComponentProps) => {
           ))}
         </div>
       ))}
+      <div className={styles["wave-bottom"]}>
+        <WaveRedBrownVoyage />
+      </div>
     </div>
   );
 };
 
-export default JourneyAnimation;
+export default VoyageAnimation;

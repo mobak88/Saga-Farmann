@@ -4,17 +4,11 @@
 
 .wave-small {
   display: none;
-}
 
-.wave-bottom {
   transform: rotate(180deg);
 }
 
 .wave-dark-bottom-pink {
-  background-color: var(--bg-pink-brown);
-}
-
-.wave-top-latest-news {
   background-color: var(--bg-pink-brown);
 }
 

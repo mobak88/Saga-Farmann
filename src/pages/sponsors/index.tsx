@@ -21,6 +21,7 @@ interface Sponsor {
       };
       sponsor_name: string;
       sponsor_description: string;
+      sponsor_link: string;
     }>;
   };
 }
@@ -64,7 +65,7 @@ const SponsorPage = ({ sponsors, sponsorUsSection }: Props) => {
                   sponsor_description={
                     sponsor?.acf?.sponsor?.[0]?.sponsor_description ?? ""
                   }
-                  sponsor_link="Sponsor Link"
+                  sponsor_link={sponsor?.acf?.sponsor?.[0]?.sponsor_link ?? ""}
                 />
               ))}
           </div>
@@ -81,7 +82,7 @@ const SponsorPage = ({ sponsors, sponsorUsSection }: Props) => {
                   sponsor_description={
                     sponsor?.acf?.sponsor?.[0]?.sponsor_description ?? ""
                   }
-                  sponsor_link="Sponsor Link"
+                  sponsor_link={sponsor?.acf?.sponsor?.[0]?.sponsor_link ?? ""}
                 />
               ))}
           </div>

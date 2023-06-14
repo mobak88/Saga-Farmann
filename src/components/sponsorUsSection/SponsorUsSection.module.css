@@ -37,8 +37,8 @@
 }
 
 .card {
-  width: 400px;
   height: 400px;
+  width: 400px;
   display: flex;
   align-items: center;
   background-color: var(--light-background-color);
@@ -66,6 +66,7 @@
   gap: 1rem;
   transition: all 200ms ease-in-out;
   -webkit-transition: all 200ms ease-in-out;
+  text-decoration: none;
 }
 
 .sponsor-us-button:hover {
@@ -113,24 +114,16 @@
 }
 
 @media screen and (max-width: 450px) {
-  .image-two {
-    display: none;
-  }
   .image-one,
   .card {
     width: 300px;
-    height: 300px;
   }
 }
 
 @media screen and (max-width: 350px) {
-  .image-two {
-    display: none;
-  }
   .image-one,
   .card {
     width: 220px;
-    height: 250px;
   }
   .sponsor-us-button {
     padding: 8px;

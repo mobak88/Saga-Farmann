@@ -1,11 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import HeadingTwo from "../typography/headings/HeadingTwo";
-import ParagraphsSmall from "../typography/paragraphs/ParagraphsSmall";
 import styles from "./SponsorUsSection.module.css";
 import { SponsorUsSectionInterface } from "./interfaces";
 import HeadingThree from "../typography/headings/HeadingThree";
 import ParagraphsBig from "../typography/paragraphs/ParagraphsBig";
+import Link from "next/link";
 
 interface Props {
   data: SponsorUsSectionInterface;
@@ -51,7 +51,12 @@ const SponsorUsSection = ({ data }: Props) => {
                 {data.sponsor_us_card.sponsor_us_card_text}
               </ParagraphsBig>
             )}
-            <button className={styles["sponsor-us-button"]}>Donate</button>
+            <Link
+              href={`${process.env.NEXT_PUBLIC_PAYPAL_URL}`}
+              className={styles["sponsor-us-button"]}
+            >
+              Donate
+            </Link>
           </div>
         </div>
       </div>

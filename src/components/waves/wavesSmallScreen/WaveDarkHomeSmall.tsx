@@ -7,8 +7,8 @@ const WaveDarkHomeSmall = ({ bottom }: WaveProps) => {
     <svg
       className={
         bottom
-          ? `${styles["wave-bottom"]} ${styles["wave-small"]}`
-          : styles["wave-small"]
+          ? `${styles["wave-bottom"]} ${styles["wave-small"]} ${styles["wave-top-latest-news"]}`
+          : `${styles["wave-top-latest-news"]} ${styles["wave-small"]}`
       }
       xmlns="http://www.w3.org/2000/svg"
       width="100%"

@@ -23,7 +23,7 @@ const API_ENDPOINTS = {
     return `${BASE_URL}/categories/${categoryId}`;
   },
   sponsors: `${BASE_URL}/sponsors?acf_format=standard&per_page=100`,
-  pressArchive: `${BASE_URL}/pages/810?acf_format=standard`,
+  pressArchive: `${BASE_URL}/press_archive?acf_format=standard`,
 };
 
 export default API_ENDPOINTS;

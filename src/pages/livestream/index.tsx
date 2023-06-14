@@ -3,6 +3,8 @@ import DarkContainer from "@/components/containers/darkContainer/DarkContainer";
 import Header from "@/components/header/Header";
 import LivestreamVideo from "@/components/livestream/LivestreamVideo";
 import Head from "next/head";
+import YoutubeLink from "@/components/livestream/youtubeLink/YoutubeLink";
+import styles from "./livestream.module.css";
 
 const Livestream = () => {
   return (
@@ -14,8 +16,12 @@ const Livestream = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header header={"Livestream"} />
+
       <DarkContainer>
         <LivestreamVideo />
+        <div className={styles["youtubelink-wrapper"]}>
+          <YoutubeLink dark={false} />
+        </div>
       </DarkContainer>
     </>
   );

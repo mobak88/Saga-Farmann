@@ -1,10 +1,10 @@
-export interface JourneyComponentProps {
-  data: JourneyProps;
+export interface VoyageComponentProps {
+  data: VoyageProps;
   i: number;
 }
 
-export interface JourneyProps {
-  journey: {
+export interface VoyageProps {
+  voyage: {
     id: number;
     date: string;
     date_gmt: string;
@@ -45,6 +45,7 @@ export interface JourneyProps {
               "large-width": number;
               "large-height": number;
             };
+            alt: string;
           };
         }[];
         stage_heading: string;
@@ -64,13 +65,14 @@ export interface JourneyProps {
             "large-width": number;
             "large-height": number;
           };
+          alt: string;
         };
 
         stages_journey_map_heading: string;
         stages_journey_map_texts: {
           stages_journey_map_text: string;
         }[];
-      };
+      }[];
       journey_text_side: string;
     };
   }[];

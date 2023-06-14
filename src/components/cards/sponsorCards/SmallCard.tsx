@@ -20,11 +20,11 @@ const SmallCard = ({
 }: SponsorProps) => {
   return (
     <div className={styles["small-card-wrapper"]}>
-      <div className={styles["image-wrapper"]}>
+      <div className={styles["image-wrapper-small"]}>
         {sponsor_image && (
           <Image
             src={sponsor_image}
-            alt={sponsor_name}
+            alt={`An image of our sponsor, ${sponsor_name}'s logo`}
             className={styles.image}
             width={400}
             height={400}

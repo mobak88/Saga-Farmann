@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import styles from "./MapAnimation.module.css";
-import Image from "next/image";
 import HeadingTwo from "@/components/typography/headings/HeadingTwo";
 import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
-import { JourneyComponentProps } from "../interfaces/componentInterfaces";
+import { VoyageComponentProps } from "../interfaces/componentInterfaces";
+import MapSvg from "./MapSvg";
 
-const MapAnimation = ({ data, i }: JourneyComponentProps) => {
+const MapAnimation = ({ data, i }: VoyageComponentProps) => {
   const [mapIsVisible, setMapIsVisible] = useState<boolean>(false);
   const [animationTriggered, setAnimationTriggered] = useState(false);
   const mapAnimationRef = useRef<HTMLDivElement>(null);
@@ -33,37 +33,23 @@ const MapAnimation = ({ data, i }: JourneyComponentProps) => {
           mapIsVisible || animationTriggered ? styles["show"] : styles[""]
         }`}
       >
-        <Image
-          className={styles["map-image"]}
-          width={
-            data.acf.stage_journey_map.stages_journey_map_image.sizes[
-              "large-width"
-            ]
-          }
-          height={
-            data.acf.stage_journey_map.stages_journey_map_image.sizes[
-              "large-height"
-            ]
-          }
-          src={data.acf.stage_journey_map.stages_journey_map_image.sizes.large}
-          alt="Journey image"
-        ></Image>
+        <MapSvg mapIndex={i} />
       </div>
       <div
         className={`${styles["map-text-container"]} ${
           mapIsVisible || animationTriggered ? styles["show"] : styles[""]
         }`}
       >
-        {data.acf.stage.map((stage, index) => (
+        {data.acf.stage_journey_map.map((stage, index) => (
           <div key={`stage-${index}`}>
             <div
               className={`${styles["heading"]}  ${
                 mapIsVisible || animationTriggered ? styles["show"] : styles[""]
               }`}
             >
-              <HeadingTwo>{stage.stage_heading}</HeadingTwo>
+              <HeadingTwo>{stage.stages_journey_map_heading}</HeadingTwo>
             </div>
-            {stage.stage_text_area.map((text, i) => (
+            {stage.stages_journey_map_texts.map((text, i) => (
               <div
                 key={`stage-text-${index}-${i}`}
                 className={`${styles["text"]}  ${
@@ -72,7 +58,7 @@ const MapAnimation = ({ data, i }: JourneyComponentProps) => {
                     : styles[""]
                 }`}
               >
-                <ParagraphsBig>{text.stage_text}</ParagraphsBig>
+                <ParagraphsBig>{text.stages_journey_map_text}</ParagraphsBig>
               </div>
             ))}
           </div>

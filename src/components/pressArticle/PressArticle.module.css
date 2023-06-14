@@ -1,9 +1,16 @@
 .card {
-  width: 70%;
+  width: 80%;
+  max-width: 140rem;
   height: fit-content;
   display: flex;
   flex-direction: column;
   padding: 2em 1em;
+}
+
+.date-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1em;
 }
 
 .header-container,
@@ -21,15 +28,38 @@
 }
 
 .image-container {
+  display: grid;
+  align-items: center;
+  gap: clamp(1rem, 5rem, 10rem);
+  grid-template-areas: "prev swiper next";
+}
+
+.swiper-nav-prev,
+.swiper-nav-next {
+  cursor: pointer;
   display: flex;
-  width: 100%;
-  gap: 2em;
-  flex-wrap: wrap;
+}
+
+.swiper-nav-prev {
+  grid-area: prev;
+}
+
+.swiper-nav-next {
+  grid-area: next;
 }
 
 .images {
-  width: 310px;
-  height: 330px;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-image {
+  cursor: pointer;
+  opacity: 0.7;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  object-fit: cover;
+  width: 100%;
 }
 
 .image {
@@ -37,8 +67,10 @@
   opacity: 0.7;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
-  object-fit: fill;
+  object-fit: cover;
   width: 100%;
+  height: auto;
+  max-width: 50rem;
 }
 
 .image:hover {
@@ -71,5 +103,13 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 950px) {
+.arrow-icon {
+  color: var(--bg-pink-brown);
+}
+
+@media screen and (max-width: 650px) {
+  .swiper-nav-prev,
+  .swiper-nav-next {
+    display: none;
+  }
 }

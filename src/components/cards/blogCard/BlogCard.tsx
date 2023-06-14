@@ -4,12 +4,14 @@ import Link from "next/link";
 import ParagraphsBig from "@/components/typography/paragraphs/ParagraphsBig";
 // import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import Image from "next/image";
+import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import HeadingTwo from "@/components/typography/headings/HeadingTwo";
 
 interface BlogProps {
   id: number;
   post_image: string;
+  alt: string;
   date: string;
-  time: string;
   title: string;
   post_description: string;
   blog_place: string;
@@ -18,8 +20,8 @@ interface BlogProps {
 const BlogCard = ({
   id,
   post_image,
+  alt,
   date,
-  time,
   title,
   post_description,
   blog_place,
@@ -36,7 +38,7 @@ const BlogCard = ({
           {post_image && title && (
             <Image
               src={post_image}
-              alt={title}
+              alt={alt}
               className={styles["blog-card-image"]}
               height={600}
               width={1000}
@@ -48,26 +50,30 @@ const BlogCard = ({
             {blog_place && <ParagraphsSmall>{blog_place}</ParagraphsSmall>}
             <div className={styles["blog-card-date"]}>
               {date && <ParagraphsSmall>{date.split("T")[0]}</ParagraphsSmall>}
-              {time && <ParagraphsSmall>{time.split("T")[1]}</ParagraphsSmall>}
+              {date && (
+                <ParagraphsSmall>
+                  {date.split("T")[1].slice(0, -3)}
+                </ParagraphsSmall>
+              )}
             </div>
           </div>
           <div className={styles["title-container"]}>
-            {title && <ParagraphsBig>{title}</ParagraphsBig>}
+            {title && <HeadingTwo>{title}</HeadingTwo>}
           </div>
-          <div className={styles["description-container"]}>
+          <div className={styles["bottom-container"]}>
             {post_description && (
               <ParagraphsSmall>{post_description}</ParagraphsSmall>
             )}
+            <div className={styles["blog-card-read-more"]}>
+              <ParagraphsSmall>
+                Read more
+                <BsFillArrowRightCircleFill
+                  className={styles["arrow-icon"]}
+                  size={30}
+                />
+              </ParagraphsSmall>
+            </div>
           </div>
-          {/* <div className={styles["blog-card-read-more"]}>
-            <ParagraphsSmall>
-              Read more
-              <BsFillArrowRightCircleFill
-                className={styles["arrow-icon"]}
-                size={30}
-              />
-            </ParagraphsSmall>
-          </div> */}
         </div>
       </Link>
     </div>

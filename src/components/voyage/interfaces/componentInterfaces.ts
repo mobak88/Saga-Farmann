@@ -1,4 +1,5 @@
-export interface JourneyComponentProps {
+export interface VoyageComponentProps {
+  first?: boolean;
   i: number;
   data: {
     id: number;
@@ -41,6 +42,7 @@ export interface JourneyComponentProps {
               "large-width": number;
               "large-height": number;
             };
+            alt: string;
           };
         }[];
         stage_heading: string;
@@ -61,13 +63,14 @@ export interface JourneyComponentProps {
             "large-width": number;
             "large-height": number;
           };
+          alt: string;
         };
 
         stages_journey_map_heading: string;
         stages_journey_map_texts: {
           stages_journey_map_text: string;
         }[];
-      };
+      }[];
       journey_text_side: string;
     };
   };
